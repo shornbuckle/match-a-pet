@@ -5,7 +5,7 @@ from django.views import generic
 from django.utils import timezone
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from .forms import ShelterRegistartionForm
+from .forms import ShelterRegistrationForm
 
 # Create your views here.
 from django.http import HttpResponse
@@ -16,14 +16,14 @@ def home(request):
 
 def registerShelter(request):
     if request.method == 'POST':
-        form = ShelterRegistartionForm(request.POST)
+        form = ShelterRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
+            username = form.cleaned_data.get('shelter_name')
             messages.success(request, f'Account created for {username}!')
             return render(request, 'accounts/login.html', {'form':form})
     else:
-        form = ShelterRegistartionForm()
+        form = ShelterRegistrationForm()
     return render(request, 'accounts/register.html', {'form':form})
 
 def registerUser(request):
