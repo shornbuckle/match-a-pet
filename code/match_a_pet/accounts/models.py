@@ -8,3 +8,6 @@ class ShelterRegisterData(models.Model):
     shelter_address = models.CharField(max_length=200)
     shelter_city = models.CharField(max_length=50)
     shelter_state = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.shelter_email
