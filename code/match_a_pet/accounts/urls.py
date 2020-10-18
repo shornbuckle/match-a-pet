@@ -10,4 +10,5 @@ urlpatterns = [
     path('register/shelter/', views.registerShelter, name='register-shelter'),
     path('register/user/', views.registerUser, name='register-user'),
     path('login/shelter/', views.loginShelter, name='login-shelter'),
+    path('pets/register/', views.petsRegister, name='pet-register'),
 ]

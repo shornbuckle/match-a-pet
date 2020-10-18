@@ -5,7 +5,7 @@ from django.views import generic
 from django.utils import timezone
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from .forms import ShelterRegistrationForm
+from .forms import ShelterRegistrationForm, PetForm
 
 # Create your views here.
 from django.http import HttpResponse
@@ -31,5 +31,17 @@ def registerUser(request):
 
 def loginShelter(request):
     return render(request, 'accounts/login.html')
+
+def petsRegister(request):
+    if request.method == 'POST':
+        form = PetForm(request.POST)
+        if form.is_valid():
+            form.save()
+            pet = form.cleaned_data.get('pet_name')
+            messages.success(request, f'Pet profile created for {pet}!')
+            return render(request, 'accounts/login.html', {'form': form})
+    else:
+        form = PetForm()
+    return render(request, 'pets/register.html', {'form': form})
 
 
