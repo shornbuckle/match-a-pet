@@ -38,7 +38,8 @@ class PetForm(forms.Form):
         self.fields['shelter_id'].label = 'Shelter Id'
         self.fields['date_entered'].label = 'Date Entered'
 
-    pet_name = forms.CharField(required = True)
+    #pet_name = forms.CharField(label= 'Pet Name',max_length = 100)
+    pet_name = forms.CharField(required=True)
     pet_breed = forms.CharField(required = True)
     pet_age = forms.CharField(required=True)
     pet_color = forms.CharField(required=True)

@@ -39,9 +39,10 @@ def petsRegister(request):
             form.save()
             pet = form.cleaned_data.get('pet_name')
             messages.success(request, f'Pet profile created for {pet}!')
-            return render(request, 'accounts/login.html', {'form': form})
+            return render(request, 'accounts/pets.html', {'form': form})
+
     else:
         form = PetForm()
-    return render(request, 'pets/register.html', {'form': form})
+    return render(request, 'accounts/pets.html', {'form': form})
 
 
