@@ -69,6 +69,8 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = 'accounts.ShelterRegisterData'
+
 WSGI_APPLICATION = 'match_a_pet.wsgi.application'
 
 
