@@ -30,22 +30,6 @@ class ShelterRegistrationForm(UserCreationForm):
 
 
 class PetForm(forms.ModelForm):
-    """def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['pet_name'].label = 'Pet Name'
-        self.fields['pet_breed'].label = 'Pet Breed'
-        self.fields['pet_age'].label = 'Pet Age'
-        self.fields['pet_color'].label = 'Pet Color'
-        self.fields['shelter_id'].label = 'Shelter Id'
-        self.fields['date_entered'].label = 'Date Entered'
-
-    #pet_name = forms.CharField(label= 'Pet Name',max_length = 100)
-    pet_name = forms.CharField(required=True)
-    pet_breed = forms.CharField(required = True)
-    pet_age = forms.CharField(required=True)
-    pet_color = forms.CharField(required=True)
-    shelter_id = forms.CharField(required=True)
-    date_entered = forms.CharField(required=True)"""
 
     class Meta:
         model = Pet
