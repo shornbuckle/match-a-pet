@@ -123,4 +123,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = '../../'
+LOGIN_URL = '../../login/shelter'
 django_heroku.settings(locals())
