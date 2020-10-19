@@ -27,7 +27,3 @@ class Pet(models.Model):
     def __str__(self):
         return self.pet_name
 
-#class PetForm(ModelForm):
-#    class Meta:
-#        model = Pet
- #       fields = ['pet_id', 'pet_name', 'pet_breed', 'pet_age', 'pet_color','pet_gender', 'shelter_id', 'date_entered']
