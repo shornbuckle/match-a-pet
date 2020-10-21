@@ -13,4 +13,5 @@ urlpatterns = [
     path('login/shelter/', auth_views.LoginView.as_view(template_name = 'accounts/login.html'), name='login-shelter'),
     path('logout/shelter/', auth_views.LogoutView.as_view(template_name = 'accounts/logout.html'), name='logout-shelter'),
     path('profile/shelter/', views.shelterProfile, name='shelter-profile'),
+    path('pets/register/', views.petsRegister, name='pet-register'),
 ]
