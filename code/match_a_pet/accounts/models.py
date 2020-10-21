@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.forms import ModelForm
 
 
 class MyAccountManager(BaseUserManager):
@@ -85,3 +86,17 @@ class ShelterRegisterData(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return True
+
+class Pet(models.Model):
+    email = models.ForeignKey(ShelterRegisterData, on_delete=models.CASCADE)
+    # shelter_id = models.ForeignKey(ShelterRegisterData, on_delete=models.CASCADE)
+    pet_id = models.AutoField(primary_key=True)
+    pet_name = models.CharField(max_length=80)
+    pet_breed = models.CharField(max_length=50)
+    pet_age = models.CharField(max_length=3)
+    pet_color = models.CharField(max_length=50)
+    pet_gender = models.CharField(max_length=50)
+    date_entered = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.pet_name
