@@ -66,13 +66,7 @@
 </section>
 
 
-{% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">
-            {{ message }}
-        </div>
-    {% endfor %}
-{% endif %}
+
 
 
 {% load crispy_forms_tags %}
@@ -96,6 +90,14 @@
       </div>
 
   </div>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
 
 <section class="ftco-intro ftco-section ftco-no-pb">
  <div class="container">
