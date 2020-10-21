@@ -1,6 +1,27 @@
 /*! Flickity v2.2.0
 https://flickity.metafizzy.co
 ---------------------------------------------- */
+body { font-family: sans-serif; }
+
+.carousel {
+  background: #f9faff;
+}
+
+
+.carousel img {
+  display: block;
+  height: 200px;
+}
+
+@media screen and ( min-width: 768px ) {
+  .carousel img {
+    height: 500px;
+  }
+}
+
+/*! Flickity v2.2.1
+https://flickity.metafizzy.co
+---------------------------------------------- */
 
 .flickity-enabled {
   position: relative;
@@ -24,7 +45,6 @@ https://flickity.metafizzy.co
 
 .flickity-enabled.is-draggable {
   -webkit-tap-highlight-color: transparent;
-          tap-highlight-color: transparent;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -117,7 +137,7 @@ https://flickity.metafizzy.co
   margin: 0;
   list-style: none;
   text-align: center;
-  line-height: 1;
+  line-height: 5;
 }
 
 .flickity-rtl .flickity-page-dots { direction: rtl; }
@@ -127,31 +147,12 @@ https://flickity.metafizzy.co
   width: 10px;
   height: 10px;
   margin: 0 8px;
-  background: #333;
+  background: #fff;
   border-radius: 50%;
-  opacity: 0.25;
+  opacity: .5;
   cursor: pointer;
 }
 
 .flickity-page-dots .dot.is-selected {
   opacity: 1;
-}
-
-* { box-sizing: border-box; }
-
-body { font-family: sans-serif; }
-
-.carousel {
-  background: #f9faff;
-}
-
-.carousel img {
-  display: block;
-  height: 200px;
-}
-
-@media screen and ( min-width: 768px ) {
-  .carousel img {
-    height: 500px;
-  }
 }

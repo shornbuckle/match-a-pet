@@ -3618,6 +3618,7 @@ input[type="button"].btn-block {
   display: block; }
 
 .navbar {
+
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8390,8 +8391,8 @@ h1, h2, h3, h4, h5,
   color: #4986fc !important; }
 
 .ftco-navbar-light {
-  background: #fafbff !important;
-  position: absolute;
+  background: #fff !important;
+  position: relative;
   top: -8px;
   left: 0;
   right: 0;
@@ -8598,7 +8599,7 @@ h1, h2, h3, h4, h5,
   background: -ms-linear-gradient(-45deg, #ce4be8 0%, #207ce5 100%);
   background: -webkit-linear-gradient(315deg, #ce4be8 0%, #207ce5 100%);
   background: -o-linear-gradient(315deg, #ce4be8 0%, #207ce5 100%);
-  background: #fafbff;
+  background: #fff;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ce4be8', endColorstr='#207ce5', GradientType=1 );
   }
 

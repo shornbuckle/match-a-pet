@@ -33,9 +33,17 @@
 
      <div class="collapse navbar-collapse" id="ftco-nav">
        <ul class="navbar-nav ml-auto">
-         <li class="nav-item"><a href="../login/shelter" class="nav-link">Login</a></li>
-         
-         <li class="nav-item"><a href="../register/shelter" class="nav-link">Sign Up</a></li>
+
+        {% if user.is_authenticated %}
+          <li class="nav-item"><a href="/" class="nav-link">Welcome {{ user.username }}</a></li>
+          <!-- <li class="nav-item"><a href="/" class="nav-link">Home</a></li> -->
+          <li class="nav-item"><a href="/pets/register" class="nav-link">Pet Register</a></li>
+          <li class="nav-item"><a href="/profile/shelter" class="nav-link">Profile</a></li>
+          <li class="nav-item"><a href="/logout/shelter" class="nav-link">Logout</a></li>
+        {% else %}
+          <li class="nav-item"><a href="../login/shelter" class="nav-link">Login</a></li>
+          <li class="nav-item"><a href="../register/shelter" class="nav-link">Sign Up</a></li>
+        {% endif %}
          <!-- <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> -->
        </ul>
      </div>
@@ -45,7 +53,8 @@
  <section>
 
   <div class="carousel"
-  data-flickity='{ "wraparound": true, "freeScroll": true, "imagesLoaded": true, "percentPosition": false }'>
+  data-flickity='{"freeScroll": true, "wrapAround": true, "imagesLoaded": true, "percentPosition": false, "autoPlay": 3000,
+"pauseAutoPlayOnHover": true }'>
   <img src="https://i.ibb.co/0r9b18n/p.jpg" alt="p" />
   <img src="https://i.ibb.co/SN4bBp5/cats.jpg" alt="cats" />
   <img src="https://i.ibb.co/RHbKFBw/tequila1.jpg" alt="tequila1" />
@@ -123,8 +132,7 @@
      <div class="overlay"></div>
      <h2>A Social Media Platform to help get shelter animals find loving homes </h2>
      <p>We can manage your dream building A small river named Duden flows by their place</p>
-     <p> .</p>
-     <p> .</p>
+
      <p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Adopt Now</a></p>
    </div>
  </div>
