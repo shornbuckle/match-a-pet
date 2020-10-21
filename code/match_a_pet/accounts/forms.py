@@ -2,7 +2,10 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import ShelterRegisterData
+from .models import ShelterRegisterData, Pet
+from django.forms import ModelForm
+from django.db import models
+
 
 class ShelterRegistrationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
@@ -45,3 +48,12 @@ class ShelterUpdateForm(forms.ModelForm):
         model = ShelterRegisterData
         fields = ['username', 'email', 'first_name', 'last_name', 'shelter_city', 'shelter_state',]
         help_texts = {'username': ('Shelter name can contain Letters, digits and @/./+/-/_ only.')}
+
+
+class PetForm(forms.ModelForm):
+
+    # shelter_id = forms.CharField(disabled = True)
+    # email = forms.CharField(disabled = True)
+    class Meta:
+        model = Pet
+        fields = [ 'pet_name', 'pet_breed', 'pet_age', 'pet_color', 'pet_gender', 'date_entered']
