@@ -73,7 +73,13 @@
  </div>
 </section>
 
-
+{% if messages %}
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+{% endfor %}
+{% endif %}
 
 {% load crispy_forms_tags %}
 
@@ -99,14 +105,6 @@
         </form>
     </div>
     </div>
-
-{% if messages %}
-{% for message in messages %}
-    <div class="alert alert-{{ message.tags }}">
-        {{ message }}
-    </div>
-{% endfor %}
-{% endif %}
 
 
 
