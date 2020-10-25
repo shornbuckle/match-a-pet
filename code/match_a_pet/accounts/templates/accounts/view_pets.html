@@ -33,7 +33,19 @@
 
      <div class="collapse navbar-collapse" id="ftco-nav">
        <ul class="navbar-nav ml-auto">
-         <li class="nav-item"><a href="/pets/view_pets/" class="nav-link">Welcome!</a></li>
+
+        {% if user.is_authenticated %}
+          <li class="nav-item"><a href="/" class="nav-link">Welcome {{ user.username }}</a></li>
+          <!-- <li class="nav-item"><a href="/" class="nav-link">Home</a></li> -->
+          <li class="nav-item"><a href="/pets/register" class="nav-link">Pet Register</a></li>
+          <li class="nav-item"><a href="/pets/view_pets" class="nav-link">View Pets</a></li>
+          <li class="nav-item"><a href="/profile/shelter" class="nav-link">Profile</a></li>
+          <li class="nav-item"><a href="/logout/shelter" class="nav-link">Logout</a></li>
+        {% else %}
+          <li class="nav-item"><a href="../login/shelter" class="nav-link">Login</a></li>
+          <li class="nav-item"><a href="../register/shelter" class="nav-link">Sign Up</a></li>
+        {% endif %}
+
        </ul>
      </div>
    </div>
@@ -94,6 +106,7 @@
     {% endfor %}
 </table> -->
  {% load render_table from django_tables2 %}
+
 
 <!doctype html>
 <html>

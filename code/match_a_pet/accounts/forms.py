@@ -6,6 +6,10 @@ from .models import ShelterRegisterData, Pet
 from django.forms import ModelForm
 from django.db import models
 
+from django import forms
+from .models import Pet
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, ButtonHolder, Submit
 
 class ShelterRegistrationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
@@ -57,3 +61,12 @@ class PetForm(forms.ModelForm):
     class Meta:
         model = Pet
         fields = [ 'pet_name', 'pet_breed', 'pet_age', 'pet_color', 'pet_gender', 'date_entered']
+
+class PetListFormHelper(FormHelper):
+    model = Pet
+    form_tag = False
+    form_style = 'inline'
+    layout = Layout(
+        'pet_gender',
+        Submit('submit', 'Filter'),
+    )

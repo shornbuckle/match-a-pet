@@ -7,7 +7,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.views.generic import ListView
 from django_tables2 import SingleTableView
-from .forms import ShelterRegistrationForm, ShelterUpdateForm, PetForm
+import django_filters
+from django_filters.views import FilterView
+from .forms import ShelterRegistrationForm, ShelterUpdateForm, PetForm, PetListFormHelper
+from .filters import PetFilter
 from .models import Pet
 from .tables import PetTable
 from django.contrib.auth.decorators import login_required
@@ -42,10 +45,12 @@ def loginShelter(request):
 #def viewPets(request): (Sean 10/25 Testing Ways to Show Tables)
     #return render(request, 'accounts/view_pets.html', {'obj': Pet.objects.all()})
 
-class PetListView(SingleTableView): #method we will use to load tables into View Pets
+class PetListView(SingleTableView, FilterView): #method we will use to load tables into View Pets
     model = Pet
     table_class = PetTable
     template_name = 'accounts/view_pets.html'
+    filterset_class = PetFilter
+    formhelper_class = PetListFormHelper
 
 def petsRegister(request):
     if request.method == 'POST':
