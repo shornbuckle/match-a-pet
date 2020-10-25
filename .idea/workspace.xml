@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/tables.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/templates/accounts/view_pets.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/match_a_pet/accounts/templates/accounts/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/templates/accounts/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/match_a_pet/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/match_a_pet/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/match_a_pet/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/match_a_pet/accounts/tables.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/tables.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/match_a_pet/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/match_a_pet/match_a_pet/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/match_a_pet/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/match_a_pet/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,8 +70,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602453371459</updated>
-      <workItem from="1603335919902" duration="8126000" />
+      <workItem from="1603335919902" duration="10959000" />
     </task>
+    <task id="LOCAL-00001" summary="Sean 10/25 Testing ways to display Pets in a table format on a view_pets page.">
+      <created>1603657188414</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603657188414</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +119,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Sean 10/25 Testing ways to display Pets in a table format on a view_pets page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Sean 10/25 Testing ways to display Pets in a table format on a view_pets page." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser" />
