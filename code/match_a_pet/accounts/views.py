@@ -5,7 +5,11 @@ from django.views import generic
 from django.utils import timezone
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.views.generic import ListView
+from django_tables2 import SingleTableView
 from .forms import ShelterRegistrationForm, ShelterUpdateForm, PetForm
+from .models import Pet
+from .tables import PetTable
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -34,6 +38,14 @@ def registerUser(request):
 
 def loginShelter(request):
     return render(request, 'accounts/login.html')
+
+#def viewPets(request): (Sean 10/25 Testing Ways to Show Tables)
+    #return render(request, 'accounts/view_pets.html', {'obj': Pet.objects.all()})
+
+class PetListView(SingleTableView): #method we will use to load tables into View Pets
+    model = Pet
+    table_class = PetTable
+    template_name = 'accounts/view_pets.html'
 
 def petsRegister(request):
     if request.method == 'POST':

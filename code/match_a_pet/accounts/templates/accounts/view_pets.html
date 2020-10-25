@@ -4,13 +4,13 @@
   <title>Match-a-Pet</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
+
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <link rel="stylesheet" href="../../static/accounts/css/animate.css">
-  
+
   <link rel="stylesheet" href="../../static/accounts/css/owl.carousel.min.css">
   <link rel="stylesheet" href="../../static/accounts/css/owl.theme.default.min.css">
   <link rel="stylesheet" href="../../static/accounts/css/magnific-popup.css">
@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="../../static/accounts/css/bootstrap-datepicker.css">
   <link rel="stylesheet" href="../../static/accounts/css/jquery.timepicker.css">
 
-  
+
   <link rel="stylesheet" href="../../static/accounts/css/font/flaticon.css">
   <link rel="stylesheet" href="../../static/accounts/css/style.css">
   <link rel="stylesheet" href="../../static/accounts/css/flickity.css" media="screen">
@@ -33,19 +33,7 @@
 
      <div class="collapse navbar-collapse" id="ftco-nav">
        <ul class="navbar-nav ml-auto">
-
-        {% if user.is_authenticated %}
-          <li class="nav-item"><a href="/" class="nav-link">Welcome {{ user.username }}</a></li>
-          <!-- <li class="nav-item"><a href="/" class="nav-link">Home</a></li> -->
-          <li class="nav-item"><a href="/pets/register" class="nav-link">Pet Register</a></li>
-          <li class="nav-item"><a href="/pets/view_pets" class="nav-link">View Pets</a></li>
-          <li class="nav-item"><a href="/profile/shelter" class="nav-link">Profile</a></li>
-          <li class="nav-item"><a href="/logout/shelter" class="nav-link">Logout</a></li>
-        {% else %}
-          <li class="nav-item"><a href="../login/shelter" class="nav-link">Login</a></li>
-          <li class="nav-item"><a href="../register/shelter" class="nav-link">Sign Up</a></li>
-        {% endif %}
-         <!-- <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> -->
+         <li class="nav-item"><a href="/pets/view_pets/" class="nav-link">Welcome!</a></li>
        </ul>
      </div>
    </div>
@@ -54,8 +42,7 @@
  <section>
 
   <div class="carousel"
-  data-flickity='{"freeScroll": true, "wrapAround": true, "imagesLoaded": true, "percentPosition": false, "autoPlay": 3000,
-"pauseAutoPlayOnHover": true }'>
+  data-flickity='{ "wraparound": true, "freeScroll": true, "imagesLoaded": true, "percentPosition": false }'>
   <img src="https://i.ibb.co/0r9b18n/p.jpg" alt="p" />
   <img src="https://i.ibb.co/SN4bBp5/cats.jpg" alt="cats" />
   <img src="https://i.ibb.co/RHbKFBw/tequila1.jpg" alt="tequila1" />
@@ -69,60 +56,51 @@
 
 
 <section class="ftco-section testimony-section bg-light">
-  <!-- <div class="overlay" style="background-image: url(images/bg_2.jpg);"></div> -->
   <div class="container">
    <div class="row pb-4">
      <div class="col-md-7 heading-section ftco-animate">
-      <!-- <span class="subheading">About Us</span> -->
       <h2 class="mb-4">Saving lives. Enriching yours.</h2>
     </div>
   </div>
  </div>
 </section>
 
-<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(../../static/accounts/images/animal_images/shelter.jpg);">
- <div class="overlay"></div>
- <div class="container">
-  <div class="row">
-   <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-     <div class="block-18 d-flex align-items-center">
-      <div class="icon"><span class="flaticon-animal"></span></div>
-      <div class="text">
-       <strong class="number" data-number="40">0</strong>
-       <span>Animals adopted</span>
-     </div>
-   </div>
- </div>
- <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-   <div class="block-18 d-flex align-items-center">
-    <div class="icon"><span class="flaticon-animal-shelter"></span></div>
-    <div class="text">
-     <strong class="number" data-number="28">0</strong>
-     <span>Shelters</span>
-   </div>
- </div>
-</div>
-<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
- <div class="block-18 d-flex align-items-center">
-  <div class="icon"><span class="flaticon-pets"></span></div>
-  <div class="text">
-   <strong class="number" data-number="1200">0</strong>
-   <span>Pet Listings</span>
- </div>
-</div>
-</div>
-<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
- <div class="block-18 d-flex align-items-center">
-  <div class="icon"><span class="flaticon-user-profile"></span></div>
-  <div class="text">
-   <strong class="number" data-number="783">0</strong>
-   <span>Users</span>
- </div>
-</div>
-</div>
-</div>
-</div>
-</section>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<!-- <table> (Sean 10/25 testing ways to show tables.)
+    <tr>
+        <th>Name</th>
+        <th>Breed</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Color</th>
+
+    </tr>
+    {% for b in obj %}
+    <tr>
+        <td>{{ b.pet_name }}</td>
+        <td>{{ b.pet_breed }}</td>
+        <td>{{ b.pet_age }}</td>
+        <td>{{ b.pet_gender }}</td>
+        <td>{{ b.pet_color }}</td>
+    </tr>
+    {% endfor %}
+</table> -->
+ {% load render_table from django_tables2 %}
+
+<!doctype html>
+<html>
+    <body>
+        {% render_table table %}
+    </body>
+</html>
 
 
 <section class="ftco-intro ftco-section ftco-no-pb">
@@ -133,7 +111,8 @@
      <div class="overlay"></div>
      <h2>A Social Media Platform to help get shelter animals find loving homes </h2>
      <p>We can manage your dream building A small river named Duden flows by their place</p>
-
+     <p> .</p>
+     <p> .</p>
      <p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Adopt Now</a></p>
    </div>
  </div>
@@ -141,7 +120,7 @@
 </div>
 </section>
 
-<section> 
+<section>
   <div></div>
 </section>
 
@@ -153,7 +132,7 @@
       <div class="col-md pt-5">
         <div class="ftco-footer-widget pt-md-5 mb-4">
           <h2 class="ftco-heading-2">About</h2>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+          <p></p>
           <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
             <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
             <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
@@ -161,8 +140,8 @@
           </ul>
         </div>
       </div>
-     
-      
+
+
     <div class="col-md pt-5">
       <div class="ftco-footer-widget pt-md-5 mb-4">
        <h2 class="ftco-heading-2">Have a Questions?</h2>
