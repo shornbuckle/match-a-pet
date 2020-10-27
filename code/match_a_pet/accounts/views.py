@@ -37,7 +37,7 @@ def loginShelter(request):
 
 def petsRegister(request):
     if request.method == 'POST':
-        form = PetForm(request.POST)
+        form = PetForm(request.POST, request.FILES)
         if form.is_valid():
             instance = form.save(commit = False)
             instance.email = request.user
@@ -54,7 +54,9 @@ def petsRegister(request):
 @login_required
 def shelterProfile(request):
     if request.method == 'POST':
-        shelterUpdateForm = ShelterUpdateForm(request.POST, instance=request.user)
+        shelterUpdateForm = ShelterUpdateForm(request.POST, 
+                            request.FILES, 
+                            instance=request.user)
         if shelterUpdateForm.is_valid():
             shelterUpdateForm.save()
             messages.success(request, f'Account succesfully updated!')
