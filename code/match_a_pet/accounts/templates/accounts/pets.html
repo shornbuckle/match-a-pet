@@ -78,7 +78,7 @@
  {% load crispy_forms_tags %}
 
   <div class="content-section" style="max-width: 500px; margin-left: 50px;">
-      <form method="POST">
+      <form method="POST" enctype="multipart/form-data">
           {% csrf_token %}
           <fieldset class="form-group">
               <legend class="border-bottom mb-4">Pet Registration Form</legend>
