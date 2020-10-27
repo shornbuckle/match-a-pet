@@ -43,7 +43,18 @@
  </nav>
  <!-- END nav -->
 
-
+<section>
+    <div class="modal-bg">
+      <div class="modals">
+        <h2>Subscribe</h2>
+        <label for="name">Name:</label>
+        <input type="text" name="name">
+        <label for="email">Email:</label>
+        <input type="email" name="email">
+        <button>Subscribe</button>
+      </div>
+    </div>
+  </section>
  <section>
 
   <div class="carousel"
@@ -89,7 +100,7 @@
 
 {% load crispy_forms_tags %}
   <!-- Shelter Registration: Math-A-Pet -->
-  <div class="content-section" style="max-width: 500px; margin-left: 50px;">
+  <div class="content-section" style="max-width: 150px; margin-left: 500px;">
       <form method="POST">
           {% csrf_token %}
           <fieldset class="form-group">

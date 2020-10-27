@@ -37,19 +37,62 @@
         {% if user.is_authenticated %}
           <li class="nav-item"><a href="/" class="nav-link">Welcome {{ user.username }}</a></li>
           <!-- <li class="nav-item"><a href="/" class="nav-link">Home</a></li> -->
+        <ul class="nav navbar-nav navbar-right"></ul>
           <li class="nav-item"><a href="/pets/register" class="nav-link">Pet Register</a></li>
           <li class="nav-item"><a href="/profile/shelter" class="nav-link">Profile</a></li>
           <li class="nav-item"><a href="/logout/shelter" class="nav-link">Logout</a></li>
         {% else %}
-          <li class="nav-item"><a href="../login/shelter" class="nav-link">Login</a></li>
-          <li class="nav-item"><a href="../register/shelter" class="nav-link">Sign Up</a></li>
+        
+          <button class="btn btn-danger modal-btn" id="loginbutton">
+            User Login</button>
+            
+          <li class="nav-item btn-dangers"><a href="../login/shelter" class="nav-link">Shelter Login</a></li>
+          <li class="nav-item btn-danger"><a href="../register/shelter" class="nav-link">Sign Up</a></li>
+        </ul>
+        <!-- <div class="popup" onclick="myFunction()">Click me!
+          <span class="popuptext" id="myPopup">Popup text...</span>
+        </div> -->
+        
         {% endif %}
          <!-- <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> -->
        </ul>
      </div>
    </div>
  </nav>
+</div>
 
+
+
+
+<script>
+  // When the user clicks on <div>, open the popup
+  function myFunction() {
+    var popup = document.getElementById("loginbutton");
+    popup.classList.toggle("show");
+  }
+  </script>
+
+<script>
+
+   document.getElementById("loginbutton").addEventListener("click", function(){
+     document.querySelector(".popup").style.display = "flex";
+
+   })
+</script>
+
+<section>
+  <div class="modal-bg">
+    <div class="modals">
+      <h2 style="text-align: center;">Hey Animal Lover! Please Login</h2>
+      <label for="email">Email:</label>
+      <input type="email" name="email">
+      <label for="password">Password:</label>
+      <input type="password" name="password">
+      <button>Login</button>
+      <span class="modal-close">X</span>
+    </div>
+  </div>
+</section>
  <section>
 
   <div class="carousel"
@@ -66,18 +109,34 @@
 
  </section>
 
+ 
 
-<section class="ftco-section testimony-section bg-light">
-  <!-- <div class="overlay" style="background-image: url(images/bg_2.jpg);"></div> -->
-  <div class="container">
-   <div class="row pb-4">
-     <div class="col-md-7 heading-section ftco-animate">
-      <!-- <span class="subheading">About Us</span> -->
-      <h2 class="mb-4">Saving lives. Enriching yours.</h2>
-    </div>
-  </div>
- </div>
-</section>
+<p>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<br>
+<br>
+<br>
+</p>
+
+
+<div class=" heading-section">
+<h2 class="mb-4" style="text-align: center;">Saving lives. Enriching yours.</h2>
+</div>
+
+<p>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+<br>
+</p>
 
 <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(../../static/accounts/images/animal_images/shelter.jpg);">
  <div class="overlay"></div>
@@ -207,6 +266,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="../../static/accounts/js/google-map.js"></script>
 <script src="../../static/accounts/js/main.js"></script>
+<script src="../../static/accounts/js/app.js"></script>
 <script src="../../static/accounts/js/flickity-docs.min.js"></script>
 
 </body>
