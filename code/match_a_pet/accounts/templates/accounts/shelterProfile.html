@@ -85,7 +85,7 @@
 
     <div class="content-section" style="max-width: 500px; margin-left: 50px;">
       <div class="media">
-        <img class="rounded-circle account-img" src="../../static/accounts/images/animal_images/IMG_9898.jpg" style="max-width: 200px;
+        <img class="rounded-circle account-img" src="{{ user.shelter_profile_image.url }}" style="width: 200px; height: 200px;
         margin-left: 20px;">
         <div class="media-body">
           <h2 class="account-heading">{{ user.username }}</h2>
@@ -93,7 +93,7 @@
         </div>
       </div>
     <div>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Profile Info</legend>
