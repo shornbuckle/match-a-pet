@@ -12,7 +12,6 @@ from .utils import account_activation_token
 from django.contrib.auth import get_user_model
 from django.views import View
 from django.http import HttpResponse
-from django.views.generic import ListView
 from django_tables2 import SingleTableView
 from .models import Pet
 from .tables import PetTable
@@ -78,10 +77,12 @@ def registerUser(request):
 def loginShelter(request):
     return render(request, "accounts/login.html")
 
-class PetListView(SingleTableView): #method we will use to load tables into View Pets
+
+class PetListView(SingleTableView):  # method we will use to load tables into View Pets
     model = Pet
     table_class = PetTable
-    template_name = 'accounts/view_pets.html'
+    template_name = "accounts/view_pets.html"
+
 
 def petsRegister(request):
     if request.method == "POST":
