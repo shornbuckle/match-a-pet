@@ -67,6 +67,63 @@ class TestViews(TestCase):
         self.assertEquals(str(self.dummy_user.last_name), "Voltz")
         self.assertEquals(str(self.dummy_user.shelter_state), "New York")
 
+    def test_shelter_register_post_view1(self):
+        client = Client()
+        self.registerURL = reverse("accounts:register-shelter")
+        self.dummy_user = ShelterRegisterData.objects.create(
+            shelter_id=5,
+            username="peter7",
+            email="peter@matchapet.com",
+            first_name="Peter",
+            last_name="Voltz",
+            shelter_city="Manhattan",
+            shelter_state="New York",
+            password="test123abc",
+        )
+
+        response = client.post(
+            self.registerURL,
+            {
+                "username": "peter7",
+                "email": "peter@matchapet.com",
+                "first_name": "Peter",
+                "last_name": "Voltz",
+                "shelter_city": "Manhattan",
+                "shelter_state": "New York",
+                "password1": "test123abc",
+                "password2": "test123abc",
+            },
+        )
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/register.html")
+        self.assertEquals(str(self.dummy_user.email), "peter@matchapet.com")
+        self.assertEquals(str(self.dummy_user.username), "peter7")
+        self.assertEquals(str(self.dummy_user.first_name), "Peter")
+        self.assertEquals(str(self.dummy_user.last_name), "Voltz")
+        self.assertEquals(str(self.dummy_user.shelter_state), "New York")
+
+    def test_shelter_update_post_view1(self):
+        client = Client()
+        self.registerURL = reverse("accounts:shelter-profile")
+        self.dummy_user = ShelterRegisterData.objects.create(
+            shelter_id=5,
+            username="peter7",
+            email="peter@matchapet.com",
+            first_name="Peter",
+            last_name="Voltz",
+            shelter_city="Manhattan",
+            shelter_state="New York",
+            password="test123abc",
+        )
+
+        response = client.post(self.registerURL, {})
+        self.assertEquals(response.status_code, 302)
+        self.assertEquals(str(self.dummy_user.email), "peter@matchapet.com")
+        self.assertEquals(str(self.dummy_user.username), "peter7")
+        self.assertEquals(str(self.dummy_user.first_name), "Peter")
+        self.assertEquals(str(self.dummy_user.last_name), "Voltz")
+        self.assertEquals(str(self.dummy_user.shelter_state), "New York")
+
     def test_pet_register_post_view(self):
         client = Client()
         self.dummy_user = ShelterRegisterData.objects.create(
