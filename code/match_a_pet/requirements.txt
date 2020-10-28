@@ -1,6 +1,6 @@
 appdirs==1.4.4
 asgiref==3.2.10
-black==20.8b2.dev38+gcabeb5b
+black==20.8b1
 click==7.1.2
 dataclasses==0.7
 dj-database-url==0.5.0
