@@ -45,6 +45,20 @@ class TestViews(TestCase):
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/pets.html")
 
+    def test_shelter_login_post_view(self):
+        client = Client()
+
+        response = client.post(reverse("accounts:login-shelter"), {})
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/login.html")
+
+    def test_shelter_logout_post_view(self):
+        client = Client()
+
+        response = client.post(reverse("accounts:logout-shelter"), {})
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/logout.html")
+
     def test_shelter_register_post_view(self):
         client = Client()
         self.dummy_user = ShelterRegisterData.objects.create(
@@ -178,8 +192,9 @@ class TestViews(TestCase):
     #         "pet_gender": "Female",
     #         "date_entered": "12/1/2020",
     #     })
-    #     print(response)
-    #     print(self.dummy_pet.email)
+
+    #     petid = Pet.objects.get(pet_id=5)
+
     #     self.assertEquals(response.status_code, 200)
     #     self.assertTemplateUsed(response, "accounts/pets.html")
     #     self.assertEquals(str(self.dummy_pet.email), "peter@matchapet.com")
