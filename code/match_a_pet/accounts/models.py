@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.forms import ModelForm
+from PIL import Image
 
 
 class MyAccountManager(BaseUserManager):
@@ -64,6 +65,7 @@ class ShelterRegisterData(AbstractBaseUser):
     shelter_state = models.CharField(max_length=50)
     first_name = models.CharField(max_length = 50)
     last_name = models.CharField(max_length = 50)
+    shelter_profile_image = models.ImageField(default='default.jpg', upload_to='shelter_profile_pics', blank = True)
     # shelter_state = models.ChoiceField(choices = l_choices)
 
     date_joined = models.DateTimeField(verbose_name = "date joined", auto_now_add=True)
@@ -87,6 +89,15 @@ class ShelterRegisterData(AbstractBaseUser):
     def has_module_perms(self, app_label):
         return True
 
+    # def save(self):
+    #     super().save()
+
+    #     img = Image.open(self.shelter_profile_image.path)
+    #     if img.height > 300 or img.width > 300:
+    #         output_size = (300, 300)
+    #         img.thumbnail(output_size)
+    #         img.save(self.shelter_profile_image.path)
+
 class Pet(models.Model):
     email = models.ForeignKey(ShelterRegisterData, on_delete=models.CASCADE)
     # shelter_id = models.ForeignKey(ShelterRegisterData, on_delete=models.CASCADE)
@@ -97,6 +108,29 @@ class Pet(models.Model):
     pet_color = models.CharField(max_length=50)
     pet_gender = models.CharField(max_length=50)
     date_entered = models.CharField(max_length=50)
-
+    pet_profile_image1 = models.ImageField(default='default.jpg', upload_to='pet_profile_pics', blank = True)
+    pet_profile_image2 = models.ImageField(default='default.jpg', upload_to='pet_profile_pics', blank = True)
+    pet_profile_image3 = models.ImageField(default='default.jpg', upload_to='pet_profile_pics', blank = True)
     def __str__(self):
         return self.pet_name
+
+    def save(self):
+        super().save()
+
+        img = Image.open(self.pet_profile_image1.path)
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.pet_profile_image1.path)
+        
+        img = Image.open(self.pet_profile_image2.path)
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.pet_profile_image2.path)
+
+        img = Image.open(self.pet_profile_image3.path)
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.pet_profile_image3.path)
