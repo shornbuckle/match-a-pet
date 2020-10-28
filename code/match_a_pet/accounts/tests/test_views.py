@@ -1,11 +1,8 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-import json
-from accounts.models import ShelterRegisterData, Pet
 
 
 class TestViews(TestCase):
-
     def test_home_view(self):
         client = Client()
 
@@ -46,4 +43,3 @@ class TestViews(TestCase):
         response = client.get(reverse("accounts:pet-register"))
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/pets.html")
-

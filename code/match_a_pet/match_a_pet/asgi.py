@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'match_a_pet.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "match_a_pet.settings")
 
 application = get_asgi_application()
