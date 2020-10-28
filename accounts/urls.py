@@ -12,7 +12,6 @@ app_name = "accounts"
 urlpatterns = [
     path("", views.home, name="accounts-home"),
     path("register/shelter/", views.registerShelter, name="register-shelter"),
-    path("register/user/", views.registerUser, name="register-user"),
     path(
         "login/shelter/",
         auth_views.LoginView.as_view(template_name="accounts/login.html"),
