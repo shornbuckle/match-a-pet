@@ -107,7 +107,7 @@ class ShelterRegisterFormTest(BaseTest):
 # class BaseTest1(TestCase):
 #     def setUp(self):
 #         self.register_url = reverse("accounts:pet-register")
-#         self.dummy_user = ShelterRegisterData.objects.create(
+#         self.dummy_user = Pet.objects.create(
 #             email="peter@matchapet.com",
 #             pet_id="5",
 #             pet_name="Sheila",
