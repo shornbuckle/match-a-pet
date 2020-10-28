@@ -1,5 +1,6 @@
 from django.test import TestCase, Client
 from django.urls import reverse
+from accounts.models import ShelterRegisterData, Pet
 
 
 class TestViews(TestCase):
@@ -46,18 +47,23 @@ class TestViews(TestCase):
 
     def test_pet_register_post_view(self):
         client = Client()
-        # self.dummy_pet = Pet.objects.create(
-        #     email="peter@matchapet.com",
-        #     pet_id="5",
-        #     pet_name="Sheila",
-        #     pet_breed="Dog",
-        #     pet_age="4",
-        #     pet_color="White",
-        #     pet_gender="Female",
-        #     date_entered="12/1/2020",
-        # )
+        self.dummy_user = ShelterRegisterData.objects.create(
+            email="peter@matchapet.com",
+        )
+        self.dummy_pet = Pet.objects.create(
+            email=self.dummy_user,
+            pet_id="5",
+            pet_name="Sheila",
+            pet_breed="Dog",
+            pet_age="4",
+            pet_color="White",
+            pet_gender="Female",
+            date_entered="12/1/2020",
+        )
 
         response = client.post(reverse("accounts:pet-register"), {})
         print(response)
+        print(self.dummy_pet.email)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/pets.html")
+        self.assertEquals(str(self.dummy_pet.email), "peter@matchapet.com")
