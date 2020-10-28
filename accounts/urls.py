@@ -26,7 +26,7 @@ urlpatterns = [
     path("profile/shelter/", views.shelterProfile, name="shelter-profile"),
     path("pets/register/", views.petsRegister, name="pet-register"),
     path("activate/<uidb64>/<token>", VerificationView.as_view(), name="activate"),
-    path("pets/view_pets/", PetListView.as_view()),
+    path("pets/view_pets/", PetListView.as_view(), name="view-pets"),
 ]
 
 if settings.DEBUG:
