@@ -130,3 +130,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = '../../'
 LOGIN_URL = '../../login/shelter'
 django_heroku.settings(locals())
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'nyu.match.a.pet@gmail.com'
+EMAIL_HOST_PASSWORD = 'd3usexmachina'
+EMAIL_PORT = 587
