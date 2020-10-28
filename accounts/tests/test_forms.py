@@ -101,3 +101,49 @@ class TestForms(SimpleTestCase):
 
         self.assertFalse(form.is_valid())
         self.assertEquals(len(form.errors), 1)
+
+    def test_PetForm_invalid_data1(self):
+        form = PetForm(
+            data={
+                "pet_name": "Sheila",
+                "pet_breed": "Dog",
+                "pet_age": "4",
+                "pet_color": "White",
+            }
+        )
+
+        self.assertFalse(form.is_valid())
+        self.assertEquals(len(form.errors), 2)
+
+    def test_PetForm_invalid_data2(self):
+        form = PetForm(
+            data={
+                "pet_name": "Sheila",
+                "pet_breed": "Dog",
+                "pet_age": "4",
+            }
+        )
+
+        self.assertFalse(form.is_valid())
+        self.assertEquals(len(form.errors), 3)
+
+    def test_PetForm_invalid_data3(self):
+        form = PetForm(
+            data={
+                "pet_name": "Sheila",
+                "pet_breed": "Dog",
+            }
+        )
+
+        self.assertFalse(form.is_valid())
+        self.assertEquals(len(form.errors), 4)
+
+    def test_PetForm_invalid_data4(self):
+        form = PetForm(
+            data={
+                "pet_name": "Sheila",
+            }
+        )
+
+        self.assertFalse(form.is_valid())
+        self.assertEquals(len(form.errors), 5)
