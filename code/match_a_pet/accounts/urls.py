@@ -1,11 +1,14 @@
 from django.urls import path
 from . import views
 from django.contrib.auth import login
+from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
 
 from . import views
+from .views import VerificationView
+from django.views.decorators.csrf import csrf_exempt
 
 app_name = 'accounts'
 urlpatterns = [
@@ -16,6 +19,7 @@ urlpatterns = [
     path('logout/shelter/', auth_views.LogoutView.as_view(template_name = 'accounts/logout.html'), name='logout-shelter'),
     path('profile/shelter/', views.shelterProfile, name='shelter-profile'),
     path('pets/register/', views.petsRegister, name='pet-register'),
+    path('activate/<uidb64>/<token>',VerificationView.as_view(), name='activate'),
 ]
 
 if settings.DEBUG:
