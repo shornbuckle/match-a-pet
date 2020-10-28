@@ -116,8 +116,12 @@ class TestViews(TestCase):
             password="test123abc",
         )
 
+        shelterid = ShelterRegisterData.objects.get(shelter_id=5)
+
         response = client.post(self.registerURL, {})
         self.assertEquals(response.status_code, 302)
+        self.assertEquals(shelterid.username, "peter7")
+        self.assertEquals(shelterid.email, "peter@matchapet.com")
         self.assertEquals(str(self.dummy_user.email), "peter@matchapet.com")
         self.assertEquals(str(self.dummy_user.username), "peter7")
         self.assertEquals(str(self.dummy_user.first_name), "Peter")
@@ -140,8 +144,12 @@ class TestViews(TestCase):
             date_entered="12/1/2020",
         )
 
+        petid = Pet.objects.get(pet_id=5)
+        # shelterid = ShelterRegisterData.objects.get(shelter_id=5)
+
         response = client.post(reverse("accounts:pet-register"), {})
         self.assertEquals(response.status_code, 200)
+        self.assertEquals(str(petid.email), "peter@matchapet.com")
         self.assertTemplateUsed(response, "accounts/pets.html")
         self.assertEquals(str(self.dummy_pet.email), "peter@matchapet.com")
 
