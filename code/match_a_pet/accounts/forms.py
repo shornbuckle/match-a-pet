@@ -46,7 +46,8 @@ class ShelterUpdateForm(forms.ModelForm):
 
     class Meta:
         model = ShelterRegisterData
-        fields = ['username', 'email', 'first_name', 'last_name', 'shelter_city', 'shelter_state',]
+        fields = ['username', 'email', 'first_name', 'last_name', 'shelter_city', 'shelter_state', 'shelter_profile_image']
+        labels = {'shelter_profile_image': ('Shelter Profile Picture')}
         help_texts = {'username': ('Shelter name can contain Letters, digits and @/./+/-/_ only.')}
 
 
@@ -56,4 +57,5 @@ class PetForm(forms.ModelForm):
     # email = forms.CharField(disabled = True)
     class Meta:
         model = Pet
-        fields = [ 'pet_name', 'pet_breed', 'pet_age', 'pet_color', 'pet_gender', 'date_entered']
+        fields = [ 'pet_name', 'pet_breed', 'pet_age', 'pet_color', 'pet_gender', 'date_entered', 'pet_profile_image1', 'pet_profile_image2', 'pet_profile_image3']
+        labels = {'pet_profile_image1': ('Pet Profile Picture 1'), 'pet_profile_image2': ('Pet Profile Picture 2'), 'pet_profile_image3': ('Pet Profile Picture 3')}
