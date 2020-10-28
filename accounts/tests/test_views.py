@@ -45,6 +45,24 @@ class TestViews(TestCase):
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/pets.html")
 
+    def test_shelter_register_post_view(self):
+        client = Client()
+        self.dummy_user = ShelterRegisterData.objects.create(
+            shelter_id=5,
+            username="peter7",
+            email="peter@matchapet.com",
+            first_name="Peter",
+            last_name="Voltz",
+            shelter_city="Manhattan",
+            shelter_state="New York",
+            password="test123abc",
+        )
+
+        response = client.post(reverse("accounts:register-shelter"), {})
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/register.html")
+        # self.assertEquals(str(self.dummy_pet.email), "peter@matchapet.com")
+
     def test_pet_register_post_view(self):
         client = Client()
         self.dummy_user = ShelterRegisterData.objects.create(
@@ -62,8 +80,38 @@ class TestViews(TestCase):
         )
 
         response = client.post(reverse("accounts:pet-register"), {})
-        print(response)
-        print(self.dummy_pet.email)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/pets.html")
         self.assertEquals(str(self.dummy_pet.email), "peter@matchapet.com")
+
+    # def test_pet_register_post_view1(self):
+    #     client = Client()
+    #     self.dummy_user = ShelterRegisterData.objects.create(
+    #         email="peter@matchapet.com",
+    #     )
+    #     self.dummy_pet = Pet.objects.create(
+    #         email=self.dummy_user,
+    #         pet_id="5",
+    #         pet_name="Sheila",
+    #         pet_breed="Dog",
+    #         pet_age="4",
+    #         pet_color="White",
+    #         pet_gender="Female",
+    #         date_entered="12/1/2020",
+    #     )
+
+    #     response = client.post(reverse("accounts:pet-register"), {
+    #         "email":"peter@matchapet.com",
+    #         "pet_name": "Sheila",
+    #         "pet_breed": "Dog",
+    #         "pet_age": "4",
+    #         "pet_color": "White",
+    #         "pet_gender": "Female",
+    #         "date_entered": "12/1/2020",
+    #     })
+    #     print(response)
+    #     print(self.dummy_pet.email)
+    #     self.assertEquals(response.status_code, 200)
+    #     self.assertTemplateUsed(response, "accounts/pets.html")
+    #     self.assertEquals(str(self.dummy_pet.email), "peter@matchapet.com")
+    #     self.assertEquals(self.dummy_pet.pet_name, "pet_name")
