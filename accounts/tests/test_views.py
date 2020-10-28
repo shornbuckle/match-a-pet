@@ -61,7 +61,11 @@ class TestViews(TestCase):
         response = client.post(reverse("accounts:register-shelter"), {})
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/register.html")
-        # self.assertEquals(str(self.dummy_pet.email), "peter@matchapet.com")
+        self.assertEquals(str(self.dummy_user.email), "peter@matchapet.com")
+        self.assertEquals(str(self.dummy_user.username), "peter7")
+        self.assertEquals(str(self.dummy_user.first_name), "Peter")
+        self.assertEquals(str(self.dummy_user.last_name), "Voltz")
+        self.assertEquals(str(self.dummy_user.shelter_state), "New York")
 
     def test_pet_register_post_view(self):
         client = Client()
