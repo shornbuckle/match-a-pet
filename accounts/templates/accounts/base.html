@@ -67,7 +67,7 @@
         <ul class="nav">
             {% if user.is_authenticated %}
             <li><a href="/">Home</a></li>
-            <li><a href="#">Pets</a></li>
+            <li><a href="/pets/view_pets">Pets</a></li>
             <li>
                 <a href="#">
                     <i class="fas fa-user"></i>
@@ -82,7 +82,7 @@
             </li>
             {% else %}
             <li><a href="/">Home</a></li>
-            <li><a href="#">Pets</a></li>
+            <li><a href="/pets/view_pets">Pets</a></li>
             <li><a href="#">Login</a>
                 <ul>
                     <li><a href="#">User Login</a></li>

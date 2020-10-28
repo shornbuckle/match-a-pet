@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import PetListView
 
 # from django.contrib.auth import login
 # from django.conf.urls import url, include
@@ -25,6 +26,7 @@ urlpatterns = [
     path("profile/shelter/", views.shelterProfile, name="shelter-profile"),
     path("pets/register/", views.petsRegister, name="pet-register"),
     path("activate/<uidb64>/<token>", VerificationView.as_view(), name="activate"),
+    path("pets/view_pets/", PetListView.as_view())
 ]
 
 if settings.DEBUG:

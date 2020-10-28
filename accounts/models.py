@@ -147,8 +147,14 @@ class Pet(models.Model):
     def __str__(self):
         return self.pet_name
 
-    def save(self):
-        super().save()
+    #the below method will captilize the fist letter of the below listed fields
+    #when they are entered. This is important for the column sorting to work.
+    def save(self, *args, **kwargs):
+        for field_name in ['pet_name', 'pet_breed', 'pet_color', 'pet_gender',]:
+            val = getattr(self, field_name, False)
+            if val:
+                setattr(self, field_name, val.capitalize())
+        super(Pet, self).save(*args, **kwargs)
 
         img = Image.open(self.pet_profile_image1.path)
         if img.height > 300 or img.width > 300:
@@ -167,3 +173,5 @@ class Pet(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.pet_profile_image3.path)
+
+        
