@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-AUTH_USER_MODEL = "accounts.ShelterRegisterData"
+AUTH_USER_MODEL = "accounts.user"
 
 WSGI_APPLICATION = "match_a_pet.wsgi.application"
 

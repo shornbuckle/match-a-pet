@@ -1,26 +1,52 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
-from .forms import ShelterRegistrationForm, ShelterUpdateForm, PetForm
+#from .forms import ShelterRegistrationForm, ShelterUpdateForm, PetForm
 from django.contrib.auth.decorators import login_required
 
 from django.core.mail import send_mail
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from .utils import account_activation_token
+#from code.match_a_pet.accounts.utils import account_activation_token
 from django.contrib.auth import get_user_model
 from django.views import View
 from django.http import HttpResponse
 
 global form
 
+from django.contrib.auth import login
+#from django.shortcuts import redirect
+from django.views.generic import CreateView
+
+from django.shortcuts import redirect, render
+from django.views.generic import TemplateView
+#from code.match_a_pet.accounts.forms import ClientUserSignUpForm, ShelterUserSignUpForm
+#from code.match_a_pet.accounts.models import User
+
 
 def home(request):
     return render(request, "accounts/home.html")
 
+#below are the Sean Testing
 
-def registerShelter(request):
+class SignUpView(TemplateView):
+    template_name = 'accounts/registration/signup.html'
+
+
+def home(request):
+    if request.user.is_authenticated:
+        if request.user.is_ShelterUser:
+            return redirect('teachers:quiz_change_list')
+        else:
+            return redirect('students:quiz_list')
+    return render(request, 'accounts/home.html')
+
+
+
+
+#above are the sean Testing
+"""def registerShelter(request):
     if request.method == "POST":
 
         form = ShelterRegistrationForm(request.POST)
@@ -125,3 +151,5 @@ class VerificationView(View):
         else:
             messages.success(request, "Activation link is invalid")
             return redirect("/login/shelter")
+
+"""

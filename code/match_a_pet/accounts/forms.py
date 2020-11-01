@@ -2,12 +2,51 @@ from django import forms
 
 # from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import ShelterRegisterData, Pet
+#from .models import ShelterRegisterData, Pet
 
 # from django.forms import ModelForm
 # from django.db import models
 
+#below are Sean Testing
 
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.db import transaction
+from .models import ClientUser, User
+
+class ClientUserSignUpForm(UserCreationForm):
+    """interests = forms.ModelMultipleChoiceField(
+        queryset=Subject.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=True
+    )"""
+
+    class Meta(UserCreationForm.Meta):
+        model = User
+
+    @transaction.atomic
+    def save(self):
+        user = super().save(commit=False)
+        user.is_ClientUser = True
+        user.save()
+        clientuser = ClientUser.objects.create(user=user)
+        #clientuser.interests.add(*self.cleaned_data.get('interests'))
+        return user
+
+
+class ShelterUserSignUpForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = User
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.is_ShelterUser = True
+        if commit:
+            user.save()
+        return user
+
+#above are sean testing
+"""
 class ShelterRegistrationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -84,8 +123,8 @@ class ShelterUpdateForm(forms.ModelForm):
         help_texts = {
             "username": ("Shelter name can contain Letters, digits and @/./+/-/_ only.")
         }
-
-
+"""
+"""
 class PetForm(forms.ModelForm):
 
     # shelter_id = forms.CharField(disabled = True)
@@ -108,3 +147,4 @@ class PetForm(forms.ModelForm):
             "pet_profile_image2": ("Pet Profile Picture 2"),
             "pet_profile_image3": ("Pet Profile Picture 3"),
         }
+"""

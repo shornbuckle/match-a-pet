@@ -1,3 +1,5 @@
+"""
+
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import ShelterRegisterData, Pet
@@ -56,3 +58,5 @@ class PetRegisterAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Pet, PetRegisterAdmin)
+
+"""

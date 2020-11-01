@@ -1,10 +1,19 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, AbstractUser
 
 # from django.forms import ModelForm
 from PIL import Image
 
 
+class User(AbstractUser):
+    is_ClientUser = models.BooleanField(default=False)
+    is_ShelterUser = models.BooleanField(default=False)
+
+class ClientUser(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+
+#commenting out the below for multiple user testing
+"""
 class MyAccountManager(BaseUserManager):
     def create_user(
         self,
@@ -67,8 +76,11 @@ class MyAccountManager(BaseUserManager):
         user.is_superuser = True
         user.save(using=self._db)
         return user
+"""
 
+#commmnting out the below serparately
 
+"""
 class ShelterRegisterData(AbstractBaseUser):
 
     # l_choices = (('1','New York'), ('2','California'))
@@ -123,7 +135,8 @@ class ShelterRegisterData(AbstractBaseUser):
     #         img.thumbnail(output_size)
     #         img.save(self.shelter_profile_image.path)
 
-
+"""
+"""
 class Pet(models.Model):
     email = models.ForeignKey(ShelterRegisterData, on_delete=models.CASCADE)
     # shelter_id = models.ForeignKey(ShelterRegisterData, on_delete=models.CASCADE)
@@ -167,3 +180,5 @@ class Pet(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.pet_profile_image3.path)
+
+"""
