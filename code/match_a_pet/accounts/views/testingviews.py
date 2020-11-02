@@ -26,7 +26,7 @@ from django.views.generic import TemplateView
 
 
 def home(request):
-    return render(request, "accounts/home.html")
+    return render(request, "accounts/home")
 
 #below are the Sean Testing
 
@@ -37,9 +37,9 @@ class SignUpView(TemplateView):
 def home(request):
     if request.user.is_authenticated:
         if request.user.is_ShelterUser:
-            return redirect('teachers:quiz_change_list')
+            return redirect('accounts/home.html')
         else:
-            return redirect('students:quiz_list')
+            return redirect('login/shelter/')
     return render(request, 'accounts/home.html')
 
 

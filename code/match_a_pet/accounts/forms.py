@@ -12,15 +12,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
-from .models import ClientUser, User
+from .models import User
 
 class ClientUserSignUpForm(UserCreationForm):
-    """interests = forms.ModelMultipleChoiceField(
-        queryset=Subject.objects.all(),
-        widget=forms.CheckboxSelectMultiple,
-        required=True
-    )"""
-
     class Meta(UserCreationForm.Meta):
         model = User
 
@@ -29,8 +23,6 @@ class ClientUserSignUpForm(UserCreationForm):
         user = super().save(commit=False)
         user.is_ClientUser = True
         user.save()
-        clientuser = ClientUser.objects.create(user=user)
-        #clientuser.interests.add(*self.cleaned_data.get('interests'))
         return user
 
 

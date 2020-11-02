@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, AbstractUser
+from django.contrib.auth.models import AbstractUser
 
 # from django.forms import ModelForm
 from PIL import Image
@@ -10,6 +10,9 @@ class User(AbstractUser):
     is_ShelterUser = models.BooleanField(default=False)
 
 class ClientUser(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+
+class ShelterUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
 
 #commenting out the below for multiple user testing

@@ -20,6 +20,13 @@ urlpatterns = [
     path('accounts/signup/', accounts.SignUpView.as_view(), name='signup'),
     path('accounts/signup/user/', users.ClientSignUpView.as_view(), name='ClientUser_signup'),
     path('accounts/signup/shelter/', shelters.ShelterSignUpView.as_view(), name='ShelterUser_signup'),
+    path(
+        "login/shelter/",
+        auth_views.LoginView.as_view(template_name="accounts/login.html"),
+        name="login-shelter",
+
+    ),
+
 
 ]
 

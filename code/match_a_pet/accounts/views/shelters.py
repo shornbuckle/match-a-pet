@@ -39,4 +39,4 @@ class ShelterSignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('teachers:quiz_change_list')
+        return redirect("/login/shelter")
