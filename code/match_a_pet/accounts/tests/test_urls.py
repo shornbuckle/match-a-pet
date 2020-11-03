@@ -1,6 +1,6 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
-from accounts.views import registerShelter, shelterProfile, petsRegister
+from accounts.views import registerShelter, shelterProfile, petsRegister, PetListView
 from django.contrib.auth.views import LoginView, LogoutView
 
 
@@ -29,3 +29,8 @@ class TestUrls(SimpleTestCase):
         url = reverse("accounts:pet-register")
         self.assertEquals(resolve(url).func, petsRegister)
         self.assertEquals(resolve(url).route, "pets/register/")
+
+    def test_pets_view_url(self):
+        url = reverse("accounts:view-pets")
+        self.assertEquals(resolve(url).func.view_class, PetListView)
+        self.assertEquals(resolve(url).route, "pets/view_pets/")

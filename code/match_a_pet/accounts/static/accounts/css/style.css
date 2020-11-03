@@ -4,7 +4,7 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-:root {
+ :root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -3673,7 +3673,7 @@ input[type="button"].btn-block {
     padding-left: 0; }
   .navbar-nav .dropdown-menu {
     position: static;
-    float: none; }
+    float: left; }
 
 .navbar-text {
   display: inline-block;
@@ -8428,7 +8428,7 @@ h1, h2, h3, h4, h5,
         padding-bottom: 20px;
         margin-right: 0; } }
     .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
-      font-size: 30px;
+      font-size: 20px;
       padding-top: 1.5rem;
       padding-bottom: 1.5rem;
       padding-left: 20px;
@@ -8586,19 +8586,11 @@ h1, h2, h3, h4, h5,
           color: #000000; } }
 
 .navbar-brand {
-  font-weight: 700;
-  font-size: 50px;
+  font-weight: 550;
+  font-size: 40px;
   line-height: 1.2;
   background: #4986fc;
   padding: 0 20px;
-  background: #ce4be8;
-  background: -moz-linear-gradient(-45deg, #ce4be8 0%, #207ce5 100%);
-  background: -webkit-gradient(left top, right bottom, color-stop(0%, #ce4be8), color-stop(100%, #207ce5));
-  background: -webkit-linear-gradient(-45deg, #ce4be8 0%, #207ce5 100%);
-  background: -o-linear-gradient(-45deg, #ce4be8 0%, #207ce5 100%);
-  background: -ms-linear-gradient(-45deg, #ce4be8 0%, #207ce5 100%);
-  background: -webkit-linear-gradient(315deg, #ce4be8 0%, #207ce5 100%);
-  background: -o-linear-gradient(315deg, #ce4be8 0%, #207ce5 100%);
   background: #fff;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ce4be8', endColorstr='#207ce5', GradientType=1 );
   }
