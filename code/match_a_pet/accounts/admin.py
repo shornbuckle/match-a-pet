@@ -1,14 +1,17 @@
-"""
+
 
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import ShelterRegisterData, Pet
+from .models import User, ClientUser, ShelterUser, Pet
 
 # Register your models here.
 
+admin.site.register(User)
+
+
 admin.site.site_header = "Math-A-Pet Admin Page"
 
-
+"""
 class RegisterShelterAdmin(UserAdmin):
     list_display = (
         "email",
@@ -35,8 +38,8 @@ class RegisterShelterAdmin(UserAdmin):
 
 
 admin.site.register(ShelterRegisterData, RegisterShelterAdmin)
-
-
+"""
+"""
 class PetRegisterAdmin(admin.ModelAdmin):
     list_display = (
         "email",
@@ -58,5 +61,4 @@ class PetRegisterAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Pet, PetRegisterAdmin)
-
 """

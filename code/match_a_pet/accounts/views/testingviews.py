@@ -31,15 +31,15 @@ def home(request):
 #below are the Sean Testing
 
 class SignUpView(TemplateView):
-    template_name = 'accounts/registration/signup.html'
+    template_name = 'accounts/signup.html'
 
 
 def home(request):
     if request.user.is_authenticated:
         if request.user.is_ShelterUser:
-            return redirect("accounts/signup/shelter/")
+            return render(request, 'accounts/shelter_home.html')
         else:
-            return redirect("accounts/signup/user/")
+            return render(request, 'accounts/user_home.html')
     return render(request, 'accounts/home.html')
 
 

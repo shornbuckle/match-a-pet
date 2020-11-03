@@ -139,9 +139,9 @@ class ShelterRegisterData(AbstractBaseUser):
     #         img.save(self.shelter_profile_image.path)
 
 """
-"""
+
 class Pet(models.Model):
-    email = models.ForeignKey(ShelterRegisterData, on_delete=models.CASCADE)
+    #email = models.ForeignKey(ShelterRegisterData, on_delete=models.CASCADE)
     # shelter_id = models.ForeignKey(ShelterRegisterData, on_delete=models.CASCADE)
     pet_id = models.AutoField(primary_key=True)
     pet_name = models.CharField(max_length=80)
@@ -184,4 +184,3 @@ class Pet(models.Model):
             img.thumbnail(output_size)
             img.save(self.pet_profile_image3.path)
 
-"""

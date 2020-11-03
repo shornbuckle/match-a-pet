@@ -30,7 +30,7 @@ from ..models import User
 class ClientSignUpView(CreateView):
     model = User
     form_class = ClientUserSignUpForm
-    template_name = 'accounts/registration/signup_form.html'
+    template_name = 'accounts/signup_form.html'
 
     def get_context_data(self, **kwargs):
         kwargs['user_type'] = 'ClientUser'
