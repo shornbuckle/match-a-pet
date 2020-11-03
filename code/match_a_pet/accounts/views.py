@@ -69,6 +69,8 @@ def registerShelter(request):
         form = ShelterRegistrationForm()
     return render(request, "accounts/register.html", {"form": form})
 
+def petListing(request):
+    return render(request, 'accounts/petlist.html')
 
 def registerUser(request):
     return HttpResponse("You are now at the User Regitration.")
