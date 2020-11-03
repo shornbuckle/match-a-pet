@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import ShelterRegisterData, Pet
+from import_export.admin import ImportExportModelAdmin
 
 # Register your models here.
 
@@ -34,25 +35,28 @@ class RegisterShelterAdmin(UserAdmin):
 
 admin.site.register(ShelterRegisterData, RegisterShelterAdmin)
 
+# admin.site.register(Pet)
 
-class PetRegisterAdmin(admin.ModelAdmin):
-    list_display = (
-        "email",
-        "pet_name",
-        "pet_breed",
-        "pet_age",
-        "pet_color",
-        "pet_gender",
-        "date_entered",
-    )
-    search_fields = (
-        "pet_name",
-        "pet_breed",
-    )
+@admin.register(Pet)
+class ViewAdmin(ImportExportModelAdmin):
+    pass
+    # list_display = (
+    #     # "email",
+    #     "pet_name",
+    #     "pet_breed",
+    #     "pet_age",
+    #     "pet_color",
+    #     "pet_gender",
+    #     # "date_entered",
+    # )
+    # search_fields = (
+    #     "pet_name",
+    #     "pet_breed",
+    # )
 
-    filter_horizontal = ()
-    list_filter = ()
-    fieldsets = ()
+    # filter_horizontal = ()
+    # list_filter = ()
+    # fieldsets = ()
 
 
-admin.site.register(Pet, PetRegisterAdmin)
+# admin.site.register(Pet, PetRegisterAdmin)

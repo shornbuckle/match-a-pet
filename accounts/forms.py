@@ -98,13 +98,13 @@ class PetForm(forms.ModelForm):
             "pet_age",
             "pet_color",
             "pet_gender",
-            "date_entered",
-            "pet_profile_image1",
-            "pet_profile_image2",
-            "pet_profile_image3",
+            # "date_entered",
+            # "pet_profile_image",
+            # "pet_profile_image2",
+            # "pet_profile_image3",
         ]
-        labels = {
-            "pet_profile_image1": ("Pet Profile Picture 1"),
-            "pet_profile_image2": ("Pet Profile Picture 2"),
-            "pet_profile_image3": ("Pet Profile Picture 3"),
-        }
+        # labels = {
+        #     "pet_profile_image1": ("Pet Profile Picture 1"),
+        #     "pet_profile_image2": ("Pet Profile Picture 2"),
+        #     "pet_profile_image3": ("Pet Profile Picture 3"),
+        # }

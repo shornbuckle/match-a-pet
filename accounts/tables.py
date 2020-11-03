@@ -14,6 +14,7 @@ class PetTable(tables.Table):  # will utilize Django Tables2 for viewing.
         model = Pet
         template_name = "django_tables2/bootstrap.html"
         fields = (
+            "pet_image_url",
             "pet_name",
             "pet_gender",
             "pet_breed",
