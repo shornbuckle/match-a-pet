@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_tables2",
+    "easy_maps",
 ]
 
 MIDDLEWARE = [
@@ -138,7 +139,11 @@ EMAIL_HOST_USER = "nyu.match.a.pet@gmail.com"
 EMAIL_HOST_PASSWORD = "d3usexmachina"
 EMAIL_PORT = 587
 
+
 if "HEROKU" in os.environ:
     import django_heroku
 
     django_heroku.settings(locals())
+
+EASY_MAPS_GOOGLE_KEY = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ___0123456789'
+EASY_MAPS_CENTER = (-41.3, 32)

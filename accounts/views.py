@@ -71,8 +71,13 @@ def registerShelter(request):
 
 
 def registerUser(request):
-    return HttpResponse("You are now at the User Regitration.")
+    return HttpResponse("You are now at the User Registration.")
 
+def petProfile(request):
+    return render(request, "accounts/pet_profile.html")
+
+def shelter_profile(request):
+    return render(request, "accounts/shelter_profile.html")
 
 def loginShelter(request):
     return render(request, "accounts/login.html")
