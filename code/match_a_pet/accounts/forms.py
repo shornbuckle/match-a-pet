@@ -15,8 +15,31 @@ from django.db import transaction
 from .models import User
 
 class ClientUserSignUpForm(UserCreationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["email"].label = "Email"
+        self.fields["username"].label = "Username"
+        self.fields["first_name"].label = "First Name"
+        self.fields["last_name"].label = "Last Name"
+
+
+    email = forms.EmailField(required=True)
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
+
     class Meta(UserCreationForm.Meta):
         model = User
+        fields = [
+            "username",
+            "email",
+            "first_name",
+            "last_name",
+            "password1",
+            "password2",
+        ]
+        help_texts = {
+            "username": ("Username can contain Letters, digits and @/./+/-/_ only.")
+        }
 
     @transaction.atomic
     def save(self):
@@ -27,8 +50,45 @@ class ClientUserSignUpForm(UserCreationForm):
 
 
 class ShelterUserSignUpForm(UserCreationForm):
-    class Meta(UserCreationForm.Meta):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["email"].label = "Shelter Email"
+        self.fields["username"].label = "Shelter Name"
+        self.fields["first_name"].label = "Shelter Staff First Name"
+        self.fields["last_name"].label = "Shelter Staff Last Name"
+
+    l_choices = (("New York", "New York"), ("California", "California"))
+    ny_choices = (
+        ("Manhattan", "Manhattan"),
+        ("Brooklyn", "Brooklyn"),
+        ("Queens", "Queens"),
+        ("Staten Island", "Staten Island"),
+        ("Bronx", "Bronx"),
+    )
+    email = forms.EmailField(required=True)
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
+    shelter_city = forms.ChoiceField(choices=ny_choices)
+    shelter_state = forms.ChoiceField(choices=l_choices)
+
+    class Meta:
         model = User
+        fields = [
+            "username",
+            "email",
+            "first_name",
+            "last_name",
+            "shelter_city",
+            "shelter_state",
+            "password1",
+            "password2",
+        ]
+        help_texts = {
+            "username": ("Shelter name can contain Letters, digits and @/./+/-/_ only.")
+        }
+
+    #class Meta(UserCreationForm.Meta):
+     #   model = User
 
     def save(self, commit=True):
         user = super().save(commit=False)

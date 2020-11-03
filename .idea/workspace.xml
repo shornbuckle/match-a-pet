@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/templates/accounts/shelter_home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/templates/accounts/user_home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/match_a_pet/accounts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/match_a_pet/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/match_a_pet/accounts/templates/accounts/registration/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/templates/accounts/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/match_a_pet/accounts/templates/accounts/registration/signup_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/templates/accounts/signup_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/match_a_pet/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/match_a_pet/accounts/views/accounts.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/views/accounts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/match_a_pet/accounts/views/shelters.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/views/shelters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/match_a_pet/accounts/views/testingviews.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/views/testingviews.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/match_a_pet/accounts/views/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/views/users.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/match_a_pet/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/forms.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +102,7 @@
       <option name="presentableId" value="Default" />
       <updated>1602453371459</updated>
       <workItem from="1604028228777" duration="3562000" />
-      <workItem from="1604251148204" duration="29298000" />
+      <workItem from="1604251148204" duration="30718000" />
     </task>
     <task id="LOCAL-00001" summary="Attempting to split the user model in two. Created new choice when logging in. Still did not get it to fully work. Getting error &quot;no such table accounts_user&quot;">
       <created>1604271475422</created>
@@ -142,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604331604823</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Got the two user types to work. Still a lot of do to add fields but it is working now! Verified by checking Admin page.">
+      <created>1604380802941</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1604380802941</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,7 +161,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Attempting to split the user model in two. Created new choice when logging in. Still did not get it to fully work. Getting error &quot;no such table accounts_user&quot;" />
     <MESSAGE value="Trying to get the new user types to save in database" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trying to get the new user types to save in database" />
+    <MESSAGE value="Got the two user types to work. Still a lot of do to add fields but it is working now! Verified by checking Admin page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Got the two user types to work. Still a lot of do to add fields but it is working now! Verified by checking Admin page." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser" />
