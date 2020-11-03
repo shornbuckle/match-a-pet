@@ -1,7 +1,7 @@
 {% extends 'accounts/base.html' %}
 
 {% block body %}
-{% load easy_maps_tags %}
+
 <!--<style>-->
 <!--    body{-->
 <!--    background-image: url("../../static/accounts/images/animal_images/paw.png");-->
@@ -14,7 +14,7 @@
     <div class="row no-gutters slider-text align-items-end justify-content-center">
       <div class="col-md-9 ftco-animate pb-5 text-center">
        <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="/">Shelters <i class="fa fa-chevron-right"></i></a></span> <span>Shelter Details <i class="fa fa-chevron-right"></i></span></p>
-       <h1 class="mb-0 bread">Shelter Details</h1>
+       <h1 class="mb-0 bread">{{user1.username}} Details</h1>
      </div>
    </div>
  </div>
@@ -26,9 +26,9 @@
    <div class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
     <div class="staff-2 w-100">
      <div class="img-wrap d-flex align-items-stretch">
-      <div class="img align-self-stretch d-flex align-items-end" style="background-image: url('../../static/accounts/images/animal_images/shiba.jpg');">
+      <div class="img align-self-stretch d-flex align-items-end" style="background-image: url('{{user1.shelter_profile_image.url}}');">
        <div class="text mb-4 text-md-center">
-        <h3>NYC Shiba Rescue</h3>
+        <h3>{{user1.username}}</h3>
         <div class="faded">
          <!-- <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p> -->
          <ul class="ftco-social">
@@ -48,9 +48,9 @@
   <div class="staff-detail w-100 pl-md-5">
    <h3>About</h3>
    <p>NYC Shiba Rescue, Inc. (NYCSR) is an all volunteer group dedicated to contributing to the quality of life of Shiba Inus in and around the New York City metropolitan area. To that end, NYCSR actively works to rescue Shiba Inus and Shiba Inu mixed breed dogs from dangerous environments and shelters in order to find them loving, permanent homes.
-   <h3>Shelter City:</h3><p>New York</p>
-   <h3>Shelter State:</h3><p>NY</p>
-   <h3>Contact email:</h3><p></p>
+   <h3>Shelter City:</h3><p>{{user1.shelter_city}}</p>
+   <h3>Shelter State: </h3><p>{{user1.shelter_state}}</p>
+   <h3>Contact email: </h3><p>{{user1.email}}</p>
  </div>
 </div>
 </div>
