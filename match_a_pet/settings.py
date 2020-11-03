@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_tables2",
-    "easy_maps",
 ]
 
 MIDDLEWARE = [
@@ -144,6 +143,3 @@ if "HEROKU" in os.environ:
     import django_heroku
 
     django_heroku.settings(locals())
-
-EASY_MAPS_GOOGLE_KEY = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ___0123456789'
-EASY_MAPS_CENTER = (-41.3, 32)
