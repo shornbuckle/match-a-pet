@@ -99,7 +99,7 @@ header ul li a:hover{
 }
 
 .text-box1{
-    margin-left: 400px;
+    margin-left: 100px;
     max-width: 400px;
     margin-top: 100px;
     background: transparent;
@@ -122,15 +122,13 @@ header ul li a:hover{
 
 .gallery-box1{
     max-width: 400px;
-    position: absolute;
+    position: relative;
     margin: auto;
 }
 
 .gallery-box1 img{
     margin-top: 120px;
-
-    width: 300px;
-    height: 300px;
+    width: 100%
 }
 
 .gallery-box1 ul{

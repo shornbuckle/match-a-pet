@@ -8,7 +8,7 @@ class BaseTest(TestCase):
     def setUp(self):
         self.register_url = reverse("accounts:register-shelter")
         self.dummy_user = ShelterRegisterData.objects.create(
-            shelter_id=5,
+            # shelter_id=5,
             username="peter7",
             email="peter@matchapet.com",
             first_name="Peter",
