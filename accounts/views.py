@@ -1,9 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.contrib import messages
 from .forms import ShelterRegistrationForm, ShelterUpdateForm, PetForm
 from django.contrib.auth.decorators import login_required
-
 from django.core.mail import send_mail
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
@@ -13,8 +12,9 @@ from django.contrib.auth import get_user_model
 from django.views import View
 from django.http import HttpResponse
 from django_tables2 import SingleTableView
-from .models import Pet
+from .models import Pet, ShelterRegisterData
 from .tables import PetTable
+from django.template import loader
 
 global form
 
@@ -71,7 +71,31 @@ def registerShelter(request):
 
 
 def registerUser(request):
-    return HttpResponse("You are now at the User Regitration.")
+    return HttpResponse("You are now at the User Registration.")
+
+
+def petProfile(request, pet_id):
+    pet = get_object_or_404(Pet, pet_id=pet_id)
+    context = {
+        "pet": pet,
+    }
+
+    template = loader.get_template("accounts/pet_profile.html")
+
+    return HttpResponse(template.render(context, request))
+
+
+def shelter_profile(request, username):
+    # user = ShelterRegisterData.objects.get(username=username)
+    user = get_object_or_404(ShelterRegisterData, username=username)
+    context = {
+        "user1": user,
+    }
+
+    template = loader.get_template("accounts/shelter_profile.html")
+
+    return HttpResponse(template.render(context, request))
+    # return render(request, 'accounts/shelter_profile.html', {'profile': user})
 
 
 def loginShelter(request):

@@ -138,6 +138,7 @@ EMAIL_HOST_USER = "nyu.match.a.pet@gmail.com"
 EMAIL_HOST_PASSWORD = "d3usexmachina"
 EMAIL_PORT = 587
 
+
 if "HEROKU" in os.environ:
     import django_heroku
 
