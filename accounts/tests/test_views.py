@@ -62,7 +62,7 @@ class TestViews(TestCase):
     def test_shelter_register_post_view(self):
         client = Client()
         self.dummy_user = ShelterRegisterData.objects.create(
-            shelter_id=5,
+            # shelter_id=5,
             username="peter7",
             email="peter@matchapet.com",
             first_name="Peter",
@@ -85,7 +85,7 @@ class TestViews(TestCase):
         client = Client()
         self.registerURL = reverse("accounts:register-shelter")
         self.dummy_user = ShelterRegisterData.objects.create(
-            shelter_id=5,
+            # shelter_id=5,
             username="peter7",
             email="peter@matchapet.com",
             first_name="Peter",
@@ -120,7 +120,7 @@ class TestViews(TestCase):
         client = Client()
         self.registerURL = reverse("accounts:shelter-profile")
         self.dummy_user = ShelterRegisterData.objects.create(
-            shelter_id=5,
+            # shelter_id=5,
             username="peter7",
             email="peter@matchapet.com",
             first_name="Peter",
@@ -130,7 +130,7 @@ class TestViews(TestCase):
             password="test123abc",
         )
 
-        shelterid = ShelterRegisterData.objects.get(shelter_id=5)
+        shelterid = ShelterRegisterData.objects.get(email="peter@matchapet.com")
 
         response = client.post(self.registerURL, {})
         self.assertEquals(response.status_code, 302)
@@ -148,24 +148,24 @@ class TestViews(TestCase):
             email="peter@matchapet.com",
         )
         self.dummy_pet = Pet.objects.create(
-            email=self.dummy_user,
-            pet_id="5",
+            id=self.dummy_user,
+            # pet_id="5",
             pet_name="Sheila",
             pet_breed="Dog",
             pet_age="4",
             pet_color="White",
             pet_gender="Female",
-            date_entered="12/1/2020",
+            # date_entered="12/1/2020",
         )
 
-        petid = Pet.objects.get(pet_id=5)
+        petid = Pet.objects.get(pet_name="Sheila")
         # shelterid = ShelterRegisterData.objects.get(shelter_id=5)
 
         response = client.post(reverse("accounts:pet-register"), {})
         self.assertEquals(response.status_code, 200)
-        self.assertEquals(str(petid.email), "peter@matchapet.com")
+        self.assertEquals(str(petid.id), "peter@matchapet.com")
         self.assertTemplateUsed(response, "accounts/pets.html")
-        self.assertEquals(str(self.dummy_pet.email), "peter@matchapet.com")
+        self.assertEquals(str(self.dummy_pet.id), "peter@matchapet.com")
 
     # def test_pet_register_post_view1(self):
     #     client = Client()

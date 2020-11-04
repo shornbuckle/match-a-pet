@@ -90,6 +90,17 @@ class PetForm(forms.ModelForm):
 
     # shelter_id = forms.CharField(disabled = True)
     # email = forms.CharField(disabled = True)
+    gender_choices = (("Male", "Male"), ("Female", "Female"))
+    age_choices = (
+        ("Baby", "Baby"),
+        ("Young", "Young"),
+        ("Adult", "Adult"),
+        ("Senior", "Senior"),
+    )
+
+    pet_age = forms.ChoiceField(choices=age_choices)
+    pet_gender = forms.ChoiceField(choices=gender_choices)
+
     class Meta:
         model = Pet
         fields = [
@@ -98,7 +109,7 @@ class PetForm(forms.ModelForm):
             "pet_age",
             "pet_color",
             "pet_gender",
-            "date_entered",
+            # "date_entered",
             "pet_profile_image1",
             "pet_profile_image2",
             "pet_profile_image3",

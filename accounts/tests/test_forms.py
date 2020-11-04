@@ -213,10 +213,10 @@ class TestForms(SimpleTestCase):
             data={
                 "pet_name": "Sheila",
                 "pet_breed": "Dog",
-                "pet_age": "4",
+                "pet_age": "Baby",
                 "pet_color": "White",
                 "pet_gender": "Female",
-                "date_entered": "12/1/2020",
+                # "date_entered": "12/1/2020",
             }
         )
 
@@ -226,7 +226,7 @@ class TestForms(SimpleTestCase):
         form = PetForm(data={})
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 6)
+        self.assertEquals(len(form.errors), 5)
 
     def test_PetForm_invalid_data(self):
         form = PetForm(
@@ -276,7 +276,7 @@ class TestForms(SimpleTestCase):
         )
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 4)
+        self.assertEquals(len(form.errors), 3)
 
     def test_PetForm_invalid_data4(self):
         form = PetForm(
@@ -286,7 +286,7 @@ class TestForms(SimpleTestCase):
         )
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 5)
+        self.assertEquals(len(form.errors), 4)
 
 
 # ******
