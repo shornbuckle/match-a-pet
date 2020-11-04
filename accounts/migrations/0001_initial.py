@@ -9,45 +9,89 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='ShelterRegisterData',
+            name="ShelterRegisterData",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('password', models.CharField(max_length=128, verbose_name='password')),
-                ('email', models.EmailField(max_length=60, unique=True, verbose_name='email')),
-                ('username', models.CharField(max_length=30, unique=True)),
-                ('shelter_city', models.CharField(max_length=50)),
-                ('shelter_state', models.CharField(max_length=50)),
-                ('first_name', models.CharField(max_length=50)),
-                ('last_name', models.CharField(max_length=50)),
-                ('shelter_profile_image', models.ImageField(blank=True, default='default.jpg', upload_to='shelter_profile_pics')),
-                ('date_joined', models.DateTimeField(auto_now_add=True, verbose_name='date joined')),
-                ('last_login', models.DateTimeField(auto_now=True, verbose_name='last login')),
-                ('is_admin', models.BooleanField(default=False)),
-                ('is_active', models.BooleanField(default=True)),
-                ('is_staff', models.BooleanField(default=False)),
-                ('is_superuser', models.BooleanField(default=False)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("password", models.CharField(max_length=128, verbose_name="password")),
+                (
+                    "email",
+                    models.EmailField(max_length=60, unique=True, verbose_name="email"),
+                ),
+                ("username", models.CharField(max_length=30, unique=True)),
+                ("shelter_city", models.CharField(max_length=50)),
+                ("shelter_state", models.CharField(max_length=50)),
+                ("first_name", models.CharField(max_length=50)),
+                ("last_name", models.CharField(max_length=50)),
+                (
+                    "shelter_profile_image",
+                    models.ImageField(
+                        blank=True,
+                        default="default.jpg",
+                        upload_to="shelter_profile_pics",
+                    ),
+                ),
+                (
+                    "date_joined",
+                    models.DateTimeField(auto_now_add=True, verbose_name="date joined"),
+                ),
+                (
+                    "last_login",
+                    models.DateTimeField(auto_now=True, verbose_name="last login"),
+                ),
+                ("is_admin", models.BooleanField(default=False)),
+                ("is_active", models.BooleanField(default=True)),
+                ("is_staff", models.BooleanField(default=False)),
+                ("is_superuser", models.BooleanField(default=False)),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='Pet',
+            name="Pet",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('pet_id', models.CharField(max_length=50, unique=True)),
-                ('pet_name', models.CharField(max_length=80)),
-                ('pet_breed', models.CharField(max_length=50)),
-                ('pet_age', models.CharField(max_length=3)),
-                ('pet_color', models.CharField(max_length=50)),
-                ('pet_gender', models.CharField(max_length=50)),
-                ('pet_image_url', models.URLField(blank=True, default='https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48212723/1/?bust=1592050579&width=450', max_length=250)),
-                ('email', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("pet_id", models.CharField(max_length=50, unique=True)),
+                ("pet_name", models.CharField(max_length=80)),
+                ("pet_breed", models.CharField(max_length=50)),
+                ("pet_age", models.CharField(max_length=3)),
+                ("pet_color", models.CharField(max_length=50)),
+                ("pet_gender", models.CharField(max_length=50)),
+                (
+                    "pet_image_url",
+                    models.URLField(
+                        blank=True,
+                        default="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48212723/1/?bust=1592050579&width=450",
+                        max_length=250,
+                    ),
+                ),
+                (
+                    "email",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

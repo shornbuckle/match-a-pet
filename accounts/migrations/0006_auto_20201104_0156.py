@@ -6,23 +6,29 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('accounts', '0005_auto_20201104_0133'),
+        ("accounts", "0005_auto_20201104_0133"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='pet',
-            name='pet_profile_image1',
-            field=models.ImageField(blank=True, default='default.jpg', upload_to='pet_profile_pics'),
+            model_name="pet",
+            name="pet_profile_image1",
+            field=models.ImageField(
+                blank=True, default="default.jpg", upload_to="pet_profile_pics"
+            ),
         ),
         migrations.AddField(
-            model_name='pet',
-            name='pet_profile_image2',
-            field=models.ImageField(blank=True, default='default.jpg', upload_to='pet_profile_pics'),
+            model_name="pet",
+            name="pet_profile_image2",
+            field=models.ImageField(
+                blank=True, default="default.jpg", upload_to="pet_profile_pics"
+            ),
         ),
         migrations.AddField(
-            model_name='pet',
-            name='pet_profile_image3',
-            field=models.ImageField(blank=True, default='default.jpg', upload_to='pet_profile_pics'),
+            model_name="pet",
+            name="pet_profile_image3",
+            field=models.ImageField(
+                blank=True, default="default.jpg", upload_to="pet_profile_pics"
+            ),
         ),
     ]

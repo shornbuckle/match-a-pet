@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
 from .models import ShelterRegisterData, Pet
 from import_export.admin import ImportExportModelAdmin
 
@@ -36,6 +35,7 @@ admin.site.site_header = "Math-A-Pet Admin Page"
 # admin.site.register(ShelterRegisterData, RegisterShelterAdmin)
 
 # admin.site.register(Pet)
+
 
 @admin.register(Pet, ShelterRegisterData)
 class ViewAdmin(ImportExportModelAdmin):

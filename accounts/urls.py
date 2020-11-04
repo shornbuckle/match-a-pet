@@ -28,7 +28,7 @@ urlpatterns = [
     path("activate/<uidb64>/<token>", VerificationView.as_view(), name="activate"),
     path("pets/view_pets/", PetListView.as_view(), name="view-pets"),
     path("pets/<id>/", views.petProfile, name="pet-profile"),
-    path("profile/<username>/", views.shelter_profile, name="shelterprofile")
+    path("profile/<username>/", views.shelter_profile, name="shelterprofile"),
 ]
 
 if settings.DEBUG:

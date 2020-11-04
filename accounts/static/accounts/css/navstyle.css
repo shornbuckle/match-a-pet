@@ -1,5 +1,6 @@
 *{
-    box-sizing: border-box
+    box-sizing: border-box;
+
 }
 
 body1{
@@ -7,16 +8,18 @@ body1{
     margin: 0px;
     background: #f9faff;
     font-family: 'Lora', serif;
-}
 
+}
 
 header{
     background: #f9faff;
     height: 73px;
+
 }
 
 header *{
     color: #1c2a38;
+
 }
 
 header .logo{
@@ -34,6 +37,8 @@ header .logo-text span{
 }
 
 header ul{
+    position: absolute;
+    left: 50%;
     margin: 0px;
     padding: 0px;
     list-style: none;
@@ -74,9 +79,7 @@ header ul li a{
 }
 
 header ul li a:hover{
-
     text-decoration: underline;
-
 }
 
 .row1{
@@ -172,3 +175,4 @@ header ul li a:hover{
     left: 58%;
     opacity: 10%;
     transform: translate(-50%,-50%);
+}
