@@ -44,6 +44,7 @@ class PetRegisterAdmin(admin.ModelAdmin):
         "pet_color",
         "pet_gender",
         "date_entered",
+        "pet_id",
     )
     search_fields = (
         "pet_name",

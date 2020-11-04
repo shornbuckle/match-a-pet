@@ -4,7 +4,7 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
- :root {
+:root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -48,15 +48,6 @@ html {
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block; }
-
-.cell{
-    width: 33%;
-    height: 400px;
-    display: inline-block;
-    margin: 0 15px;
-    border
-    overflow: hidden
-}
 
 body {
   margin: 0;
@@ -144,8 +135,7 @@ sup {
 a {
   color: #007bff;
   text-decoration: none;
-  background-color: transparent;
-  }
+  background-color: transparent; }
   a:hover {
     color: #0056b3;
     text-decoration: underline; }
@@ -322,6 +312,7 @@ h3, .h3 {
   font-size: 1.75rem; }
 
 h4, .h4 {
+
   font-size: 1.5rem; }
 
 h5, .h5 {
@@ -2207,11 +2198,7 @@ textarea.form-control {
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
-  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out; }
+  }
   @media (prefers-reduced-motion: reduce) {
     .btn {
       -webkit-transition: none;
@@ -2222,8 +2209,7 @@ textarea.form-control {
     text-decoration: none; }
   .btn:focus, .btn.focus {
     outline: 0;
-    -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
+ }
   .btn.disabled, .btn:disabled {
     opacity: 0.65; }
   .btn:not(:disabled):not(.disabled) {
@@ -2235,31 +2221,23 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff; }
+
+ }
   .btn-primary:hover {
     color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc; }
+
+ }
   .btn-primary:focus, .btn-primary.focus {
     color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc;
-    -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); }
+     }
   .btn-primary.disabled, .btn-primary:disabled {
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff; }
+  }
   .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
   .show > .btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: #0062cc;
-    border-color: #005cbf; }
-    .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
-    .show > .btn-primary.dropdown-toggle:focus {
-      -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-      box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); }
+    ;
+    }
 
 .btn-secondary {
   color: #fff;
@@ -3618,7 +3596,6 @@ input[type="button"].btn-block {
   display: block; }
 
 .navbar {
-
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3673,7 +3650,7 @@ input[type="button"].btn-block {
     padding-left: 0; }
   .navbar-nav .dropdown-menu {
     position: static;
-    float: left; }
+    float: none; }
 
 .navbar-text {
   display: inline-block;
@@ -3929,8 +3906,7 @@ input[type="button"].btn-block {
       color: rgba(0, 0, 0, 0.9); }
 
 .navbar-dark .navbar-brand {
-  color: 89c1af;
-  }
+  color: #fff; }
   .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
     color: #fff; }
 
@@ -6845,8 +6821,7 @@ button.bg-dark:focus {
 
 .mb-4,
 .my-4 {
-  margin-bottom: 5rem !important;
-  }
+  margin-bottom: 1.5rem !important; }
 
 .ml-4,
 .mx-4 {
@@ -8358,12 +8333,11 @@ a.text-dark:hover, a.text-dark:focus {
 
 body {
   font-family: "Poppins", Arial, sans-serif;
-  background: #f9faff;
+  background: #fff;
   font-size: 16px;
   line-height: 1.8;
   font-weight: 400;
-  color: #999999;
-  }
+  color: #999999; }
   body.menu-show {
     overflow: hidden;
     position: fixed;
@@ -8383,7 +8357,6 @@ a {
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
   line-height: 1.5;
-  color: rgba(0, 0, 0, 0.8);
   font-weight: 400;
   font-family: "Poppins", Arial, sans-serif; }
 
@@ -8391,13 +8364,12 @@ h1, h2, h3, h4, h5,
   color: #4986fc !important; }
 
 .ftco-navbar-light {
-  background: #fff !important;
-  position: relative;
+  background: transparent !important;
+  position: absolute;
   top: -8px;
   left: 0;
   right: 0;
-  z-index: 3;
-  }
+  z-index: 3; }
   @media (max-width: 991.98px) {
     .ftco-navbar-light {
       background: #000000 !important;
@@ -8410,7 +8382,7 @@ h1, h2, h3, h4, h5,
     margin: 0 auto;
     padding: 0; }
   .ftco-navbar-light .navbar-brand {
-    color: #1c2a38;
+    color: #fff;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem; }
     @media (max-width: 991.98px) {
@@ -8428,15 +8400,14 @@ h1, h2, h3, h4, h5,
         padding-bottom: 20px;
         margin-right: 0; } }
     .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
-      font-size: 20px;
+      font-size: 15px;
       padding-top: 1.5rem;
       padding-bottom: 1.5rem;
       padding-left: 20px;
       padding-right: 20px;
-      color: #1c2a38;
+      color: #fff;
       font-weight: 500;
-      opacity: 1 !important;
-      }
+      opacity: 1 !important; }
       .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover, .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:focus {
         color: #fff; }
       @media (max-width: 991.98px) {
@@ -8576,24 +8547,22 @@ h1, h2, h3, h4, h5,
       -o-transition: .3s all ease-out;
       transition: .3s all ease-out; }
     .ftco-navbar-light.scrolled .navbar-brand {
-      color: #1c2a38;
+      color: #fff;
       padding-top: 1rem;
       padding-bottom: 1rem;
-      padding-left: 20px;
-      }
+      padding-left: 20px; }
       @media (max-width: 991.98px) {
         .ftco-navbar-light.scrolled .navbar-brand {
           color: #000000; } }
 
 .navbar-brand {
-  font-weight: 550;
-  font-size: 40px;
+  font-weight: 700;
+  font-size: 24px;
   line-height: 1.2;
   background: #4986fc;
   padding: 0 20px;
-  background: #fff;
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ce4be8', endColorstr='#207ce5', GradientType=1 );
-  }
+  background: #ce4be8;
+ }
 
 .hero-wrap {
   width: 100%;
@@ -8610,17 +8579,9 @@ h1, h2, h3, h4, h5,
     right: 0;
     bottom: 0;
     content: '';
-    opacity: .5;
-    background: rgba(32, 124, 229, 0);
-    background: -moz-linear-gradient(45deg, rgba(32, 124, 229, 0) 0%, rgba(146, 95, 206, 0) 55%, #f048bb 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(32, 124, 229, 0)), color-stop(55%, rgba(146, 95, 206, 0)), color-stop(100%, #f048bb));
-    background: -webkit-linear-gradient(45deg, rgba(32, 124, 229, 0) 0%, rgba(146, 95, 206, 0) 55%, #f048bb 100%);
-    background: -o-linear-gradient(45deg, rgba(32, 124, 229, 0) 0%, rgba(146, 95, 206, 0) 55%, #f048bb 100%);
-    background: -ms-linear-gradient(45deg, rgba(32, 124, 229, 0) 0%, rgba(146, 95, 206, 0) 55%, #f048bb 100%);
-    background: linear-gradient(45deg, rgba(32, 124, 229, 0) 0%, rgba(146, 95, 206, 0) 55%, #f048bb 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207ce5', endColorstr='#f048bb', GradientType=1 ); }
+    opacity: .5;}
   .hero-wrap.hero-wrap-2 {
-    height: 600px;
+    height: 100px;
     position: relative;
     background-size: cover;
     background-repeat: no-repeat;
@@ -8628,29 +8589,22 @@ h1, h2, h3, h4, h5,
     .hero-wrap.hero-wrap-2 .overlay {
       width: 100%;
       opacity: .3;
-      background: #ce4be8;
-      background: -moz-linear-gradient(-45deg, #ce4be8 0%, #207ce5 100%);
-      background: -webkit-gradient(left top, right bottom, color-stop(0%, #ce4be8), color-stop(100%, #207ce5));
-      background: -webkit-linear-gradient(-45deg, #ce4be8 0%, #207ce5 100%);
-      background: -o-linear-gradient(-45deg, #ce4be8 0%, #207ce5 100%);
-      background: -ms-linear-gradient(-45deg, #ce4be8 0%, #207ce5 100%);
-      background: -webkit-linear-gradient(315deg, #ce4be8 0%, #207ce5 100%);
-      background: -o-linear-gradient(315deg, #ce4be8 0%, #207ce5 100%);
-      background: linear-gradient(135deg, #ce4be8 0%, #207ce5 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ce4be8', endColorstr='#207ce5', GradientType=1 ); }
+      background: #89c1af;
+
+}
     .hero-wrap.hero-wrap-2 .slider-text {
-      height: 600px; }
+      height: 100px; }
 
 .slider-text {
   position: relative; }
   .slider-text .subheading {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
+    color: #1c2a38;
     font-weight: 700;
     text-transform: uppercase; }
   .slider-text h1 {
     font-size: 50px;
-    color: #fff;
+    color: #1c2a38;
     line-height: 1.2;
     font-weight: 700; }
     @media (max-width: 991.98px) {
@@ -8677,11 +8631,11 @@ h1, h2, h3, h4, h5,
     z-index: 99;
     font-weight: 400; }
     .slider-text .breadcrumbs span {
-      color: rgba(255, 255, 255, 0.8); }
+      color: #1c2a38; }
       .slider-text .breadcrumbs span i {
-        color: rgba(255, 255, 255, 0.8); }
+        color: #1c2a38; }
       .slider-text .breadcrumbs span a {
-        color: white; }
+        color: #1c2a38; }
         .slider-text .breadcrumbs span a:hover, .slider-text .breadcrumbs span a:focus {
           color: #4986fc; }
           .slider-text .breadcrumbs span a:hover i, .slider-text .breadcrumbs span a:focus i {
@@ -8782,7 +8736,7 @@ h1, h2, h3, h4, h5,
     height: inherit !important; }
 
 .bg-light {
-  background: #fafbff !important; }
+  background: #f9faff !important; }
 
 .bg-primary {
   background: #4986fc; }
@@ -8800,13 +8754,13 @@ h1, h2, h3, h4, h5,
     outline: none; }
   .btn.btn-primary {
     background: #e38fac !important;
-    border: 1px solid #e38fac !important;
     color: #fff !important;
-    }
+    margin-bottom: 10px;
+  }
     .btn.btn-primary:hover {
-      border: 1px solid #4986fc;
+
       background: transparent;
-      color: #4986fc; }
+      }
     .btn.btn-primary.btn-outline-primary {
       border: 1px solid #4986fc;
       background: transparent;
@@ -9207,7 +9161,7 @@ textarea.form-control {
   -ms-transition: all 0.3s ease;
   transition: all 0.3s ease; }
   .staff-2 .img-wrap {
-    height: 420px;
+    height: 480px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
@@ -9220,7 +9174,9 @@ textarea.form-control {
     -o-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
-    transition: all 0.3s ease; }
+    transition: all 0.3s ease;
+
+  }
   .staff-2 .text {
     position: relative;
     padding: 20px;
@@ -9292,8 +9248,7 @@ textarea.form-control {
 .ftco-intro {
   color: #1c2a38;
   z-index: 0;
-  overflow: hidden;
-  }
+  overflow: hidden; }
   .ftco-intro .img {
     padding: 3em;
     position: relative;
@@ -9311,8 +9266,7 @@ textarea.form-control {
       content: '';
       opacity: .6;
       background: #f9faff;
-      z-index: -1;
-      }
+      z-index: -1; }
   @media (max-width: 991.98px) {
     .ftco-intro {
       background-position: center center !important; } }
@@ -9320,8 +9274,7 @@ textarea.form-control {
     color: #1c2a38;
     font-size: 24px;
     font-weight: 700;
-    text-transform: uppercase;
-    }
+    text-transform: uppercase; }
     @media (max-width: 767.98px) {
       .ftco-intro h2 {
         font-size: 20px; } }
@@ -9332,9 +9285,7 @@ textarea.form-control {
   font-size: 16px;
   padding: 7em 0;
   z-index: 0;
-  background: #f9faff;
-
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ce4be8', endColorstr='#207ce5', GradientType=1 ); }
+ }
   .ftco-footer .ftco-footer-logo {
     text-transform: uppercase;
     letter-spacing: .1em; }
@@ -9345,21 +9296,19 @@ textarea.form-control {
     font-size: 18px;
     font-weight: 600; }
   .ftco-footer .ftco-footer-widget ul li a {
-    color: rgba(255, 255, 255, 0.8); }
+    color: #1c2a38; }
     .ftco-footer .ftco-footer-widget ul li a span {
-      color: rgba(255, 255, 255, 0.1); }
+      color: #1c2a38; }
   .ftco-footer .ftco-footer-widget .btn-primary {
-    background: #fff !important;
+    background: #1c2a38 !important;
     border: 2px solid #fff !important; }
     .ftco-footer .ftco-footer-widget .btn-primary:hover {
-      background: #fff;
+      background: #1c2a38;
       border: 2px solid #fff !important; }
   .ftco-footer p {
-    color: #89c1af;
-    }
+    color: #1c2a38; }
   .ftco-footer a {
-    color: #89c1af;
-    }
+    color: #1c2a38; }
     .ftco-footer a:hover {
       color: #4986fc; }
   .ftco-footer .ftco-heading-2 {
@@ -9379,8 +9328,7 @@ textarea.form-control {
     color: #fff;
     border-radius: 50%;
     position: relative;
-    background: #21dede;
-    }
+    background: #24d2c8; }
     .ftco-footer-social li a span {
       position: absolute;
       font-size: 18px;
@@ -9389,7 +9337,7 @@ textarea.form-control {
       -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
-      color: #fff !important; }
+      color: #1c2a38 !important; }
     .ftco-footer-social li a:hover {
       color: #4986fc; }
 
@@ -9433,9 +9381,7 @@ textarea.form-control {
 .heading-section h2 {
   font-size: 34px;
   font-weight: 600;
-  line-height: 1.4;
-  text-align: end;
-  }
+  line-height: 1.4; }
   .heading-section h2 span {
     font-weight: 400; }
   @media (max-width: 767.98px) {
@@ -9455,6 +9401,11 @@ textarea.form-control {
 .img,
 .blog-img,
 .user-img {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center; }
+
+.footerimg{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center; }
@@ -9619,10 +9570,9 @@ textarea.form-control {
     content: '';
     z-index: -1;
     opacity: .8;
-    background: #000000;
     background: #f9faff;
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ce4be8', endColorstr='#207ce5', GradientType=1 );
-    }
+
+ }
 
 @media (max-width: 1199.98px) {
   .ftco-counter {
@@ -9639,8 +9589,7 @@ textarea.form-control {
 .ftco-counter .text strong.number {
   font-weight: 700;
   font-size: 32px;
-  color: #1c2a38;
-  }
+  color: #1c2a38; }
 
 .ftco-counter .text span {
   display: block;
@@ -9648,8 +9597,7 @@ textarea.form-control {
   color: #1c2a38;
   line-height: 1;
   text-transform: uppercase;
-  font-weight: 600;
-  }
+  font-weight: 600; }
 
 .ftco-counter .icon {
   width: 70px;
@@ -9660,9 +9608,8 @@ textarea.form-control {
   -ms-border-radius: 50%;
   border-radius: 50%; }
   .ftco-counter .icon span {
-    color: #1c2a38;
-    font-size: 48px;
-    }
+   color: #1c2a38;;
+    font-size: 48px; }
 
 @media (max-width: 767.98px) {
   .ftco-counter .counter-wrap {
@@ -9725,8 +9672,7 @@ textarea.form-control {
   .block-23 ul li .icon, .block-23 ul li .text {
     display: table-cell;
     vertical-align: top;
-    color: #89c1af !important;
-    }
+    color: #1c2a38 !important; }
   .block-23 ul li .icon {
     width: 40px;
     font-size: 18px;
@@ -9752,15 +9698,7 @@ textarea.form-control {
     .block-27 ul li.active a, .block-27 ul li.active span, .block-27 ul li:hover a, .block-27 ul li:hover span {
       background: #4986fc;
       background: #ce4be8;
-      background: -moz-linear-gradient(-45deg, #ce4be8 0%, #207ce5 100%);
-      background: -webkit-gradient(left top, right bottom, color-stop(0%, #ce4be8), color-stop(100%, #207ce5));
-      background: -webkit-linear-gradient(-45deg, #ce4be8 0%, #207ce5 100%);
-      background: -o-linear-gradient(-45deg, #ce4be8 0%, #207ce5 100%);
-      background: -ms-linear-gradient(-45deg, #ce4be8 0%, #207ce5 100%);
-      background: -webkit-linear-gradient(315deg, #ce4be8 0%, #207ce5 100%);
-      background: -o-linear-gradient(315deg, #ce4be8 0%, #207ce5 100%);
-      background: linear-gradient(135deg, #ce4be8 0%, #207ce5 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ce4be8', endColorstr='#207ce5', GradientType=1 );
+
       color: #fff;
       border: 1px solid transparent; }
 
