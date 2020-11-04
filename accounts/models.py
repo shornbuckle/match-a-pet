@@ -73,9 +73,9 @@ class ShelterRegisterData(AbstractBaseUser):
 
     # l_choices = (('1','New York'), ('2','California'))
 
-    shelter_id = models.AutoField(primary_key=True)
+    # shelter_id = models.AutoField(primary_key=True)
     email = models.EmailField(verbose_name="email", max_length=60, unique=True)
-    username = models.CharField(max_length=30, unique=True)
+    username = models.CharField(max_length=30)
     # shelter_name = models.CharField(max_length=80)
     # shelter_address = models.CharField(max_length=200)
     shelter_city = models.CharField(max_length=50)
@@ -125,17 +125,25 @@ class ShelterRegisterData(AbstractBaseUser):
 
 
 class Pet(models.Model):
-    email = models.ForeignKey(ShelterRegisterData, on_delete=models.CASCADE)
+    # email = models.ForeignKey(ShelterRegisterData, on_delete=models.CASCADE, primary_key=True)
+    id = models.ForeignKey(
+        ShelterRegisterData, on_delete=models.CASCADE, primary_key=True
+    )
     # shelter_id = models.ForeignKey(ShelterRegisterData, on_delete=models.CASCADE)
-    pet_id = models.AutoField(primary_key=True)
+    # pet_id = models.AutoField(primary_key=True)
     pet_name = models.CharField(max_length=80)
     pet_breed = models.CharField(max_length=50)
-    pet_age = models.CharField(max_length=3)
+    pet_age = models.CharField(max_length=10)
     pet_color = models.CharField(max_length=50)
     pet_gender = models.CharField(max_length=50)
-    date_entered = models.CharField(max_length=50)
+    # date_entered = models.CharField(max_length=50)
     pet_profile_image1 = models.ImageField(
         default="default.jpg", upload_to="pet_profile_pics", blank=True
+    )
+    pet_image_url = models.URLField(
+        max_length=250,
+        blank=True,
+        default="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48212723/1/?bust=1592050579&width=450",
     )
     pet_profile_image2 = models.ImageField(
         default="default.jpg", upload_to="pet_profile_pics", blank=True
