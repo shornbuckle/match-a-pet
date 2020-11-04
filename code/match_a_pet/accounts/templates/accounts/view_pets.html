@@ -1,0 +1,17 @@
+{% extends 'accounts/base.html' %}
+
+{% block body %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% load render_table from django_tables2 %}
+  {% render_table table %}
+    
+
+{% endblock %}
