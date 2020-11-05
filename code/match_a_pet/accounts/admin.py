@@ -7,12 +7,13 @@ from .models import User, ClientUser, ShelterUser, Pet
 # Register your models here.
 
 admin.site.register(User)
-
+admin.site.register(ShelterUser)
+admin.site.register(ClientUser)
 
 admin.site.site_header = "Math-A-Pet Admin Page"
 
 """
-class RegisterShelterAdmin(UserAdmin):
+class ShelterUserAdmin(UserAdmin):
     list_display = (
         "email",
         "username",
@@ -37,7 +38,7 @@ class RegisterShelterAdmin(UserAdmin):
     fieldsets = ()
 
 
-admin.site.register(ShelterRegisterData, RegisterShelterAdmin)
+admin.site.register(ShelterUser, ShelterUserAdmin)
 """
 """
 class PetRegisterAdmin(admin.ModelAdmin):

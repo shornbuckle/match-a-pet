@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/match_a_pet/accounts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/match_a_pet/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/match_a_pet/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/match_a_pet/accounts/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +104,7 @@
       <option name="presentableId" value="Default" />
       <updated>1602453371459</updated>
       <workItem from="1604028228777" duration="3562000" />
-      <workItem from="1604251148204" duration="30718000" />
+      <workItem from="1604251148204" duration="41209000" />
     </task>
     <task id="LOCAL-00001" summary="Attempting to split the user model in two. Created new choice when logging in. Still did not get it to fully work. Getting error &quot;no such table accounts_user&quot;">
       <created>1604271475422</created>
@@ -139,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604380802941</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added to the forms to get allow for more information to be input">
+      <created>1604382172802</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1604382172802</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,7 +171,8 @@
     <MESSAGE value="Attempting to split the user model in two. Created new choice when logging in. Still did not get it to fully work. Getting error &quot;no such table accounts_user&quot;" />
     <MESSAGE value="Trying to get the new user types to save in database" />
     <MESSAGE value="Got the two user types to work. Still a lot of do to add fields but it is working now! Verified by checking Admin page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Got the two user types to work. Still a lot of do to add fields but it is working now! Verified by checking Admin page." />
+    <MESSAGE value="Added to the forms to get allow for more information to be input" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added to the forms to get allow for more information to be input" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser" />

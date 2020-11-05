@@ -12,7 +12,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
-from .models import User
+from .models import User, ClientUser, ShelterUser
 
 class ClientUserSignUpForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
@@ -68,7 +68,7 @@ class ShelterUserSignUpForm(UserCreationForm):
     email = forms.EmailField(required=True)
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
-    shelter_city = forms.ChoiceField(choices=ny_choices)
+    shelter_city = forms.CharField(required=True)
     shelter_state = forms.ChoiceField(choices=l_choices)
 
     class Meta:
@@ -87,16 +87,23 @@ class ShelterUserSignUpForm(UserCreationForm):
             "username": ("Shelter name can contain Letters, digits and @/./+/-/_ only.")
         }
 
-    #class Meta(UserCreationForm.Meta):
-     #   model = User
+    def save(self):
+        user = super().save(commit=False)
+        user.is_ShelterUser = True
+        ShelterUser.shelter_city = 'shelter_city'
+        user.save()
+        shelteruser = ShelterUser.objects.create(user=user)
 
+        return user
+
+"""
     def save(self, commit=True):
         user = super().save(commit=False)
         user.is_ShelterUser = True
         if commit:
             user.save()
         return user
-
+"""
 #above are sean testing
 """
 class ShelterRegistrationForm(UserCreationForm):
