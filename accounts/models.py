@@ -61,6 +61,9 @@ class UserRegisterData(models.Model):
             img.save(self.user_profile_image.path)
 
 
+# Pet has fields id, pet_age, pet_breed, pet_color, pet_gender, pet_image_url,
+# pet_name, pet_profile_image1, pet_profile_image2, pet_profile_image3,
+# shelterRegisterData, shelterRegisterData_id
 class Pet(models.Model):
     shelterRegisterData = models.ForeignKey(
         ShelterRegisterData, null=True, on_delete=models.CASCADE, related_name="pet"
