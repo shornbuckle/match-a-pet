@@ -1,5 +1,13 @@
 from django.test import SimpleTestCase, TestCase
-from accounts.forms import ShelterRegistrationForm, ShelterUserUpdateForm, ShelterUpdateForm, PetForm, UserRegistrationForm, ClientUserUpdateForm, ClientUpdateForm
+from accounts.forms import (
+    ShelterRegistrationForm,
+    ShelterUserUpdateForm,
+    ShelterUpdateForm,
+    PetForm,
+    UserRegistrationForm,
+    ClientUserUpdateForm,
+    ClientUpdateForm,
+)
 
 
 class DefaultTestFroms(TestCase):
@@ -129,7 +137,6 @@ class DefaultTestFroms(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEquals(len(form.errors), 9)
 
-
     # ** Testing ShelterUserUpdateForm
     def test_ShelterUserUpdateForm_valid(self):
         form = ShelterUserUpdateForm(
@@ -213,17 +220,11 @@ class DefaultTestFroms(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEquals(len(form.errors), 4)
 
-
     # ** Testing ShelterUpdateForm
     def test_ShelterUpdateForm_valid(self):
-        form = ShelterUpdateForm(
-            data={
-                "shelter_profile_image": "default.jpg"
-            }
-        )
+        form = ShelterUpdateForm(data={"shelter_profile_image": "default.jpg"})
 
         self.assertTrue(form.is_valid())
-
 
     # ** Testing UserRegistrationForm
     def test_UserRegistrationForm_valid(self):
@@ -351,7 +352,6 @@ class DefaultTestFroms(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEquals(len(form.errors), 9)
 
-
     # ** Testing ClientUserUpdateForm
     def test_ClientUserUpdateForm_valid(self):
         form = ClientUserUpdateForm(
@@ -435,18 +435,11 @@ class DefaultTestFroms(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEquals(len(form.errors), 4)
 
-
     # ** Testing ClientUpdateForm
     def test_ClientUpdateForm_valid(self):
-        form = ClientUpdateForm(
-            data={
-                "user_profile_image": "default.jpg"
-            }
-        )
+        form = ClientUpdateForm(data={"user_profile_image": "default.jpg"})
 
         self.assertTrue(form.is_valid())
-
-
 
 
 class TestForms(SimpleTestCase):
