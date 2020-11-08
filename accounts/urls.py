@@ -2,8 +2,6 @@ from django.urls import path
 from . import views
 from .views import PetListView
 from django.contrib.auth import views as auth_views
-from django.conf import settings
-from django.conf.urls.static import static
 from .views import VerificationView
 
 app_name = "accounts"
@@ -29,6 +27,3 @@ urlpatterns = [
     path("pets/<id>/", views.petProfile, name="pet-profile"),
     path("profile/<username>/", views.shelter_profile, name="shelterprofile"),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
