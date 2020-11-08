@@ -1,0 +1,30 @@
+{% extends 'accounts/base.html' %}
+
+{% block body %}
+
+
+<!-- **FORMS** -->
+
+{% if messages %}
+  {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">
+          {{ message }}
+      </div>
+  {% endfor %}
+{% endif %}
+
+  <!-- Shelter Registration: Math-A-Pet -->
+      <h2 class="ml-5">You have been successfully logged out!</h2>
+      <div class="border-top pt-3">
+          <small class="text-muted">
+            <a class="ml-5" href="/login/shelter">Log In Again?</a>
+          </small>
+      </div>
+
+
+  <!-- **FORMS END** -->
+
+
+
+
+{% endblock %}

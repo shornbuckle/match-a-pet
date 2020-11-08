@@ -1,0 +1,176 @@
+*{
+    box-sizing: border-box;
+
+}
+
+body1{
+    padding: 0px;
+    margin: 0px;
+    background: #f9faff;
+    font-family: 'Lora', serif;
+
+}
+
+header{
+    background: #f9faff;
+    height: 73px;
+
+}
+
+header *{
+    color: #1c2a38;
+
+}
+
+header .logo{
+    position: absolute;
+    left: 35%;
+    transform: translatex(-50%);
+}
+
+header .logo-text{
+    margin: 7px;
+    font-family:'Grandstander',cursive;
+}
+header .logo-text span{
+    color: #89c1af;
+}
+
+header ul{
+    position: absolute;
+    left: 50%;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+header ul li{
+    float: left;
+    position: relative;
+}
+
+header ul li ul{
+    position: absolute;
+    top: 66px;
+    right: 0px;
+    width: 180px;
+    display: none;
+}
+
+header ul li:hover ul {
+    display: block;
+}
+header ul li ul li{
+    z-index: 999;
+    width: 100%;
+}
+
+header ul li ul li a{
+    padding: 10px;
+    background: white;
+    color: #444;
+}
+
+header ul li a{
+    display: block;
+    padding: 21px;
+    font-size: 1.1em;
+    text-decoration: none;
+}
+
+header ul li a:hover{
+    text-decoration: underline;
+}
+
+.row1{
+    width: 80%;
+    min-height: 85vh;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col1{
+    margin: 20px 0;
+    flex-basis: 50%;
+    min-width: 300px;
+    height: 100%;
+    position: relative;
+}
+
+.text-box1{
+    margin-left: 100px;
+    max-width: 400px;
+    margin-top: 100px;
+    background: transparent;
+    border-radius: 25px;
+    border: 1px solid #d2d1d3;
+    padding: 25px 15px 20px;
+    position: relative;
+}
+
+.text-box1 h1{
+    color: #89c1af;
+}
+
+.text-box1 h5{
+    line-height: 65px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #5c8464
+}
+
+.gallery-box1{
+    max-width: 400px;
+    position: relative;
+    margin: auto;
+}
+
+.gallery-box1 img{
+    margin-top: 120px;
+    width: 100%
+}
+
+.gallery-box1 ul{
+    position: absolute;
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.gallery-box1 ul li{
+    list-style: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    position: relative;
+}
+
+.gallery-box1 .active{
+    color: #e38fac;
+}
+
+.gallery-box1 ul li::after{
+    content: '';
+    width: 30px;
+    height: 2px;
+    background: transparent;
+    position: absolute;
+    top: 14px;
+    left: -5px;
+}
+
+.gallery-box1 .active::after{
+    background: #e38fac;
+}
+
+.background-image{
+    width: 300px;
+    position: absolute;
+    top: 60%;
+    left: 58%;
+    opacity: 10%;
+    transform: translate(-50%,-50%);
+}
