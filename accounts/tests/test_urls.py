@@ -19,7 +19,7 @@ class TestUrls(SimpleTestCase):
         self.assertEquals(resolve(url).func, registerShelter)
         self.assertEquals(resolve(url).route, "shelter/register/")
 
-    def test_shelter_register_url(self):
+    def test_user_register_url(self):
         url = reverse("accounts:register-user")
         self.assertEquals(resolve(url).func, registerUser)
         self.assertEquals(resolve(url).route, "user/register/")
@@ -54,7 +54,7 @@ class TestUrls(SimpleTestCase):
         self.assertEquals(resolve(url).func, petProfile)
         self.assertEquals(resolve(url).route, "pets/<id>/")
 
-    def test_shelter_profile_url(self):
+    def test_shelterprofile_url(self):
         url = reverse("accounts:shelterprofile", args=["peter7"])
         self.assertEquals(resolve(url).func, shelter_profile)
         self.assertEquals(resolve(url).route, "profile/<username>/")
