@@ -12,18 +12,20 @@ from .views import VerificationView
 app_name = "accounts"
 urlpatterns = [
     path("", views.home, name="accounts-home"),
-    path("register/shelter/", views.registerShelter, name="register-shelter"),
+    path("shelter/register/", views.registerShelter, name="register-shelter"),
+    path("user/register/", views.registerUser, name="register-user"),
     path(
-        "login/shelter/",
+        "login/",
         auth_views.LoginView.as_view(template_name="accounts/login.html"),
-        name="login-shelter",
+        name="login",
     ),
     path(
-        "logout/shelter/",
+        "logout/",
         auth_views.LogoutView.as_view(template_name="accounts/logout.html"),
-        name="logout-shelter",
+        name="logout",
     ),
-    path("profile/shelter/", views.shelterProfile, name="shelter-profile"),
+    path("shelter/profile/", views.shelterProfile, name="shelter-profile"),
+    path("user/profile/", views.clientuserProfile, name="user-profile"),
     path("pets/register/", views.petsRegister, name="pet-register"),
     path("activate/<uidb64>/<token>", VerificationView.as_view(), name="activate"),
     path("pets/view_pets/", PetListView.as_view(), name="view-pets"),
