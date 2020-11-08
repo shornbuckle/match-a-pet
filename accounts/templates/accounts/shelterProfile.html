@@ -14,7 +14,7 @@
 
     <div class="content-section" style="max-width: 500px; margin-left: 50px;">
       <div class="media">
-        <img class="rounded-circle account-img" src="{{ user.shelter_profile_image.url }}" style="width: 200px; height: 200px;
+        <img class="rounded-circle account-img" src="{{ user.sprofile.shelter_profile_image.url }}" style="width: 200px; height: 200px;
         margin-left: 20px;">
         <div class="media-body">
           <h2 class="account-heading">{{ user.username }}</h2>
@@ -26,6 +26,7 @@
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Profile Info</legend>
+                {{ shelterUserUpdateForm|crispy }}
                 {{ shelterUpdateForm|crispy }}
             </fieldset>
             <div class="form-group">
