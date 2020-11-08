@@ -77,9 +77,6 @@ class TestViews(TestCase):
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/pets.html")
 
-
-
-    
     # ** User Views
     def test_shelter_register_post_view(self):
         client = Client()
@@ -192,21 +189,6 @@ class TestViews(TestCase):
     #     self.assertEquals(str(petid.id), "peter@matchapet.com")
     #     self.assertTemplateUsed(response, "accounts/pets.html")
     #     self.assertEquals(str(self.dummy_pet.id), "peter@matchapet.com")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     # def test_pet_register_post_view1(self):
     #     client = Client()
