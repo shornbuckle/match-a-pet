@@ -8,22 +8,27 @@ class TestUrls(SimpleTestCase):
     def test_shelter_register_url(self):
         url = reverse("accounts:register-shelter")
         self.assertEquals(resolve(url).func, registerShelter)
-        self.assertEquals(resolve(url).route, "register/shelter/")
+        self.assertEquals(resolve(url).route, "shelter/register/")
+
+    def test_shelter_register_url(self):
+        url = reverse("accounts:register-user")
+        self.assertEquals(resolve(url).func, registerShelter)
+        self.assertEquals(resolve(url).route, "user/register/")
 
     def test_shelter_login_url(self):
-        url = reverse("accounts:login-shelter")
+        url = reverse("accounts:login")
         self.assertEquals(resolve(url).func.view_class, LoginView)
-        self.assertEquals(resolve(url).route, "login/shelter/")
+        self.assertEquals(resolve(url).route, "login/")
 
     def test_shelter_logout_url(self):
-        url = reverse("accounts:logout-shelter")
+        url = reverse("accounts:logout")
         self.assertEquals(resolve(url).func.view_class, LogoutView)
-        self.assertEquals(resolve(url).route, "logout/shelter/")
+        self.assertEquals(resolve(url).route, "logout/")
 
     def test_shelter_profile_url(self):
         url = reverse("accounts:shelter-profile")
         self.assertEquals(resolve(url).func, shelterProfile)
-        self.assertEquals(resolve(url).route, "profile/shelter/")
+        self.assertEquals(resolve(url).route, "shelter/profile/")
 
     def test_pet_register_url(self):
         url = reverse("accounts:pet-register")

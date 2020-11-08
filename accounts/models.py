@@ -30,8 +30,9 @@ class ShelterRegisterData(models.Model):
     def __str__(self):
         return f"{self.user.username} Shelter Profile"
 
-    def save(self):
-        super().save()
+    def save(self, *args, **kwargs):
+        super(ShelterRegisterData, self).save(*args, **kwargs)
+
         img = Image.open(self.shelter_profile_image.path)
         if img.height > 300 or img.width > 300:
             output_size = (300, 300)
@@ -51,8 +52,8 @@ class UserRegisterData(models.Model):
     def __str__(self):
         return f"{self.user.username} ClientUser Profile"
 
-    def save(self):
-        super().save()
+    def save(self, *args, **kwargs):
+        super(UserRegisterData, self).save(*args, **kwargs)
         img = Image.open(self.user_profile_image.path)
         if img.height > 300 or img.width > 300:
             output_size = (300, 300)
