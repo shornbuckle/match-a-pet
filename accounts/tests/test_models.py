@@ -26,6 +26,11 @@ class BaseTest(TestCase):
             zip_code="11209",
             password="test123abc",
         )
+        self.dummy_shelterRegisterData = ShelterRegisterData.objects.create(
+            user=self.dummy_user,
+            shelter_profile_image="default.jpg",
+        )
+        self.assertEqual(str(self.dummy_shelterRegisterData), "peter7 Shelter Profile")
 
         self.user = {
             "username": "peter7",
@@ -152,18 +157,59 @@ class UserRegisterFormTest(BaseTest):
         )
 
 
+class BaseTest2(TestCase):
+    def test_save_shelter_profile_image_correctly(self):
+        self.user = User.objects.create(
+            username="peter7",
+            email="peter@matchapet.com",
+            first_name="Peter",
+            last_name="Voltz",
+            address="5th Ave",
+            city="Manhattan",
+            state="New York",
+            zip_code="11209",
+            password="test123abc",
+        )
+        # self.client.login(username="huanjin", password="test123456")
+        self.user.sprofile = ShelterRegisterData.objects.create(
+            shelter_profile_image="default.jpg",
+        )
+
+        self.assertLessEqual(self.user.sprofile.shelter_profile_image.height, 300)
+        self.assertLessEqual(self.user.sprofile.shelter_profile_image.width, 300)
+        self.assertEqual(str(self.user.sprofile), "peter7 Shelter Profile")
+
+    def test_save_user_profile_image_correctly(self):
+        self.user = User.objects.create(
+            username="peter7",
+            email="peter@matchapet.com",
+            first_name="Peter",
+            last_name="Voltz",
+            address="5th Ave",
+            city="Manhattan",
+            state="New York",
+            zip_code="11209",
+            password="test123abc",
+        )
+        # self.client.login(username="huanjin", password="test123456")
+        self.user.uprofile = UserRegisterData.objects.create(
+            user_profile_image="default.jpg",
+        )
+
+        self.assertLessEqual(self.user.uprofile.user_profile_image.height, 300)
+        self.assertLessEqual(self.user.uprofile.user_profile_image.width, 300)
+        self.assertEqual(str(self.user.uprofile), "peter7 ClientUser Profile")
+
+
 # class BaseTest1(TestCase):
 #     def setUp(self):
 #         self.register_url = reverse("accounts:pet-register")
 #         self.dummy_user = Pet.objects.create(
-#             email="peter@matchapet.com",
-#             pet_id="5",
 #             pet_name="Sheila",
 #             pet_breed="Dog",
 #             pet_age="4",
 #             pet_color="White",
 #             pet_gender="Female",
-#             date_entered="12/1/2020",
 #         )
 
 #         self.user = {
@@ -172,7 +218,6 @@ class UserRegisterFormTest(BaseTest):
 #             "pet_age": "4",
 #             "pet_color": "White",
 #             "pet_gender": "Female",
-#             "date_entered": "12/1/2020",
 #         }
 #         self.user_no_username = {
 #             "pet_name": "Sheila",
@@ -180,7 +225,6 @@ class UserRegisterFormTest(BaseTest):
 #             "pet_age": "4",
 #             "pet_color": "White",
 #             "pet_gender": "Female",
-#             "date_entered": "12/1/2020",
 #         }
 
 #         self.user_name_exists = {
