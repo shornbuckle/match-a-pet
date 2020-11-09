@@ -200,6 +200,46 @@ class BaseTest2(TestCase):
         self.assertLessEqual(self.user.uprofile.user_profile_image.width, 300)
         self.assertEqual(str(self.user.uprofile), "peter7 ClientUser Profile")
 
+    def test_shelter_pet_relation_correctly(self):
+        self.user = User.objects.create(
+            username="peter7",
+            email="peter@matchapet.com",
+            first_name="Peter",
+            last_name="Voltz",
+            address="5th Ave",
+            city="Manhattan",
+            state="New York",
+            zip_code="11209",
+            password="test123abc",
+        )
+        # self.client.login(username="huanjin", password="test123456")
+        self.dummy_shelterRegisterData = ShelterRegisterData.objects.create(
+            shelter_profile_image="default.jpg",
+        )
+
+        self.dummy_pet = Pet.objects.create(
+            pet_name="Dog",
+            pet_breed="Shihtzu",
+            pet_age="4",
+            pet_color="White",
+            pet_gender="Female",
+        )
+
+        self.assertEqual(self.dummy_pet.pet_name, "Dog")
+        self.assertEqual(self.dummy_pet.pet_gender, "Female")
+        # self.assertLessEqual(self.user.uprofile.user_profile_image.width, 300)
+        # self.assertEqual(str(self.user.uprofile), "peter7 ClientUser Profile")
+
+
+# class BaseTest1(TestCase):
+#     self.dummy_pet = Pet.objects.create(
+#             pet_name="Sheila",
+#             pet_breed="Dog",
+#             pet_age="4",
+#             pet_color="White",
+#             pet_gender="Female",
+#         )
+
 
 # class BaseTest1(TestCase):
 #     def setUp(self):
