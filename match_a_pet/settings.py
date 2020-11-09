@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_tables2",
     "import_export",
+    "map.apps.MapConfig",
 ]
 
 MIDDLEWARE = [
