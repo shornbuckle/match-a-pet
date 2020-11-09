@@ -1,6 +1,15 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
-from accounts.views import registerShelter, shelterProfile, petsRegister, PetListView
+from accounts.views import (
+    registerShelter,
+    shelterProfile,
+    registerUser,
+    petsRegister,
+    PetListView,
+    VerificationView,
+    petProfile,
+    shelter_profile,
+)
 from django.contrib.auth.views import LoginView, LogoutView
 
 
@@ -8,22 +17,27 @@ class TestUrls(SimpleTestCase):
     def test_shelter_register_url(self):
         url = reverse("accounts:register-shelter")
         self.assertEquals(resolve(url).func, registerShelter)
-        self.assertEquals(resolve(url).route, "register/shelter/")
+        self.assertEquals(resolve(url).route, "shelter/register/")
+
+    def test_user_register_url(self):
+        url = reverse("accounts:register-user")
+        self.assertEquals(resolve(url).func, registerUser)
+        self.assertEquals(resolve(url).route, "user/register/")
 
     def test_shelter_login_url(self):
-        url = reverse("accounts:login-shelter")
+        url = reverse("accounts:login")
         self.assertEquals(resolve(url).func.view_class, LoginView)
-        self.assertEquals(resolve(url).route, "login/shelter/")
+        self.assertEquals(resolve(url).route, "login/")
 
     def test_shelter_logout_url(self):
-        url = reverse("accounts:logout-shelter")
+        url = reverse("accounts:logout")
         self.assertEquals(resolve(url).func.view_class, LogoutView)
-        self.assertEquals(resolve(url).route, "logout/shelter/")
+        self.assertEquals(resolve(url).route, "logout/")
 
     def test_shelter_profile_url(self):
         url = reverse("accounts:shelter-profile")
         self.assertEquals(resolve(url).func, shelterProfile)
-        self.assertEquals(resolve(url).route, "profile/shelter/")
+        self.assertEquals(resolve(url).route, "shelter/profile/")
 
     def test_pet_register_url(self):
         url = reverse("accounts:pet-register")
@@ -34,3 +48,18 @@ class TestUrls(SimpleTestCase):
         url = reverse("accounts:view-pets")
         self.assertEquals(resolve(url).func.view_class, PetListView)
         self.assertEquals(resolve(url).route, "pets/view_pets/")
+
+    def test_pets_profile_url(self):
+        url = reverse("accounts:pet-profile", args=["2"])
+        self.assertEquals(resolve(url).func, petProfile)
+        self.assertEquals(resolve(url).route, "pets/<id>/")
+
+    def test_shelterprofile_url(self):
+        url = reverse("accounts:shelterprofile", args=["peter7"])
+        self.assertEquals(resolve(url).func, shelter_profile)
+        self.assertEquals(resolve(url).route, "profile/<username>/")
+
+    def test_email_activate_url(self):
+        url = reverse("accounts:activate", args=["avhhk4ll2lbl2", "67172"])
+        self.assertEquals(resolve(url).func.view_class, VerificationView)
+        self.assertEquals(resolve(url).route, "activate/<uidb64>/<token>")

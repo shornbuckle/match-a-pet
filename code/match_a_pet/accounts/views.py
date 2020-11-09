@@ -1,9 +1,16 @@
-from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
-from .forms import ShelterRegistrationForm, ShelterUpdateForm, PetForm
+from .forms import (
+    ShelterRegistrationForm,
+    PetForm,
+    UserRegistrationForm,
+    ShelterUserUpdateForm,
+    ShelterUpdateForm,
+    ClientUserUpdateForm,
+    ClientUpdateForm,
+)
 from django.contrib.auth.decorators import login_required
-
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core.mail import send_mail
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
@@ -13,8 +20,9 @@ from django.contrib.auth import get_user_model
 from django.views import View
 from django.http import HttpResponse
 from django_tables2 import SingleTableView
-from .models import Pet
+from .models import Pet, ShelterRegisterData
 from .tables import PetTable
+from django.template import loader
 
 global form
 
@@ -30,6 +38,7 @@ def registerShelter(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.is_active = False
+            user.is_shelter = True
             user.save()
             email = form.cleaned_data.get("email")
             first_name = form.cleaned_data.get("first_name")
@@ -64,18 +73,85 @@ def registerShelter(request):
                 request,
                 "Account successfully created. Please check your email to verify your account.",
             )
-            return redirect("/login/shelter")
+            return redirect("/login")
     else:
         form = ShelterRegistrationForm()
     return render(request, "accounts/register.html", {"form": form})
 
 
 def registerUser(request):
-    return HttpResponse("You are now at the User Regitration.")
+    if request.method == "POST":
+
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.is_active = False
+            user.is_clientuser = True
+            user.save()
+            email = form.cleaned_data.get("email")
+            first_name = form.cleaned_data.get("first_name")
+            last_name = form.cleaned_data.get("last_name")
+            current_site = get_current_site(request)
+            email_subject = "Please activate your account on Match A Pet"
+            email_body = {
+                "user": user,
+                "domain": current_site.domain,
+                "uid": urlsafe_base64_encode(force_bytes(user.pk)),
+                "token": account_activation_token.make_token(user),
+            }
+            link = reverse(
+                "accounts:activate",
+                kwargs={"uidb64": email_body["uid"], "token": email_body["token"]},
+            )
+            activate_url = "http://" + current_site.domain + link
+
+            send_mail(
+                email_subject,
+                "Hi "
+                + first_name
+                + " "
+                + last_name
+                + ", Please the link below to activate your account: \n"
+                + activate_url,
+                "nyu-match-a-pet@gmail.com",
+                [email],
+            )
+
+            messages.success(
+                request,
+                "Account successfully created. Please check your email to verify your account.",
+            )
+            return redirect("/login")
+    else:
+        form = UserRegistrationForm()
+    return render(request, "accounts/register.html", {"form": form})
 
 
 def loginShelter(request):
     return render(request, "accounts/login.html")
+
+
+def petProfile(request, id):
+    pet = get_object_or_404(Pet, id=id)
+    context = {
+        "pet": pet,
+    }
+
+    template = loader.get_template("accounts/pet_profile.html")
+
+    return HttpResponse(template.render(context, request))
+
+
+def shelter_profile(request, username):
+    # user = ShelterRegisterData.objects.get(username=username)
+    user = get_object_or_404(ShelterRegisterData, username=username)
+    context = {
+        "user1": user,
+    }
+
+    template = loader.get_template("accounts/shelter_profile.html")
+
+    return HttpResponse(template.render(context, request))
 
 
 class PetListView(SingleTableView):  # method we will use to load tables into View Pets
@@ -89,7 +165,7 @@ def petsRegister(request):
         form = PetForm(request.POST, request.FILES)
         if form.is_valid():
             instance = form.save(commit=False)
-            instance.email = request.user
+            instance.shelterRegisterData = request.user.sprofile
             instance.save()
             form.save()
             pet = form.cleaned_data.get("pet_name")
@@ -104,19 +180,51 @@ def petsRegister(request):
 @login_required
 def shelterProfile(request):
     if request.method == "POST":
-        shelterUpdateForm = ShelterUpdateForm(
-            request.POST, request.FILES, instance=request.user
+        shelterUserUpdateForm = ShelterUserUpdateForm(
+            request.POST, instance=request.user
         )
-        if shelterUpdateForm.is_valid():
+        shelterUpdateForm = ShelterUpdateForm(
+            request.POST, request.FILES, instance=request.user.sprofile
+        )
+        if shelterUserUpdateForm.is_valid() and shelterUpdateForm.is_valid():
+            shelterUserUpdateForm.save()
             shelterUpdateForm.save()
             messages.success(request, "Account succesfully updated!")
-            return redirect("/profile/shelter")
+            return redirect("/shelter/profile")
     else:
-        shelterUpdateForm = ShelterUpdateForm(instance=request.user)
+        shelterUserUpdateForm = ShelterUserUpdateForm(instance=request.user)
+        shelterUpdateForm = ShelterUpdateForm(instance=request.user.sprofile)
 
-    context = {"shelterUpdateForm": shelterUpdateForm}
+    context = {
+        "shelterUserUpdateForm": shelterUserUpdateForm,
+        "shelterUpdateForm": shelterUpdateForm,
+    }
 
     return render(request, "accounts/shelterProfile.html", context)
+
+
+@login_required
+def clientuserProfile(request):
+    if request.method == "POST":
+        clientUserUpdateForm = ClientUserUpdateForm(request.POST, instance=request.user)
+        clientUpdateForm = ClientUpdateForm(
+            request.POST, request.FILES, instance=request.user.uprofile
+        )
+        if clientUserUpdateForm.is_valid() and clientUpdateForm.is_valid():
+            clientUserUpdateForm.save()
+            clientUpdateForm.save()
+            messages.success(request, "Account succesfully updated!")
+            return redirect("/user/profile")
+    else:
+        clientUserUpdateForm = ClientUserUpdateForm(instance=request.user)
+        clientUpdateForm = ClientUpdateForm(instance=request.user.uprofile)
+
+    context = {
+        "clientUserUpdateForm": clientUserUpdateForm,
+        "clientUpdateForm": clientUpdateForm,
+    }
+
+    return render(request, "accounts/userProfile.html", context)
 
 
 class VerificationView(View):
