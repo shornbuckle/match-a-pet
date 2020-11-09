@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 from pathlib import Path
+import django_heroku
 import os
 
 
@@ -141,7 +142,4 @@ EMAIL_HOST_USER = "nyu.match.a.pet@gmail.com"
 EMAIL_HOST_PASSWORD = "d3usexmachina"
 EMAIL_PORT = 587
 
-if "HEROKU" in os.environ:
-    import django_heroku
-
-    django_heroku.settings(locals())
+django_heroku.settings(locals(), test_runner=False)
