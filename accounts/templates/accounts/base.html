@@ -72,30 +72,51 @@
 
         <ul class="nav">
             {% if user.is_authenticated %}
-            <li><a href="/">Home</a></li>
-            <li><a href="/pets/view_pets">Pets</a></li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-user"></i>
-                    {{ user.username }}
-                    <i class="fas fa-chevron-down" style="font-size: .8em;"></i>
-                </a>
-                <ul>
-                    <li><a href="/profile/shelter">My Profile</a></li>
-                    <li><a href="/pets/register">Register a Pet</a></li>
-                    <li><a href="/logout/shelter" class="logout">Logout</a></li>
-                </ul>
-            </li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/pets/view_pets">Pets</a></li>
+                {% if user.is_shelter %}
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-user"></i>
+                            {{ user.username }}
+                            <i class="fas fa-chevron-down" style="font-size: .8em;"></i>
+                        </a>
+                        <ul>
+                            <li><a href="/shelter/profile">My Profile</a></li>
+                            <li><a href="/pets/register">Register a Pet</a></li>
+                            <li><a href="/logout" class="logout">Logout</a></li>
+                        </ul>
+                    </li>
+                {% elif user.is_clientuser %}
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-user"></i>
+                            {{ user.username }}
+                            <i class="fas fa-chevron-down" style="font-size: .8em;"></i>
+                        </a>
+                        <ul>
+                            <li><a href="/user/profile">My Profile</a></li>
+                            <li><a href="#">My Favorites</a></li>
+                            <li><a href="/logout" class="logout">Logout</a></li>
+                        </ul>
+                    </li>
+                {% endif %}
             {% else %}
             <li><a href="/">Home</a></li>
             <li><a href="/pets/view_pets">Pets</a></li>
             <li><a href="#">Login</a>
                 <ul>
-                    <li><a href="#">User Login</a></li>
-                    <li><a href="/login/shelter">Shelter Login</a></li>
+                    <li><a href="/login">User Login</a></li>
+                    <li><a href="/login">Shelter Login</a></li>
                 </ul>
             </li>
-            <li><a href="/register/shelter">Sign Up</a></li>
+            <li><a href="#">Register</a>
+              <ul>
+                  <li><a href="/user/register">User Register</a></li>
+                  <li><a href="/shelter/register/">Shelter Register</a></li>
+              </ul>
+          </li>
+            <!-- <li><a href="/register/shelter">Sign Up</a></li> -->
             {% endif %}
         </ul>
     </header>
