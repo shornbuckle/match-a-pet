@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_tables2",
     "import_export",
+    "django_filters",
 ]
 
 MIDDLEWARE = [
