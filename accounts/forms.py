@@ -54,7 +54,7 @@ class UserRegistrationForm(UserCreationForm):
         self.fields["first_name"].label = "User Staff First Name"
         self.fields["last_name"].label = "User Staff Last Name"
 
-    l_choices = (("New York", "New York"), ("California", "California"))
+    l_choices = (("ny", "New York"), ("ca", "California"))
     ny_choices = (
         ("Manhattan", "Manhattan"),
         ("Brooklyn", "Brooklyn"),

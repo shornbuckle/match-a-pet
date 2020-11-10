@@ -23,8 +23,23 @@ from django_tables2 import SingleTableView
 from .models import Pet, ShelterRegisterData
 from .tables import PetTable
 from django.template import loader
+import requests
 
 global form
+
+def add_to_geo(state, city, address):
+    api_key = 'AIzaSyC796wfP4gXyVbNt2wpSW6zMUojqenu04w'
+    city = city.replace(" ", "+")
+    address = address.replace(" ", "+")
+    response = requests.get(
+        f'https://maps.googleapis.com/maps/api/geocode/json?address={address},+{city},+{state}&key={api_key}')
+    resp_json_payload = response.json()
+    coordinates = ['null','null']
+    coordinates[0] = resp_json_payload['results'][0]['geometry']['location']['lat']
+    coordinates[1] = resp_json_payload['results'][0]['geometry']['location']['lng']
+    print(resp_json_payload['results'][0]['geometry']['location']['lat'])
+    print(resp_json_payload['results'][0]['geometry']['location']['lng'])
+    return coordinates
 
 
 def home(request):
@@ -39,6 +54,11 @@ def registerShelter(request):
             user = form.save(commit=False)
             user.is_active = False
             user.is_shelter = True
+            coord = []
+            coord = add_to_geo(user.state, user.city, user.address)
+            print(coord[0], coord[1])
+            user.latitude = coord[0]
+            user.longitude = coord[1]
             user.save()
             email = form.cleaned_data.get("email")
             first_name = form.cleaned_data.get("first_name")
