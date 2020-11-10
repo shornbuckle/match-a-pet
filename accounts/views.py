@@ -19,9 +19,9 @@ from .utils import account_activation_token
 from django.contrib.auth import get_user_model
 from django.views import View
 from django.views.generic import ListView
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django_tables2 import SingleTableView
-from .models import Pet, ShelterRegisterData
+from .models import Pet, ShelterRegisterData, User
 from .tables import PetTable
 from django.template import loader
 from .filters import PetFilter
@@ -142,8 +142,13 @@ def loginShelter(request):
 
 def petProfile(request, id):
     pet = get_object_or_404(Pet, id=id)
+    is_favorite = False
+    if pet.favorite.filter(id=request.user.id).exists():
+        is_favorite = True
+
     context = {
         "pet": pet,
+        "is_favorite": is_favorite,
     }
 
     template = loader.get_template("accounts/pet_profile.html")
@@ -151,11 +156,16 @@ def petProfile(request, id):
     return HttpResponse(template.render(context, request))
 
 
-def shelter_profile(request, username):
+def shelter_profile(request, user):
     # user = ShelterRegisterData.objects.get(username=username)
-    user = get_object_or_404(ShelterRegisterData, username=username)
+
+    user = get_object_or_404(ShelterRegisterData, user=user)
+
+    pets = user.pet.all()
     context = {
         "user1": user,
+        "pet_list": pets,
+
     }
 
     template = loader.get_template("accounts/shelter_profile.html")
@@ -191,6 +201,24 @@ def petsRegister(request):
         form = PetForm()
     return render(request, "accounts/pets.html", {"form": form})
 
+@login_required
+def favorite_pet(request,id):
+    pet = get_object_or_404(Pet, id=id)
+    if pet.favorite.filter(id=request.user.id).exists():
+        pet.favorite.remove(request.user)
+    else:
+        pet.favorite.add(request.user)
+
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+@login_required
+def favorites_list(request):
+    user = request.user
+    favorites = user.favorite.all()
+    context = {
+        'favorites': favorites,
+    }
+    return render(request, "accounts/favorite.html", context)
 
 @login_required
 def shelterProfile(request):
@@ -253,10 +281,10 @@ class VerificationView(View):
             user.is_active = True
             user.save()
             messages.success(request, "Account successfully verified")
-            return redirect("/login/shelter")
+            return redirect("/login/")
         else:
             messages.success(request, "Activation link is invalid")
-            return redirect("/login/shelter")
+            return redirect("/login/")
 
 
 def add_to_geo(state, city, address):

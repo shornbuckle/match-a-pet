@@ -73,7 +73,8 @@
         <ul class="nav">
             {% if user.is_authenticated %}
                 <li><a href="/">Home</a></li>
-                <li><a href="/pets/view_pets">Pets</a></li>
+                <li><a href="/view_pets">Pets</a></li>
+                <li><a href="/maps/shelters">Maps</a></li>
                 {% if user.is_shelter %}
                     <li>
                         <a href="#">
@@ -96,14 +97,14 @@
                         </a>
                         <ul>
                             <li><a href="/user/profile">My Profile</a></li>
-                            <li><a href="#">My Favorites</a></li>
+                            <li><a href="/user/favorites">My Favorites</a></li>
                             <li><a href="/logout" class="logout">Logout</a></li>
                         </ul>
                     </li>
                 {% endif %}
             {% else %}
             <li><a href="/">Home</a></li>
-            <li><a href="/pets/view_pets">Pets</a></li>
+            <li><a href="/view_pets">Pets</a></li>
             <li><a href="/maps/shelters">Maps</a></li>
             <li><a href="#">Login</a>
                 <ul>
@@ -134,7 +135,7 @@
      <h2>A Social Media Platform to help get shelter animals find loving homes </h2>
      <p>We can manage your dream building A small river named Duden flows by their place</p>
 
-     <p class="mb-0"><a href="/pets/view_pets/" class="btn btn-primary px-4 py-3">Adopt Now</a></p>
+     <p class="mb-0"><a href="/view_pets/" class="btn btn-primary px-4 py-3">Adopt Now</a></p>
    </div>
  </div>
 </div>

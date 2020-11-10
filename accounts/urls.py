@@ -23,7 +23,9 @@ urlpatterns = [
     path("user/profile/", views.clientuserProfile, name="user-profile"),
     path("pets/register/", views.petsRegister, name="pet-register"),
     path("activate/<uidb64>/<token>", VerificationView.as_view(), name="activate"),
-    path("pets/view_pets/", PetListView.as_view(), name="view-pets"),
+    path("view_pets/", PetListView.as_view(), name="view-pets"),
     path("pets/<id>/", views.petProfile, name="pet-profile"),
-    path("profile/<username>/", views.shelter_profile, name="shelterprofile"),
+    path("profile/<user>/", views.shelter_profile, name="shelterprofile"),
+    path("favorite/<int:id>/", views.favorite_pet, name="favorite_pet"),
+    path("user/favorites", views.favorites_list, name="favorite_list"),
 ]
