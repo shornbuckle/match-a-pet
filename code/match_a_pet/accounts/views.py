@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
+from django.views.generic import ListView
+
 from .forms import ShelterRegistrationForm, ShelterUpdateForm, PetForm
 from django.contrib.auth.decorators import login_required
 
@@ -83,6 +85,11 @@ class PetListView(SingleTableView):  # method we will use to load tables into Vi
     table_class = PetTable
     template_name = "accounts/view_pets.html"
 
+# class PetListingView(ListView):
+#     model = Pet
+#     template_name = "accounts/petlisting.html"
+#     context_object_name = "pet_list"
+#     paginate_by = 12
 
 def petsRegister(request):
     if request.method == "POST":

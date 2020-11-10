@@ -1,5 +1,7 @@
 from django.urls import reverse
 from django.contrib import messages
+from django.views.generic import ListView
+
 from .forms import (
     ShelterRegistrationForm,
     PetForm,
@@ -153,11 +155,11 @@ def shelter_profile(request, username):
 
     return HttpResponse(template.render(context, request))
 
-
-class PetListView(SingleTableView):  # method we will use to load tables into View Pets
-    model = Pet
-    table_class = PetTable
-    template_name = "accounts/view_pets.html"
+#
+# class PetListView(SingleTableView):  # method we will use to load tables into View Pets
+#     model = Pet
+#     table_class = PetTable
+#     template_name = "accounts/view_pets.html"
 
 
 def petsRegister(request):
@@ -242,3 +244,10 @@ class VerificationView(View):
         else:
             messages.success(request, "Activation link is invalid")
             return redirect("/login/shelter")
+
+
+class PetListingView(ListView):
+    model = Pet
+    template_name = "accounts/petlisting.html"
+    context_object_name = "pet_list"
+    paginate_by = 12

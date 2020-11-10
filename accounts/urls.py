@@ -1,9 +1,10 @@
 from django.urls import path
 from . import views
-from .views import PetListView
+# from .views import PetListView
 from django.contrib.auth import views as auth_views
 from .views import VerificationView
-
+# from .views import PetListView
+from .views import PetListingView
 app_name = "accounts"
 urlpatterns = [
     path("", views.home, name="accounts-home"),
@@ -20,10 +21,12 @@ urlpatterns = [
         name="logout",
     ),
     path("shelter/profile/", views.shelterProfile, name="shelter-profile"),
+    path("pets/view_pets/", PetListingView.as_view(), name="pets-listing"),
     path("user/profile/", views.clientuserProfile, name="user-profile"),
     path("pets/register/", views.petsRegister, name="pet-register"),
     path("activate/<uidb64>/<token>", VerificationView.as_view(), name="activate"),
-    path("pets/view_pets/", PetListView.as_view(), name="view-pets"),
-    path("pets/<id>/", views.petProfile, name="pet-profile"),
+    # path("pets/view_pets/", PetListView.as_view(), name="view-pets"),
+    # path("pets/<id>/", views.petProfile, name="pet-profile"),
     path("profile/<username>/", views.shelter_profile, name="shelterprofile"),
+
 ]
