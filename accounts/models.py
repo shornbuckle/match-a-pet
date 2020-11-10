@@ -5,7 +5,7 @@ from PIL import Image
 # User has fields address, city, date_joined, email, first_name,
 # groups, id, is_active, is_clientuser, is_shelter, is_staff, is_superuser,
 # last_login, last_name, logentry, password, phone, sprofile, state,
-# uprofile, user_permissions, username, zip_code
+# uprofile, user_permissions, username, zip_code, latitude, longitude
 
 
 class User(AbstractUser):
