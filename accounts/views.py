@@ -18,11 +18,13 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from .utils import account_activation_token
 from django.contrib.auth import get_user_model
 from django.views import View
+from django.views.generic import ListView
 from django.http import HttpResponse
 from django_tables2 import SingleTableView
 from .models import Pet, ShelterRegisterData
 from .tables import PetTable
 from django.template import loader
+from .filters import PetFilter
 import requests
 
 global form
@@ -43,7 +45,6 @@ def registerShelter(request):
 
             coord = []
             coord = add_to_geo(user.state, user.city, user.address)
-            print(coord[0], coord[1])
             user.latitude = coord[0]
             user.longitude = coord[1]
 
@@ -162,10 +163,16 @@ def shelter_profile(request, username):
     return HttpResponse(template.render(context, request))
 
 
-class PetListView(SingleTableView):  # method we will use to load tables into View Pets
+class PetListView(ListView):  # method we will use to load tables into View Pets
     model = Pet
-    table_class = PetTable
+    # table_class = PetTable
     template_name = "accounts/view_pets.html"
+    paginate_by = 12
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = PetFilter(self.request.GET, queryset=self.get_queryset())
+        return context
+    
 
 
 def petsRegister(request):
@@ -263,6 +270,6 @@ def add_to_geo(state, city, address):
     coordinates = ["null", "null"]
     coordinates[0] = resp_json_payload["results"][0]["geometry"]["location"]["lat"]
     coordinates[1] = resp_json_payload["results"][0]["geometry"]["location"]["lng"]
-    print(resp_json_payload["results"][0]["geometry"]["location"]["lat"])
-    print(resp_json_payload["results"][0]["geometry"]["location"]["lng"])
+    # print(resp_json_payload["results"][0]["geometry"]["location"]["lat"])
+    # print(resp_json_payload["results"][0]["geometry"]["location"]["lng"])
     return coordinates
