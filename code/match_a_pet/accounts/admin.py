@@ -1,26 +1,24 @@
 from django.contrib import admin
-from .models import ShelterRegisterData, Pet, UserRegisterData, User
-from import_export.admin import ImportExportModelAdmin
+from django.contrib.auth.admin import UserAdmin
+from .models import ShelterRegisterData, Pet
 
 # Register your models here.
 
 admin.site.site_header = "Math-A-Pet Admin Page"
 
 
-class UserModelAdmin(admin.ModelAdmin):
+class RegisterShelterAdmin(UserAdmin):
     list_display = (
-        "id",
         "email",
         "username",
         "first_name",
         "last_name",
-        "city",
-        "state",
+        "shelter_city",
+        "shelter_state",
         "last_login",
         "is_active",
-        "is_shelter",
-        "is_clientuser",
         "is_staff",
+        "is_admin",
         "is_superuser",
     )
     search_fields = (
@@ -34,11 +32,22 @@ class UserModelAdmin(admin.ModelAdmin):
     fieldsets = ()
 
 
-class ClientUserModelAdmin(admin.ModelAdmin):
+admin.site.register(ShelterRegisterData, RegisterShelterAdmin)
+
+
+class PetRegisterAdmin(admin.ModelAdmin):
     list_display = (
-        "user",
-        "user_id",
-        "user_profile_image",
+        "email",
+        "pet_name",
+        "pet_breed",
+        "pet_age",
+        "pet_color",
+        "pet_gender",
+        "date_entered",
+    )
+    search_fields = (
+        "pet_name",
+        "pet_breed",
     )
 
     filter_horizontal = ()
@@ -46,31 +55,4 @@ class ClientUserModelAdmin(admin.ModelAdmin):
     fieldsets = ()
 
 
-# admin.site.register(ShelterRegisterData, RegisterShelterAdmin)
-admin.site.register(User, UserModelAdmin)
-admin.site.register(UserRegisterData, ClientUserModelAdmin)
-
-
-@admin.register(Pet, ShelterRegisterData)
-class ViewAdmin(ImportExportModelAdmin):
-    pass
-    # list_display = (
-    #     # "email",
-    #     "pet_name",
-    #     "pet_breed",
-    #     "pet_age",
-    #     "pet_color",
-    #     "pet_gender",
-    #     # "date_entered",
-    # )
-    # search_fields = (
-    #     "pet_name",
-    #     "pet_breed",
-    # )
-
-    # filter_horizontal = ()
-    # list_filter = ()
-    # fieldsets = ()
-
-
-# admin.site.register(Pet, PetRegisterAdmin)
+admin.site.register(Pet, PetRegisterAdmin)

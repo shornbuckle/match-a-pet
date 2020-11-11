@@ -20,7 +20,7 @@ def map_func(request):
     #     })
 
     context = {
-        "mapbox_access_token": mapbox_access_token,
-        "user": user,
+    'mapbox_access_token': mapbox_access_token,
+    'user': user,
     }
-    return render(request, "map/maps-shelters.html", context)
+    return render(request, 'map/maps-shelters.html', context)

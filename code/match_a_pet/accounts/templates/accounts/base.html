@@ -55,15 +55,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@800&family=Lora&display=swap" rel="stylesheet">
     <!--Custom Styling-->
     <link rel="stylesheet" href="../../static/accounts/css/navstyle.css">
-    <style>
-      body{
-          /*background-image: url("../../static/accounts/images/animal_images/background1.gif");*/
-  
-      }
-  </style>
 
 </head>
-<body1>
+<body>
     <header>
         <div class="logo">
 
@@ -72,55 +66,34 @@
 
         <ul class="nav">
             {% if user.is_authenticated %}
-                <li><a href="/">Home</a></li>
-                <li><a href="/pets/view_pets">Pets</a></li>
-                {% if user.is_shelter %}
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-user"></i>
-                            {{ user.username }}
-                            <i class="fas fa-chevron-down" style="font-size: .8em;"></i>
-                        </a>
-                        <ul>
-                            <li><a href="/shelter/profile">My Profile</a></li>
-                            <li><a href="/pets/register">Register a Pet</a></li>
-                            <li><a href="/logout" class="logout">Logout</a></li>
-                        </ul>
-                    </li>
-                {% elif user.is_clientuser %}
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-user"></i>
-                            {{ user.username }}
-                            <i class="fas fa-chevron-down" style="font-size: .8em;"></i>
-                        </a>
-                        <ul>
-                            <li><a href="/user/profile">My Profile</a></li>
-                            <li><a href="#">My Favorites</a></li>
-                            <li><a href="/logout" class="logout">Logout</a></li>
-                        </ul>
-                    </li>
-                {% endif %}
+            <li><a href="/">Home</a></li>
+            <li><a href="/pets/view_pets">Pets</a></li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-user"></i>
+                    {{ user.username }}
+                    <i class="fas fa-chevron-down" style="font-size: .8em;"></i>
+                </a>
+                <ul>
+                    <li><a href="/profile/shelter">My Profile</a></li>
+                    <li><a href="/pets/register">Register a Pet</a></li>
+                    <li><a href="/logout/shelter" class="logout">Logout</a></li>
+                </ul>
+            </li>
             {% else %}
             <li><a href="/">Home</a></li>
             <li><a href="/pets/view_pets">Pets</a></li>
             <li><a href="#">Login</a>
                 <ul>
-                    <li><a href="/login">User Login</a></li>
-                    <li><a href="/login">Shelter Login</a></li>
+                    <li><a href="#">User Login</a></li>
+                    <li><a href="/login/shelter">Shelter Login</a></li>
                 </ul>
             </li>
-            <li><a href="#">Register</a>
-              <ul>
-                  <li><a href="/user/register">User Register</a></li>
-                  <li><a href="/shelter/register/">Shelter Register</a></li>
-              </ul>
-          </li>
-            <!-- <li><a href="/register/shelter">Sign Up</a></li> -->
+            <li><a href="/register/shelter">Sign Up</a></li>
             {% endif %}
         </ul>
     </header>
-</body1>
+</body>
 {% block body %}
 {% endblock %}
 
@@ -128,17 +101,23 @@
  <div class="container">
   <div class="row justify-content-center">
    <div class="col-md-12 text-center">
-    <div class="footerimg"  style="background-image: url(../../static/accounts/images/animal_images/catheader.jpg);">
+    <div class="img"  style="background-image: url(../../static/accounts/images/animal_images/catheader.jpg);">
      <div class="overlay"></div>
      <h2>A Social Media Platform to help get shelter animals find loving homes </h2>
      <p>We can manage your dream building A small river named Duden flows by their place</p>
 
-     <p class="mb-0"><a href="/pets/view_pets/" class="btn btn-primary px-4 py-3">Adopt Now</a></p>
+     <p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Adopt Now</a></p>
    </div>
  </div>
 </div>
 </div>
 </section>
+
+<section>
+  <div></div>
+</section>
+
+
 
 <footer class="ftco-footer ftco-no-pt">
   <div class="container">

@@ -174,13 +174,13 @@ class PetListView(ListView):  # method we will use to load tables into View Pets
     model = Pet
     # table_class = PetTable
     template_name = "accounts/view_pets.html"
-
+    # paginate_by = 5
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["filter"] = PetFilter(self.request.GET, queryset=self.get_queryset())
+        context['filter'] = PetFilter(self.request.GET, queryset=self.get_queryset())
         return context
-
     paginate_by = 5
+    
 
 
 def petsRegister(request):
@@ -199,27 +199,24 @@ def petsRegister(request):
         form = PetForm()
     return render(request, "accounts/pets.html", {"form": form})
 
-
 @login_required
-def favorite_pet(request, id):
+def favorite_pet(request,id):
     pet = get_object_or_404(Pet, id=id)
     if pet.favorite.filter(id=request.user.id).exists():
         pet.favorite.remove(request.user)
     else:
         pet.favorite.add(request.user)
 
-    return HttpResponseRedirect(request.META["HTTP_REFERER"])
-
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 @login_required
 def favorites_list(request):
     user = request.user
     favorites = user.favorite.all()
     context = {
-        "favorites": favorites,
+        'favorites': favorites,
     }
     return render(request, "accounts/favorite.html", context)
-
 
 @login_required
 def shelterProfile(request):
