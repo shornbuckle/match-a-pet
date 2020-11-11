@@ -53,6 +53,7 @@ class PetViewAdmin(ImportExportModelAdmin):
         "pet_color",
         "pet_gender",
         "pet_profile_image1",
+        "shelterRegisterData_id",
     )
     search_fields = (
         "shelterRegisterData",

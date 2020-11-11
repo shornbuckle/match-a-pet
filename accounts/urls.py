@@ -25,7 +25,7 @@ urlpatterns = [
     path("activate/<uidb64>/<token>", VerificationView.as_view(), name="activate"),
     path("view_pets/", PetListView.as_view(), name="view-pets"),
     path("pets/<id>/", views.petProfile, name="pet-profile"),
-    path("profile/<user>/", views.shelter_profile, name="shelterprofile"),
+    path("profile/<username>/", views.shelter_profile, name="shelterprofile"),
     path("favorite/<int:id>/", views.favorite_pet, name="favorite_pet"),
     path("user/favorites", views.favorites_list, name="favorite_list"),
 ]
