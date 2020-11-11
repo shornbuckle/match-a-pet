@@ -18,11 +18,15 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from .utils import account_activation_token
 from django.contrib.auth import get_user_model
 from django.views import View
-from django.http import HttpResponse
+from django.views.generic import ListView
+from django.http import HttpResponse, HttpResponseRedirect
 from django_tables2 import SingleTableView
-from .models import Pet, ShelterRegisterData
+from .models import Pet, ShelterRegisterData, User
 from .tables import PetTable
 from django.template import loader
+from .filters import PetFilter
+from django.core.paginator import Paginator
+import requests
 
 global form
 
@@ -39,6 +43,12 @@ def registerShelter(request):
             user = form.save(commit=False)
             user.is_active = False
             user.is_shelter = True
+
+            coord = []
+            coord = add_to_geo(user.state, user.city, user.address)
+            user.latitude = coord[0]
+            user.longitude = coord[1]
+
             user.save()
             email = form.cleaned_data.get("email")
             first_name = form.cleaned_data.get("first_name")
@@ -133,8 +143,13 @@ def loginShelter(request):
 
 def petProfile(request, id):
     pet = get_object_or_404(Pet, id=id)
+    is_favorite = False
+    if pet.favorite.filter(id=request.user.id).exists():
+        is_favorite = True
+
     context = {
         "pet": pet,
+        "is_favorite": is_favorite,
     }
 
     template = loader.get_template("accounts/pet_profile.html")
@@ -143,10 +158,11 @@ def petProfile(request, id):
 
 
 def shelter_profile(request, username):
-    # user = ShelterRegisterData.objects.get(username=username)
-    user = get_object_or_404(ShelterRegisterData, username=username)
+    shelteruser = User.objects.get(username=username)
+    pets = Pet.objects.filter(shelterRegisterData_id=shelteruser.id).all()
     context = {
-        "user1": user,
+        "user1": shelteruser,
+        "pet_list": pets,
     }
 
     template = loader.get_template("accounts/shelter_profile.html")
@@ -154,10 +170,17 @@ def shelter_profile(request, username):
     return HttpResponse(template.render(context, request))
 
 
-class PetListView(SingleTableView):  # method we will use to load tables into View Pets
+class PetListView(ListView):  # method we will use to load tables into View Pets
     model = Pet
-    table_class = PetTable
+    # table_class = PetTable
     template_name = "accounts/view_pets.html"
+    # paginate_by = 5
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = PetFilter(self.request.GET, queryset=self.get_queryset())
+        return context
+    paginate_by = 5
+    
 
 
 def petsRegister(request):
@@ -176,6 +199,24 @@ def petsRegister(request):
         form = PetForm()
     return render(request, "accounts/pets.html", {"form": form})
 
+@login_required
+def favorite_pet(request,id):
+    pet = get_object_or_404(Pet, id=id)
+    if pet.favorite.filter(id=request.user.id).exists():
+        pet.favorite.remove(request.user)
+    else:
+        pet.favorite.add(request.user)
+
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+@login_required
+def favorites_list(request):
+    user = request.user
+    favorites = user.favorite.all()
+    context = {
+        'favorites': favorites,
+    }
+    return render(request, "accounts/favorite.html", context)
 
 @login_required
 def shelterProfile(request):
@@ -238,7 +279,23 @@ class VerificationView(View):
             user.is_active = True
             user.save()
             messages.success(request, "Account successfully verified")
-            return redirect("/login/shelter")
+            return redirect("/login/")
         else:
             messages.success(request, "Activation link is invalid")
-            return redirect("/login/shelter")
+            return redirect("/login/")
+
+
+def add_to_geo(state, city, address):
+    api_key = "AIzaSyC796wfP4gXyVbNt2wpSW6zMUojqenu04w"
+    city = city.replace(" ", "+")
+    address = address.replace(" ", "+")
+    response = requests.get(
+        f"https://maps.googleapis.com/maps/api/geocode/json?address={address},+{city},+{state}&key={api_key}"
+    )
+    resp_json_payload = response.json()
+    coordinates = ["null", "null"]
+    coordinates[0] = resp_json_payload["results"][0]["geometry"]["location"]["lat"]
+    coordinates[1] = resp_json_payload["results"][0]["geometry"]["location"]["lng"]
+    # print(resp_json_payload["results"][0]["geometry"]["location"]["lat"])
+    # print(resp_json_payload["results"][0]["geometry"]["location"]["lng"])
+    return coordinates

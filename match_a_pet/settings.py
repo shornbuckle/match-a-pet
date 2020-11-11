@@ -35,6 +35,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
+    "map.apps.MapConfig",
     "crispy_forms",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_tables2",
     "import_export",
+    "django_filters",
 ]
 
 MIDDLEWARE = [

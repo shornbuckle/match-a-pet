@@ -5,7 +5,7 @@ from PIL import Image
 # User has fields address, city, date_joined, email, first_name,
 # groups, id, is_active, is_clientuser, is_shelter, is_staff, is_superuser,
 # last_login, last_name, logentry, password, phone, sprofile, state,
-# uprofile, user_permissions, username, zip_code
+# uprofile, user_permissions, username, zip_code, latitude, longitude
 
 
 class User(AbstractUser):
@@ -16,6 +16,8 @@ class User(AbstractUser):
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     zip_code = models.CharField(max_length=5, blank=True)
+    latitude = models.CharField(max_length=20, blank=True)
+    longitude = models.CharField(max_length=20, blank=True)
 
 
 # ShelterRegisterData has fields pet, shelter_profile_image, user, user_id
@@ -28,7 +30,7 @@ class ShelterRegisterData(models.Model):
     )
 
     def __str__(self):
-        return f"{self.user.username} Shelter Profile"
+        return f"{self.user.username}"
 
     def save(self, *args, **kwargs):
         super(ShelterRegisterData, self).save(*args, **kwargs)
@@ -68,6 +70,7 @@ class Pet(models.Model):
     shelterRegisterData = models.ForeignKey(
         ShelterRegisterData, null=True, on_delete=models.CASCADE, related_name="pet"
     )
+    favorite = models.ManyToManyField(User, related_name='favorite', blank=True)
     pet_name = models.CharField(max_length=80)
     pet_breed = models.CharField(max_length=50)
     pet_age = models.CharField(max_length=10)
