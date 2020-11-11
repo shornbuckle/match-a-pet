@@ -37,8 +37,8 @@ def add_to_geo(state, city, address):
     coordinates = ['null','null']
     coordinates[0] = resp_json_payload['results'][0]['geometry']['location']['lat']
     coordinates[1] = resp_json_payload['results'][0]['geometry']['location']['lng']
-    print(resp_json_payload['results'][0]['geometry']['location']['lat'])
-    print(resp_json_payload['results'][0]['geometry']['location']['lng'])
+    #print(resp_json_payload['results'][0]['geometry']['location']['lat'])
+    #print(resp_json_payload['results'][0]['geometry']['location']['lng'])
     return coordinates
 
 
@@ -56,7 +56,7 @@ def registerShelter(request):
             user.is_shelter = True
             coord = []
             coord = add_to_geo(user.state, user.city, user.address)
-            print(coord[0], coord[1])
+            #print(coord[0], coord[1])
             user.latitude = coord[0]
             user.longitude = coord[1]
             user.save()
