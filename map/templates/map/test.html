@@ -1,4 +1,8 @@
 
+{% extends 'accounts/base.html' %}
+
+{% block body %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,8 +10,8 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
 </head>
-<body>
-<h1>MAP TEST PAGE</h1>
+
+<h1>SHELTER LOCATIONS</h1>
     <div id='map' style='width: 1000px; height: 600px;'></div>
     <script>
     mapboxgl.accessToken = '{{mapbox_access_token}}';
@@ -22,9 +26,9 @@
     {% for shelterCoord in user %} // loop through all users
      var marker = new mapboxgl.Marker()
             .setLngLat([{{ shelterCoord.longitude }}, {{ shelterCoord.latitude }}])
-            //.setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-             //   .setHTML('<h3>' + test + '</h3><p>' + test + '</p>'))
             .addTo(map);
     {% endfor %}
     </script>
+
+{% endblock %}
 
