@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 from pathlib import Path
+import django_heroku
 import os
 
 
@@ -34,6 +35,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
+    "map.apps.MapConfig",
     "crispy_forms",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -42,6 +44,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_tables2",
+    "import_export",
+    "django_filters",
 ]
 
 MIDDLEWARE = [
@@ -72,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-AUTH_USER_MODEL = "accounts.ShelterRegisterData"
+AUTH_USER_MODEL = "accounts.User"
 
 WSGI_APPLICATION = "match_a_pet.wsgi.application"
 
@@ -124,6 +128,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+IMPORT_EXPORT_USE_TRANSACTIONS = True
+
 STATIC_URL = "/static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
@@ -138,8 +144,4 @@ EMAIL_HOST_USER = "nyu.match.a.pet@gmail.com"
 EMAIL_HOST_PASSWORD = "d3usexmachina"
 EMAIL_PORT = 587
 
-
-if "HEROKU" in os.environ:
-    import django_heroku
-
-    django_heroku.settings(locals())
+django_heroku.settings(locals(), test_runner=False)

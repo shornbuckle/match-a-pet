@@ -1,141 +1,88 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-
-# from django.forms import ModelForm
+from django.contrib.auth.models import AbstractUser
 from PIL import Image
 
-
-class MyAccountManager(BaseUserManager):
-    def create_user(
-        self,
-        email,
-        username,
-        first_name,
-        last_name,
-        shelter_city,
-        shelter_state,
-        password=None,
-    ):
-        if not email:
-            raise ValueError("Users must have an email address")
-        if not username:
-            raise ValueError("Users must have an username")
-        if not first_name:
-            raise ValueError("Users must have a First Name")
-        if not last_name:
-            raise ValueError("Users must have a Last Name")
-        if not shelter_city:
-            raise ValueError("Shelters must provide a Shelter City")
-        if not shelter_state:
-            raise ValueError("Shelters must provide a Shelter State")
-
-        user = self.model(
-            email=self.normalize_email(email),
-            username=username,
-            first_name=first_name,
-            last_name=last_name,
-            shelter_city=shelter_city,
-            shelter_state=shelter_state,
-        )
-
-        user.set_password(password)
-        user.save(using=self._db)
-        return user
-
-    def create_superuser(
-        self,
-        email,
-        username,
-        first_name,
-        last_name,
-        shelter_city,
-        shelter_state,
-        password=None,
-    ):
-        user = self.create_user(
-            email=self.normalize_email(email),
-            username=username,
-            password=password,
-            first_name=first_name,
-            last_name=last_name,
-            shelter_city=shelter_city,
-            shelter_state=shelter_state,
-        )
-
-        user.is_admin = True
-        user.is_staff = True
-        user.is_superuser = True
-        user.save(using=self._db)
-        return user
+# User has fields address, city, date_joined, email, first_name,
+# groups, id, is_active, is_clientuser, is_shelter, is_staff, is_superuser,
+# last_login, last_name, logentry, password, phone, sprofile, state,
+# uprofile, user_permissions, username, zip_code, latitude, longitude
 
 
-class ShelterRegisterData(AbstractBaseUser):
+class User(AbstractUser):
+    is_shelter = models.BooleanField("shelter status", default=False)
+    is_clientuser = models.BooleanField("clientuser status", default=False)
+    phone = models.CharField(max_length=10, blank=True)
+    address = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
+    state = models.CharField(max_length=50)
+    zip_code = models.CharField(max_length=5, blank=True)
+    latitude = models.CharField(max_length=20, blank=True)
+    longitude = models.CharField(max_length=20, blank=True)
 
-    # l_choices = (('1','New York'), ('2','California'))
 
-    shelter_id = models.AutoField(primary_key=True)
-    email = models.EmailField(verbose_name="email", max_length=60, unique=True)
-    username = models.CharField(max_length=30, unique=True)
-    # shelter_name = models.CharField(max_length=80)
-    # shelter_address = models.CharField(max_length=200)
-    shelter_city = models.CharField(max_length=50)
-    shelter_state = models.CharField(max_length=50)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+# ShelterRegisterData has fields pet, shelter_profile_image, user, user_id
+class ShelterRegisterData(models.Model):
+    user = models.OneToOneField(
+        User, on_delete=models.CASCADE, primary_key=True, related_name="sprofile"
+    )
     shelter_profile_image = models.ImageField(
         default="default.jpg", upload_to="shelter_profile_pics", blank=True
     )
-    # shelter_state = models.ChoiceField(choices = l_choices)
-
-    date_joined = models.DateTimeField(verbose_name="date joined", auto_now_add=True)
-    last_login = models.DateTimeField(verbose_name="last login", auto_now=True)
-    is_admin = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
-    is_superuser = models.BooleanField(default=False)
-
-    USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = [
-        "username",
-        "first_name",
-        "last_name",
-        "shelter_city",
-        "shelter_state",
-    ]
-
-    objects = MyAccountManager()
 
     def __str__(self):
-        return self.email
+        return f"{self.user.username}"
 
-    def has_perm(self, perm, obj=None):
-        return self.is_admin
+    def save(self, *args, **kwargs):
+        super(ShelterRegisterData, self).save(*args, **kwargs)
 
-    def has_module_perms(self, app_label):
-        return True
-
-    # def save(self):
-    #     super().save()
-
-    #     img = Image.open(self.shelter_profile_image.path)
-    #     if img.height > 300 or img.width > 300:
-    #         output_size = (300, 300)
-    #         img.thumbnail(output_size)
-    #         img.save(self.shelter_profile_image.path)
+        img = Image.open(self.shelter_profile_image.path)
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.shelter_profile_image.path)
 
 
+# UserRegisterData has fields user, user_id, user_profile_image
+class UserRegisterData(models.Model):
+    user = models.OneToOneField(
+        User, on_delete=models.CASCADE, primary_key=True, related_name="uprofile"
+    )
+    user_profile_image = models.ImageField(
+        default="default.jpg", upload_to="user_profile_pics", blank=True
+    )
+
+    def __str__(self):
+        return f"{self.user.username} ClientUser Profile"
+
+    def save(self, *args, **kwargs):
+        super(UserRegisterData, self).save(*args, **kwargs)
+        img = Image.open(self.user_profile_image.path)
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.user_profile_image.path)
+
+
+# Pet has fields id, pet_age, pet_breed, pet_color, pet_gender, pet_image_url,
+# pet_name, pet_profile_image1, pet_profile_image2, pet_profile_image3,
+# shelterRegisterData, shelterRegisterData_id
 class Pet(models.Model):
-    email = models.ForeignKey(ShelterRegisterData, on_delete=models.CASCADE)
-    # shelter_id = models.ForeignKey(ShelterRegisterData, on_delete=models.CASCADE)
-    pet_id = models.AutoField(primary_key=True)
+    shelterRegisterData = models.ForeignKey(
+        ShelterRegisterData, null=True, on_delete=models.CASCADE, related_name="pet"
+    )
+    favorite = models.ManyToManyField(User, related_name='favorite', blank=True)
     pet_name = models.CharField(max_length=80)
     pet_breed = models.CharField(max_length=50)
-    pet_age = models.CharField(max_length=3)
+    pet_age = models.CharField(max_length=10)
     pet_color = models.CharField(max_length=50)
     pet_gender = models.CharField(max_length=50)
-    date_entered = models.CharField(max_length=50)
     pet_profile_image1 = models.ImageField(
         default="default.jpg", upload_to="pet_profile_pics", blank=True
+    )
+    pet_image_url = models.URLField(
+        max_length=250,
+        blank=True,
+        default="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48212723/1/?bust=1592050579&width=450",
     )
     pet_profile_image2 = models.ImageField(
         default="default.jpg", upload_to="pet_profile_pics", blank=True

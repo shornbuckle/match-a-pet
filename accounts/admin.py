@@ -1,24 +1,27 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
-from .models import ShelterRegisterData, Pet
+from .models import ShelterRegisterData, Pet, UserRegisterData, User
+from import_export.admin import ImportExportModelAdmin
 
 # Register your models here.
 
 admin.site.site_header = "Math-A-Pet Admin Page"
 
 
-class RegisterShelterAdmin(UserAdmin):
+@admin.register(User)
+class UserModelAdmin(ImportExportModelAdmin):
     list_display = (
+        "id",
         "email",
         "username",
         "first_name",
         "last_name",
-        "shelter_city",
-        "shelter_state",
+        "city",
+        "state",
         "last_login",
         "is_active",
+        "is_shelter",
+        "is_clientuser",
         "is_staff",
-        "is_admin",
         "is_superuser",
     )
     search_fields = (
@@ -30,23 +33,30 @@ class RegisterShelterAdmin(UserAdmin):
     filter_horizontal = ()
     list_filter = ()
     fieldsets = ()
+    pass
 
 
-admin.site.register(ShelterRegisterData, RegisterShelterAdmin)
+# admin.site.register(ShelterRegisterData, RegisterShelterAdmin)
+# admin.site.register(User, UserModelAdmin)
+# admin.site.register(UserRegisterData, ClientUserModelAdmin)
 
 
-class PetRegisterAdmin(admin.ModelAdmin):
+@admin.register(Pet)
+class PetViewAdmin(ImportExportModelAdmin):
+    pass
     list_display = (
-        "email",
+        "id",
+        "shelterRegisterData",
         "pet_name",
         "pet_breed",
         "pet_age",
         "pet_color",
         "pet_gender",
-        "date_entered",
-        "pet_id",
+        "pet_profile_image1",
+        "shelterRegisterData_id",
     )
     search_fields = (
+        "shelterRegisterData",
         "pet_name",
         "pet_breed",
     )
@@ -55,5 +65,42 @@ class PetRegisterAdmin(admin.ModelAdmin):
     list_filter = ()
     fieldsets = ()
 
+    pass
 
-admin.site.register(Pet, PetRegisterAdmin)
+
+@admin.register(ShelterRegisterData)
+class ShelterModelAdmin(ImportExportModelAdmin):
+    list_display = (
+        "user",
+        "user_id",
+        "shelter_profile_image",
+    )
+    search_fields = (
+        "user",
+        "user_id",
+    )
+
+    filter_horizontal = ()
+    list_filter = ()
+    fieldsets = ()
+
+    pass
+
+
+@admin.register(UserRegisterData)
+class ClientUserModelAdmin(ImportExportModelAdmin):
+    list_display = (
+        "user",
+        "user_id",
+        "user_profile_image",
+    )
+    search_fields = (
+        "user",
+        "user_id",
+    )
+
+    filter_horizontal = ()
+    list_filter = ()
+    fieldsets = ()
+
+    pass

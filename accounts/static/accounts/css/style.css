@@ -4,7 +4,7 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-:root {
+ :root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -8603,6 +8603,7 @@ h1, h2, h3, h4, h5,
     font-weight: 700;
     text-transform: uppercase; }
   .slider-text h1 {
+    margin-top: 20px;
     font-size: 50px;
     color: #1c2a38;
     line-height: 1.2;
@@ -9229,7 +9230,7 @@ textarea.form-control {
   font-weight: 600; }
 
 .ftco-section {
-  padding: 7em 0;
+  padding: 1.5em 0;
   position: relative;
   width: 100%; }
   @media (max-width: 767.98px) {
