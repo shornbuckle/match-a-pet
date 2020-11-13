@@ -21,3 +21,15 @@ def map_shelter(request):
             'user': user,
         })
 
+def map_shelter2(request):
+
+    #user = serializers.serialize( "python", User.objects.all() )
+    user = User.objects.all()
+    return render(
+        request,
+        'map/test_scratch_work.html',
+        {
+            'mapbox_access_token': mapbox_access_token,
+            'user': user,
+        })
+
