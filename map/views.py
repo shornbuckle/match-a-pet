@@ -2,6 +2,7 @@ from django.shortcuts import render
 import requests
 from django.core import serializers
 from accounts.models import User
+from map.helpers import users_to_geo
 
 # Google API KEY AIzaSyC796wfP4gXyVbNt2wpSW6zMUojqenu04w
 
@@ -24,3 +25,18 @@ def map_func(request):
     'user': user,
     }
     return render(request, 'map/maps-shelters.html', context)
+
+def map_test(request):
+
+    #user = serializers.serialize( "python", User.objects.all() )
+    #user = User.objects.all()
+    finalGeo = users_to_geo()
+
+    return render(
+        request,
+        'map/map-test.html',
+        {
+            'mapbox_access_token': mapbox_access_token,
+            'final_geo': finalGeo
+        })
+

@@ -8,8 +8,6 @@ from django.core import serializers
 testJson =[{'model': 'accounts.user', 'pk': 475, 'fields': {'username': 'benji', 'latitude': '40.6353593', 'longitude': '-74.0217069'}},
 {'model': 'accounts.user', 'pk': 476, 'fields': {'username': 'Adam', 'latitude': '40.628065', 'longitude': '-74.019221'}}]
 
-
-
 length = len(testJson)
 current = testJson[0] #access the first element - we will iterate this one
 fields = current['fields'] #access to get the geo fields
@@ -20,8 +18,7 @@ longitude = fields['longitude'] #access the longitude element
 print(length)
 print(username)
 
-finalGeo = {} #initialize
-
+finalGeo = [] #initialize
 i = 0 #iterator for while loop
 while i < length:
     current = testJson[i]  # access the first element - we will iterate this one
@@ -29,7 +26,6 @@ while i < length:
     username = fields['username']  # access the username
     latitude = fields['latitude']  # access the latitude element
     longitude = fields['longitude']  # access the longitude element
-
 
     adderl = {
         'type': 'Feature',
@@ -40,7 +36,7 @@ while i < length:
         'geometry':
             {'type': 'Point', 'coordinates': [longitude, latitude]}
     }
-    finalGeo.update(adderl)
+    finalGeo.append(adderl)
     print(adderl)
     i = i + 1
 

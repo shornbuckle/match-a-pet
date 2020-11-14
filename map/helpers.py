@@ -2,40 +2,39 @@ from accounts.models import User
 import json
 from django.core import serializers
 
-"""
-finalGeo = []
-user = User.objects.all()
-for u in user:
-    adderl = {
-        'type': 'Feature',
-        'properties':
-            {
-                'description': '<strong> Description </strong><p><a href="shelter profile link" target="_blank" title="Opens in a new window">SHELTER NAME</a></p>',
-                'icon': 'dog-park'},
-        'geometry':
-            {'type': 'Point', 'coordinates': [u.longitude, u.lattitude]}
-    }
-    adderJ = json.dumps(adderl)
-    finalGeo.append(adderJ)
+def users_to_geo():
+    user = serializers.serialize('json',User.objects.all(), fields=('username','latitude','longitude')) #serialize into JSON file
+    user_json=json.loads(user) # parse the user data
 
-print(finalGeo)
-"""
-User.objects.get(id=14).longitude
 
-user = serializers.serialize("xml",User.objects.all())
+    length = len(user_json)
+    current = user_json[0]  # access the first element - we will iterate this one
+    fields = current['fields']  # access to get the geo fields
+    username = fields['username']  # access the username
+    latitude = fields['latitude']  # access the latitude element
+    longitude = fields['longitude']  # access the longitude element
 
-finalGeo = []
+    finalGeo = []  # initialize
+    i = 0  # iterator for while loop
+    while i < length:
+        current = user_json[i]  # access the first element - we will iterate this one
+        fields = current['fields']  # access to get the geo fields
+        username = fields['username']  # access the username
+        latitude = fields['latitude']  # access the latitude element
+        longitude = fields['longitude']  # access the longitude element
 
-adderl = {
-    'type': 'Feature',
-    'properties':
-         {
-            'description': '<strong> Description </strong><p><a href="shelter profile link" target="_blank" title="Opens in a new window">SHELTER NAME</a></p>',
-            'icon': 'dog-park'},
-     'geometry':
-        {'type': 'Point', 'coordinates': [User.objects.get(id=14).longitude, User.objects.get(id=14).longitude]}
-}
-adderJ = json.dumps(adderl)
-finalGeo.append(adderJ)
+        #adderl is the template we will use to input our information from each user json
 
-print(finalGeo)
+        adderl = {
+            'type': 'Feature',
+            'properties':
+                {
+                    'description': '<strong> Description </strong><p><a href="shelter profile link" target="_blank" title="Opens in a new window">SHELTER NAME</a></p>',
+                    'icon': 'dog-park'},
+            'geometry':
+                {'type': 'Point', 'coordinates': [longitude, latitude]}
+        }
+        finalGeo.append(adderl) #here we are appending each formatted user json to the list
+        i = i + 1 #increment the iterator
+
+    return (finalGeo) # return finalGeo which will be passed to our HTMl maps file
