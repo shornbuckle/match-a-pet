@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/map/templates/map/map-test-copy.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/map/templates/map/map-test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/map/templates/map/map-test2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/map/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/map/helpers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/map/json_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/map/json_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/map/templates/map/map-test.html" beforeDir="false" afterPath="$PROJECT_DIR$/map/templates/map/map-test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/map/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/map/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/map/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/map/views.py" afterDir="false" />
     </list>
@@ -132,7 +132,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602453371459</updated>
-      <workItem from="1605239186221" duration="7095000" />
+      <workItem from="1605239186221" duration="14434000" />
     </task>
     <task id="LOCAL-00001" summary="maps testing work">
       <created>1605303278367</created>
@@ -141,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605303278368</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="created helper function to convert user data into geo format we need">
+      <created>1605314758986</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1605314758986</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +167,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="maps testing work" />
-    <option name="LAST_COMMIT_MESSAGE" value="maps testing work" />
+    <MESSAGE value="created helper function to convert user data into geo format we need" />
+    <option name="LAST_COMMIT_MESSAGE" value="created helper function to convert user data into geo format we need" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser" />
@@ -172,6 +180,18 @@
     <state x="135" y="0" width="1905" height="958" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" />
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" />
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/map/templates/map/map-test2.html</url>
+          <line>26</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/match_a_pet$helpers.coverage" NAME="helpers Coverage Results" MODIFIED="1605313865058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/map" />

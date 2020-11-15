@@ -21,7 +21,11 @@ def users_to_geo():
         fields = current['fields']  # access to get the geo fields
         username = fields['username']  # access the username
         latitude = fields['latitude']  # access the latitude element
+        if latitude != "":
+            latitude = float(latitude)
         longitude = fields['longitude']  # access the longitude element
+        if longitude != "":
+            longitude = float(longitude)
 
         #adderl is the template we will use to input our information from each user json
 
