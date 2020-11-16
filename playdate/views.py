@@ -4,6 +4,7 @@ from accounts.models import User
 from django.contrib import messages
 from map.helpers import users_to_geo
 from .forms import ClientUserPetForm
+from .models import ClientUserPet
 from accounts.models import UserRegisterData
 
 
@@ -33,3 +34,13 @@ def clientUserPetsRegister(request):
     else:
         form = ClientUserPetForm()
     return render(request, "playdate/petRegister.html", {"form": form})
+
+#@login_required
+def my_pets_list(request):
+    user = request.user
+    clientUserPet = ClientUserPet.objects.all()
+    context = {
+        'clientUserPet': clientUserPet,
+    }
+    return render(request, "playdate/myPets.html", context)
+

@@ -19,11 +19,6 @@ class ClientUserPet(models.Model):
     pet_profile_image1 = models.ImageField(
         default="default.jpg", upload_to="pet_profile_pics", blank=True
     )
-    pet_image_url = models.URLField(
-        max_length=250,
-        blank=True,
-        default="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48212723/1/?bust=1592050579&width=450",
-    )
     pet_profile_image2 = models.ImageField(
         default="default.jpg", upload_to="pet_profile_pics", blank=True
     )

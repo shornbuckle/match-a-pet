@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/playdate/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/playdate/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/playdate/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/playdate/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/playdate/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/playdate/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/playdate/templates/playdate/petRegister.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/playdate/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/playdate/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/playdate/templates/playdate/myPets.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/map/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/map/helpers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/match_a_pet/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/match_a_pet/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/match_a_pet/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/match_a_pet/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playdate/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playdate/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playdate/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playdate/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +135,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602453371459</updated>
-      <workItem from="1605239186221" duration="21226000" />
+      <workItem from="1605239186221" duration="25546000" />
     </task>
     <task id="LOCAL-00001" summary="maps testing work">
       <created>1605303278367</created>
@@ -165,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605473850522</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="created playdate app, created client user pet model, created register client user pet form and html page. able to register client user pet. need to update the admin page.">
+      <created>1605492084232</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605492084232</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,7 +186,8 @@
     <MESSAGE value="maps testing work" />
     <MESSAGE value="created helper function to convert user data into geo format we need" />
     <MESSAGE value="sunday testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="sunday testing" />
+    <MESSAGE value="created playdate app, created client user pet model, created register client user pet form and html page. able to register client user pet. need to update the admin page." />
+    <option name="LAST_COMMIT_MESSAGE" value="created playdate app, created client user pet model, created register client user pet form and html page. able to register client user pet. need to update the admin page." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser" />
