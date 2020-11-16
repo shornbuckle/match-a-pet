@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import PetListView
+from .views import PetListView, MatchUserView
 from django.contrib.auth import views as auth_views
 from .views import VerificationView
 
@@ -28,5 +28,5 @@ urlpatterns = [
     path("profile/<username>/", views.shelter_profile, name="shelterprofile"),
     path("favorite/<int:id>/", views.favorite_pet, name="favorite_pet"),
     path("user/favorites", views.favorites_list, name="favorite_list"),
-    path("user/swiper/", views.swiper, name="swiper"),
+    path("user/swiper/", MatchUserView.as_view(), name="swiper"),
 ]

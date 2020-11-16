@@ -140,8 +140,6 @@ def registerUser(request):
 def loginShelter(request):
     return render(request, "accounts/login.html")
 
-def swiper(request):
-    return render(request, "accounts/swiper.html")
 
 def petProfile(request, id):
     pet = get_object_or_404(Pet, id=id)
@@ -176,13 +174,14 @@ class PetListView(ListView):  # method we will use to load tables into View Pets
     model = Pet
     # table_class = PetTable
     template_name = "accounts/view_pets.html"
+
     # paginate_by = 5
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['filter'] = PetFilter(self.request.GET, queryset=self.get_queryset())
         return context
+
     paginate_by = 5
-    
 
 
 def petsRegister(request):
@@ -201,8 +200,9 @@ def petsRegister(request):
         form = PetForm()
     return render(request, "accounts/pets.html", {"form": form})
 
+
 @login_required
-def favorite_pet(request,id):
+def favorite_pet(request, id):
     pet = get_object_or_404(Pet, id=id)
     if pet.favorite.filter(id=request.user.id).exists():
         pet.favorite.remove(request.user)
@@ -210,6 +210,7 @@ def favorite_pet(request,id):
         pet.favorite.add(request.user)
 
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
 
 @login_required
 def favorites_list(request):
@@ -219,6 +220,7 @@ def favorites_list(request):
         'favorites': favorites,
     }
     return render(request, "accounts/favorite.html", context)
+
 
 @login_required
 def shelterProfile(request):
@@ -301,3 +303,10 @@ def add_to_geo(state, city, address):
     # print(resp_json_payload["results"][0]["geometry"]["location"]["lat"])
     # print(resp_json_payload["results"][0]["geometry"]["location"]["lng"])
     return coordinates
+
+
+class MatchUserView(SingleTableView):  # method we will use to load tables into View Pets
+    model = Pet
+    table_class = PetTable
+    template_name = "accounts/swiper.html"
+    paginate_by = 1
