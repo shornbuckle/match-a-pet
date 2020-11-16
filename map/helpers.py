@@ -41,4 +41,5 @@ def users_to_geo():
         finalGeo.append(adderl) #here we are appending each formatted user json to the list
         i = i + 1 #increment the iterator
 
+
     return (finalGeo) # return finalGeo which will be passed to our HTMl maps file

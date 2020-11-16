@@ -36,6 +36,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
     "map.apps.MapConfig",
+    "playdate.apps.PlayDateConfig",
     "crispy_forms",
     "django.contrib.admin",
     "django.contrib.auth",
