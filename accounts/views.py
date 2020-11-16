@@ -140,6 +140,8 @@ def registerUser(request):
 def loginShelter(request):
     return render(request, "accounts/login.html")
 
+def swiper(request):
+    return render(request, "accounts/swiper.html")
 
 def petProfile(request, id):
     pet = get_object_or_404(Pet, id=id)

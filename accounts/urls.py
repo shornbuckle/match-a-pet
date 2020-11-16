@@ -28,4 +28,5 @@ urlpatterns = [
     path("profile/<username>/", views.shelter_profile, name="shelterprofile"),
     path("favorite/<int:id>/", views.favorite_pet, name="favorite_pet"),
     path("user/favorites", views.favorites_list, name="favorite_list"),
+    path("user/swiper/", views.swiper, name="swiper"),
 ]
