@@ -1,40 +1,71 @@
 {% extends 'accounts/base.html' %}
 
 {% block body %}
-
+<div class="p-3 mb-2 bg-warning">
 <section>
  <div>
-  <h1><center>Pet Matcher</center></h1>
+     <h1 class="display-4 text-warning"><center><font face = "Comic sans MS" size ="+4" style="color: seashell">Pet Matcher</font></center></h1>
  </div>
 </section>
 
-<div class="container">
-        <div id="demo" class="carousel slide my-3" data-ride="carousel">
-    <ul class="carousel-indicators">
-      <li data-target="#demo" data-slide-to="0" class="active"></li>
-      <li data-target="#demo" data-slide-to="1" ></li>
-      <li data-target="#demo" data-slide-to="2" ></li>
-    </ul>
+<div class="container bg-warning ">
+    <div>
+        <div id="demo" class="carousel slide my-3 bg-warning" data-ride="carousel">
+<!--    <ul class="carousel-indicators">-->
+<!--      <li data-target="#demo" data-slide-to="0" class="active"></li>-->
+<!--      <li data-target="#demo" data-slide-to="1" ></li>-->
+<!--      <li data-target="#demo" data-slide-to="2" ></li>-->
+<!--    </ul>-->
 
+            <style>
+.center-block {float:none}
+
+</style>
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="row">
               {% if pet_list %}
               {% for data in pet_list %}
-               <div class="col-xs-3 col-sm-3 col-md-3">
-                 <div class="card" style="width: 40rem;">
+               <div class="  mx-auto" >
+                 <div class="card bg-danger" style="width: 30rem;">
+                     <a href="/../pets/{{ data.id }}">
                    <img src="{{data.pet_image_url}}" class="card-img-top" alt="...">
+                         </a>
                    <div class="card-body">
-                     <h5 class="card-title">{{data.pet_name}}</h5>
-                     <p class="card-text">
-                        <p>Age: {{data.pet_age}}</p>
-                        <p>Sex: {{data.pet_gender}}</p>
-                        <p>Color: {{data.pet_color}}</p>
-                        <p>Shelter: {{data.shelterRegisterData}}</p>
-                     </p>
-                      <a href="/../pets/{{ data.id }}" class="btn btn-primary">View Pet Details</a>
-                      <a href="/../profile/{{ data.shelterRegisterData }}" class="btn btn-primary">View Pet's Shelter Details</a>
-                      <a href="{% url 'accounts:favorite_pet' data.id %}" class="btn btn-primary">Add to Favourites</a>
+                       <h5 class="card-title font-weight-light text-dark">
+                           <a href="/../pets/{{ data.id }}" class="text-capitalize text-uppercase font-weight-bold text-dark">
+                               <h1><font face="Comic sans MS" size ="+3" style="color: seashell">{{data.pet_name}}</font></h1>
+                           </a>
+                       </h5>
+                     <p class="card-text text-white">
+                       <h5>
+                       <font face="Comic sans MS" size ="+1" style="color: seashell">
+                       Age: {{data.pet_age}}
+                       <br>
+                       Sex: {{data.pet_gender}}
+                       <br>
+                       Color: {{data.pet_color}}
+                           </font>
+                       </h5>
+                   </p>
+<!--                        <p>Sex: {{data.pet_gender}}</p>-->
+<!--                        <p class="text-dark ">Color: {{data.pet_color}}</p>-->
+                       <p>
+                           <a href="/../profile/{{ data.shelterRegisterData }}" class="btn btn-info ">
+                           <font face = "Comic sans MS" size ="+1" style="color: seashell">
+                               Shelter: {{data.shelterRegisterData}}
+                           </font>
+                           </a>
+                       </p>
+
+<!--                      <a href="/../pets/{{ data.id }}" class="btn btn-primary">View Pet Details</a>-->
+<!--                      <a href="/../profile/{{ data.shelterRegisterData }}" class="btn btn-primary">View Pet's Shelter Details</a>-->
+                      <a href="{% url 'accounts:favorite_pet' data.id %}" class="btn btn-primary">
+                          <font face = "Comic sans MS" size ="+1" style="color: seashell">
+                          Add to Favourites
+                          </font>
+                      </a>
+                   </p>
                    </div>
                  </div>
                 </div>
@@ -45,6 +76,7 @@
             {% endif %}
               </div>
             </div>
+</div>
           </div>
         </div>
       </div>
@@ -88,5 +120,5 @@
 
 
 
-
+</div>
 {% endblock %}
