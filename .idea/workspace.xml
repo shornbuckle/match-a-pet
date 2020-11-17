@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/accounts/static/accounts/css/bulma.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/messages.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/messages.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-    </list>
+    <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,18 +50,38 @@
       <option name="presentableId" value="Default" />
       <updated>1602453371459</updated>
       <workItem from="1605197869919" duration="23627000" />
-      <workItem from="1605625977066" duration="1400000" />
+      <workItem from="1605625977066" duration="2016000" />
     </task>
+    <task id="LOCAL-00001" summary="adding bulma">
+      <created>1605627401530</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605627401530</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="adding bulma" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding bulma" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602461364396">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1602461364396" />
+    <state x="905" y="268" key="CommitChangelistDialog2" timestamp="1605627400958">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="905" y="268" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1605627400958" />
+    <state x="872" y="420" key="Vcs.Push.Dialog.v2" timestamp="1605627404209">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="872" y="420" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1605627404209" />
     <state x="135" y="0" width="1905" height="958" key="dock-window-1" timestamp="1605039279545">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
