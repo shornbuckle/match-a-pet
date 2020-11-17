@@ -372,7 +372,7 @@ def NewConversation(request,username):
 
     return redirect('accounts:inbox')
 
-@login_required
+
 def checkDirects(request):
     directs_count = 0
     if request.user.is_authenticated:
