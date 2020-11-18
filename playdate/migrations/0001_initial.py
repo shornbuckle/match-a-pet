@@ -9,23 +9,54 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('accounts', '0004_message'),
+        ("accounts", "0004_message"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='ClientUserPet',
+            name="ClientUserPet",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('pet_name', models.CharField(max_length=80)),
-                ('pet_breed', models.CharField(max_length=50)),
-                ('pet_age', models.CharField(max_length=10)),
-                ('pet_color', models.CharField(max_length=50)),
-                ('pet_gender', models.CharField(max_length=50)),
-                ('pet_profile_image1', models.ImageField(blank=True, default='default.jpg', upload_to='pet_profile_pics')),
-                ('pet_profile_image2', models.ImageField(blank=True, default='default.jpg', upload_to='pet_profile_pics')),
-                ('pet_profile_image3', models.ImageField(blank=True, default='default.jpg', upload_to='pet_profile_pics')),
-                ('userRegisterData', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='pet', to='accounts.userregisterdata')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("pet_name", models.CharField(max_length=80)),
+                ("pet_breed", models.CharField(max_length=50)),
+                ("pet_age", models.CharField(max_length=10)),
+                ("pet_color", models.CharField(max_length=50)),
+                ("pet_gender", models.CharField(max_length=50)),
+                (
+                    "pet_profile_image1",
+                    models.ImageField(
+                        blank=True, default="default.jpg", upload_to="pet_profile_pics"
+                    ),
+                ),
+                (
+                    "pet_profile_image2",
+                    models.ImageField(
+                        blank=True, default="default.jpg", upload_to="pet_profile_pics"
+                    ),
+                ),
+                (
+                    "pet_profile_image3",
+                    models.ImageField(
+                        blank=True, default="default.jpg", upload_to="pet_profile_pics"
+                    ),
+                ),
+                (
+                    "userRegisterData",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="pet",
+                        to="accounts.userregisterdata",
+                    ),
+                ),
             ],
         ),
     ]

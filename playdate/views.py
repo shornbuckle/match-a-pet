@@ -12,10 +12,11 @@ def playdate_test(request):
     user = User.objects.all()
     return render(
         request,
-        'map/map-test2.html',
+        "map/map-test2.html",
         {
-            'user': user,
-        })
+            "user": user,
+        },
+    )
 
 
 def clientUserPetsRegister(request):
@@ -34,12 +35,12 @@ def clientUserPetsRegister(request):
         form = ClientUserPetForm()
     return render(request, "playdate/petRegister.html", {"form": form})
 
-#@login_required
+
+# @login_required
 def my_pets_list(request):
-    user = request.user
+    # user = request.user
     clientUserPet = ClientUserPet.objects.all()
     context = {
-        'clientUserPet': clientUserPet,
+        "clientUserPet": clientUserPet,
     }
     return render(request, "playdate/myPets.html", context)
-
