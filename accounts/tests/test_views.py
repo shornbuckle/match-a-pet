@@ -20,14 +20,18 @@ class BaseTest(TestCase):
         )
         self.dummyy_user = User.objects.create(
             is_shelter=True,
+            is_clientuser=False,
             username="peter77",
             email="peter@matchapet.com",
             first_name="Peter",
             last_name="Voltz",
+            phone="124356789",
             address="5th Ave",
             city="Manhattan",
             state="New York",
             zip_code="11209",
+            latitude="12.90",
+            longitude="13.47",
             password="test123abc",
         )
         self.dummy_shelterRegisterData = ShelterRegisterData.objects.create(
