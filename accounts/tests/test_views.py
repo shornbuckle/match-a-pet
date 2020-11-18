@@ -222,6 +222,12 @@ class TestViews(TestCase):
         self.assertEquals(str(self.dummy_user.state), "New York")
         self.assertEquals(str(self.dummy_user.zip_code), "11209")
 
+    def test_browse_view_pets(self):
+        client = Client()
+        response = client.get(reverse("accounts:view-pets"))
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/view_pets.html")
+
 
 class RegisterTestView(BaseTest):
 
