@@ -3,6 +3,120 @@ from django.urls import reverse
 from accounts.models import ShelterRegisterData, Pet, UserRegisterData, User
 
 
+class BaseTest(TestCase):
+    def setUp(self):
+        self.register_url = reverse("accounts:register-shelter")
+        self.dummy_user = User.objects.create(
+            # is_shelter=True,
+            username="peter7",
+            email="peter@matchapet.com",
+            first_name="Peter",
+            last_name="Voltz",
+            address="5th Ave",
+            city="Manhattan",
+            state="New York",
+            zip_code="11209",
+            password="test123abc",
+        )
+        self.dummyy_user = User.objects.create(
+            is_shelter=True,
+            username="peter77",
+            email="peter@matchapet.com",
+            first_name="Peter",
+            last_name="Voltz",
+            address="5th Ave",
+            city="Manhattan",
+            state="New York",
+            zip_code="11209",
+            password="test123abc",
+        )
+        self.dummy_shelterRegisterData = ShelterRegisterData.objects.create(
+            user=self.dummy_user,
+            shelter_profile_image="default.jpg",
+        )
+        self.assertEqual(str(self.dummy_shelterRegisterData), "peter7")
+
+        self.user = {
+            "is_shelter": True,
+            "username": "peter7",
+            "email": "peter@matchapet.com",
+            "first_name": "Peter",
+            "last_name": "Voltz",
+            "address": "5th Ave",
+            "city": "Manhattan",
+            "state": "New York",
+            "zip_code": "11209",
+            "password": "test123abc",
+            # "password2": "test123abc",
+        }
+        self.shelter_user = {
+            "is_shelter": True,
+            "username": "peter7",
+            "email": "peter@matchapet.com",
+            "first_name": "Peter",
+            "last_name": "Voltz",
+            "address": "5th Ave",
+            "city": "Manhattan",
+            "state": "New York",
+            "zip_code": "11209",
+            "password1": "test123abc",
+            "password2": "test123abc",
+        }
+        self.user_no_username = {
+            "username": "",
+            "email": "peter@matchapet.com",
+            "first_name": "Peter",
+            "last_name": "Voltz",
+            "address": "5th Ave",
+            "city": "Manhattan",
+            "state": "New York",
+            "zip_code": "11209",
+            "password1": "test123abc",
+            "password2": "test123abc",
+        }
+
+        self.user_name_exists = {
+            "username": "peter7",
+            "email": "peter@matchapet.com",
+            "first_name": "Peter",
+            "last_name": "Voltz",
+            "address": "5th Ave",
+            "city": "Manhattan",
+            "state": "New York",
+            "zip_code": "11209",
+            "password1": "test123abc",
+            "password2": "test123abc",
+        }
+
+        self.user_email_exists = {
+            "username": "peter7",
+            "email": "peter@matchapet.com",
+            "first_name": "Peter",
+            "last_name": "Voltz",
+            "address": "5th Ave",
+            "city": "Manhattan",
+            "state": "New York",
+            "zip_code": "11209",
+            "password1": "test123abc",
+            "password2": "test123abc",
+        }
+
+        self.user_hm_invalid_email = {
+            "username": "peter7",
+            "email": "pet@matchapet.com",
+            "first_name": "Peter",
+            "last_name": "Voltz",
+            "address": "5th Ave",
+            "city": "Manhattan",
+            "state": "New York",
+            "zip_code": "11209",
+            "password1": "test123abc",
+            "password2": "test123abc",
+        }
+
+        return super().setUp
+
+
 class TestViews(TestCase):
 
     # ** Home View, Login View and Logout View
@@ -105,38 +219,39 @@ class TestViews(TestCase):
         self.assertEquals(str(self.dummy_user.zip_code), "11209")
 
 
-class TestUserRegisterView(TestCase):
-    def test_view_register_page(self):
-        client = Client()
+class RegisterTestView(BaseTest):
 
-        self.dummy_user = User.objects.create(
-            username="peter7",
-            email="peter@matchapet.com",
-            first_name="Peter",
-            last_name="Voltz",
-            address="5th Ave",
-            city="Manhattan",
-            state="New York",
-            zip_code="11209",
-            password="test123abc",
+    # Setup for the test
+
+    def test_can_view_register_page(self):
+        response = self.client.get(self.register_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/register.html")
+
+    def test_user_can_register_shelter(self):
+        user_count = User.objects.count()
+        response = self.client.post(
+            self.register_url, self.shelter_user, format="text/html"
         )
-        self.url = reverse("accounts:shelter-profile")
-        response = client.post(
-            self.url,
-            {
-                "username": "peter7",
-                "email": "peter@matchapet.com",
-                "first_name": "Peter",
-                "last_name": "Voltz",
-                "address": "5th Ave",
-                "city": "Manhattan",
-                "state": "New York",
-                "zip_code": "11209",
-                "password1": "test123abc",
-                "password2": "test123abc",
-            },
+        user_count = user_count + 1
+        # self.assertEqual(User.objects.count(), user_count)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/register.html")
+        # self.assertRedirects(
+        #     response, reverse("accounts:login"), fetch_redirect_response=True
+        # )
+
+    def test_register_view_user_logged_in(self):
+        user_login = self.client.login(
+            username=self.dummyy_user.username, password="test123abc"
         )
-        self.assertEqual(response.status_code, 302)
+        self.assertFalse(user_login)
+
+    #     response = self.client.get(self.register_url)
+    #     self.assertEqual(response.status_code, 302)
+    #     self.assertRedirects(
+    #         response, reverse("dashboard:dashboard"), fetch_redirect_response=False
+    #     )
 
 
 # class TestUserRegisterView(TestCase):
