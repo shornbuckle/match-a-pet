@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="" />
+    <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="adding tests">
+      <change beforePath="$PROJECT_DIR$/accounts/tests/test_urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/tests/test_urls.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,14 +76,14 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1602461364396" />
-    <state x="905" y="268" key="CommitChangelistDialog2" timestamp="1605627400958">
+    <state x="905" y="268" key="CommitChangelistDialog2" timestamp="1605671261376">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="905" y="268" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1605627400958" />
-    <state x="872" y="420" key="Vcs.Push.Dialog.v2" timestamp="1605627404209">
+    <state x="905" y="268" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1605671261376" />
+    <state x="872" y="420" key="Vcs.Push.Dialog.v2" timestamp="1605671237750">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="420" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1605627404209" />
+    <state x="872" y="420" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1605671237750" />
     <state x="135" y="0" width="1905" height="958" key="dock-window-1" timestamp="1605039279545">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
