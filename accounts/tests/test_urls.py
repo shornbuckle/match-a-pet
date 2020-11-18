@@ -9,6 +9,11 @@ from accounts.views import (
     VerificationView,
     petProfile,
     shelter_profile,
+    inbox,
+    Directs,
+    SendDirect,
+    NewConversation,
+    checkDirects,
 )
 from django.contrib.auth.views import LoginView, LogoutView
 
@@ -63,3 +68,23 @@ class TestUrls(SimpleTestCase):
         url = reverse("accounts:activate", args=["avhhk4ll2lbl2", "67172"])
         self.assertEquals(resolve(url).func.view_class, VerificationView)
         self.assertEquals(resolve(url).route, "activate/<uidb64>/<token>")
+
+    def test_inbox_url(self):
+        url = reverse("accounts:inbox")
+        self.assertEquals(resolve(url).func, inbox)
+        self.assertEquals(resolve(url).route, "inbox/")
+
+    def test_directs_url(self):
+        url = reverse("accounts:directs", args=["peter7"])
+        self.assertEquals(resolve(url).func, Directs)
+        self.assertEquals(resolve(url).route, "inbox/<username>")
+
+    def test_send_url(self):
+        url = reverse("accounts:send_direct")
+        self.assertEquals(resolve(url).func, SendDirect)
+        self.assertEquals(resolve(url).route, "send/")
+
+    def test_newconversation_url(self):
+        url = reverse("accounts:newconversation", args=["peter7"])
+        self.assertEquals(resolve(url).func, NewConversation)
+        self.assertEquals(resolve(url).route, "send/new/<username>/")
