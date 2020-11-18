@@ -104,6 +104,87 @@ class TestViews(TestCase):
         self.assertEquals(str(self.dummy_user.state), "New York")
         self.assertEquals(str(self.dummy_user.zip_code), "11209")
 
+class TestUserRegisterView(TestCase):
+    def test_view_register_page(self):
+        client = Client()
+        
+        self.dummy_user = User.objects.create(
+                    username="peter7",
+                    email="peter@matchapet.com",
+                    first_name="Peter",
+                    last_name="Voltz",
+                    address="5th Ave",
+                    city="Manhattan",
+                    state="New York",
+                    zip_code="11209",
+                    password="test123abc",
+                )
+        self.url = reverse("accounts:shelter-profile")
+        response = client.post(
+            self.url,
+            {
+                "username": "peter7",
+                "email": "peter@matchapet.com",
+                "first_name": "Peter",
+                "last_name": "Voltz",
+                "address": "5th Ave",
+                "city": "Manhattan",
+                "state": "New York",
+                "zip_code": "11209",
+                "password1": "test123abc",
+                "password2": "test123abc",
+            },
+        )
+        self.assertEqual(response.status_code, 302)
+
+# class TestUserRegisterView(TestCase):
+#     def test_view_register_page(self):
+#         client = Client()
+        
+#         self.dummy_user = User.objects.create(
+#                     username="peter7",
+#                     email="peter@matchapet.com",
+#                     first_name="Peter",
+#                     last_name="Voltz",
+#                     address="5th Ave",
+#                     city="Manhattan",
+#                     state="New York",
+#                     zip_code="11209",
+#                     password="test123abc",
+#                 )
+
+#         self.dummy_shelterRegisterData = ShelterRegisterData.objects.create(
+#             user=self.dummy_user,
+#             shelter_profile_image="default.jpg",
+#         )
+
+#         self.dummy_pet = Pet.objects.create(
+#             shelterRegisterData = self.dummy_shelterRegisterData,
+#             pet_name="Dog",
+#             pet_breed="Shihtzu",
+#             pet_age="4",
+#             pet_color="White",
+#             pet_gender="Female",
+#         )
+
+#         client.login(username=self.dummy_user.username, password="test123abc")
+#         # response = client.get(reverse("accounts:pet-register"))
+#         self.url = reverse("accounts:pet-register")
+#         response = client.post(
+#             self.url,
+#             {
+#                 "pet_name": "Sheila",
+#                 "pet_breed": "Dog",
+#                 "pet_age": "Baby",
+#                 "pet_color": "White",
+#                 "pet_gender": "Female",
+#                 "pet_profile_image1": "default.jpg",
+#                 "pet_profile_image2": "default.jpg",
+#                 "pet_profile_image3": "default.jpg",
+#             },
+#         )
+#         self.assertEqual(response.status_code, 200)
+
     # def test_shelter_register_post_view1(self):
     #     client = Client()
     #     self.registerURL = reverse("accounts:register-shelter")
