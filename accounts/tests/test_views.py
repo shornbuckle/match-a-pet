@@ -257,41 +257,6 @@ class RegisterTestView(BaseTest):
         )
         self.assertFalse(user_login)
 
-    def test_shelter_pet_relation_correctly(self):
-        client = Client()
-        self.user = User.objects.create(
-            username="peter78",
-            email="peter@matchapet.com",
-            first_name="Peter",
-            last_name="Voltz",
-            address="5th Ave",
-            city="Manhattan",
-            state="New York",
-            zip_code="11209",
-            password="test123abc",
-        )
-        url = reverse("accounts:shelter-profile")
-        response = client.get(url, username="peter78")
-        print(response)
-        # self.client.login(username="huanjin", password="test123456")
-        self.dummy_shelterRegisterData = ShelterRegisterData.objects.create(
-            shelter_profile_image="default.jpg",
-        )
-
-        self.dummy_pet = Pet.objects.create(
-            id=1,
-            shelterRegisterData_id="peter78",
-            pet_name="Dog",
-            pet_breed="Shihtzu",
-            pet_age="4",
-            pet_color="White",
-            pet_gender="Female",
-            pet_profile_image2="default.jpg",
-            pet_profile_image3="default.jpg",
-        )
-
-        # pets = shelterRegisterData_id
-
     #     response = self.client.get(self.register_url)
     #     self.assertEqual(response.status_code, 302)
     #     self.assertRedirects(
