@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/map/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/map/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/map/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/map/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,10 +22,15 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="sean_playdatetest" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="CREATE_PULL_REQUEST_DEFAULT_BRANCH" value="develop" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_USER" value="gcivil-nyu-org" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_NAME" value="match-a-pet" />
   </component>
   <component name="JupyterTrust" id="2241c1f1-1ae0-4220-92fd-37eeda3f0afd" />
   <component name="ProjectId" id="1ikZ633aHwWWnp8dc45Y5zA7Lvq" />
@@ -120,8 +124,9 @@
       <list>
         <item itemvalue="Python.json_test" />
         <item itemvalue="Python.helpers" />
-        <item itemvalue="Python.helpers" />
         <item itemvalue="Python.json_test" />
+        <item itemvalue="Python.helpers" />
+        <item itemvalue="Python.helpers" />
       </list>
     </recent_temporary>
   </component>
@@ -136,7 +141,7 @@
       <option name="presentableId" value="Default" />
       <updated>1602453371459</updated>
       <workItem from="1605239186221" duration="25546000" />
-      <workItem from="1605671527701" duration="911000" />
+      <workItem from="1605671527701" duration="2137000" />
     </task>
     <task id="LOCAL-00001" summary="maps testing work">
       <created>1605303278367</created>
@@ -166,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605492084232</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="playdate to upload">
+      <created>1605672500720</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605672500720</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +202,8 @@
     <MESSAGE value="created helper function to convert user data into geo format we need" />
     <MESSAGE value="sunday testing" />
     <MESSAGE value="created playdate app, created client user pet model, created register client user pet form and html page. able to register client user pet. need to update the admin page." />
-    <option name="LAST_COMMIT_MESSAGE" value="created playdate app, created client user pet model, created register client user pet form and html page. able to register client user pet. need to update the admin page." />
+    <MESSAGE value="playdate to upload" />
+    <option name="LAST_COMMIT_MESSAGE" value="playdate to upload" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser" />
