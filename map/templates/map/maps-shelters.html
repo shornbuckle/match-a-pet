@@ -29,21 +29,11 @@
     zoom: 9.5
     });
     
-     var marker = new mapboxgl.Marker()
-            .setLngLat([-73.935242, 40.730610])
+    {% for shelterCoord in user %} // loop through all users
+    var marker = new mapboxgl.Marker()
+            .setLngLat([{{shelterCoord.longitude}}0 , {{shelterCoord.latitude}}0])
             .addTo(map);
-    var marker1 = new mapboxgl.Marker()
-            .setLngLat([-73.945242, 40.780100])
-            .addTo(map);
-    var marker2 = new mapboxgl.Marker()
-            .setLngLat([-73.915242, 40.710100])
-            .addTo(map);
-    var marker3 = new mapboxgl.Marker()
-            .setLngLat([-73.985242, 40.700100])
-            .addTo(map);
-    var marker4 = new mapboxgl.Marker()
-            .setLngLat([-73.995242, 40.710100])
-            .addTo(map);
+    {% endfor %}
     
     </script>
 

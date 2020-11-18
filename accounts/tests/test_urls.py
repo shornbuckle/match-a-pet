@@ -68,5 +68,3 @@ class TestUrls(SimpleTestCase):
         url = reverse("accounts:activate", args=["avhhk4ll2lbl2", "67172"])
         self.assertEquals(resolve(url).func.view_class, VerificationView)
         self.assertEquals(resolve(url).route, "activate/<uidb64>/<token>")
-
-
