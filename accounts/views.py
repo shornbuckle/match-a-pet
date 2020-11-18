@@ -319,15 +319,15 @@ def inbox(request):
         for message in messages:
             if message['user'].username == active_direct:
                 message['unread'] = 0
-        context = {
-            'directs': directs,
-            'messages': messages,
-            'active_direct': active_direct
-        }
+    context = {
+        'directs': directs,
+        'messages': messages,
+        'active_direct': active_direct
+    }
 
     template = loader.get_template('accounts/messages.html')
 
-    return HttpResponse(template.render(context, request) )
+    return HttpResponse(template.render(context, request))
 
 @login_required
 def Directs(request, username):
@@ -365,7 +365,7 @@ def SendDirect(request):
         HttpResponseBadRequest()
 
 @login_required
-def NewConversation(request,username):
+def NewConversation(request, username):
     from_user = request.user
     body = ''
     to_user = User.objects.get(username=username)
