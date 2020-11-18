@@ -25,7 +25,7 @@ class TestViews(TestCase):
 
         response = client.get(reverse("accounts:logout"))
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, "accounts/logout.html")
+        self.assertTemplateUsed(response, "accounts/home.html")
 
     def test_shelter_login_post_view(self):
         client = Client()
@@ -39,7 +39,7 @@ class TestViews(TestCase):
 
         response = client.post(reverse("accounts:logout"), {})
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, "accounts/logout.html")
+        self.assertTemplateUsed(response, "accounts/home.html")
 
     # ** Shelter Views
     def test_shelter_register_view(self):

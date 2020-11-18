@@ -7,6 +7,8 @@ from import_export.admin import ImportExportModelAdmin
 admin.site.site_header = "Math-A-Pet Admin Page"
 
 admin.site.register(Message)
+
+
 @admin.register(User)
 class UserModelAdmin(ImportExportModelAdmin):
     list_display = (
