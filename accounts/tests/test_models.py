@@ -227,7 +227,7 @@ class BaseTest2(TestCase):
             pet_profile_image3="default.jpg",
         )
 
-        self.assertEqual(self.dummy_pet.pet_name, "Dog")
+        self.assertEqual(str(self.dummy_pet.pet_name), "Dog")
         self.assertEqual(self.dummy_pet.pet_gender, "Female")
         self.assertLessEqual(self.dummy_pet.pet_profile_image2.width, 300)
         self.assertLessEqual(self.dummy_pet.pet_profile_image2.height, 300)
