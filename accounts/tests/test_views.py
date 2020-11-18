@@ -1,7 +1,16 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from accounts.models import ShelterRegisterData, Pet, UserRegisterData, User
+from accounts.views import PetListView
 
+def create_pet(pet_name, pet_breed, pet_age, pet_color, pet_gender):
+    return Pet.objects.create(
+        pet_name=pet_name,
+        pet_breed=pet_breed,
+        pet_age=pet_age,
+        pet_color=pet_color,
+        pet_gender=pet_gender,
+    )
 
 class TestViews(TestCase):
 
@@ -103,6 +112,14 @@ class TestViews(TestCase):
         self.assertEquals(str(self.dummy_user.city), "Manhattan")
         self.assertEquals(str(self.dummy_user.state), "New York")
         self.assertEquals(str(self.dummy_user.zip_code), "11209")
+
+    def test_browse_view_pets(self):
+        client = Client()
+
+        response = client.get(reverse("accounts:view-pets"))
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/view_pets.html")
+
 
     # def test_shelter_register_post_view1(self):
     #     client = Client()

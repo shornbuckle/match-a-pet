@@ -10,6 +10,7 @@ from accounts.forms import (
     ClientUserUpdateForm,
     ClientUpdateForm,
 )
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 
 class BaseTest(TestCase):
