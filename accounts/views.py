@@ -303,6 +303,7 @@ def add_to_geo(state, city, address):
     # print(resp_json_payload["results"][0]["geometry"]["location"]["lng"])
     return coordinates
 
+
 @login_required
 def inbox(request):
     user = request.user
@@ -312,22 +313,19 @@ def inbox(request):
 
     if messages:
         message = messages[0]
-        active_direct = message['user'].username
-        directs = Message.objects.filter(user=user, recipient=message['user'])
+        active_direct = message["user"].username
+        directs = Message.objects.filter(user=user, recipient=message["user"])
         directs.update(is_read=True)
 
         for message in messages:
-            if message['user'].username == active_direct:
-                message['unread'] = 0
-    context = {
-        'directs': directs,
-        'messages': messages,
-        'active_direct': active_direct
-    }
+            if message["user"].username == active_direct:
+                message["unread"] = 0
+    context = {"directs": directs, "messages": messages, "active_direct": active_direct}
 
-    template = loader.get_template('accounts/messages.html')
+    template = loader.get_template("accounts/messages.html")
 
     return HttpResponse(template.render(context, request))
+
 
 @login_required
 def Directs(request, username):
@@ -338,42 +336,40 @@ def Directs(request, username):
     directs.update(is_read=True)
 
     for message in messages:
-        if message['user'].username == username:
-            message['unread'] = 0
+        if message["user"].username == username:
+            message["unread"] = 0
 
-    context ={
-        'directs': directs,
-        'messages': messages,
-        'active_direct': active_direct
-    }
+    context = {"directs": directs, "messages": messages, "active_direct": active_direct}
 
-    template = loader.get_template('accounts/messages.html')
+    template = loader.get_template("accounts/messages.html")
 
     return HttpResponse(template.render(context, request))
+
 
 @login_required
 def SendDirect(request):
     from_user = request.user
-    to_user_username = request.POST.get('to_user')
-    body = request.POST.get('body')
+    to_user_username = request.POST.get("to_user")
+    body = request.POST.get("body")
 
-    if request.method == 'POST':
+    if request.method == "POST":
         to_user = User.objects.get(username=to_user_username)
         Message.send_message(from_user, to_user, body)
-        return redirect('accounts:inbox')
+        return redirect("accounts:inbox")
     else:
         HttpResponseBadRequest()
+
 
 @login_required
 def NewConversation(request, username):
     from_user = request.user
-    body = ''
+    body = ""
     to_user = User.objects.get(username=username)
 
     if from_user != to_user:
         Message.send_message(from_user, to_user, body)
 
-    return redirect('accounts:inbox')
+    return redirect("accounts:inbox")
 
 
 def checkDirects(request):
@@ -381,4 +377,4 @@ def checkDirects(request):
     if request.user.is_authenticated:
         directs_count = Message.objects.filter(user=request.user, is_read=False).count()
 
-    return {'directs_count': directs_count}
+    return {"directs_count": directs_count}

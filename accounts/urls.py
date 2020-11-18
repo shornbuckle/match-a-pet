@@ -31,5 +31,5 @@ urlpatterns = [
     path("inbox/", views.inbox, name="inbox"),
     path("inbox/<username>", views.Directs, name="directs"),
     path("send/", views.SendDirect, name="send_direct"),
-    path("send/new/<username>/", views.NewConversation, name="newconversation")
+    path("send/new/<username>/", views.NewConversation, name="newconversation"),
 ]
