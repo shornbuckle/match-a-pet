@@ -2,7 +2,6 @@ from django.shortcuts import render
 import requests
 from accounts.models import User
 from django.contrib import messages
-from map.helpers import users_to_geo
 from .forms import ClientUserPetForm
 from .models import ClientUserPet
 from accounts.models import UserRegisterData
