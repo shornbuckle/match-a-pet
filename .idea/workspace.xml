@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
+    <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="maps updates">
+      <change afterPath="$PROJECT_DIR$/playdate/templates/playdate/playDateViewPets.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/map/templates/map/maps-shelters.html" beforeDir="false" afterPath="$PROJECT_DIR$/map/templates/map/maps-shelters.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/map/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/map/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playdate/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playdate/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,15 +18,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="sean_playdatetest" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -143,7 +145,7 @@
       <option name="presentableId" value="Default" />
       <updated>1602453371459</updated>
       <workItem from="1605239186221" duration="25546000" />
-      <workItem from="1605671527701" duration="5194000" />
+      <workItem from="1605671527701" duration="9640000" />
     </task>
     <task id="LOCAL-00001" summary="maps testing work">
       <created>1605303278367</created>
@@ -201,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605675059420</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="maps updates">
+      <created>1605714217525</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1605714217525</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,14 +238,17 @@
     <MESSAGE value="playdate to upload2" />
     <MESSAGE value="playdate debug" />
     <MESSAGE value="playdate debug2" />
-    <option name="LAST_COMMIT_MESSAGE" value="playdate debug2" />
+    <MESSAGE value="maps updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="maps updates" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser" />
     <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400@0.0.2560.1400" />
-    <state width="202" height="479" key="Git.Branch.Popup" />
+    <state width="404" height="958" key="Git.Branch.Popup" />
     <state width="202" height="479" key="Git.Branch.Popup/1920.1080/3360.2100" />
+    <state width="404" height="958" key="Git.Branch.Popup/3360.2100" />
     <state width="202" height="479" key="Git.Branch.Popup@1920.1080" />
+    <state width="404" height="958" key="Git.Branch.Popup@3360.2100@192dpi" />
     <state x="135" y="0" width="1905" height="958" key="dock-window-1" />
     <state x="135" y="0" width="1905" height="958" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" />
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" />
