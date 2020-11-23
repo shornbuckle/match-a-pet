@@ -81,20 +81,24 @@
         </div>
       </div>
     {% if is_paginated %}
-    {% if page_obj.has_previous %}
-    <a class="carousel-control-prev " href="/user/swiper/?page={{ page_obj.previous_page_number }}" role="button" data-slide="prev">
+    {% if page_obj.has_next %}
+    <a class="carousel-control-prev " href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
 
       {% endif %}
-      {% if page_obj.has_next %}
-      <a class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number }}" role="button" data-slide="next">
+      {% if pet_list %}
+      {% for data in pet_list %}
+      <a class="carousel-control-next" href="{% url 'accounts:favorite_pet' data.id %}" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
+        <span class="sr-only">Add to Favourites</span>
       </a>
-      {% endif %}
-      {% endif %}
+     {% endfor %}
+     {% endif %}
+
+     {% endif %}
+
 
 <!-- <section>-->
 
