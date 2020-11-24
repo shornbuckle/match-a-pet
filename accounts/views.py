@@ -397,3 +397,11 @@ def checkDirects(request):
         directs_count = Message.objects.filter(user=request.user, is_read=False).count()
 
     return {"directs_count": directs_count}
+
+class MatchUserView(
+    SingleTableView
+):  # method we will use to load tables into View Pets
+    model = Pet
+    table_class = PetTable
+    template_name = "accounts/swiper.html"
+    paginate_by = 1

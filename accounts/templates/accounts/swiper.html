@@ -1,0 +1,129 @@
+{% extends 'accounts/base.html' %}
+
+{% block body %}
+<div class="p-3 mb-2 bg-warning">
+<section>
+ <div>
+     <h1 class="display-4 text-warning"><center><font face = "Comic sans MS" size ="+4" style="color: seashell">Pet Matcher</font></center></h1>
+ </div>
+</section>
+
+<div class="container bg-warning ">
+    <div>
+        <div id="demo" class="carousel slide my-3 bg-warning" data-ride="carousel">
+<!--    <ul class="carousel-indicators">-->
+<!--      <li data-target="#demo" data-slide-to="0" class="active"></li>-->
+<!--      <li data-target="#demo" data-slide-to="1" ></li>-->
+<!--      <li data-target="#demo" data-slide-to="2" ></li>-->
+<!--    </ul>-->
+
+            <style>
+.center-block {float:none}
+
+</style>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+              {% if pet_list %}
+              {% for data in pet_list %}
+               <div class="  mx-auto" >
+                 <div class="card bg-danger" style="width: 30rem;">
+                     <a href="/../pets/{{ data.id }}">
+                   <img src="{{data.pet_image_url}}" class="card-img-top" alt="...">
+                         </a>
+                   <div class="card-body">
+                       <h5 class="card-title font-weight-light text-dark">
+                           <a href="/../pets/{{ data.id }}" class="text-capitalize text-uppercase font-weight-bold text-dark">
+                               <h1><font face="Comic sans MS" size ="+3" style="color: seashell">{{data.pet_name}}</font></h1>
+                           </a>
+                       </h5>
+                     <p class="card-text text-white">
+                       <h5>
+                       <font face="Comic sans MS" size ="+1" style="color: seashell">
+                       Age: {{data.pet_age}}
+                       <br>
+                       Sex: {{data.pet_gender}}
+                       <br>
+                       Color: {{data.pet_color}}
+                           </font>
+                       </h5>
+                   </p>
+<!--                        <p>Sex: {{data.pet_gender}}</p>-->
+<!--                        <p class="text-dark ">Color: {{data.pet_color}}</p>-->
+                       <p>
+                           <a href="/../profile/{{ data.shelterRegisterData }}" class="btn btn-info ">
+                           <font face = "Comic sans MS" size ="+1" style="color: seashell">
+                               Shelter: {{data.shelterRegisterData}}
+                           </font>
+                           </a>
+                       </p>
+
+<!--                      <a href="/../pets/{{ data.id }}" class="btn btn-primary">View Pet Details</a>-->
+<!--                      <a href="/../profile/{{ data.shelterRegisterData }}" class="btn btn-primary">View Pet's Shelter Details</a>-->
+                      <a href="{% url 'accounts:favorite_pet' data.id %}" class="btn btn-primary">
+                          <font face = "Comic sans MS" size ="+1" style="color: seashell">
+                          Add to Favourites
+                          </font>
+                      </a>
+                   </p>
+                   </div>
+                 </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            {% endif %}
+              </div>
+            </div>
+</div>
+          </div>
+        </div>
+      </div>
+    {% if is_paginated %}
+    {% if page_obj.has_next %}
+    <a class="carousel-control-prev " href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+
+      {% endif %}
+      {% if pet_list %}
+      {% for data in pet_list %}
+      <a class="carousel-control-next" href="{% url 'accounts:favorite_pet' data.id %}" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Add to Favourites</span>
+      </a>
+     {% endfor %}
+     {% endif %}
+
+     {% endif %}
+
+
+<!-- <section>-->
+
+<!--  <div class="carousel"-->
+<!--  data-flickity='{"freeScroll": true, "wrapAround": true, "imagesLoaded": true, "percentPosition": false,-->
+<!--"pauseAutoPlayOnHover": true }'>-->
+<!--&lt;!&ndash;   <a href=" /../pets/{{ pets.id }}">&ndash;&gt;-->
+<!--  <a href=" /../pets/{{ pets.id }}">-->
+<!--                    <div class="img-wrap d-flex align-items-stretch">-->
+
+<!--                        <div class="img align-self-stretch" style="background-image: url({{pets.pet_image_url}}); height: 250px; width: 250px"></div>-->
+<!--                    </div></a>-->
+<!--&lt;!&ndash;      <img src="https://i.ibb.co/0r9b18n/p.jpg" alt="p" />&ndash;&gt;-->
+<!--&lt;!&ndash;  <img src="https://i.ibb.co/SN4bBp5/cats.jpg" alt="cats" />&ndash;&gt;-->
+<!--&lt;!&ndash;  <img src="https://i.ibb.co/RHbKFBw/tequila1.jpg" alt="tequila1" />&ndash;&gt;-->
+<!--&lt;!&ndash;  <img src="https://i.ibb.co/10Gjjb2/small.jpg" alt="small"/>&ndash;&gt;-->
+<!--&lt;!&ndash;  <img src="https://i.ibb.co/ZLC6H1D/tequila2.jpg" alt="tequila2" />&ndash;&gt;-->
+<!--&lt;!&ndash;  <img src="https://i.ibb.co/b5GH75R/tequila3.jpg" alt="tequila3" />&ndash;&gt;-->
+
+<!--</div>-->
+
+<!-- </section>-->
+
+
+
+
+</div>
+{% endblock %}

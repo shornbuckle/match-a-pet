@@ -29,6 +29,7 @@ urlpatterns = [
     path("profile/<username>/", views.shelter_profile, name="shelterprofile"),
     path("favorite/<int:id>/", views.favorite_pet, name="favorite_pet"),
     path("user/favorites", views.favorites_list, name="favorite_list"),
+    path("user/swiper/", views.MatchUserView.as_view(), name="swiper"),
     path("inbox/", views.inbox, name="inbox"),
     path("inbox/<username>", views.Directs, name="directs"),
     path("send/", views.SendDirect, name="send_direct"),
