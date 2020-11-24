@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import PetListView
+from .views import PetListView, SearchShelterAndUserView
 from django.contrib.auth import views as auth_views
 from .views import VerificationView
 
@@ -24,6 +24,7 @@ urlpatterns = [
     path("pets/register/", views.petsRegister, name="pet-register"),
     path("activate/<uidb64>/<token>", VerificationView.as_view(), name="activate"),
     path("view_pets/", PetListView.as_view(), name="view-pets"),
+    path("profiles/", SearchShelterAndUserView.as_view(), name="search-user-shelters"),
     path("pets/<id>/", views.petProfile, name="pet-profile"),
     path("profile/<username>/", views.shelter_profile, name="shelterprofile"),
     path("favorite/<int:id>/", views.favorite_pet, name="favorite_pet"),
