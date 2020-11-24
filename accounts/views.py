@@ -165,7 +165,7 @@ def shelter_profile(request, username):
         "pet_list": pets,
     }
 
-    template = loader.get_template("accounts/shelter_profile.html")
+    template = loader.get_template("accounts/profile.html")
 
     return HttpResponse(template.render(context, request))
 
