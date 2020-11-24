@@ -180,10 +180,9 @@ class PetListView(ListView):  # method we will use to load tables into View Pets
         context["filter"] = PetFilter(self.request.GET, queryset=self.get_queryset())
         context["filer_qs"] = context["filter"].qs
 
+        paginator = Paginator(context["filer_qs"], 16)
 
-        paginator = Paginator(context["filer_qs"],16)
-
-        page_number = self.request.GET.get('page')
+        page_number = self.request.GET.get("page")
         page_obj = paginator.get_page(page_number)
 
         context["page_obj"] = page_obj
