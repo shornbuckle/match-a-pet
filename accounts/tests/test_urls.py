@@ -7,6 +7,7 @@ from accounts.views import (
     petsRegister,
     PetListView,
     VerificationView,
+    SearchShelterAndUserView,
     petProfile,
     shelter_profile,
     inbox,
@@ -68,3 +69,8 @@ class TestUrls(SimpleTestCase):
         url = reverse("accounts:activate", args=["avhhk4ll2lbl2", "67172"])
         self.assertEquals(resolve(url).func.view_class, VerificationView)
         self.assertEquals(resolve(url).route, "activate/<uidb64>/<token>")
+
+    def test_shelteruser_profiles(self):
+        url = reverse("accounts:search-user-shelters")
+        self.assertEquals(resolve(url).func.view_class, SearchShelterAndUserView)
+        self.assertEquals(resolve(url).route, "profiles/")

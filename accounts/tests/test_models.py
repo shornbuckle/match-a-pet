@@ -10,6 +10,7 @@ from accounts.forms import (
     ClientUserUpdateForm,
     ClientUpdateForm,
 )
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 
 class BaseTest(TestCase):
@@ -223,11 +224,16 @@ class BaseTest2(TestCase):
             pet_age="4",
             pet_color="White",
             pet_gender="Female",
+            pet_profile_image2="default.jpg",
+            pet_profile_image3="default.jpg",
         )
 
-        self.assertEqual(self.dummy_pet.pet_name, "Dog")
+        self.assertEqual(str(self.dummy_pet.pet_name), "Dog")
         self.assertEqual(self.dummy_pet.pet_gender, "Female")
-        # self.assertLessEqual(self.user.uprofile.user_profile_image.width, 300)
+        self.assertLessEqual(self.dummy_pet.pet_profile_image2.width, 300)
+        self.assertLessEqual(self.dummy_pet.pet_profile_image2.height, 300)
+        self.assertLessEqual(self.dummy_pet.pet_profile_image3.width, 300)
+        self.assertLessEqual(self.dummy_pet.pet_profile_image3.height, 300)
         # self.assertEqual(str(self.user.uprofile), "peter7 ClientUser Profile")
 
 
