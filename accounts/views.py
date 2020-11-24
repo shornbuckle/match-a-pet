@@ -178,7 +178,7 @@ class PetListView(ListView):  # method we will use to load tables into View Pets
     # paginate_by = 5
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['filter'] = PetFilter(self.request.GET, queryset=self.get_queryset())
+        context["filter"] = PetFilter(self.request.GET, queryset=self.get_queryset())
         return context
 
     paginate_by = 5
@@ -209,7 +209,7 @@ def favorite_pet(request, id):
     else:
         pet.favorite.add(request.user)
 
-    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+    return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
 
 @login_required
@@ -217,7 +217,7 @@ def favorites_list(request):
     user = request.user
     favorites = user.favorite.all()
     context = {
-        'favorites': favorites,
+        "favorites": favorites,
     }
     return render(request, "accounts/favorite.html", context)
 
@@ -305,7 +305,9 @@ def add_to_geo(state, city, address):
     return coordinates
 
 
-class MatchUserView(SingleTableView):  # method we will use to load tables into View Pets
+class MatchUserView(
+    SingleTableView
+):  # method we will use to load tables into View Pets
     model = Pet
     table_class = PetTable
     template_name = "accounts/swiper.html"

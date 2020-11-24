@@ -10,6 +10,7 @@
 # Database
 *.sqlite3
 
+
 # Log file
 *.log
 

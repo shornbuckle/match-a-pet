@@ -70,7 +70,7 @@ class Pet(models.Model):
     shelterRegisterData = models.ForeignKey(
         ShelterRegisterData, null=True, on_delete=models.CASCADE, related_name="pet"
     )
-    favorite = models.ManyToManyField(User, related_name='favorite', blank=True)
+    favorite = models.ManyToManyField(User, related_name="favorite", blank=True)
     pet_name = models.CharField(max_length=80)
     pet_breed = models.CharField(max_length=50)
     pet_age = models.CharField(max_length=10)
