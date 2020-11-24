@@ -27,7 +27,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/swiper.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/swiper.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +77,7 @@
       <updated>1602453371459</updated>
       <workItem from="1605476782569" duration="20514000" />
       <workItem from="1605656441106" duration="1583000" />
-      <workItem from="1606095665683" duration="50000" />
+      <workItem from="1606095665683" duration="1015000" />
     </task>
     <servers />
   </component>
