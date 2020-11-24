@@ -25,7 +25,7 @@ from .models import Pet, ShelterRegisterData, User, Message
 from .tables import PetTable
 from django.template import loader
 from .filters import PetFilter, UserFilter
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 import requests
 
 global form
@@ -172,15 +172,23 @@ def shelter_profile(request, username):
 
 class PetListView(ListView):  # method we will use to load tables into View Pets
     model = Pet
-    # table_class = PetTable
+    # paginate_by = 5
     template_name = "accounts/view_pets.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["filter"] = PetFilter(self.request.GET, queryset=self.get_queryset())
-        return context
+        context["filer_qs"] = context["filter"].qs
 
-    paginate_by = 5
+
+        paginator = Paginator(context["filer_qs"],16)
+
+        page_number = self.request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+
+        context["page_obj"] = page_obj
+
+        return context
 
 
 class SearchShelterAndUserView(ListView):
