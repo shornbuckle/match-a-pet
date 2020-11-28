@@ -77,7 +77,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.helpers">
     <configuration name="helpers" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="match-a-pet" />
       <option name="INTERPRETER_OPTIONS" value="" />
