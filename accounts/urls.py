@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import PetListView, SearchShelterAndUserView
+from .views import PetListView, SearchShelterAndUserView, MatchUserView
 from django.contrib.auth import views as auth_views
 from .views import VerificationView
 
@@ -33,4 +33,5 @@ urlpatterns = [
     path("inbox/<username>", views.Directs, name="directs"),
     path("send/", views.SendDirect, name="send_direct"),
     path("send/new/<username>/", views.NewConversation, name="newconversation"),
+    path("user/swiper/", MatchUserView.as_view(), name="swiper"),
 ]
