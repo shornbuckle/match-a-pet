@@ -6,6 +6,7 @@ from .forms import ClientUserPetForm
 from .models import ClientUserPet
 from accounts.models import UserRegisterData
 from django.views.generic import ListView
+from .filters import ClientPetFilter
 
 
 def playdate_test(request):
@@ -38,6 +39,7 @@ def clientUserPetsRegister(request):
 
 
 # @login_required
+"""
 def my_pets_list(request):
     # user = request.user
     clientUserPet = ClientUserPet.objects.all()
@@ -45,6 +47,22 @@ def my_pets_list(request):
         "clientUserPet": clientUserPet,
     }
     return render(request, "playdate/myPets.html", context)
+"""
+
+def my_pets_list(request, username):
+    clientuser = User.objects.get(username=username)
+    pets = ClientUserPet.objects.filter(userRegisterData_id=clientuser.id).all()
+    context = {
+        "user1": clientuser,
+        "pet_list": pets,
+    }
+
+    template = loader.get_template("playdate/myPets.html.html")
+
+    return HttpResponse(template.render(context, request))
+
+
+
 
 class playDateView(ListView):  # method we will use to load tables into View Pets
     model = ClientUserPet
@@ -53,7 +71,7 @@ class playDateView(ListView):  # method we will use to load tables into View Pet
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["filter"] = PetFilter(self.request.GET, queryset=self.get_queryset())
+        context["filter"] = ClientPetFilter(self.request.GET, queryset=self.get_queryset())
         return context
 
     paginate_by = 5

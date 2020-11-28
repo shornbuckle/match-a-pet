@@ -8,7 +8,7 @@
 			<div class="row no-gutters slider-text align-items-end justify-content-center">
 				<div class="col-md-9 ftco-animate pb-5 text-center">
 <!--					<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Pets<i class="fa fa-chevron-right"></i></span></p>-->
-					<h1 class="mb-0 bread">Pets Available For Adoption</h1>
+					<h1 class="mb-0 bread">Pets Available For Play Dates</h1>
 				</div>
 			</div>
 		</div>
@@ -35,7 +35,6 @@
 
               {{ filter.form }}
               <button type="submit" class="btn" style="margin-left: 50px; background-color: #103e39; color: white;">Filter</button>
-              <button type="submit" class="btn" style="margin-left: 50px; background-color: #103e39; color: white;">PlayDate</button>
             </div>
           </form>
         </div>
@@ -63,12 +62,10 @@
                             <p>Age: {{pets.pet_age}}</p>
                             <p>Sex: {{pets.pet_gender}}</p>
                             <p>Color: {{pets.pet_color}}</p>
-                            <p>Shelter:<a href=" /../profile/{{ pets.shelterRegisterData }}">{{pets.shelterRegisterData}}</a></p>
+                            <p>Owner:<a href=" /../profile/{{ pets.userRegisterData }}">{{pets.userRegisterData}}</a></p>
                             <ul class="ftco-social text-center">
                                 <!-- <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
                                 <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li> -->
-
-                                <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
                             </ul>
                         </div>
                     </div>
