@@ -35,14 +35,16 @@
 <body1>
     <header>
         <div class="logo">
-
+<a href="/"><font face = "Comic sans MS">
             <h1 class="logo-text"><span>Match </span>A Pet</h1>
+    </a>
         </div>
 
         <ul class="nav">
             {% if user.is_authenticated %}
-                <li><a href="/">Home</a></li>
-                <li><a href="/view_pets">Pets</a></li>
+
+            <li><a href="/user/swiper/">Swipe & Match!</a></li>
+            <li><a href="/view_pets">Pets</a></li>
                 <li><a href="/maps/shelters">Shelters</a></li>
                 {% if user.is_shelter %}
                 <li>
@@ -93,7 +95,8 @@
                     </li>
                 {% endif %}
             {% else %}
-            <li><a href="/">Home</a></li>
+<!--            <li><a href="/">Home</a></li>-->
+            <li><a href="/user/swiper/">Swipe & Match!</a></li>
             <li><a href="/view_pets">Pets</a></li>
             <li><a href="/maps/shelters">Shelters</a></li>
             <li><a href="/login">Login</a>
