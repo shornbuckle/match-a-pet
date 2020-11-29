@@ -7,6 +7,8 @@ from .models import ClientUserPet
 from accounts.models import UserRegisterData
 from django.views.generic import ListView
 from .filters import ClientPetFilter
+from django.template import loader
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest
 
 
 def playdate_test(request):
@@ -57,7 +59,7 @@ def my_pets_list(request, username):
         "pet_list": pets,
     }
 
-    template = loader.get_template("playdate/myPets.html.html")
+    template = loader.get_template("playdate/myPets.html")
 
     return HttpResponse(template.render(context, request))
 
