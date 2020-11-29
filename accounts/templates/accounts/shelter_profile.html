@@ -8,25 +8,42 @@
 <!--    }-->
 <!--</style>-->
 
+{% if user1.is_shelter %}
  <section class="hero-wrap hero-wrap-2">
   <div class="overlay"></div>
   <div class="container">
     <div class="row no-gutters slider-text align-items-end justify-content-center">
       <div class="col-md-9 ftco-animate pb-5 text-center">
-       <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="/">Shelters <i class="fa fa-chevron-right"></i></a></span> <span>Shelter Details <i class="fa fa-chevron-right"></i></span></p>
+       <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="/">Search <i class="fa fa-chevron-right"></i></a></span> <span>Shelter Details <i class="fa fa-chevron-right"></i></span></p>
        <h1 class="mb-0 bread">{{user1.username}} Details</h1>
      </div>
    </div>
  </div>
 </section>
-
+{% elif user1.is_clientuser %}
+ <section class="hero-wrap hero-wrap-2">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+       <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="/">Search <i class="fa fa-chevron-right"></i></a></span> <span>User Details <i class="fa fa-chevron-right"></i></span></p>
+       <h1 class="mb-0 bread">{{user1.username}} Details</h1>
+     </div>
+   </div>
+ </div>
+</section>
+{% endif %}
 <section class="ftco-section bg-light">
  <div class="container">
   <div class="row">
    <div class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
     <div class="staff-2 w-100">
      <div class="img-wrap d-flex align-items-stretch">
-      <div class="img align-self-stretch d-flex align-items-end" style="background-image: url('{{user1.sprofile.shelter_profile_image.url}}');">
+         {% if user1.is_shelter %}
+            <div class="img align-self-stretch d-flex align-items-end" style="background-image: url('{{user1.sprofile.shelter_profile_image.url}}');">
+          {% elif user1.is_clientuser %}
+            <div class="img align-self-stretch d-flex align-items-end" style="background-image: url('{{user1.uprofile.user_profile_image.url}}');">
+          {% endif %}
        <div class="text mb-4 text-md-center">
         <h3>{{user1.username}}</h3>
         <div class="faded">
@@ -47,15 +64,28 @@
 </div>
 </div>
 </div>
+
+{% if user1.is_shelter %}
 <div class="col-md-8 d-flex align-items-center">
   <div class="staff-detail w-100 pl-md-5">
    <h3>About</h3>
-   <p>NYC Shiba Rescue, Inc. (NYCSR) is an all volunteer group dedicated to contributing to the quality of life of Shiba Inus in and around the New York City metropolitan area. To that end, NYCSR actively works to rescue Shiba Inus and Shiba Inu mixed breed dogs from dangerous environments and shelters in order to find them loving, permanent homes.
+   <p>
    <h3>Shelter City:</h3><p>{{user1.city}}</p>
    <h3>Shelter State: </h3><p>{{user1.state}}</p>
    <h3>Contact email: </h3><p>{{user1.email}}</p>
  </div>
 </div>
+{% elif user1.is_clientuser %}
+<div class="col-md-8 d-flex align-items-center">
+  <div class="staff-detail w-100 pl-md-5">
+   <h3>About</h3>
+   <p>NYC Shiba Rescue, Inc. (NYCSR) is an all volunteer group dedicated to contributing to the quality of life of Shiba Inus in and around the New York City metropolitan area. To that end, NYCSR actively works to rescue Shiba Inus and Shiba Inu mixed breed dogs from dangerous environments and shelters in order to find them loving, permanent homes.
+   <h3>User City:</h3><p>{{user1.city}}</p>
+   <h3>User State: </h3><p>{{user1.state}}</p>
+   <h3>Contact email: </h3><p>{{user1.email}}</p>
+ </div>
+</div>
+{% endif %}
 </div>
 </div>
 </section>
@@ -67,34 +97,35 @@
       <h2 class="mb-4">Pets by {{user1.username}}</h2>
     </div>
   </div>
-<div class="row">
-				{% for pets in pet_list %}
-				<div class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
-                <div class="staff">
-                    <a href=" /../pets/{{ pets.id }}">
-                    <div class="img-wrap d-flex align-items-stretch">
+     <div class="row">
+        {% for pets in pet_list %}
+        <div class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
+        <div class="staff">
+            <a href=" /../pets/{{ pets.id }}">
+            <div class="img-wrap d-flex align-items-stretch">
 
-                        <div class="img align-self-stretch" style="background-image: url({{pets.pet_image_url}}); height: 250px; width: 250px"></div>
-                    </div></a>
-                    <div class="text pt-3">
-                        <h3><a href=" /../pets/{{ pets.id }}">{{pets.pet_name}}</a></h3>
-                        <span class="position mb-2">{{pets.pet_breed}}</span>
-                        <div class="faded">
-                            <p>Age: {{pets.pet_age}}</p>
-                            <p>Sex: {{pets.pet_gender}}</p>
-                            <p>Color: {{pets.pet_color}}</p>
-                            <ul class="ftco-social text-center">
-                                <!-- <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li> -->
+                <div class="img align-self-stretch" style="background-image: url({{pets.pet_image_url}}); height: 250px; width: 250px"></div>
+            </div></a>
+            <div class="text pt-3">
+                <h3><a href=" /../pets/{{ pets.id }}">{{pets.pet_name}}</a></h3>
+                <span class="position mb-2">{{pets.pet_breed}}</span>
+                <div class="faded">
+                    <p>Age: {{pets.pet_age}}</p>
+                    <p>Sex: {{pets.pet_gender}}</p>
+                    <p>Color: {{pets.pet_color}}</p>
+                    <ul class="ftco-social text-center">
+                        <!-- <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li> -->
 
-                                <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                    </ul>
                 </div>
             </div>
-            {% endfor %}
-			</div>
+        </div>
+        </div>
+        {% endfor %}
+     </div>
+
  </div>
 </section>
 
