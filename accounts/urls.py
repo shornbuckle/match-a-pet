@@ -34,6 +34,9 @@ urlpatterns = [
     path("send/", views.SendDirect, name="send_direct"),
     path("send/new/<username>/", views.NewConversation, name="newconversation"),
     path("user/swiper/", MatchUserView.as_view(), name="swiper"),
-    path("user/loginprompt/", auth_views.LoginView.as_view(template_name="accounts/dummyprompt.html"), name="login-prompt"),
-
-    ]
+    path(
+        "user/loginprompt/",
+        auth_views.LoginView.as_view(template_name="accounts/dummyprompt.html"),
+        name="login-prompt",
+    ),
+]
