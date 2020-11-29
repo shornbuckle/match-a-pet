@@ -404,3 +404,7 @@ def checkDirects(request):
         directs_count = Message.objects.filter(user=request.user, is_read=False).count()
 
     return {"directs_count": directs_count}
+
+
+def loginPrompt(request):
+    return render(request, "accounts/dummyprompt.html")
