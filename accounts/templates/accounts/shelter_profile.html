@@ -48,7 +48,11 @@
         <h3>{{user1.username}}</h3>
         <div class="faded">
             <br>
+            {% if user.is_authenticated %}
             <h6><a href="{% url 'accounts:newconversation' user1.username %}">Send A Message!
+            {% else %}
+            <h6><a href="/login">Send A Message!
+            {% endif %}
             <i class="fas fa-paper-plane"></i></a></h6>
             <br>
          <ul class="ftco-social">

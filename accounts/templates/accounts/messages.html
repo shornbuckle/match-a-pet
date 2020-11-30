@@ -88,7 +88,7 @@ var objDiv = document.getElementById("botscroll");
 objDiv.scrollTop = objDiv.scrollHeight;
 </script>
 
-{% if direct %}
+{% if directs %}
 <!--Send message box  -->
 <form role="form" method="POST", action="{% url 'accounts:send_direct' %}">
   {% csrf_token %}
