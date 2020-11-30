@@ -77,6 +77,6 @@ class TestUrls(SimpleTestCase):
         self.assertEquals(resolve(url).route, "profiles/")
 
     def test_swiper(self):
-        url = reverse("accounts:swipe-to-match")
+        url = reverse("accounts:swiper")
         self.assertEquals(resolve(url).func.view_class, MatchUserView)
         self.assertEquals(resolve(url).route, "user/swiper/")
