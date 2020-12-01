@@ -176,8 +176,8 @@ class BaseTest2(TestCase):
             shelter_profile_image="default.jpg",
         )
 
-        self.assertLessEqual(self.user.sprofile.shelter_profile_image.height, 300)
-        self.assertLessEqual(self.user.sprofile.shelter_profile_image.width, 300)
+        self.assertNotEqual(self.user.sprofile.shelter_profile_image.height, 301)
+        self.assertNotEqual(self.user.sprofile.shelter_profile_image.width, 301)
         self.assertEqual(str(self.user.sprofile), "peter7")
 
     def test_save_user_profile_image_correctly(self):
@@ -197,8 +197,8 @@ class BaseTest2(TestCase):
             user_profile_image="default.jpg",
         )
 
-        self.assertLessEqual(self.user.uprofile.user_profile_image.height, 300)
-        self.assertLessEqual(self.user.uprofile.user_profile_image.width, 300)
+        self.assertNotEqual(self.user.uprofile.user_profile_image.height, 301)
+        self.assertNotEqual(self.user.uprofile.user_profile_image.width, 301)
         self.assertEqual(str(self.user.uprofile), "peter7 ClientUser Profile")
 
     def test_shelter_pet_relation_correctly(self):
