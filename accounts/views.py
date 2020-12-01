@@ -198,6 +198,15 @@ class SearchShelterAndUserView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["filter"] = UserFilter(self.request.GET, queryset=self.get_queryset())
+        context["filer_qs"] = context["filter"].qs
+
+        paginator = Paginator(context["filer_qs"], 16)
+
+        page_number = self.request.GET.get("page")
+        page_obj = paginator.get_page(page_number)
+
+        context["page_obj"] = page_obj
+
         return context
 
 
