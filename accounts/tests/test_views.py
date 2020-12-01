@@ -270,6 +270,8 @@ class TestProfile(TestCase):
         self.petprofile_url = reverse("accounts:pet-profile", args=["1"])
         self.shelterprofile_url = reverse("accounts:shelterprofile", args=["peter7"])
         self.petregister_url = reverse("accounts:pet-register")
+        self.favorites_url = reverse("accounts:favorite_pet", args=["1"])
+
         self.test_pet = Pet.objects.create(
             id="1",
             pet_name="Dog",
@@ -315,10 +317,16 @@ class TestProfile(TestCase):
         self.assertTemplateUsed(response, "accounts/shelter_profile.html")
 
     def test_pet_register(self):
-        response = self.client.post(self.petregister_url, {"pet": "Tequila"})
+        self.form_pet = {"pet": "Tequila"}
+        response = self.client.post(self.petregister_url, self.form_pet)
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/pets.html")
+
+    def test_favorite_pet(self):
+        response = self.client.get(self.favorites_url)
+
+        self.assertEqual(response.status_code, 302)
 
 
 # class TestUserRegisterView(TestCase):
