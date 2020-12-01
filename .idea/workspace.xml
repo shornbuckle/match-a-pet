@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playdate/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playdate/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playdate/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playdate/templates/playdate/playDateViewPets.html" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/templates/playdate/playDateViewPets.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -145,7 +141,7 @@
       <option name="presentableId" value="Default" />
       <updated>1602453371459</updated>
       <workItem from="1605239186221" duration="25546000" />
-      <workItem from="1605671527701" duration="30691000" />
+      <workItem from="1605671527701" duration="31354000" />
     </task>
     <task id="LOCAL-00001" summary="maps testing work">
       <created>1605303278367</created>
@@ -273,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606793289246</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="play date progress">
+      <created>1606794862667</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1606794862667</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
