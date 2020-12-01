@@ -236,6 +236,13 @@ class TestViews(TestCase):
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/searchShelterUser.html")
 
+    def test_MatchUser_view(self):
+        client = Client()
+
+        response = client.get(reverse("accounts:swiper"))
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/swiper.html")
+
 
 class RegisterTestView(BaseTest):
 

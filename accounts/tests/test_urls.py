@@ -15,6 +15,7 @@ from accounts.views import (
     SendDirect,
     NewConversation,
     checkDirects,
+    MatchUserView,
 )
 from django.contrib.auth.views import LoginView, LogoutView
 
@@ -74,3 +75,8 @@ class TestUrls(SimpleTestCase):
         url = reverse("accounts:search-user-shelters")
         self.assertEquals(resolve(url).func.view_class, SearchShelterAndUserView)
         self.assertEquals(resolve(url).route, "profiles/")
+
+    def test_swiper(self):
+        url = reverse("accounts:swiper")
+        self.assertEquals(resolve(url).func.view_class, MatchUserView)
+        self.assertEquals(resolve(url).route, "user/swiper/")
