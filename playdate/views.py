@@ -41,6 +41,15 @@ def clientUserPetsRegister(request):
 
 
 # @login_required
+def my_pets_list(request, username):
+    # user = request.user
+    clientuser = User.objects.get(username=username)
+    clientUserPet = ClientUserPet.objects.filter(userRegisterData_id=clientuser.id).all()
+    context = {
+        "clientUserPet": clientUserPet,
+    }
+    return render(request, "playdate/myPets.html", context)
+
 
 def user_profile(request, username):
     clientuser = User.objects.get(username=username)

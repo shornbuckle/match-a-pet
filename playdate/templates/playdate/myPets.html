@@ -1,3 +1,4 @@
+
 {% extends 'accounts/base.html' %}
 
 {% block body %}
@@ -17,12 +18,12 @@
 
 		<div class="container">
 			<div class="row">
-				{% for pets in pet_list %}
+				{% for pets in clientUserPet %}
 				<div class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
                 <div class="staff">
                     <div class="img-wrap d-flex align-items-stretch">
 
-                        <div class="img align-self-stretch" style="background-image: url({{pets.pet_profile_image1}}); height: 250px; width: 250px"></div>
+                        <div class="img align-self-stretch" style="background-image: url({{pets.pet_profile_image1.url}}); height: 250px; width: 250px"></div>
                     </div></a>
                     <div class="text pt-3">
                         <h3>{{pets.pet_name}}</a></h3>
@@ -31,6 +32,11 @@
                             <p>Age: {{pets.pet_age}}</p>
                             <p>Sex: {{pets.pet_gender}}</p>
                             <p>Color: {{pets.pet_color}}</p>
+                            <ul class="ftco-social text-center">
+                                <!-- <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li> -->
+
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
                             </ul>
                         </div>
                     </div>
