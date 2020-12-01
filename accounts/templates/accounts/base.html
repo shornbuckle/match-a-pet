@@ -43,7 +43,7 @@
         <ul class="nav">
             {% if user.is_authenticated %}
 
-            <li><a href="/user/swiper/">Swipe & Match!</a></li>
+            <li><a href="/user/swiper/">Swipe A Pet</a></li>
             <li>
                         <a href="#">
                             Search
@@ -104,26 +104,35 @@
                     </li>
                 {% endif %}
             {% else %}
-<!--            <li><a href="/">Home</a></li>-->
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Swipe A Pet</a></li>
+            <li>
             <li>
                         <a href="#">
                             Search
-                            <i class="fas fa-chevron-down" style="font-size: .8em;"></i>
+                            <i class="fas fa-search" style="font-size: .8em";></i>
+
                         </a>
                         <ul>
                             <li><a href="/view_pets">Pets</a></li>
                             <li><a href="/profiles">Shelters & Users</a></li>
                         </ul>
-                    </li>
-                <li><a href="/maps/shelters">Shelter Map</a></li>
-            <li><a href="/login">Login</a>
             </li>
-            <li><a href="#">Register</a>
-              <ul>
-                  <li><a href="/user/register">User Register</a></li>
-                  <li><a href="/shelter/register/">Shelter Register</a></li>
-              </ul>
-          </li>
+                <li><a href="/maps/shelters">Shelter Map</a></li>
+
+            <li>
+                <a href="#">
+                           <i class="fas fa-user"></i>
+                </a>
+                <ul>
+                <li><a href="/login">Login</a>
+                </li>
+                <li><a href="/user/register">User Register</a></li>
+                <li><a href="/shelter/register/">Shelter Register</a></li>
+                </ul>
+            </li>
+                </ul>
+            </li>
             {% endif %}
         </ul>
     </header>
@@ -138,9 +147,8 @@
     <div class="footerimg"  style="background-image: url(../../static/accounts/images/animal_images/catheader.jpg);">
      <div class="overlay"></div>
      <h2>A Social Media Platform to help get shelter animals find loving homes </h2>
-     <p>We can manage your dream building A small river named Duden flows by their place</p>
 
-     <p class="mb-0"><a href="/view_pets/" class="btn btn-primary px-4 py-3">Adopt Now</a></p>
+     <p class="mb-0"><a href="/view_pets/" class="btn btn-primary px-4 py-3">Find a Pet to Adopt!</a></p>
    </div>
  </div>
 </div>

@@ -92,6 +92,14 @@
                             <p>Color: {{pets.pet_color}}</p>
                             <p>Shelter:<a href=" /../profile/{{ pets.shelterRegisterData }}"> {{pets.shelterRegisterData}}</a></p>
                         </div>
+                        <ul class="ftco-social text-center">
+                            {% if user.is_authenticated %}
+                            <b><li class="ftco-animate"><a href="/send/new/{{ pets.shelterRegisterData }}">Inquire More! <i class="fas fa-paper-plane"></i></li></b>
+                            {% else %}
+                            <b><li class="ftco-animate"><a href="/login">Inquire More! <i class="fas fa-paper-plane"></i></li></b>
+                            {% endif %}
+                            </ul>
+
                     </div>
                 </div>
             </div>

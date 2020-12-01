@@ -36,13 +36,13 @@
                 <li class="button">03</li>
             </ul>
             <br>
-            {% if user.is_authenticated %}
-            <h6><a href="{% url 'accounts:newconversation' user1.username %}">Send A Message!
-            {% else %}
-            <h6><a href="/login">Send A Message!
-            {% endif %}
-            <i class="fas fa-paper-plane"></i></a></h6>
             <br>
+            {% if user.is_authenticated %}
+            <h6><b><a href="{% url 'accounts:newconversation' pet.shelterRegisterData %}">Message {{ pet.shelterRegisterData }} to adopt! <i class="fas fa-paper-plane"></i></a></b></h6>
+            {% else %}
+            <h6><a href="/login">Send A Message!<i class="fas fa-paper-plane"></i></a></h6>
+            {% endif %}
+
             <div id="favorite-section">
                 {% if user.is_clientuser %}
                     {% if is_favorite %}
