@@ -8,6 +8,7 @@ class ClientUserPetForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields["pet_playdate_day1"].label = "Preferred Playdate Day"
         self.fields["pet_playdate_time1"].label = "Preferred Playdate Time"
+        self.fields["pet_spayneuter"].label = "Spay/Neuter Status"
 
     # shelter_id = forms.CharField(disabled = True)
     # email = forms.CharField(disabled = True)
@@ -33,9 +34,14 @@ class ClientUserPetForm(forms.ModelForm):
         ("Evening", "Evening"),
         ("Night", "Night"),
     )
+    spayneuter_choices = (
+        ("Yes", "Yes"),
+        ("No", "No"),
+    )
 
     pet_age = forms.ChoiceField(choices=age_choices)
     pet_gender = forms.ChoiceField(choices=gender_choices)
+    pet_spayneuter = forms.ChoiceField(choices=spayneuter_choices)
     pet_playdate_day1 = forms.ChoiceField(choices=day_choices)
     pet_playdate_time1 = forms.ChoiceField(choices=time_choices)
 
@@ -47,6 +53,7 @@ class ClientUserPetForm(forms.ModelForm):
             "pet_age",
             "pet_color",
             "pet_gender",
+            "pet_spayneuter",
             "pet_playdate_day1",
             "pet_playdate_time1",
             # "date_entered",
