@@ -331,14 +331,17 @@ class TestProfile(TestCase):
             }
         )
         self.assertTrue(form_pet.is_valid())
+        instance = form_pet.save()
+        instance.save()
         form_pet.save()
+
         response = self.client.post(self.petregister_url)
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/pets.html")
 
     def test_favorite_pet(self):
-        response = self.client.get(self.favorites_url)
+        response = self.client.get(self.favorites_url, {"id": "1"})
 
         self.assertEqual(response.status_code, 302)
 
