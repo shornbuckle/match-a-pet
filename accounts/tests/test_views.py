@@ -272,6 +272,7 @@ class TestProfile(TestCase):
         self.shelterprofile_url = reverse("accounts:shelterprofile", args=["peter7"])
         self.petregister_url = reverse("accounts:pet-register")
         self.favorites_url = reverse("accounts:favorite_pet", args=["1"])
+        self.favoriteslist_url = reverse("accounts:favorite_list")
 
         self.test_pet = Pet.objects.create(
             id="1",
@@ -286,6 +287,19 @@ class TestProfile(TestCase):
             is_shelter=True,
             username="peter7",
             email="peter@matchapet.com",
+            first_name="Peter",
+            last_name="Voltz",
+            address="5th Ave",
+            city="Manhattan",
+            state="New York",
+            zip_code="11209",
+            password="test123abc",
+        )
+
+        self.dummy_user = User.objects.create(
+            is_clientuser=True,
+            username="peter8",
+            email="pete@matchapet.com",
             first_name="Peter",
             last_name="Voltz",
             address="5th Ave",
@@ -343,6 +357,12 @@ class TestProfile(TestCase):
     def test_favorite_pet(self):
         response = self.client.get(self.favorites_url, {"id": "1"})
 
+        self.assertEqual(response.status_code, 302)
+
+    def test_favorite_list(self):
+        user = self.dummy_user
+        favorites = user.favorite.all()
+        response = self.client.get(self.favoriteslist_url, {"favorites": favorites})
         self.assertEqual(response.status_code, 302)
 
 
