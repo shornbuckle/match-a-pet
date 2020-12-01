@@ -35,6 +35,14 @@
                 <li class="button">02</li>
                 <li class="button">03</li>
             </ul>
+            <br>
+            {% if user.is_authenticated %}
+            <h6><a href="{% url 'accounts:newconversation' user1.username %}">Send A Message!
+            {% else %}
+            <h6><a href="/login">Send A Message!
+            {% endif %}
+            <i class="fas fa-paper-plane"></i></a></h6>
+            <br>
             <div id="favorite-section">
                 {% if user.is_clientuser %}
                     {% if is_favorite %}
