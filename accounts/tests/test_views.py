@@ -5,6 +5,7 @@ from accounts.models import ShelterRegisterData, Pet, UserRegisterData, User
 
 class BaseTest(TestCase):
     def setUp(self):
+
         self.register_url = reverse("accounts:register-shelter")
         self.dummy_user = User.objects.create(
             # is_shelter=True,
@@ -262,6 +263,32 @@ class RegisterTestView(BaseTest):
     #     self.assertRedirects(
     #         response, reverse("dashboard:dashboard"), fetch_redirect_response=False
     #     )
+
+
+class TestProfile(TestCase):
+    def setUp(self):
+        self.petprofile_url = reverse("accounts:pet-profile", args=["1"])
+
+    def test_pet_profile(self):
+        self.test_pet = Pet.objects.create(
+            id="1",
+            pet_name="Dog",
+            pet_breed="Shihtzu",
+            pet_age="4",
+            pet_color="White",
+            pet_gender="Female",
+            pet_profile_image1="default.jpg",
+        )
+
+        response = self.client.get(
+            self.petprofile_url,
+            {
+                "pet": self.test_pet,
+                "is_favorite": False,
+            },
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/pet_profile.html")
 
 
 # class TestUserRegisterView(TestCase):
