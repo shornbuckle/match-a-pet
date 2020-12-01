@@ -268,7 +268,7 @@ class RegisterTestView(BaseTest):
 class TestProfile(TestCase):
     def setUp(self):
         self.petprofile_url = reverse("accounts:pet-profile", args=["1"])
-        self.shelterprofile_url = reverse("accounts:shelter-profile")
+        self.shelterprofile_url = reverse("accounts:shelterprofile", args=["peter7"])
         self.test_pet = Pet.objects.create(
             id="1",
             pet_name="Dog",
@@ -310,7 +310,8 @@ class TestProfile(TestCase):
                 "pets": self.test_pet,
             },
         )
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/shelter_profile.html")
 
 
 # class TestUserRegisterView(TestCase):
