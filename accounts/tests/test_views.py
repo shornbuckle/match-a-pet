@@ -230,6 +230,12 @@ class TestViews(TestCase):
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/view_pets.html")
 
+    def test_search(self):
+        client = Client()
+        response = client.get(reverse("accounts:search-user-shelters"))
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/searchShelterUser.html")
+
 
 class RegisterTestView(BaseTest):
 
