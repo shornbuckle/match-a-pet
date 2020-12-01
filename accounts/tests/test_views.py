@@ -337,39 +337,39 @@ class TestProfile(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/shelter_profile.html")
 
-    # def test_pet_register(self):
-    #     form_pet = PetForm(
-    #         data={
-    #             "shelterRegisterData": "peter7",
-    #             "favorite": "False",
-    #             "pet_name": "Tequila",
-    #             "pet_breed": "Shiba",
-    #             "pet_age": "Baby",
-    #             "pet_color": "Black",
-    #             "pet_gender": "Male",
-    #             "pet_profile_image1": "image.jpg",
-    #         }
-    #     )
-    #     self.assertTrue(form_pet.is_valid())
-    #     instance = form_pet.save()
-    #     instance.save()
-    #     form_pet.save()
-    #
-    #     response = self.client.post(self.petregister_url)
-    #
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, "accounts/pets.html")
+    def test_pet_register(self):
+        form_pet = PetForm(
+            data={
+                "shelterRegisterData": "peter7",
+                "favorite": "False",
+                "pet_name": "Tequila",
+                "pet_breed": "Shiba",
+                "pet_age": "Baby",
+                "pet_color": "Black",
+                "pet_gender": "Male",
+                "pet_profile_image1": "image.jpg",
+            }
+        )
+        self.assertTrue(form_pet.is_valid())
+        instance = form_pet.save()
+        instance.save()
+        form_pet.save()
 
-    # def test_favorite_pet(self):
-    #     response = self.client.get(self.favorites_url, {"id": "1"})
-    #
-    #     self.assertEqual(response.status_code, 302)
-    #
-    # def test_favorite_list(self):
-    #     user = self.dummy_user
-    #     favorites = user.favorite.all()
-    #     response = self.client.get(self.favoriteslist_url, {"favorites": favorites})
-    #     self.assertEqual(response.status_code, 302)
+        response = self.client.post(self.petregister_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/pets.html")
+
+    def test_favorite_pet(self):
+        response = self.client.get(self.favorites_url, {"id": "1"})
+
+        self.assertEqual(response.status_code, 302)
+
+    def test_favorite_list(self):
+        user = self.dummy_user
+        favorites = user.favorite.all()
+        response = self.client.get(self.favoriteslist_url, {"favorites": favorites})
+        self.assertEqual(response.status_code, 302)
 
 
 # class TestUserRegisterView(TestCase):
