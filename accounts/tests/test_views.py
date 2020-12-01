@@ -268,8 +268,7 @@ class RegisterTestView(BaseTest):
 class TestProfile(TestCase):
     def setUp(self):
         self.petprofile_url = reverse("accounts:pet-profile", args=["1"])
-
-    def test_pet_profile(self):
+        self.shelterprofile_url = reverse("accounts:shelter-profile")
         self.test_pet = Pet.objects.create(
             id="1",
             pet_name="Dog",
@@ -279,7 +278,20 @@ class TestProfile(TestCase):
             pet_gender="Female",
             pet_profile_image1="default.jpg",
         )
+        self.dummy_shelter = User.objects.create(
+            is_shelter=True,
+            username="peter7",
+            email="peter@matchapet.com",
+            first_name="Peter",
+            last_name="Voltz",
+            address="5th Ave",
+            city="Manhattan",
+            state="New York",
+            zip_code="11209",
+            password="test123abc",
+        )
 
+    def test_pet_profile(self):
         response = self.client.get(
             self.petprofile_url,
             {
@@ -289,6 +301,16 @@ class TestProfile(TestCase):
         )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/pet_profile.html")
+
+    def test_shelter_profile(self):
+        response = self.client.get(
+            self.shelterprofile_url,
+            {
+                "user1": self.dummy_shelter,
+                "pets": self.test_pet,
+            },
+        )
+        self.assertEqual(response.status_code, 302)
 
 
 # class TestUserRegisterView(TestCase):
