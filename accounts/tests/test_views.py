@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from accounts.models import ShelterRegisterData, Pet, UserRegisterData, User
-
+from accounts.forms import PetForm
 
 class BaseTest(TestCase):
     def setUp(self):
@@ -317,8 +317,21 @@ class TestProfile(TestCase):
         self.assertTemplateUsed(response, "accounts/shelter_profile.html")
 
     def test_pet_register(self):
-        self.form_pet = {"pet": "Tequila"}
-        response = self.client.post(self.petregister_url, self.form_pet)
+        form_pet = PetForm(data=
+        {
+            "shelterRegisterData": "peter7",
+            "favorite": "False",
+            "pet_name": "Tequila",
+            "pet_breed": "Shiba",
+            "pet_age": "Baby",
+            "pet_color": "Black",
+            "pet_gender": "Male",
+            "pet_profile_image1": "image.jpg"
+
+        })
+        self.assertTrue(form_pet.is_valid())
+        form_pet.save()
+        response = self.client.post(self.petregister_url)
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/pets.html")
