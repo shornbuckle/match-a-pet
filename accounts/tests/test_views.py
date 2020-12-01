@@ -243,6 +243,18 @@ class TestViews(TestCase):
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/swiper.html")
 
+    def test_newconversation_view(self):
+        client = Client()
+
+        response = client.get(reverse("accounts:newconversation", args=["peter7"]))
+        self.assertEquals(response.status_code, 302)
+
+    def test_inbox_view(self):
+        client = Client()
+
+        response = client.get(reverse("accounts:inbox"))
+        self.assertEquals(response.status_code, 302)
+
 
 class RegisterTestView(BaseTest):
 
