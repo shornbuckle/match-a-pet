@@ -50,6 +50,7 @@
         {% for pets in filter.qs %}
             <div class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
                 <div class="staff">
+                    <a href=" /../userprofile/{{ pets.userRegisterData.user }}">
                     <div class="img-wrap d-flex align-items-stretch">
 
                         <div class="img align-self-stretch" style="background-image: url({{pets.pet_profile_image1.url}}); height: 250px; width: 250px"></div>
@@ -60,8 +61,11 @@
                         <div class="faded">
                             <p>Age: {{pets.pet_age}}</p>
                             <p>Sex: {{pets.pet_gender}}</p>
-                            <p>Color: {{pets.pet_color}}</p>
-                            <p>Owner:<a href=" /../userprofile/{{ pets.userRegisterData.user }}">{{pets.userRegisterData.user}}</a></p>
+                            <p>City: {{pets.userRegisterData.user.city}}</p>
+                            <p>Playdate Day: {{pets.pet_playdate_day1}}</p>
+                            <p>Playdate Time: {{pets.pet_playdate_time1}}</p>
+                            <p>Owner: {{pets.userRegisterData.user}}</p>
+                            <a href=" /../userprofile/{{ pets.userRegisterData.user }}">SCHEDULE PLAYDATE</a></p>
                             <ul class="ftco-social text-center">
                         <!-- <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
                         <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li> -->

@@ -16,6 +16,8 @@ class ClientUserPet(models.Model):
     pet_age = models.CharField(max_length=10)
     pet_color = models.CharField(max_length=50)
     pet_gender = models.CharField(max_length=50)
+    pet_playdate_day1 = models.CharField(max_length=50, default="Friday")
+    pet_playdate_time1 = models.CharField(max_length=50, default="Night")
     pet_profile_image1 = models.ImageField(
         default="default.jpg", upload_to="pet_profile_pics", blank=True
     )

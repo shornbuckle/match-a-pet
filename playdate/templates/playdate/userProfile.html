@@ -32,14 +32,9 @@
         <h3>{{user1.username}}</h3>
         <div class="faded">
             <br>
-            <h6><a href="{% url 'accounts:newconversation' user1.username %}">Send A Message!
-            <i class="fas fa-paper-plane"></i></a></h6>
+            <h4><a href="{% url 'accounts:newconversation' user1.username %}">SCHEDULE A PLAYDATE!
+            <i class="fas fa-paper-plane"></i></a></h4>
             <br>
-         <ul class="ftco-social">
-          <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-          <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
-          <li class="ftco-animate"><a href="#"><span class="fa fa-google"></span></a></li>
-          <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
         </ul>
       </div>
     </div>
@@ -53,8 +48,8 @@
   <div class="staff-detail w-100 pl-md-5">
    <h3>About</h3>
    <p>Default User Profile
-   <h3>User City:</h3><p>{{user1.city}}</p>
-   <h3>User State: </h3><p>{{user1.state}}</p>
+   <h3>City:</h3><p>{{user1.city}}</p>
+   <h3>State: </h3><p>{{user1.state}}</p>
    <h3>Contact email: </h3><p>{{user1.email}}</p>
  </div>
 </div>
@@ -66,7 +61,7 @@
  <div class="container">
   <div class="row pb-4">
     <div class="col-md-12 heading-section ftco-animate">
-      <h2 class="mb-4">Pets by {{user1.username}}</h2>
+      <h2 class="mb-4">{{user1.username}}'s Pets</h2>
     </div>
   </div>
      <div class="row">
@@ -83,7 +78,8 @@
                         <div class="faded">
                             <p>Age: {{pets.pet_age}}</p>
                             <p>Sex: {{pets.pet_gender}}</p>
-                            <p>Color: {{pets.pet_color}}</p>
+                            <p>Playdate Day: {{pets.pet_playdate_day1}}</p>
+                            <p>Playdate Time: {{pets.pet_playdate_time1}}</p>
                             <ul class="ftco-social text-center">
                         <!-- <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
                         <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li> -->
