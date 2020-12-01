@@ -315,12 +315,11 @@ class TestProfile(TestCase):
         self.assertTemplateUsed(response, "accounts/shelter_profile.html")
 
     def test_pet_register(self):
-        response = self.client.post(self.petregister_url, {
-            'pet': 'Tequila'
-        })
+        response = self.client.post(self.petregister_url, {"pet": "Tequila"})
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/pets.html")
+
 
 # class TestUserRegisterView(TestCase):
 #     def test_view_register_page(self):
