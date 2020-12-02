@@ -1,10 +1,12 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from accounts.models import ShelterRegisterData, Pet, UserRegisterData, User
+from accounts.forms import PetForm
 
 
 class BaseTest(TestCase):
     def setUp(self):
+
         self.register_url = reverse("accounts:register-shelter")
         self.dummy_user = User.objects.create(
             # is_shelter=True,
@@ -228,6 +230,31 @@ class TestViews(TestCase):
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/view_pets.html")
 
+    def test_search(self):
+        client = Client()
+        response = client.get(reverse("accounts:search-user-shelters"))
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/searchShelterUser.html")
+
+    def test_MatchUser_view(self):
+        client = Client()
+
+        response = client.get(reverse("accounts:swiper"))
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/swiper.html")
+
+    def test_newconversation_view(self):
+        client = Client()
+
+        response = client.get(reverse("accounts:newconversation", args=["peter7"]))
+        self.assertEquals(response.status_code, 302)
+
+    def test_inbox_view(self):
+        client = Client()
+
+        response = client.get(reverse("accounts:inbox"))
+        self.assertEquals(response.status_code, 302)
+
 
 class RegisterTestView(BaseTest):
 
@@ -262,6 +289,106 @@ class RegisterTestView(BaseTest):
     #     self.assertRedirects(
     #         response, reverse("dashboard:dashboard"), fetch_redirect_response=False
     #     )
+
+
+class TestProfile(TestCase):
+    def setUp(self):
+        self.petprofile_url = reverse("accounts:pet-profile", args=["1"])
+        self.shelterprofile_url = reverse("accounts:shelterprofile", args=["peter7"])
+        self.petregister_url = reverse("accounts:pet-register")
+        self.favorites_url = reverse("accounts:favorite_pet", args=["1"])
+        self.favoriteslist_url = reverse("accounts:favorite_list")
+
+        self.test_pet = Pet.objects.create(
+            id="1",
+            pet_name="Dog",
+            pet_breed="Shihtzu",
+            pet_age="4",
+            pet_color="White",
+            pet_gender="Female",
+            pet_profile_image1="default.jpg",
+        )
+        self.dummy_shelter = User.objects.create(
+            is_shelter=True,
+            username="peter7",
+            email="peter@matchapet.com",
+            first_name="Peter",
+            last_name="Voltz",
+            address="5th Ave",
+            city="Manhattan",
+            state="New York",
+            zip_code="11209",
+            password="test123abc",
+        )
+
+        self.dummy_user = User.objects.create(
+            is_clientuser=True,
+            username="peter8",
+            email="pete@matchapet.com",
+            first_name="Peter",
+            last_name="Voltz",
+            address="5th Ave",
+            city="Manhattan",
+            state="New York",
+            zip_code="11209",
+            password="test123abc",
+        )
+
+    def test_pet_profile(self):
+        response = self.client.get(
+            self.petprofile_url,
+            {
+                "pet": self.test_pet,
+                "is_favorite": False,
+            },
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/pet_profile.html")
+
+    def test_shelter_profile(self):
+        response = self.client.get(
+            self.shelterprofile_url,
+            {
+                "user1": self.dummy_shelter,
+                "pets": self.test_pet,
+            },
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/shelter_profile.html")
+
+    def test_pet_register(self):
+        form_pet = PetForm(
+            data={
+                "shelterRegisterData": "peter7",
+                "favorite": "False",
+                "pet_name": "Tequila",
+                "pet_breed": "Shiba",
+                "pet_age": "Baby",
+                "pet_color": "Black",
+                "pet_gender": "Male",
+                "pet_profile_image1": "image.jpg",
+            }
+        )
+        self.assertTrue(form_pet.is_valid())
+        instance = form_pet.save()
+        instance.save()
+        form_pet.save()
+
+        response = self.client.post(self.petregister_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/pets.html")
+
+    def test_favorite_pet(self):
+        response = self.client.get(self.favorites_url, {"id": "1"})
+
+        self.assertEqual(response.status_code, 302)
+
+    def test_favorite_list(self):
+        user = self.dummy_user
+        favorites = user.favorite.all()
+        response = self.client.get(self.favoriteslist_url, {"favorites": favorites})
+        self.assertEqual(response.status_code, 302)
 
 
 # class TestUserRegisterView(TestCase):

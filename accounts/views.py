@@ -198,6 +198,15 @@ class SearchShelterAndUserView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["filter"] = UserFilter(self.request.GET, queryset=self.get_queryset())
+        context["filer_qs"] = context["filter"].qs
+
+        paginator = Paginator(context["filer_qs"], 16)
+
+        page_number = self.request.GET.get("page")
+        page_obj = paginator.get_page(page_number)
+
+        context["page_obj"] = page_obj
+
         return context
 
 
@@ -306,6 +315,14 @@ class VerificationView(View):
             return redirect("/login/")
 
 
+class MatchUserView(SingleTableView):
+    # method we will be used to load tables into swiper feature
+    model = Pet
+    table_class = PetTable
+    template_name = "accounts/swiper.html"
+    paginate_by = 1
+
+
 def add_to_geo(state, city, address):
     api_key = "AIzaSyC796wfP4gXyVbNt2wpSW6zMUojqenu04w"
     city = city.replace(" ", "+")
@@ -381,7 +398,7 @@ def SendDirect(request):
 @login_required
 def NewConversation(request, username):
     from_user = request.user
-    body = ""
+    body = "Hello!"
     to_user = User.objects.get(username=username)
 
     if from_user != to_user:
