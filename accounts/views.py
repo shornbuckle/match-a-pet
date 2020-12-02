@@ -151,7 +151,6 @@ def petProfile(request, id):
     context = {
         "pet": pet,
         "is_favorite": is_favorite,
-
     }
 
     template = loader.get_template("accounts/pet_profile.html")
