@@ -24,8 +24,8 @@ header *{
 
 header .logo{
     position: absolute;
-    left: 35%;
-    transform: translatex(-50%);
+
+
 }
 
 header .logo-text{
@@ -37,11 +37,8 @@ header .logo-text span{
 }
 
 header ul{
-    position: absolute;
-    left: 50%;
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
+    float: right;
+    margin-right: 20px;
 }
 
 header ul li{
