@@ -150,7 +150,7 @@ class TestViews(TestCase):
     def test_shelter_login_post_view(self):
         client = Client()
 
-        response = client.post(reverse("accounts:login"), {})
+        response = client.post(reverse("accounts:login"))
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/login.html")
 
@@ -253,6 +253,18 @@ class TestViews(TestCase):
         client = Client()
 
         response = client.get(reverse("accounts:inbox"))
+        self.assertEquals(response.status_code, 302)
+
+    def test_shelter_profile(self):
+        client = Client()
+
+        response = client.get(reverse("accounts:shelter-profile"))
+        self.assertEquals(response.status_code, 302)
+
+    def test_user_profile(self):
+        client = Client()
+
+        response = client.get(reverse("accounts:user-profile"))
         self.assertEquals(response.status_code, 302)
 
 
