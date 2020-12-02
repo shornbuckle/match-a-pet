@@ -446,6 +446,20 @@ class TestProfile(TestCase):
         )
         self.assertFalse(form.is_valid())
 
+    def test_registeruser(self):
+        usersignup = reverse("accounts:register-user")
+
+        response = self.client.post(usersignup)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/register.html")
+
+    def test_registershelter(self):
+        sheltersignup = reverse("accounts:register-shelter")
+
+        response = self.client.post(sheltersignup)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/register.html")
+
 
 # class TestUserRegisterView(TestCase):
 #     def test_view_register_page(self):
