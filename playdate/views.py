@@ -1,14 +1,12 @@
-from django.shortcuts import render, redirect
-import requests
+from django.shortcuts import render
 from accounts.models import User
 from django.contrib import messages
 from .forms import ClientUserPetForm
 from .models import ClientUserPet
-from accounts.models import UserRegisterData
 from django.views.generic import ListView
 from .filters import ClientPetFilter
 from django.template import loader
-from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest
+from django.http import HttpResponse
 
 
 def playdate_test(request):
@@ -44,7 +42,9 @@ def clientUserPetsRegister(request):
 def my_pets_list(request, username):
     # user = request.user
     clientuser = User.objects.get(username=username)
-    clientUserPet = ClientUserPet.objects.filter(userRegisterData_id=clientuser.id).all()
+    clientUserPet = ClientUserPet.objects.filter(
+        userRegisterData_id=clientuser.id
+    ).all()
     context = {
         "clientUserPet": clientUserPet,
     }
@@ -64,10 +64,6 @@ def user_profile(request, username):
     return HttpResponse(template.render(context, request))
 
 
-
-
-
-
 class playDateView(ListView):  # method we will use to load tables into View Pets
     model = ClientUserPet
     # table_class = PetTable
@@ -75,7 +71,9 @@ class playDateView(ListView):  # method we will use to load tables into View Pet
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["filter"] = ClientPetFilter(self.request.GET, queryset=self.get_queryset())
+        context["filter"] = ClientPetFilter(
+            self.request.GET, queryset=self.get_queryset()
+        )
         return context
 
     paginate_by = 5

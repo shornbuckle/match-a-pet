@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/filters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playdate/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/filters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playdate/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playdate/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playdate/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/playdate/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -164,7 +169,7 @@
       <option name="presentableId" value="Default" />
       <updated>1602453371459</updated>
       <workItem from="1605239186221" duration="25546000" />
-      <workItem from="1605671527701" duration="34299000" />
+      <workItem from="1605671527701" duration="36559000" />
     </task>
     <task id="LOCAL-00001" summary="maps testing work">
       <created>1605303278367</created>
@@ -313,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606796128683</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Play Date - Review">
+      <created>1606799232309</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1606799232309</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,7 +356,8 @@
     <MESSAGE value="maps updates" />
     <MESSAGE value="Progress on play Date app - 5PM  Sat 11/21" />
     <MESSAGE value="play date progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="play date progress" />
+    <MESSAGE value="Play Date - Review" />
+    <option name="LAST_COMMIT_MESSAGE" value="Play Date - Review" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser" />
@@ -364,7 +377,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/playdate/forms.py</url>
-          <line>28</line>
+          <line>27</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

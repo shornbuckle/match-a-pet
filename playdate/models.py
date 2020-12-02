@@ -1,7 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
 from PIL import Image
-from accounts.models import User, UserRegisterData
+from accounts.models import UserRegisterData
 
 
 # ClientUserPet has fields id, pet_age, pet_breed, pet_color, pet_gender, pet_image_url,
