@@ -258,13 +258,13 @@ class TestViews(TestCase):
     def test_shelter_profile(self):
         client = Client()
 
-        response = client.get(reverse("accounts:shelter-profile"))
+        response = client.post(reverse("accounts:shelter-profile"))
         self.assertEquals(response.status_code, 302)
 
     def test_user_profile(self):
         client = Client()
 
-        response = client.get(reverse("accounts:user-profile"))
+        response = client.post(reverse("accounts:user-profile"))
         self.assertEquals(response.status_code, 302)
 
 
