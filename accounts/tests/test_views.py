@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from accounts.models import ShelterRegisterData, Pet, UserRegisterData, User, Message
-from accounts.forms import PetForm
+from accounts.forms import PetForm, ClientUserUpdateForm, ShelterUserUpdateForm
 
 
 class BaseTest(TestCase):
@@ -419,6 +419,32 @@ class TestProfile(TestCase):
         favorites = user.favorite.all()
         response = self.client.get(self.favoriteslist_url, {"favorites": favorites})
         self.assertEqual(response.status_code, 302)
+
+    def test_ShelterUpdateForm_is_valid(self):
+        form = ShelterUserUpdateForm(
+            data={
+                "email": "ben@ben.com",
+                "first_name": "benjamin",
+                "last_name": "teo",
+                "city": "New York",
+                "state": "NY",
+                "zip_code": "11220",
+            }
+        )
+        self.assertFalse(form.is_valid())
+
+    def test_ClientUpdateForm_is_valid(self):
+        form = ClientUserUpdateForm(
+            data={
+                "email": "ben1@ben.com",
+                "first_name": "benjamin",
+                "last_name": "teo",
+                "city": "New York",
+                "state": "NY",
+                "zip_code": "11220",
+            }
+        )
+        self.assertFalse(form.is_valid())
 
 
 # class TestUserRegisterView(TestCase):
