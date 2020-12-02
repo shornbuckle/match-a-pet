@@ -81,6 +81,7 @@
                         </ul>
                     </li>
                 {% elif user.is_clientuser %}
+                    <li><a href="/playdates">Playdates</a></li>
                     <li>
                             <a href="/inbox">
                             {% if directs_count %}
@@ -97,10 +98,10 @@
                             <i class="fas fa-chevron-down" style="font-size: .8em;"></i>
                         </a>
                         <ul>
-                            <li><a href="/user/profile">My Profile</a></li>
+                            <li><a href="/user/profile">Edit My Profile</a></li>
+                            <li><a href="/userprofile/{{user.username}}">Preview Profile</a></li>
                             <li><a href="/user/favorites">My Favorites</a></li>
                             <li><a href="/user/petregister">Register my Pet</a></li>
-                            <li><a href="/user/mypets">My Pets</a></li>
                             <li><a href="/logout" class="logout">Logout</a></li>
                         </ul>
                     </li>
