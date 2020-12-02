@@ -43,18 +43,20 @@
         <ul class="nav">
             {% if user.is_authenticated %}
 
-            <li><a href="/user/swiper/">Swipe A Pet</a></li>
+            <li><a href="/login">Swipe A Pet</a></li>
+            <li>
             <li>
                         <a href="#">
-                            Search
-                            <i class="fas fa-chevron-down" style="font-size: .8em;"></i>
+                            Browse <i class="fas fa-chevron-down" style="font-size: .8em;"></i>
+
                         </a>
                         <ul>
                             <li><a href="/view_pets">Pets</a></li>
                             <li><a href="/profiles">Shelters & Users</a></li>
                         </ul>
-                    </li>
+            </li>
                 <li><a href="/maps/shelters">Shelter Map</a></li>
+            <li>
                 {% if user.is_shelter %}
                 <li>
                     <a href="/inbox">
@@ -104,14 +106,11 @@
                     </li>
                 {% endif %}
             {% else %}
-            <li><a href="/">Home</a></li>
             <li><a href="/login">Swipe A Pet</a></li>
             <li>
             <li>
                         <a href="#">
-                            Search
-                            <i class="fas fa-search" style="font-size: .8em";></i>
-
+                            Browse <i class="fas fa-chevron-down" style="font-size: .8em;"></i>
                         </a>
                         <ul>
                             <li><a href="/view_pets">Pets</a></li>
