@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-from accounts.models import ShelterRegisterData, Pet, UserRegisterData, User
+from accounts.models import ShelterRegisterData, Pet, UserRegisterData, User, Message
 from accounts.forms import PetForm
 
 
@@ -251,13 +251,32 @@ class TestViews(TestCase):
 
     def test_inbox_view(self):
         client = Client()
+        user = User.objects.create(
+            is_clientuser=True,
+            username="peter8",
+            email="pete@matchapet.com",
+            first_name="Peter",
+            last_name="Voltz",
+            address="5th Ave",
+            city="Manhattan",
+            state="New York",
+            zip_code="11209",
+            password="test123abc",
+        )
+        messages = Message.get_messages(user=user)
 
-        response = client.get(reverse("accounts:inbox"))
+        response = client.get(
+            reverse("accounts:inbox"),
+            {
+                "directs": "directs",
+                "active_direct": "active_direct",
+                "messages": messages,
+            },
+        )
         self.assertEquals(response.status_code, 302)
 
     def test_shelter_profile(self):
         client = Client()
-
         response = client.post(reverse("accounts:shelter-profile"))
         self.assertEquals(response.status_code, 302)
 
@@ -381,13 +400,12 @@ class TestProfile(TestCase):
                 "pet_profile_image1": "image.jpg",
             }
         )
-        self.assertTrue(form_pet.is_valid())
         instance = form_pet.save()
         instance.save()
         form_pet.save()
 
         response = self.client.post(self.petregister_url)
-
+        self.assertTrue(form_pet.is_valid())
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/pets.html")
 
