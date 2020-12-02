@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:ben_testing11" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:bentesting11" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playdate/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playdate/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playdate/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playdate/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playdate/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/views.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,19 +91,6 @@
       <recent name="$PROJECT_DIR$/map/templates/map" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Python.views">
     <configuration name="helpers" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="match-a-pet" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -158,6 +167,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -169,7 +179,6 @@
       <option name="presentableId" value="Default" />
       <updated>1602453371459</updated>
       <workItem from="1605239186221" duration="25546000" />
-      <workItem from="1605671527701" duration="36559000" />
     </task>
     <task id="LOCAL-00001" summary="maps testing work">
       <created>1605303278367</created>
@@ -227,122 +236,22 @@
       <option name="project" value="LOCAL" />
       <updated>1605675059420</updated>
     </task>
-    <task id="LOCAL-00009" summary="maps updates">
-      <created>1605714217525</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1605714217525</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Progress on play Date app - 5PM  Sat 11/21">
-      <created>1605996664658</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1605996664658</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Progress on play Date app - 5PM  Sat 11/21">
-      <created>1606259814427</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1606259814428</updated>
-    </task>
-    <task id="LOCAL-00012" summary="play date progress">
-      <created>1606579243102</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1606579243102</updated>
-    </task>
-    <task id="LOCAL-00013" summary="play date progress">
-      <created>1606609013593</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1606609013594</updated>
-    </task>
-    <task id="LOCAL-00014" summary="play date progress">
-      <created>1606704716742</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1606704716742</updated>
-    </task>
-    <task id="LOCAL-00015" summary="play date progress">
-      <created>1606705649385</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1606705649385</updated>
-    </task>
-    <task id="LOCAL-00016" summary="play date progress">
-      <created>1606706379929</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1606706379929</updated>
-    </task>
-    <task id="LOCAL-00017" summary="play date progress">
-      <created>1606786121840</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1606786121840</updated>
-    </task>
-    <task id="LOCAL-00018" summary="play date progress">
-      <created>1606793289246</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1606793289246</updated>
-    </task>
-    <task id="LOCAL-00019" summary="play date progress">
-      <created>1606794862667</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1606794862667</updated>
-    </task>
-    <task id="LOCAL-00020" summary="play date progress">
-      <created>1606796118592</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1606796118592</updated>
-    </task>
-    <task id="LOCAL-00021" summary="play date progress">
-      <created>1606796128683</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1606796128683</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Play Date - Review">
-      <created>1606799232309</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1606799232309</updated>
-    </task>
-    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="maps testing work" />
@@ -353,24 +262,6 @@
     <MESSAGE value="playdate to upload2" />
     <MESSAGE value="playdate debug" />
     <MESSAGE value="playdate debug2" />
-    <MESSAGE value="maps updates" />
-    <MESSAGE value="Progress on play Date app - 5PM  Sat 11/21" />
-    <MESSAGE value="play date progress" />
-    <MESSAGE value="Play Date - Review" />
-    <option name="LAST_COMMIT_MESSAGE" value="Play Date - Review" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser" />
-    <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400@0.0.2560.1400" />
-    <state width="202" height="479" key="Git.Branch.Popup" />
-    <state width="202" height="479" key="Git.Branch.Popup/1920.1080/3360.2100" />
-    <state width="404" height="958" key="Git.Branch.Popup/3360.2100" />
-    <state width="202" height="479" key="Git.Branch.Popup@1920.1080" />
-    <state width="404" height="958" key="Git.Branch.Popup@3360.2100@192dpi" />
-    <state x="135" y="0" width="1905" height="958" key="dock-window-1" />
-    <state x="135" y="0" width="1905" height="958" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" />
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" />
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -384,8 +275,6 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/match_a_pet$helpers.coverage" NAME="helpers Coverage Results" MODIFIED="1605313865058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/map" />
     <SUITE FILE_PATH="coverage/match_a_pet$json_test.coverage" NAME="json_test Coverage Results" MODIFIED="1605312800325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/map" />
-    <SUITE FILE_PATH="coverage/match_a_pet$views.coverage" NAME="views Coverage Results" MODIFIED="1606797118129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/playdate" />
   </component>
 </project>
