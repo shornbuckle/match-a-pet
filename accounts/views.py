@@ -143,6 +143,7 @@ def loginShelter(request):
 
 def petProfile(request, id):
     pet = get_object_or_404(Pet, id=id)
+    # shelteruser = Pet.objects.get(username=ShelterRegisterData.user)
     is_favorite = False
     if pet.favorite.filter(id=request.user.id).exists():
         is_favorite = True
@@ -150,6 +151,7 @@ def petProfile(request, id):
     context = {
         "pet": pet,
         "is_favorite": is_favorite,
+        # "user1": shelteruser,
     }
 
     template = loader.get_template("accounts/pet_profile.html")
