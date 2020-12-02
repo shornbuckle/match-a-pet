@@ -138,10 +138,10 @@ class ShelterUpdateForm(forms.ModelForm):
 class ClientUserUpdateForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields["email"].label = "Shelter Email"
-        self.fields["username"].label = "Shelter Name"
-        self.fields["first_name"].label = "Shelter Staff First Name"
-        self.fields["last_name"].label = "Shelter Staff Last Name"
+        self.fields["email"].label = "Email"
+        self.fields["username"].label = "Username"
+        self.fields["first_name"].label = "First Name"
+        self.fields["last_name"].label = "Last Name"
 
     l_choices = (("ny", "New York"), ("ca", "California"))
     ny_choices = (

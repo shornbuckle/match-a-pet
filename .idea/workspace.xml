@@ -33,7 +33,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/tests/test_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/tests/test_views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,15 +42,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="sean_playdatetest" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -74,7 +73,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/playdate/templates/playdate" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/playdate" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -87,12 +86,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/playdate/templates/playdate" />
       <recent name="$PROJECT_DIR$/playdate" />
+      <recent name="$PROJECT_DIR$/playdate/templates/playdate" />
       <recent name="$PROJECT_DIR$/map/templates/map" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.helpers">
     <configuration name="helpers" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="match-a-pet" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -137,13 +135,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="match-a-pet" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/playdate" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/playdate/views.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.views" />
         <item itemvalue="Python.json_test" />
         <item itemvalue="Python.helpers" />
         <item itemvalue="Python.json_test" />
         <item itemvalue="Python.helpers" />
-        <item itemvalue="Python.json_test" />
       </list>
     </recent_temporary>
   </component>
@@ -159,9 +179,6 @@
       <option name="presentableId" value="Default" />
       <updated>1602453371459</updated>
       <workItem from="1605239186221" duration="25546000" />
-      <workItem from="1605671527701" duration="5194000" />
-      <workItem from="1606531404640" duration="3336000" />
-      <workItem from="1606538704583" duration="534000" />
     </task>
     <task id="LOCAL-00001" summary="maps testing work">
       <created>1605303278367</created>
@@ -219,21 +236,6 @@
       <option name="project" value="LOCAL" />
       <updated>1605675059420</updated>
     </task>
-    <task id="LOCAL-00009" summary="tests">
-      <created>1606791394560</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1606791394560</updated>
-    </task>
-    <task id="LOCAL-00010" summary="tests">
-      <created>1606791752701</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1606791752701</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,30 +262,19 @@
     <MESSAGE value="playdate to upload2" />
     <MESSAGE value="playdate debug" />
     <MESSAGE value="playdate debug2" />
-    <MESSAGE value="tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="tests" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606785857174" />
-    <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1606785857174" />
-    <state x="905" y="268" key="CommitChangelistDialog2" timestamp="1606791752240">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="905" y="268" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1606791752240" />
-    <state width="202" height="479" key="Git.Branch.Popup" timestamp="1606785857174" />
-    <state width="202" height="479" key="Git.Branch.Popup/1920.1080/3360.2100" timestamp="1606785857174" />
-    <state width="202" height="479" key="Git.Branch.Popup@1920.1080" timestamp="1606785857174" />
-    <state x="872" y="420" key="Vcs.Push.Dialog.v2" timestamp="1606791754085">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="872" y="420" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1606791754085" />
-    <state x="135" y="0" width="1905" height="958" key="dock-window-1" timestamp="1606785857174" />
-    <state x="135" y="0" width="1905" height="958" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" timestamp="1606785857174" />
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1606785857174" />
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1606785857174" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/playdate/forms.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/match_a_pet$json_test.coverage" NAME="json_test Coverage Results" MODIFIED="1605312800325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/map" />
-    <SUITE FILE_PATH="coverage/match_a_pet$helpers.coverage" NAME="helpers Coverage Results" MODIFIED="1605313865058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/map" />
   </component>
 </project>
