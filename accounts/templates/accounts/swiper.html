@@ -1,16 +1,16 @@
 {% extends 'accounts/base.html' %}
 
   {% block body %}
-  <div class="p-3 mb-2 bg-warning">
+  <div class="p-3 mb-2">
   <section>
    <div>
-       <h1 class="display-4 text-warning"><center><font face = "Comic sans MS" size ="+4" style="color: seashell">Pet Matcher</font></center></h1>
+       <h1 class="display-4 text-warning"><center><font face = "Comic sans MS" size ="+4" style="color: darkcyan">Pet Matcher</font></center></h1>
    </div>
   </section>
 
-  <div class="container bg-warning ">
+  <div class="container">
       <div>
-          <div id="demo" class="carousel slide my-3 bg-warning" data-ride="carousel">
+          <div id="demo" class="carousel slide my-3" data-ride="carousel">
   <!--    <ul class="carousel-indicators">-->
   <!--      <li data-target="#demo" data-slide-to="0" class="active"></li>-->
   <!--      <li data-target="#demo" data-slide-to="1" ></li>-->
@@ -27,7 +27,7 @@
                 {% if pet_list %}
                 {% for data in pet_list %}
                  <div class="  mx-auto" >
-                   <div class="card bg-danger" style="width: 30rem;">
+                   <div class="card" style="width: 30rem; background-color: #1ca79a;">
                        <a href="/../pets/{{ data.id }}">
                      <img src="{{data.pet_image_url}}" class="card-img-top" alt="...">
                            </a>
