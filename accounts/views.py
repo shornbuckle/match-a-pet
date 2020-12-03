@@ -34,6 +34,9 @@ global form
 def home(request):
     return render(request, "accounts/home.html")
 
+def index(request):
+    return render(request,"accounts/base2.html")
+
 
 def registerShelter(request):
     if request.method == "POST":
@@ -414,5 +417,4 @@ def checkDirects(request):
 
     return {"directs_count": directs_count}
 
-def index(request):
-    return render(request,"base2.html")
+
