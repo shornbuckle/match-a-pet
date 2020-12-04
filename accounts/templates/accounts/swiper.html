@@ -4,6 +4,13 @@
 <!--<script src="accounts/swiper.js"></script>-->
 <script>
     console.log("hello")
+    function loginPrompt(){
+        // console.log("Please login")
+        alert("Please login to add pet to your favourite's list!")
+    }
+
+    // addToFav.getElementById("addToFav")
+    // addToFav.addEventListener("click", loginPrompts())
 </script>
   <div class="p-3 mb-2 bg-warning">
   <section>
@@ -71,7 +78,7 @@
                            </font>
                              </a>
                          {% else %}
-                         <button id="add-fav-1" onclick="loginPrompt()"> Add to Favourites </button>
+                         <button id="addToFav" onclick="loginPrompt()"> Add to Favourites </button>
                          {% endif %}
                     </p>
                     </div>
