@@ -57,7 +57,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff; }
+  background-color: #ffff; }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important; }
@@ -8488,7 +8488,7 @@ h1, h2, h3, h4, h5,
     left: 0;
     top: 0;
     margin-top: -130px;
-    background: #fff !important;
+    background: #ffff !important;
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     padding: 0; }
@@ -8500,7 +8500,7 @@ h1, h2, h3, h4, h5,
     .ftco-navbar-light.scrolled .nav-item.active > a {
       color: #4986fc !important; }
     .ftco-navbar-light.scrolled .nav-item.cta > a {
-      color: #fff !important;
+      color: #ffff !important;
       background: #4986fc;
       border: none !important;
       padding-top: 0.5rem !important;
@@ -8514,7 +8514,7 @@ h1, h2, h3, h4, h5,
       border-radius: 5px; }
       .ftco-navbar-light.scrolled .nav-item.cta > a span {
         display: inline-block;
-        color: #fff !important; }
+        color: #FFFFFFf !important; }
     .ftco-navbar-light.scrolled .nav-item.cta.cta-colored span {
       border-color: #4986fc; }
     @media (max-width: 991.98px) {
@@ -8755,7 +8755,7 @@ h1, h2, h3, h4, h5,
     outline: none; }
   .btn.btn-primary {
     background: #e38fac !important;
-    color: #fff !important;
+    color: #FFFFFF !important;
     margin-bottom: 10px;
   }
     .btn.btn-primary:hover {
@@ -8972,7 +8972,7 @@ h1, h2, h3, h4, h5,
 
 .form-control {
   height: 36px;
-  background: #fff;
+  background: #ffff;
   color: rgba(0, 0, 0, 0.8);
   font-size: 14px;
   border-radius: 2px;
