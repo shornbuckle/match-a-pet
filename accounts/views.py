@@ -34,8 +34,9 @@ global form
 def home(request):
     return render(request, "accounts/home.html")
 
+
 def index(request):
-    return render(request,"accounts/base2.html")
+    return render(request, "accounts/base2.html")
 
 
 def registerShelter(request):
@@ -416,5 +417,3 @@ def checkDirects(request):
         directs_count = Message.objects.filter(user=request.user, is_read=False).count()
 
     return {"directs_count": directs_count}
-
-
