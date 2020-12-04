@@ -37,7 +37,11 @@ header .logo-text span{
 }
 
 header ul{
-    float:right;
+    position: absolute;
+    left: 45%;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
 }
 
 header ul li{
