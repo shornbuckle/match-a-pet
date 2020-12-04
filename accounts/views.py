@@ -32,7 +32,15 @@ global form
 
 
 def home(request):
-    return render(request, "accounts/home.html")
+    shelters = User.objects.filter(is_shelter=True).count()
+    pets = Pet.objects.all().count()
+    users = User.objects.filter(is_clientuser=True).count()
+    context = {
+        "shelters": shelters,
+        "pets": pets,
+        "users": users,
+    }
+    return render(request, "accounts/home.html", context)
 
 
 def registerShelter(request):
