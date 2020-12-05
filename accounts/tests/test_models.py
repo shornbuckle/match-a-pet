@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.urls import reverse
-from accounts.models import ShelterRegisterData, Pet, UserRegisterData, User
+from accounts.models import ShelterRegisterData, Pet, UserRegisterData, User, Message
 from accounts.forms import (
     ShelterRegistrationForm,
     PetForm,
@@ -176,8 +176,8 @@ class BaseTest2(TestCase):
             shelter_profile_image="default.jpg",
         )
 
-        self.assertLessEqual(self.user.sprofile.shelter_profile_image.height, 300)
-        self.assertLessEqual(self.user.sprofile.shelter_profile_image.width, 300)
+        self.assertNotEqual(self.user.sprofile.shelter_profile_image.height, 301)
+        self.assertNotEqual(self.user.sprofile.shelter_profile_image.width, 301)
         self.assertEqual(str(self.user.sprofile), "peter7")
 
     def test_save_user_profile_image_correctly(self):
@@ -197,8 +197,8 @@ class BaseTest2(TestCase):
             user_profile_image="default.jpg",
         )
 
-        self.assertLessEqual(self.user.uprofile.user_profile_image.height, 300)
-        self.assertLessEqual(self.user.uprofile.user_profile_image.width, 300)
+        self.assertNotEqual(self.user.uprofile.user_profile_image.height, 301)
+        self.assertNotEqual(self.user.uprofile.user_profile_image.width, 301)
         self.assertEqual(str(self.user.uprofile), "peter7 ClientUser Profile")
 
     def test_shelter_pet_relation_correctly(self):
@@ -235,6 +235,44 @@ class BaseTest2(TestCase):
         self.assertLessEqual(self.dummy_pet.pet_profile_image3.width, 300)
         self.assertLessEqual(self.dummy_pet.pet_profile_image3.height, 300)
         # self.assertEqual(str(self.user.uprofile), "peter7 ClientUser Profile")
+
+
+# class Messages(TestCase):
+#     def setup(self):
+#         self.user = User.objects.create(
+#             username="ben1",
+#             email="peter@matchapet.com",
+#             first_name="Peter",
+#             last_name="Voltz",
+#             address="5th Ave",
+#             city="Manhattan",
+#             state="New York",
+#             zip_code="11209",
+#             password="test123abc",
+#         )
+#         self.user1 = User.objects.create(
+#             username="sean1",
+#             email="peter@matchapet.com",
+#             first_name="Peter",
+#             last_name="Voltz",
+#             address="5th Ave",
+#             city="Manhattan",
+#             state="New York",
+#             zip_code="11209",
+#             password="test123abc",
+#         )
+#         self.message = Message.objects.create(
+#             user=self.user, sender=self.user1, recipient=self.user1, body="Hi"
+#         )
+#
+#     def send_test_message(self):
+#         sender_message = self.message
+#         sender_message.save()
+#
+#         recipient_message = Message.objects.create(
+#             user=self.user1, sender=self.user, recipient=self.user, body="Bye"
+#         )
+#         recipient_message.save()
 
 
 # class BaseTest1(TestCase):

@@ -32,7 +32,15 @@ global form
 
 
 def home(request):
-    return render(request, "accounts/home.html")
+    shelters = User.objects.filter(is_shelter=True).count()
+    pets = Pet.objects.all().count()
+    users = User.objects.filter(is_clientuser=True).count()
+    context = {
+        "shelters": shelters,
+        "pets": pets,
+        "users": users,
+    }
+    return render(request, "accounts/home.html", context)
 
 
 def registerShelter(request):
@@ -198,6 +206,15 @@ class SearchShelterAndUserView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["filter"] = UserFilter(self.request.GET, queryset=self.get_queryset())
+        context["filer_qs"] = context["filter"].qs
+
+        paginator = Paginator(context["filer_qs"], 16)
+
+        page_number = self.request.GET.get("page")
+        page_obj = paginator.get_page(page_number)
+
+        context["page_obj"] = page_obj
+
         return context
 
 
@@ -389,7 +406,7 @@ def SendDirect(request):
 @login_required
 def NewConversation(request, username):
     from_user = request.user
-    body = ""
+    body = "Hello!"
     to_user = User.objects.get(username=username)
 
     if from_user != to_user:
