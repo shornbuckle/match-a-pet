@@ -250,8 +250,30 @@ def favorite_pet(request, id):
 def adopt_pending(request, id):
     pet = get_object_or_404(Pet, id=id)
     #if pet.pet_pending_status == False:
-    pet.pet_pending_status = True
-    pet.pet_pending_user.add(request.user)
+    if pet.pet_pending_status == False:
+        pet.pet_pending_status = True
+        pet.save()
+        pet.pet_pending_user.add(request.user)
+
+    return HttpResponseRedirect(request.META["HTTP_REFERER"])
+
+#the below method will cancel a pending adoption
+@login_required
+def adopt_cancel(request, id):
+    pet = get_object_or_404(Pet, id=id)
+    pet.pet_pending_status = False
+    pet.save()
+    pet.pet_pending_user.remove()
+
+    return HttpResponseRedirect(request.META["HTTP_REFERER"])
+
+#the below method will complete an adoption
+@login_required
+def adopt_complete(request, id):
+    pet = get_object_or_404(Pet, id=id)
+    pet.pet_pending_status = False
+    pet.pet_adoption_status = True
+    pet.save()
 
     return HttpResponseRedirect(request.META["HTTP_REFERER"])
 

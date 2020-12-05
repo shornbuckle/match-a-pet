@@ -23,7 +23,11 @@
             <h5>Gender: <span class = "h6">{{pet.pet_gender}}</span></h5>
             <h5>Color: <span class = "h6">{{pet.pet_color}}</span></h5>
             <h5>Bio: </h5>
+            {% if pet.pet_pending_status %}
+            <p class="mb-0"><a href="{% url 'accounts:adopt_pending' pet.id %}" class="btn btn-primary px-4 py-3">ADOPTION PENDING</a></p>
+            {% else %}
             <p class="mb-0"><a href="{% url 'accounts:adopt_pending' pet.id %}" class="btn btn-primary px-4 py-3">ADOPT ME</a></p>
+            {% endif %}
         </div>
     </div>
     <div class="col1">
