@@ -168,9 +168,11 @@ def petProfile(request, id):
 def shelter_profile(request, username):
     shelteruser = User.objects.get(username=username)
     pets = Pet.objects.filter(shelterRegisterData_id=shelteruser.id).all()
+    ruser = request.user
     context = {
         "user1": shelteruser,
         "pet_list": pets,
+        "ruser": ruser,
     }
 
     template = loader.get_template("accounts/shelter_profile.html")
@@ -245,19 +247,21 @@ def favorite_pet(request, id):
 
     return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
-#below method will update the pet model when user clicks adoption button.
+
+# below method will update the pet model when user clicks adoption button.
 @login_required
 def adopt_pending(request, id):
     pet = get_object_or_404(Pet, id=id)
-    #if pet.pet_pending_status == False:
-    if pet.pet_pending_status == False:
+    # if pet.pet_pending_status == False:
+    if not pet.pet_pending_status:
         pet.pet_pending_status = True
         pet.save()
         pet.pet_pending_user.add(request.user)
 
     return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
-#the below method will cancel a pending adoption
+
+# the below method will cancel a pending adoption
 @login_required
 def adopt_cancel(request, id):
     pet = get_object_or_404(Pet, id=id)
@@ -267,7 +271,8 @@ def adopt_cancel(request, id):
 
     return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
-#the below method will complete an adoption
+
+# the below method will complete an adoption
 @login_required
 def adopt_complete(request, id):
     pet = get_object_or_404(Pet, id=id)

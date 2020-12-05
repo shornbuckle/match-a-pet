@@ -79,7 +79,9 @@ class Pet(models.Model):
     pet_gender = models.CharField(max_length=50)
     pet_adoption_status = models.BooleanField("Is Adopted", default=False)
     pet_pending_status = models.BooleanField("Is Adoption pending", default=False)
-    pet_pending_user = models.ManyToManyField(User, related_name="Pending_User", blank=True)
+    pet_pending_user = models.ManyToManyField(
+        User, related_name="Pending_User", blank=True
+    )
     pet_profile_image1 = models.ImageField(
         default="default.jpg", upload_to="pet_profile_pics", blank=True
     )

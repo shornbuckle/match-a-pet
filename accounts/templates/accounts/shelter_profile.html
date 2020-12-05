@@ -163,7 +163,7 @@
                         <p>Sex: {{pets.pet_gender}}</p>
                         <p>Color: {{pets.pet_color}}</p>
                         <p>Application Currently Pending</p>
-                        {% if user.is_shelter %}
+                        {% if ruser == user1 %}
                         <p class="mb-0"><a href="{% url 'accounts:adopt_cancel' pets.id %}" class="btn btn-primary px-4 py-3">CANCEL ADOPTION</a></p>
                         <p class="mb-0"><a href="{% url 'accounts:adopt_complete' pets.id %}" class="btn btn-primary px-4 py-3">COMPLETE ADOPTION</a></p>
                         {% endif %}
