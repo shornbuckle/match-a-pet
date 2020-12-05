@@ -245,6 +245,14 @@ def favorite_pet(request, id):
 
     return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
+@login_required
+def adopt_pending(request, id):
+    pet = get_object_or_404(Pet, id=id)
+    if pet.pet_pending_status == False:
+        pet.pet_pending_status = True
+
+    return HttpResponseRedirect(request.META["HTTP_REFERER"])
+
 
 @login_required
 def favorites_list(request):

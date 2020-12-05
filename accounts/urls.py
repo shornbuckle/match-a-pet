@@ -34,4 +34,5 @@ urlpatterns = [
     path("send/", views.SendDirect, name="send_direct"),
     path("send/new/<username>/", views.NewConversation, name="newconversation"),
     path("user/swiper/", MatchUserView.as_view(), name="swiper"),
+    path("adoptpending/<int:id>/", views.adopt_pending, name="adopt_pending"),
 ]
