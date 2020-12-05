@@ -245,11 +245,13 @@ def favorite_pet(request, id):
 
     return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
+#below method will update the pet model when user clicks adoption button.
 @login_required
 def adopt_pending(request, id):
     pet = get_object_or_404(Pet, id=id)
-    if pet.pet_pending_status == False:
-        pet.pet_pending_status = True
+    #if pet.pet_pending_status == False:
+    pet.pet_pending_status = True
+    pet.pet_pending_user.add(request.user)
 
     return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
