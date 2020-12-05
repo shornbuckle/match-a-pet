@@ -1,16 +1,32 @@
 {% extends 'accounts/base.html' %}
 
   {% block body %}
-  <div class="p-3 mb-2">
+<!--<script src="accounts/swiper.js"></script>-->
+<script>
+    console.log("hello")
+    function loginPrompt(){
+        // console.log("Please login")
+        alert("Please login to add pet to your favourite's list!")
+    }
+
+    function dualClick(){
+       // console.log("Please login")
+        clic
+    }
+
+    // addToFav.getElementById("addToFav")
+    // addToFav.addEventListener("click", loginPrompts())
+</script>
+  <div class="p-3 mb-2 bg-warning">
   <section>
    <div>
-       <h1 class="display-4 text-warning"><center><font face = "Comic sans MS" size ="+4" style="color: darkcyan">Pet Matcher</font></center></h1>
+       <h1 class="display-4 text-warning"><center><font face = "Comic sans MS" size ="+4" style="color: seashell">Pet Matcher</font></center></h1>
    </div>
   </section>
 
-  <div class="container">
+  <div class="container bg-warning ">
       <div>
-          <div id="demo" class="carousel slide my-3" data-ride="carousel">
+          <div id="demo" class="carousel slide my-3 bg-warning" data-ride="carousel">
   <!--    <ul class="carousel-indicators">-->
   <!--      <li data-target="#demo" data-slide-to="0" class="active"></li>-->
   <!--      <li data-target="#demo" data-slide-to="1" ></li>-->
@@ -27,7 +43,7 @@
                 {% if pet_list %}
                 {% for data in pet_list %}
                  <div class="  mx-auto" >
-                   <div class="card" style="width: 30rem; background-color: #1ca79a;">
+                   <div class="card bg-danger" style="width: 30rem;">
                        <a href="/../pets/{{ data.id }}">
                      <img src="{{data.pet_image_url}}" class="card-img-top" alt="...">
                            </a>
@@ -58,13 +74,19 @@
                             </a>
                         </p>
 
+                         {% if user.is_authenticated %}
   <!--                      <a href="/../pets/{{ data.id }}" class="btn btn-primary">View Pet Details</a>-->
  <!--                      <a href="/../profile/{{ data.shelterRegisterData }}" class="btn btn-primary">View Pet's Shelter Details</a>-->
-                       <a href="{% url 'accounts:favorite_pet' data.id %}" class="btn btn-primary">
+                            <a id="favouriteTag" href="{% url 'accounts:favorite_pet' data.id %}">
                            <font face = "Comic sans MS" size ="+1" style="color: seashell">
-                           Add to Favorites
+                               <button class="btn btn-primary" id="addToFav2" onclick="dualClick()">Add to Favourites
+                               </button>
+
                            </font>
-                       </a>
+                             </a>
+                         {% else %}
+                         <button id="addToFav" onclick="loginPrompt()"> Add to Favourites </button>
+                         {% endif %}
                     </p>
                     </div>
                   </div>
@@ -80,6 +102,7 @@
            </div>
          </div>
        </div>
+
      {% if is_paginated %}
      {% if page_obj.has_next %}
      <a class="carousel-control-prev " href="/user/swiper/?page={{ page_obj.prev_page_number}}" role="button" data-slide="prev">
@@ -88,6 +111,7 @@
        </a>
 
         {% endif %}
+{% if user.is_authenticated %}
        {% if pet_list %}
        {% for data in pet_list %}
        <a class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next">
@@ -96,6 +120,16 @@
        </a>
       {% endfor %}
       {% endif %}
+        {% else %}
+{% if pet_list %}
+       {% for data in pet_list %}
+       <a class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next" onclick="">
+         <span class="carousel-control-next-icon" aria-hidden="true"></span>
+         <span class="sr-only">Next</span>
+       </a>
+      {% endfor %}
+      {% endif %}
+{% endif %}
 
        {% endif %}
 
