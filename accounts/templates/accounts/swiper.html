@@ -127,9 +127,9 @@
 {% if user.is_authenticated %}
        {% if pet_list %}
        {% for data in pet_list %}
-<!--<a class="carousel-control-next" href="{% url 'accounts:favorite_pet' data.id %}" role="button" data-slide="next" onclick="window.open('/user/swiper/?page={{ page_obj.next_page_number}}'); return true;">-->
-<a class="carousel-control-next" href='/user/swiper/?page={{ page_obj.next_page_number}}' role="button" data-slide="next" onclick="window.open('{% url 'accounts:favorite_pet' data.id %}'); return true;">
-<!--<a class="carousel-control-next" href='/user/swiper/?page={{ page_obj.next_page_number}}' role="button" data-slide="next" onclick="window.open('{% url 'accounts:favorite_pet' data.id %}'); return true;">-->
+<a class="carousel-control-next" href="{% url 'accounts:favorite_pet' data.id %}" role="button" data-slide="next" onclick="window.open('/user/swiper/?page={{ page_obj.next_page_number}}'); return true;">
+<!--<a class="carousel-control-next" href='/user/swiper/?page={{ page_obj.next_page_number}}' role="button" data-slide="next" onclick="'{% url 'accounts:favorite_pet' data.id %}'>-->
+<!--    <a class="carousel-control-next" href='/user/swiper/?page={{ page_obj.next_page_number}}' role="button" data-slide="next" onclick="window.open('{% url 'accounts:favorite_pet' data.id %}'); return true;"> -->
 <!--           <a id="next" class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next">-->
 <!--&lt;!&ndash;         <span class="carousel-control-next-icon" aria-hidden="false"></span>&ndash;&gt;-->
 <!--&lt;!&ndash;         <span class="sr-only">Next</span>&ndash;&gt;-->
