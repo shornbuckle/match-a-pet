@@ -33,7 +33,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/static/accounts/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/static/accounts/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/swiper.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/swiper.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/swiper.js" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/swiper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +174,7 @@
       <workItem from="1607136829111" duration="271000" />
       <workItem from="1607191831952" duration="5706000" />
       <workItem from="1607233373726" duration="1203000" />
-      <workItem from="1607235523707" duration="3454000" />
+      <workItem from="1607235523707" duration="10446000" />
     </task>
     <task id="LOCAL-00001" summary="maps testing work">
       <created>1605303278367</created>

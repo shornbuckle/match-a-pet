@@ -76,9 +76,23 @@
 
                            </font>
                          </a>
+<!--                         favourite overides-->
+<!--                         <a id="favouriteTag" href="{% url 'accounts:favorite_pet' data.id %}">-->
+<!--&lt;!&ndash;                             next is dominant&ndash;&gt;-->
+<!--                         <button id="addToFav2" class="btn btn-primary" onclick="nextfunc()" >Add to Favourites-->
+<!--                               </button>-->
+<!--&lt;!&ndash;                             <span onclick="nextfunc()"></span>&ndash;&gt;-->
+<!--                             </a>-->
+<!--                         next overrides-->
+
+<!--                         So basically, the link in the anchor command dominates-->
+                         <a id="favouriteTag" href="/user/swiper/?page={{ page_obj.next_page_number}}">
+<!--                             next is dominant-->
                          <button id="addToFav2" class="btn btn-primary" onclick="favfunc()" >Add to Favourites
                                </button>
-                         <button id="nextra2" class="btn btn-primary" onclick="nextfunc()">Nextra
+<!--                             <span onclick="nextfunc()"></span>-->
+                             </a>
+                         <button id="nextra2" class="btn btn-primary" onclick="duality2()">Nextra
                                </button>
                          {% else %}
                          <button id="addToFavNoLogin" onclick="loginPrompt()"> Add to Favourites </button>
@@ -99,9 +113,7 @@
          </div>
        </div>
 
-<script>
 
-</script>
      {% if is_paginated %}
      {% if page_obj.has_next %}
      <a class="carousel-control-prev " href="/user/swiper/?page={{ page_obj.prev_page_number}}" role="button" data-slide="prev">
@@ -121,23 +133,46 @@
            <button onclick="favfunc()"> Show me more like this! </button>
 <!--           <button  id="swipeNextt" onclick="/user/swiper/?page={{ page_obj.next_page_number}}" data-slide="next">-->
        </a>
-<!--<button class="carousel-control-next" onclick="duality()">nextra</button>-->
-
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 <script>
+
+
     var nextra = document.getElementById('next');
     var favoriter = document.getElementById('favouriteTag')
 
     function duality(){
-        nextfunc();
+        // nextfunc();
         favfunc();
     }
 
+    // nextfunc works fine
     function nextfunc(){
-        document.getElementById('next').click();
+        // document.getElementById('next').click();
+        location.href = "/user/swiper/?page={{ page_obj.next_page_number}}"
+    }
+ //favfunc works fine
+    function favfunc(){
+        //next is dominant
+        // document.getElementById('favouriteTag').click();
+        // document.getElementById('next').click();
+        location.href = "{% url 'accounts:favorite_pet' data.id %}"
+
     }
 
-    function favfunc(){
-        document.getElementById('favouriteTag').click()
+    function duality2(){
+        // document.getElementById('favouriteTag').click()
+        // // if ( a == 1) {
+        // //
+        // //     location.href = "/user/swiper/?page={{ page_obj.next_page_number}}"
+        // // }
+
+        // next is always dominant
+        location.href = "{% url 'accounts:favorite_pet' data.id %}"
+        location.href = "/user/swiper/?page={{ page_obj.next_page_number}}"
+        //Tried external link, nothing is wrong with the link
+        // location.href = "https://www.google.com/search?client=safari&rls=en&q=javascript+dating+site&ie=UTF-8&oe=UTF-8"
+
     }
 
 </script>
