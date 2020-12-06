@@ -67,9 +67,11 @@
                          {% if user.is_authenticated %}
   <!--                      <a href="/../pets/{{ data.id }}" class="btn btn-primary">View Pet Details</a>-->
  <!--                      <a href="/../profile/{{ data.shelterRegisterData }}" class="btn btn-primary">View Pet's Shelter Details</a>-->
-                            <a id="favouriteTag" href="{% url 'accounts:favorite_pet' data.id %}">
+
+                         <!-- The anchor tag below will add to favourites   -->
+                         <a id="favouriteTag" href="{% url 'accounts:favorite_pet' data.id %}">
                            <font face = "Comic sans MS" size ="+1" style="color: seashell">
-                               <button class="btn btn-primary" id="addToFav2" onclick="dualClick()">Add to Favourites
+                               <button class="btn btn-primary" id="addToFav2" ">Add to Favourites
                                </button>
 
                            </font>
@@ -93,6 +95,9 @@
          </div>
        </div>
 
+<script>
+
+</script>
      {% if is_paginated %}
      {% if page_obj.has_next %}
      <a class="carousel-control-prev " href="/user/swiper/?page={{ page_obj.prev_page_number}}" role="button" data-slide="prev">
