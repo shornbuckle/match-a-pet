@@ -30,13 +30,14 @@
                 {% for data in pet_list %}
                  <div class="  mx-auto" >
                    <div class="card bg-danger" style="width: 30rem;">
-<!--                       Load pet pic and link to pet profile on click-->
+
+                   <!--Load pet pic and link to pet profile on click-->
                        <a href="/../pets/{{ data.id }}">
                      <img src="{{data.pet_image_url}}" class="card-img-top" alt="...">
                            </a>
                      <div class="card-body">
                          <h5 class="card-title font-weight-light text-dark">
-                             <!--                       Load pet name and link to pet profile on click-->
+                             <!-- Load pet name and link to pet profile on click-->
                              <a href="/../pets/{{ data.id }}" class="text-capitalize text-uppercase font-weight-bold text-dark">
                                  <h1><font face="Comic sans MS" size ="+3" style="color: seashell">{{data.pet_name}}</font></h1>
                             </a>
@@ -53,6 +54,7 @@
                         </h5>
                     </p>
 
+<!--                         Load Shelter name and link to it on click-->
                         <p>
                             <a href="/../profile/{{ data.shelterRegisterData }}" class="btn btn-info ">
                             <font face = "Comic sans MS" size ="+1" style="color: seashell">
@@ -61,6 +63,7 @@
                             </a>
                         </p>
 
+<!--                         Add to favourites button-->
                          {% if user.is_authenticated %}
   <!--                      <a href="/../pets/{{ data.id }}" class="btn btn-primary">View Pet Details</a>-->
  <!--                      <a href="/../profile/{{ data.shelterRegisterData }}" class="btn btn-primary">View Pet's Shelter Details</a>-->
@@ -74,7 +77,7 @@
                          {% else %}
                          <button id="addToFav" onclick="loginPrompt()"> Add to Favourites </button>
                          {% endif %}
-                    </p>
+
                     </div>
                   </div>
                  </div>
@@ -83,9 +86,9 @@
              </div>
 
               {% endif %}
-               </div>
+            </div>
              </div>
- </div>
+            </div>
            </div>
          </div>
        </div>
