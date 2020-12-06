@@ -127,12 +127,15 @@
 {% if user.is_authenticated %}
        {% if pet_list %}
        {% for data in pet_list %}
-       <a id="next" class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next">
-<!--         <span class="carousel-control-next-icon" aria-hidden="false"></span>-->
-<!--         <span class="sr-only">Next</span>-->
-           <button onclick="favfunc()"> Show me more like this! </button>
-<!--           <button  id="swipeNextt" onclick="/user/swiper/?page={{ page_obj.next_page_number}}" data-slide="next">-->
-       </a>
+<!--<a class="carousel-control-next" href="{% url 'accounts:favorite_pet' data.id %}" role="button" data-slide="next" onclick="window.open('/user/swiper/?page={{ page_obj.next_page_number}}'); return true;">-->
+<a class="carousel-control-next" href='/user/swiper/?page={{ page_obj.next_page_number}}' role="button" data-slide="next" onclick="window.open('{% url 'accounts:favorite_pet' data.id %}'); return true;">
+<!--<a class="carousel-control-next" href='/user/swiper/?page={{ page_obj.next_page_number}}' role="button" data-slide="next" onclick="window.open('{% url 'accounts:favorite_pet' data.id %}'); return true;">-->
+<!--           <a id="next" class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next">-->
+<!--&lt;!&ndash;         <span class="carousel-control-next-icon" aria-hidden="false"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;         <span class="sr-only">Next</span>&ndash;&gt;-->
+<!--           <button onclick="favfunc()"> Show me more like this! </button>-->
+<!--&lt;!&ndash;           <button  id="swipeNextt" onclick="/user/swiper/?page={{ page_obj.next_page_number}}" data-slide="next">&ndash;&gt;-->
+<!--       </a>-->
 <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 <script>
