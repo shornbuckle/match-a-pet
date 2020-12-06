@@ -75,7 +75,11 @@
                                </button>
 
                            </font>
-                             </a>
+                         </a>
+                         <button id="addToFav2" class="btn btn-primary" onclick="favfunc()" >Add to Favourites
+                               </button>
+                         <button id="" class="btn btn-primary" >Add to Favourites
+                               </button>
                          {% else %}
                          <button id="addToFavNoLogin" onclick="loginPrompt()"> Add to Favourites </button>
                          {% endif %}
@@ -114,17 +118,31 @@
        <a id="next" class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next">
 <!--         <span class="carousel-control-next-icon" aria-hidden="false"></span>-->
 <!--         <span class="sr-only">Next</span>-->
-           <button> Show me more like this! </button>
+           <button onclick="favfunc()"> Show me more like this! </button>
 <!--           <button  id="swipeNextt" onclick="/user/swiper/?page={{ page_obj.next_page_number}}" data-slide="next">-->
        </a>
+<!--<button class="carousel-control-next" onclick="duality()">nextra</button>-->
 
 <script>
     var nextra = document.getElementById('next');
     var favoriter = document.getElementById('favouriteTag')
 
+    function duality(){
+        nextfunc();
+        favfunc();
+    }
+
+    function nextfunc(){
+        document.getElementById('next').click();
+    }
+
+    function favfunc(){
+        document.getElementById('favouriteTag').click()
+    }
+
 </script>
 
-        <button  id="swipeNext" onclick="/user/swiper/?page={{ page_obj.next_page_number}}" data-slide="next">Next</button>
+        <button  id="swipeNext" onclick="duality()" data-slide="next">Next</button>
 
       {% endfor %}
       {% endif %}
@@ -135,6 +153,7 @@
          <span class="carousel-control-next-icon" aria-hidden="true"></span>
          <span class="sr-only">Next</span>
        </a>
+
       {% endfor %}
       {% endif %}
 {% endif %}
