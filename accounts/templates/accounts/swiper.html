@@ -86,14 +86,14 @@
 <!--                         next overrides-->
 
 <!--                         So basically, the link in the anchor command dominates-->
-                         <a id="favouriteTag" href="/user/swiper/?page={{ page_obj.next_page_number}}">
-<!--                             next is dominant-->
-                         <button id="addToFav2" class="btn btn-primary" onclick="favfunc()" >Add to Favourites
-                               </button>
-<!--                             <span onclick="nextfunc()"></span>-->
-                             </a>
-                         <button id="nextra2" class="btn btn-primary" onclick="duality2()">Nextra
-                               </button>
+<!--                         <a id="favouriteTag" href="/user/swiper/?page={{ page_obj.next_page_number}}">-->
+<!--&lt;!&ndash;                             next is dominant&ndash;&gt;-->
+<!--                         <button id="addToFav2" class="btn btn-primary" onclick="favfunc()" >Add to Favourites-->
+<!--                               </button>-->
+<!--&lt;!&ndash;                             <span onclick="nextfunc()"></span>&ndash;&gt;-->
+<!--                             </a>-->
+<!--                         <button id="nextra2" class="btn btn-primary" onclick="duality2()">Nextra-->
+<!--                               </button>-->
                          {% else %}
                          <button id="addToFavNoLogin" onclick="loginPrompt()"> Add to Favourites </button>
                          {% endif %}
@@ -180,7 +180,7 @@
 
 </script>
 
-        <button  id="swipeNext" onclick="duality()" data-slide="next">Next</button>
+        <button  id="swipeNext" onclick="duality()" data-slide="next">I like this one! Show me more</button>
 
       {% endfor %}
       {% endif %}
