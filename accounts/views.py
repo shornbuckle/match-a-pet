@@ -3,7 +3,7 @@ from django.contrib import messages
 from .forms import (
     ShelterRegistrationForm,
     PetForm,
-    UserRegistrationForm,
+    # UserRegistrationForm,
     ShelterUserUpdateForm,
     ShelterUpdateForm,
     ClientUserUpdateForm,
@@ -43,19 +43,71 @@ def home(request):
     return render(request, "accounts/home.html", context)
 
 
-def registerShelter(request):
+# def registerShelter(request):
+#     if request.method == "POST":
+#
+#         form = ShelterRegistrationForm(request.POST)
+#         if form.is_valid():
+#             user = form.save(commit=False)
+#             user.is_active = False
+#             user.is_shelter = True
+#
+#             coord = []
+#             coord = add_to_geo(user.state, user.city, user.address)
+#             user.latitude = coord[0]
+#             user.longitude = coord[1]
+#
+#             user.save()
+#             email = form.cleaned_data.get("email")
+#             first_name = form.cleaned_data.get("first_name")
+#             last_name = form.cleaned_data.get("last_name")
+#             current_site = get_current_site(request)
+#             email_subject = "Please activate your account on Match A Pet"
+#             email_body = {
+#                 "user": user,
+#                 "domain": current_site.domain,
+#                 "uid": urlsafe_base64_encode(force_bytes(user.pk)),
+#                 "token": account_activation_token.make_token(user),
+#             }
+#             link = reverse(
+#                 "accounts:activate",
+#                 kwargs={"uidb64": email_body["uid"], "token": email_body["token"]},
+#             )
+#             activate_url = "http://" + current_site.domain + link
+#
+#             send_mail(
+#                 email_subject,
+#                 "Hi "
+#                 + first_name
+#                 + " "
+#                 + last_name
+#                 + ", Please the link below to activate your account: \n"
+#                 + activate_url,
+#                 "nyu-match-a-pet@gmail.com",
+#                 [email],
+#             )
+#
+#             messages.success(
+#                 request,
+#                 "Account successfully created. Please check your email to verify your account.",
+#             )
+#             return redirect("/login")
+#     else:
+#         form = ShelterRegistrationForm()
+#     return render(request, "accounts/register.html", {"form": form})
+
+def register(request):
     if request.method == "POST":
 
         form = ShelterRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.is_active = False
-            user.is_shelter = True
-
-            coord = []
-            coord = add_to_geo(user.state, user.city, user.address)
-            user.latitude = coord[0]
-            user.longitude = coord[1]
+            user_type = form.cleaned_data.get("user_type")
+            if user_type == "Shelter":
+                user.is_shelter = True
+            elif user_type == "User":
+                user.is_clientuser = True
 
             user.save()
             email = form.cleaned_data.get("email")
@@ -94,55 +146,54 @@ def registerShelter(request):
             return redirect("/login")
     else:
         form = ShelterRegistrationForm()
-    return render(request, "accounts/register.html", {"form": form})
+    return render(request, "accounts/signup2.html", {"form": form})
 
-
-def registerUser(request):
-    if request.method == "POST":
-
-        form = UserRegistrationForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-            user.is_active = False
-            user.is_clientuser = True
-            user.save()
-            email = form.cleaned_data.get("email")
-            first_name = form.cleaned_data.get("first_name")
-            last_name = form.cleaned_data.get("last_name")
-            current_site = get_current_site(request)
-            email_subject = "Please activate your account on Match A Pet"
-            email_body = {
-                "user": user,
-                "domain": current_site.domain,
-                "uid": urlsafe_base64_encode(force_bytes(user.pk)),
-                "token": account_activation_token.make_token(user),
-            }
-            link = reverse(
-                "accounts:activate",
-                kwargs={"uidb64": email_body["uid"], "token": email_body["token"]},
-            )
-            activate_url = "http://" + current_site.domain + link
-
-            send_mail(
-                email_subject,
-                "Hi "
-                + first_name
-                + " "
-                + last_name
-                + ", Please the link below to activate your account: \n"
-                + activate_url,
-                "nyu-match-a-pet@gmail.com",
-                [email],
-            )
-
-            messages.success(
-                request,
-                "Account successfully created. Please check your email to verify your account.",
-            )
-            return redirect("/login")
-    else:
-        form = UserRegistrationForm()
-    return render(request, "accounts/register.html", {"form": form})
+# def registerUser(request):
+#     if request.method == "POST":
+#
+#         form = UserRegistrationForm(request.POST)
+#         if form.is_valid():
+#             user = form.save(commit=False)
+#             user.is_active = False
+#             user.is_clientuser = True
+#             user.save()
+#             email = form.cleaned_data.get("email")
+#             first_name = form.cleaned_data.get("first_name")
+#             last_name = form.cleaned_data.get("last_name")
+#             current_site = get_current_site(request)
+#             email_subject = "Please activate your account on Match A Pet"
+#             email_body = {
+#                 "user": user,
+#                 "domain": current_site.domain,
+#                 "uid": urlsafe_base64_encode(force_bytes(user.pk)),
+#                 "token": account_activation_token.make_token(user),
+#             }
+#             link = reverse(
+#                 "accounts:activate",
+#                 kwargs={"uidb64": email_body["uid"], "token": email_body["token"]},
+#             )
+#             activate_url = "http://" + current_site.domain + link
+#
+#             send_mail(
+#                 email_subject,
+#                 "Hi "
+#                 + first_name
+#                 + " "
+#                 + last_name
+#                 + ", Please the link below to activate your account: \n"
+#                 + activate_url,
+#                 "nyu-match-a-pet@gmail.com",
+#                 [email],
+#             )
+#
+#             messages.success(
+#                 request,
+#                 "Account successfully created. Please check your email to verify your account.",
+#             )
+#             return redirect("/login")
+#     else:
+#         form = UserRegistrationForm()
+#     return render(request, "accounts/register.html", {"form": form})
 
 
 def loginShelter(request):
