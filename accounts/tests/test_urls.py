@@ -4,7 +4,7 @@ from accounts.views import (
     # registerShelter,
     shelterProfile,
     # registerUser,
-register,
+    register,
     petsRegister,
     PetListView,
     VerificationView,
