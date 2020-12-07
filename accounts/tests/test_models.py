@@ -4,7 +4,7 @@ from accounts.models import ShelterRegisterData, Pet, UserRegisterData, User, Me
 from accounts.forms import (
     ShelterRegistrationForm,
     PetForm,
-    UserRegistrationForm,
+    # UserRegistrationForm,
     ShelterUserUpdateForm,
     ShelterUpdateForm,
     ClientUserUpdateForm,
@@ -15,7 +15,7 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 
 class BaseTest(TestCase):
     def setUp(self):
-        self.register_url = reverse("accounts:register-shelter")
+        self.register_url = reverse("accounts:register")
         self.dummy_user = User.objects.create(
             username="peter7",
             email="peter@matchapet.com",
@@ -129,33 +129,33 @@ class ShelterRegisterFormTest(BaseTest):
         )
 
 
-class UserRegisterFormTest(BaseTest):
-    def test_form_not_valid(self):
-        form = UserRegistrationForm(self.user_no_username)
-        self.assertFalse(form.is_valid())
-
-    def test_form_valid(self):
-        form = UserRegistrationForm(self.user)
-        self.assertFalse(form.is_valid())
-
-    def test_form_username_exists(self):
-        form = UserRegistrationForm(self.user_name_exists)
-        form.has_error("username", "A user with that username already exists.")
-
-    def test_form_email_exists(self):
-        form = UserRegistrationForm(self.user_email_exists)
-        form.has_error(
-            "email",
-            "This Email is already registered. "
-            "Please use a different email address.",
-        )
-
-    def test_form_hm_invalid_email(self):
-        form = UserRegistrationForm(self.user_hm_invalid_email)
-        form.has_error(
-            "This email is not a valid Email Address for Hiring Manager. "
-            "Please use a different email address."
-        )
+# class UserRegisterFormTest(BaseTest):
+#     def test_form_not_valid(self):
+#         form = UserRegistrationForm(self.user_no_username)
+#         self.assertFalse(form.is_valid())
+#
+#     def test_form_valid(self):
+#         form = UserRegistrationForm(self.user)
+#         self.assertFalse(form.is_valid())
+#
+#     def test_form_username_exists(self):
+#         form = UserRegistrationForm(self.user_name_exists)
+#         form.has_error("username", "A user with that username already exists.")
+#
+#     def test_form_email_exists(self):
+#         form = UserRegistrationForm(self.user_email_exists)
+#         form.has_error(
+#             "email",
+#             "This Email is already registered. "
+#             "Please use a different email address.",
+#         )
+#
+#     def test_form_hm_invalid_email(self):
+#         form = UserRegistrationForm(self.user_hm_invalid_email)
+#         form.has_error(
+#             "This email is not a valid Email Address for Hiring Manager. "
+#             "Please use a different email address."
+#         )
 
 
 class BaseTest2(TestCase):

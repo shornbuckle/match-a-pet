@@ -147,7 +147,7 @@ def register(request):
             return redirect("/login")
     else:
         form = ShelterRegistrationForm()
-    return render(request, "accounts/signup2.html", {"form": form})
+    return render(request, "accounts/register.html", {"form": form})
 
 
 # def registerUser(request):
