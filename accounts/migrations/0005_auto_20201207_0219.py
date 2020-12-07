@@ -7,23 +7,27 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('accounts', '0004_message'),
+        ("accounts", "0004_message"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='pet',
-            name='pet_adoption_status',
-            field=models.BooleanField(default=False, verbose_name='Is Adopted'),
+            model_name="pet",
+            name="pet_adoption_status",
+            field=models.BooleanField(default=False, verbose_name="Is Adopted"),
         ),
         migrations.AddField(
-            model_name='pet',
-            name='pet_pending_status',
-            field=models.BooleanField(default=False, verbose_name='Is Adoption pending'),
+            model_name="pet",
+            name="pet_pending_status",
+            field=models.BooleanField(
+                default=False, verbose_name="Is Adoption pending"
+            ),
         ),
         migrations.AddField(
-            model_name='pet',
-            name='pet_pending_user',
-            field=models.ManyToManyField(blank=True, related_name='Pending_User', to=settings.AUTH_USER_MODEL),
+            model_name="pet",
+            name="pet_pending_user",
+            field=models.ManyToManyField(
+                blank=True, related_name="Pending_User", to=settings.AUTH_USER_MODEL
+            ),
         ),
     ]
