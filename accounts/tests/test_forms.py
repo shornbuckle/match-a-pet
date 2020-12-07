@@ -159,7 +159,7 @@ class DefaultTestFroms(TestCase):
         form = ShelterUserUpdateForm(data={})
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 8)
+        self.assertEquals(len(form.errors), 7)
 
     def test_ShelterUserUpdateForm_invalid_data(self):
         form = ShelterUserUpdateForm(
@@ -180,7 +180,7 @@ class DefaultTestFroms(TestCase):
         )
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 7)
+        self.assertEquals(len(form.errors), 6)
 
     def test_ShelterUserUpdateForm_valid2(self):
         form = ShelterUserUpdateForm(
@@ -374,7 +374,7 @@ class DefaultTestFroms(TestCase):
         form = ClientUserUpdateForm(data={})
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 8)
+        self.assertEquals(len(form.errors), 7)
 
     def test_ClientUserUpdateForm_invalid_data(self):
         form = ClientUserUpdateForm(
@@ -395,7 +395,7 @@ class DefaultTestFroms(TestCase):
         )
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 7)
+        self.assertEquals(len(form.errors), 6)
 
     def test_ClientUserUpdateForm_valid2(self):
         form = ClientUserUpdateForm(
