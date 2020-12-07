@@ -8337,7 +8337,7 @@ body {
   font-size: 16px;
   line-height: 1.8;
   font-weight: 400;
-  color: #999999; }
+  color: #05288a; }
   body.menu-show {
     overflow: hidden;
     position: fixed;
@@ -9329,7 +9329,7 @@ textarea.form-control {
     color: #fff;
     border-radius: 50%;
     position: relative;
-    background: #24d2c8; }
+    background: #d0ecf9; }
     .ftco-footer-social li a span {
       position: absolute;
       font-size: 18px;
@@ -9559,7 +9559,8 @@ textarea.form-control {
   opacity: 0; }
 
 #section-counter {
-  position: relative;
+  margin-top: 400px;
+  position: absolute;
   z-index: 0;
   background-attachment: fixed; }
   #section-counter .overlay {
@@ -9571,7 +9572,7 @@ textarea.form-control {
     content: '';
     z-index: -1;
     opacity: .8;
-    background: #f9faff;
+    background: #fff;
 
  }
 
