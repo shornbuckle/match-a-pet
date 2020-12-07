@@ -48,12 +48,16 @@
         <h3>{{user1.username}}</h3>
         <div class="faded">
             <br>
-            {% if user.is_authenticated %}
-            <h6><a href="{% url 'accounts:newconversation' user1.username %}">Schedule A Playdate!
-            {% else %}
-            <h6><a href="/login">Schedule A Playdate!
-            {% endif %}
+            {% if not user.is_authenticated %}
+            <h6><a href="/login">Send A Message!
             <i class="fas fa-paper-plane"></i></a></h6>
+            {% elif user.is_authenticated %}
+                {% if user1.is_shelter %}
+                <h6><a href="{% url 'accounts:newconversation' user1.username %}">Send A Message! <i class="fas fa-paper-plane"></i></a></h6>
+                {% elif user1.is_clientuser %}
+                <h6><a href="{% url 'accounts:newconversation' user1.username %}">Schedule A Playdate! <i class="fas fa-paper-plane"></i></a></h6>
+            {% endif %}
+            {% endif %}
             <br>
          <ul class="ftco-social">
           <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
