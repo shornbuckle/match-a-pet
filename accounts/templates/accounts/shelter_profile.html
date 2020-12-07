@@ -98,11 +98,14 @@
  <div class="container">
   <div class="row pb-4">
     <div class="col-md-12 heading-section ftco-animate">
-      <h2 class="mb-4">Pets by {{user1.username}}</h2>
+      <h2 class="mb-4">Pets Available for Adoption</h2>
     </div>
   </div>
      <div class="row">
         {% for pets in pet_list %}
+         {% if pets.pet_pending_status %}
+         {% elif pets.pet_adoption_status %}
+         {% else %}
         <div class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
         <div class="staff">
             <a href=" /../pets/{{ pets.id }}">
@@ -127,11 +130,99 @@
             </div>
         </div>
         </div>
+         {% endif %}
         {% endfor %}
      </div>
 
  </div>
 </section>
 
+
+<section class="ftco-section bg-light ftco-no-pt">
+ <div class="container">
+  <div class="row pb-4">
+    <div class="col-md-12 heading-section ftco-animate">
+      <h2 class="mb-4">Pets Pending Adoption</h2>
+    </div>
+  </div>
+     <div class="row">
+        {% for pets in pet_list %}
+         {% if pets.pet_pending_status %}
+            <div class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
+            <div class="staff">
+                <a href=" /../pets/{{ pets.id }}">
+                <div class="img-wrap d-flex align-items-stretch">
+
+                    <div class="img align-self-stretch" style="background-image: url({{pets.pet_image_url}}); height: 250px; width: 250px"></div>
+                </div></a>
+                <div class="text pt-3">
+                    <h3><a href=" /../pets/{{ pets.id }}">{{pets.pet_name}}</a></h3>
+                    <span class="position mb-2">{{pets.pet_breed}}</span>
+                    <div class="faded">
+                        <p>Age: {{pets.pet_age}}</p>
+                        <p>Sex: {{pets.pet_gender}}</p>
+                        <p>Color: {{pets.pet_color}}</p>
+                        <p>Application Currently Pending</p>
+                        {% if ruser == user1 %}
+                        <p class="mb-0"><a href="{% url 'accounts:adopt_cancel' pets.id %}" class="btn btn-primary px-4 py-3">CANCEL ADOPTION</a></p>
+                        <p class="mb-0"><a href="{% url 'accounts:adopt_complete' pets.id %}" class="btn btn-primary px-4 py-3">COMPLETE ADOPTION</a></p>
+                        {% endif %}
+                        <ul class="ftco-social text-center">
+                        <!-- <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li> -->
+
+                            <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+         {% endif %}
+        {% endfor %}
+     </div>
+
+ </div>
+</section>
+
+<section class="ftco-section bg-light ftco-no-pt">
+ <div class="container">
+  <div class="row pb-4">
+    <div class="col-md-12 heading-section ftco-animate">
+      <h2 class="mb-4">Adopted Pets</h2>
+    </div>
+  </div>
+     <div class="row">
+        {% for pets in pet_list %}
+         {% if pets.pet_adoption_status %}
+            <div class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
+            <div class="staff">
+                <a>
+                <div class="img-wrap d-flex align-items-stretch">
+
+                    <div class="img align-self-stretch" style="background-image: url({{pets.pet_image_url}}); height: 250px; width: 250px"></div>
+                </div></a>
+                <div class="text pt-3">
+                    <h3><a>{{pets.pet_name}} Was Adopted!</a></h3>
+                    <span class="position mb-2">{{pets.pet_breed}}</span>
+                    <div class="faded">
+                        <p>Age: {{pets.pet_age}}</p>
+                        <p>Sex: {{pets.pet_gender}}</p>
+                        <p>Color: {{pets.pet_color}}</p>
+                        <ul class="ftco-social text-center">
+                        <!-- <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li> -->
+
+                            <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+         {% endif %}
+        {% endfor %}
+     </div>
+
+ </div>
+</section>
 
 {% endblock %}
