@@ -42,6 +42,7 @@ def home(request):
     }
     return render(request, "accounts/home.html", context)
 
+
 def register(request):
     if request.method == "POST":
 
