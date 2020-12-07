@@ -31,7 +31,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="" />
+    <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/static/accounts/css/navstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/static/accounts/css/navstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/login2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/shelter_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/shelter_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/signup2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/tests/test_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/tests/test_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playdate/templates/playdate/playDateViewPets.html" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/templates/playdate/playDateViewPets.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playdate/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playdate/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/playdate/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +88,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/playdate/templates/playdate" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/studylab/studylab" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -233,7 +249,49 @@
       <option name="project" value="LOCAL" />
       <updated>1607356729694</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="changed navstyle">
+      <created>1607357187668</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1607357187668</updated>
+    </task>
+    <task id="LOCAL-00011" summary="removed pets1">
+      <created>1607357313981</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1607357313981</updated>
+    </task>
+    <task id="LOCAL-00012" summary="changed tests">
+      <created>1607358375494</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1607358375494</updated>
+    </task>
+    <task id="LOCAL-00013" summary="black and flake8">
+      <created>1607359006502</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1607359006502</updated>
+    </task>
+    <task id="LOCAL-00014" summary="changed landing page">
+      <created>1607369631792</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1607369631792</updated>
+    </task>
+    <task id="LOCAL-00015" summary="flake8 and black">
+      <created>1607370244004</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1607370244004</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,22 +319,31 @@
     <MESSAGE value="playdate debug" />
     <MESSAGE value="playdate debug2" />
     <MESSAGE value="changed navstyle" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed navstyle" />
+    <MESSAGE value="removed pets1" />
+    <MESSAGE value="changed tests" />
+    <MESSAGE value="black and flake8" />
+    <MESSAGE value="changed landing page" />
+    <MESSAGE value="flake8 and black" />
+    <option name="LAST_COMMIT_MESSAGE" value="flake8 and black" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607356286213" />
     <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1607356286213" />
-    <state x="893" y="268" key="CommitChangelistDialog2" timestamp="1607356715481">
+    <state x="893" y="268" key="CommitChangelistDialog2" timestamp="1607370243535">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="893" y="268" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1607356715481" />
+    <state x="893" y="268" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1607370243535" />
+    <state x="1060" y="455" key="FileChooserDialogImpl" timestamp="1607366438345">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1060" y="455" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1607366438345" />
     <state width="202" height="479" key="Git.Branch.Popup" timestamp="1607356286213" />
     <state width="202" height="479" key="Git.Branch.Popup/1920.1080/3360.2100" timestamp="1607356286213" />
     <state width="202" height="479" key="Git.Branch.Popup@1920.1080" timestamp="1607356286213" />
-    <state x="872" y="420" key="Vcs.Push.Dialog.v2" timestamp="1607356759618">
+    <state x="872" y="420" key="Vcs.Push.Dialog.v2" timestamp="1607370246266">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="420" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1607356759618" />
+    <state x="872" y="420" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1607370246266" />
     <state x="135" y="0" width="1905" height="958" key="dock-window-1" timestamp="1607356286213" />
     <state x="135" y="0" width="1905" height="958" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" timestamp="1607356286213" />
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1607356286213" />
