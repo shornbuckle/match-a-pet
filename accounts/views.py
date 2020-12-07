@@ -96,6 +96,7 @@ def home(request):
 #         form = ShelterRegistrationForm()
 #     return render(request, "accounts/register.html", {"form": form})
 
+
 def register(request):
     if request.method == "POST":
 
@@ -147,6 +148,7 @@ def register(request):
     else:
         form = ShelterRegistrationForm()
     return render(request, "accounts/signup2.html", {"form": form})
+
 
 # def registerUser(request):
 #     if request.method == "POST":

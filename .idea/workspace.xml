@@ -31,7 +31,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="" />
+    <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,7 +64,7 @@
     <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_USER" value="gcivil-nyu-org" />
     <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_NAME" value="match-a-pet" />
   </component>
-  <component name="JupyterTrust" id="effb5b81-14f4-40f9-951e-00785deb3c05" />
+  <component name="JupyterTrust" id="2241c1f1-1ae0-4220-92fd-37eeda3f0afd" />
   <component name="ProjectId" id="1ikZ633aHwWWnp8dc45Y5zA7Lvq" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -267,7 +272,7 @@
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/match_a_pet$helpers.coverage" NAME="helpers Coverage Results" MODIFIED="1605313865058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/map" />
     <SUITE FILE_PATH="coverage/match_a_pet$json_test.coverage" NAME="json_test Coverage Results" MODIFIED="1605312800325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/map" />
+    <SUITE FILE_PATH="coverage/match_a_pet$helpers.coverage" NAME="helpers Coverage Results" MODIFIED="1605313865058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/map" />
   </component>
 </project>
