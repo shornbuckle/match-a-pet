@@ -3,9 +3,26 @@
 {% block body %}
 
 
- <section class="searchcontainer">
+<!-- <section class="searchcontainer">-->
 
-  <div class="carousel"
+<!--  <div class="carousel"-->
+<!--  data-flickity='{"freeScroll": true, "wrapAround": true, "imagesLoaded": true, "percentPosition": false, "autoPlay": 3000,-->
+<!--"pauseAutoPlayOnHover": true }'>-->
+
+<!--  <img src="https://i.ibb.co/0r9b18n/p.jpg" alt="p" />-->
+<!--  <img src="https://i.ibb.co/SN4bBp5/cats.jpg" alt="cats" />-->
+<!--  <img src="https://i.ibb.co/RHbKFBw/tequila1.jpg" alt="tequila1" />-->
+<!--  <img src="https://i.ibb.co/10Gjjb2/small.jpg" alt="small"/>-->
+<!--  <img src="https://i.ibb.co/ZLC6H1D/tequila2.jpg" alt="tequila2" />-->
+<!--  <img src="https://i.ibb.co/b5GH75R/tequila3.jpg" alt="tequila3" />-->
+
+<!--</div>-->
+
+<!-- </section>-->
+
+<section class="searchcontainer">
+    <section>
+      <div class="carousel"
   data-flickity='{"freeScroll": true, "wrapAround": true, "imagesLoaded": true, "percentPosition": false, "autoPlay": 3000,
 "pauseAutoPlayOnHover": true }'>
 
@@ -15,12 +32,9 @@
   <img src="https://i.ibb.co/10Gjjb2/small.jpg" alt="small"/>
   <img src="https://i.ibb.co/ZLC6H1D/tequila2.jpg" alt="tequila2" />
   <img src="https://i.ibb.co/b5GH75R/tequila3.jpg" alt="tequila3" />
-
-</div>
-
- </section>
-
-<section class="searchcontainer">
+          </div>
+    </section>
+<section class="ftco-section ftco-counter img">
     <div class="wrapper1">
        <h1 class="text-center"><b>Adopt A Pet Today!</b></h1>
         <br>
@@ -28,6 +42,7 @@
        <br>
     <span><a href="/view_pets">&nbsp;&nbsp;Search a Pet</a><a href="/profiles">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Search A Shelter/User</a><a href="/register">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sign Up</a></span>
    </div>
+</section>
     <section class="ftco-section ftco-counter img" id="section-counter";>
  <div class="overlay"></div>
  <div class="container">
@@ -36,7 +51,7 @@
      <div class="block-18 d-flex align-items-center">
       <div class="icon"><span class="flaticon-animal"></span></div>
       <div class="text">
-       <strong class="number" data-number="40">0</strong>
+       <strong class="number" data-number="{{adopted}}">0</strong>
        <span>Animals adopted</span>
      </div>
    </div>

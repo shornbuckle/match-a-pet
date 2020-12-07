@@ -422,6 +422,7 @@ class TestProfile(TestCase):
         self.assertEqual(response.status_code, 302)
 
     def test_favorite_list(self):
+
         user = self.dummy_user
         favorites = user.favorite.all()
         response = self.client.get(self.favoriteslist_url, {"favorites": favorites})

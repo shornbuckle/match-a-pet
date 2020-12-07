@@ -16,7 +16,7 @@ body1{
 
 .searchcontainer{
     width: 100%;
-    min-height: 600px;
+    min-height: 1000px;
     z-index: 0;
     /*background-image: url(../images/animal_images/pets.png);*/
     /*background-size: contain;*/
@@ -200,11 +200,12 @@ header ul li a:hover{
 
 .wrapper1{
   position: absolute;
-  top: 60%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%,35%);}
+    /*@media (max-width: 767.98px) {*/
+    /*.wrapper1 {*/
+    /*  padding: 6em 0; } }*/
 
-}
 
 .wrapper1 .search_box{
   width: 670px;

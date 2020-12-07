@@ -27,6 +27,7 @@ from django.template import loader
 from .filters import PetFilter, UserFilter
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 import requests
+from playdate.views import ClientUserPet
 
 global form
 
@@ -35,10 +36,12 @@ def home(request):
     shelters = User.objects.filter(is_shelter=True).count()
     pets = Pet.objects.all().count()
     users = User.objects.filter(is_clientuser=True).count()
+    adopted = Pet.objects.filter(pet_adoption_status=True).count()
     context = {
         "shelters": shelters,
         "pets": pets,
         "users": users,
+        "adopted": adopted,
     }
     return render(request, "accounts/home.html", context)
 
@@ -115,11 +118,13 @@ def petProfile(request, id):
 def shelter_profile(request, username):
     shelteruser = User.objects.get(username=username)
     pets = Pet.objects.filter(shelterRegisterData_id=shelteruser.id).all()
+    client_pets = ClientUserPet.objects.filter(userRegisterData_id=shelteruser.id)
     ruser = request.user
     context = {
         "user1": shelteruser,
         "pet_list": pets,
         "ruser": ruser,
+        "client_pets": client_pets,
     }
 
     template = loader.get_template("accounts/shelter_profile.html")

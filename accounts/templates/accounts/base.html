@@ -43,7 +43,7 @@
         <ul class="nav">
             {% if user.is_authenticated %}
 
-            <li><a href="/swiper">Swipe A Pet</a></li>
+            <li><a href="user/swiper">Swipe A Pet</a></li>
             <li>
             <li>
                         <a href="#">
@@ -100,7 +100,7 @@
                         </a>
                         <ul>
                             <li><a href="/user/profile">Edit My Profile</a></li>
-                            <li><a href="/userprofile/{{user.username}}">Preview Profile</a></li>
+                            <li><a href="/profile/{{user.username}}">Preview Profile</a></li>
                             <li><a href="/user/favorites">My Favorites</a></li>
                             <li><a href="/user/petregister">Register my Pet</a></li>
                             <li><a href="/logout" class="logout">Logout</a></li>
