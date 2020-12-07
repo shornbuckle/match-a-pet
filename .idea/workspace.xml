@@ -31,10 +31,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/swiper.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/swiper.html" afterDir="false" />
-    </list>
+    <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,13 +81,13 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/playdate/templates/playdate" />
       <recent name="$PROJECT_DIR$/playdate" />
       <recent name="$PROJECT_DIR$/map/templates/map" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager" selected="Python.helpers">
@@ -169,11 +166,9 @@
       <workItem from="1607059054815" duration="476000" />
       <workItem from="1607059829137" duration="4497000" />
       <workItem from="1607136829111" duration="271000" />
-      <workItem from="1607191831952" duration="5706000" />
-      <workItem from="1607233373726" duration="1203000" />
-      <workItem from="1607235523707" duration="10446000" />
-      <workItem from="1607271224656" duration="839000" />
-      <workItem from="1607277744890" duration="3196000" />
+      <workItem from="1607283752009" duration="809000" />
+      <workItem from="1607317429660" duration="1461000" />
+      <workItem from="1607341160971" duration="299000" />
     </task>
     <task id="LOCAL-00001" summary="maps testing work">
       <created>1605303278367</created>
