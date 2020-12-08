@@ -33,9 +33,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/shelter_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/shelter_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -187,7 +185,7 @@
       <workItem from="1607283752009" duration="809000" />
       <workItem from="1607317429660" duration="1461000" />
       <workItem from="1607341160971" duration="299000" />
-      <workItem from="1607390404357" duration="2855000" />
+      <workItem from="1607390404357" duration="3245000" />
     </task>
     <task id="LOCAL-00001" summary="maps testing work">
       <created>1605303278367</created>
@@ -315,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607379783744</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="pet will now transfer to client user when the shelter marks that the adoption is complete">
+      <created>1607393694981</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1607393694981</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,30 +356,25 @@
     <MESSAGE value="flake8 and black" />
     <MESSAGE value="changed pages and consolidated playdate user profile" />
     <MESSAGE value="fixed profile messages" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed profile messages" />
+    <MESSAGE value="pet will now transfer to client user when the shelter marks that the adoption is complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="pet will now transfer to client user when the shelter marks that the adoption is complete" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607356286213" />
-    <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1607356286213" />
-    <state x="893" y="268" key="CommitChangelistDialog2" timestamp="1607379783231">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="893" y="268" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1607379783231" />
-    <state x="1060" y="455" key="FileChooserDialogImpl" timestamp="1607366438345">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1060" y="455" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1607366438345" />
-    <state width="202" height="479" key="Git.Branch.Popup" timestamp="1607356286213" />
-    <state width="202" height="479" key="Git.Branch.Popup/1920.1080/3360.2100" timestamp="1607356286213" />
-    <state width="202" height="479" key="Git.Branch.Popup@1920.1080" timestamp="1607356286213" />
-    <state x="872" y="420" key="Vcs.Push.Dialog.v2" timestamp="1607379796123">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="872" y="420" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1607379796123" />
-    <state x="135" y="0" width="1905" height="958" key="dock-window-1" timestamp="1607356286213" />
-    <state x="135" y="0" width="1905" height="958" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" timestamp="1607356286213" />
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1607356286213" />
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1607356286213" />
+    <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser" />
+    <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400@0.0.2560.1400" />
+    <state x="893" y="268" key="CommitChangelistDialog2" />
+    <state x="893" y="268" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" />
+    <state x="1060" y="455" key="FileChooserDialogImpl" />
+    <state x="1060" y="455" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" />
+    <state width="202" height="479" key="Git.Branch.Popup" />
+    <state width="202" height="479" key="Git.Branch.Popup/1920.1080/3360.2100" />
+    <state width="202" height="479" key="Git.Branch.Popup@1920.1080" />
+    <state x="872" y="420" key="Vcs.Push.Dialog.v2" />
+    <state x="872" y="420" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" />
+    <state x="135" y="0" width="1905" height="958" key="dock-window-1" />
+    <state x="135" y="0" width="1905" height="958" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/match_a_pet$helpers.coverage" NAME="helpers Coverage Results" MODIFIED="1605313865058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/map" />

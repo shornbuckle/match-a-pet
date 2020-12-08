@@ -29,6 +29,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 import requests
 from playdate.views import ClientUserPet
 from playdate.models import ClientUserPet
+
 global form
 
 
@@ -234,14 +235,13 @@ def adopt_complete(request, id):
     adoptee = pet.pet_pending_user.get()
     uregdata = UserRegisterData.objects.get(pk=adoptee.id)
 
-
     ClientUserPet.objects.create(
-        pet_name = pet.pet_name,
-        pet_breed = pet.pet_breed,
-        pet_age = pet.pet_age,
-        pet_gender = pet.pet_gender,
-        pet_profile_image1 = pet.pet_profile_image1,
-        userRegisterData = uregdata
+        pet_name=pet.pet_name,
+        pet_breed=pet.pet_breed,
+        pet_age=pet.pet_age,
+        pet_gender=pet.pet_gender,
+        pet_profile_image1=pet.pet_profile_image1,
+        userRegisterData=uregdata,
     )
 
     return HttpResponseRedirect(request.META["HTTP_REFERER"])
