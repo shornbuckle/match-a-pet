@@ -13,6 +13,8 @@
 
   <div class="p-3 mb-2 ">
 
+      <!--Pet Matcher Heading-->
+
    <div>
        <h1 class="display-4 text-warning"><center><font face = "Comic sans MS" size ="+4" ">Pet Matcher</font></center></h1>
    </div>
@@ -110,14 +112,17 @@
            </div>
          </div>
        </div>
-
+<script>
+        function doSomething(){
+          $("#addToFav2").click()}
+        </script>
 
      {% if is_paginated %}
      {% if page_obj.has_next %}
-     <a class="carousel-control-prev " href="?page={{ page_obj.prev_page_number}}" role="button" data-slide="prev">
+     <a class="carousel-control-prev " href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="prev">
          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
          <span class="sr-only">Previous</span>
-         <button> Naah, show me other pets </button>
+         <button>  < </button>
 
        </a>
 
@@ -125,61 +130,24 @@
 {% if user.is_authenticated %}
        {% if pet_list %}
        {% for data in pet_list %}
+<!--<a id="next" class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next" onclick="doSomething()">-->
+<!--&lt;!&ndash;<a class="carousel-control-next" href="{% url 'accounts:favorite_pet' data.id %}" role="button" data-slide="next" onclick="window.open('/user/swiper/?page={{ page_obj.next_page_number}}'); return true;">&ndash;&gt;-->
+<!--&lt;!&ndash;<a class="carousel-control-next" href='/user/swiper/?page={{ page_obj.next_page_number}}' role="button" data-slide="next" onclick="'{% url 'accounts:favorite_pet' data.id %}'>&ndash;&gt;-->
+<!--&lt;!&ndash;    <a class="carousel-control-next" href='/user/swiper/?page={{ page_obj.next_page_number}}' role="button" data-slide="next" onclick="window.open('{% url 'accounts:favorite_pet' data.id %}'); return true;"> &ndash;&gt;-->
+<!--&lt;!&ndash;           <a id="next" class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;         <span class="carousel-control-next-icon" aria-hidden="false"></span>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;         <span class="sr-only">Next</span>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;           <button onclick="favfunc()"> Show me more like this! </button>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;           <button  id="swipeNextt" onclick="/user/swiper/?page={{ page_obj.next_page_number}}" data-slide="next">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;       </a>&ndash;&gt;-->
+<!--<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>-->
+<!--  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>-->
 
-<a class="carousel-control-next" href="{% url 'accounts:favorite_pet' data.id %}" role="button" data-slide="next" onclick="window.open('/user/swiper/?page={{ page_obj.next_page_number}}'); return true;">
-<!--<a class="carousel-control-next" href='/user/swiper/?page={{ page_obj.next_page_number}}' role="button" data-slide="next" onclick="'{% url 'accounts:favorite_pet' data.id %}'>-->
-<!--    <a class="carousel-control-next" href='/user/swiper/?page={{ page_obj.next_page_number}}' role="button" data-slide="next" onclick="window.open('{% url 'accounts:favorite_pet' data.id %}'); return true;"> -->
-<!--           <a id="next" class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next">-->
-<!--&lt;!&ndash;         <span class="carousel-control-next-icon" aria-hidden="false"></span>&ndash;&gt;-->
-<!--&lt;!&ndash;         <span class="sr-only">Next</span>&ndash;&gt;-->
-<!--           <button onclick="favfunc()"> Show me more like this! </button>-->
-<!--&lt;!&ndash;           <button  id="swipeNextt" onclick="/user/swiper/?page={{ page_obj.next_page_number}}" data-slide="next">&ndash;&gt;-->
-<!--       </a>-->
-<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-<script>
 
+<!--        <button  onclick="doSomething()" data-slide="next">I like this one! Show me more</button></a>-->
 
-    var nextra = document.getElementById('next');
-    var favoriter = document.getElementById('favouriteTag')
-
-    function duality(){
-        // nextfunc();
-        favfunc();
-    }
-
-    // nextfunc works fine
-    function nextfunc(){
-        // document.getElementById('next').click();
-        location.href = "/user/swiper/?page={{ page_obj.next_page_number}}"
-    }
- //favfunc works fine
-    function favfunc(){
-        //next is dominant
-        // document.getElementById('favouriteTag').click();
-        // document.getElementById('next').click();
-        location.href = "{% url 'accounts:favorite_pet' data.id %}"
-
-    }
-
-    function duality2(){
-        // document.getElementById('favouriteTag').click()
-        // // if ( a == 1) {
-        // //
-        // //     location.href = "/user/swiper/?page={{ page_obj.next_page_number}}"
-        // // }
-
-        // next is always dominant
-        location.href = "{% url 'accounts:favorite_pet' data.id %}"
-        location.href = "/user/swiper/?page={{ page_obj.next_page_number}}"
-        //Tried external link, nothing is wrong with the link
-        // location.href = "https://www.google.com/search?client=safari&rls=en&q=javascript+dating+site&ie=UTF-8&oe=UTF-8"
-
-    }
-
-</script>
-
-        <button  id="swipeNext" onclick="duality()" data-slide="next">I like this one! Show me more</button>
+<a id="next" class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next" onclick="doSomething()">
+        <button onclick="getElementById('addToFav2').click()"> > </button></a>
 
       {% endfor %}
       {% endif %}
@@ -187,7 +155,6 @@
 {% if pet_list %}
        {% for data in pet_list %}
        <a class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next" onclick="">
-
          <span class="carousel-control-next-icon" aria-hidden="true"></span>
          <span class="sr-only">Next</span>
        </a>
@@ -200,4 +167,5 @@
 
 
   </div>
- {% endblock %}
+
+{% endblock %}
