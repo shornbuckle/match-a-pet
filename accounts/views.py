@@ -21,13 +21,14 @@ from django.views import View
 from django.views.generic import ListView
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest
 from django_tables2 import SingleTableView
-from .models import Pet, ShelterRegisterData, User, Message
+from .models import Pet, ShelterRegisterData, User, Message, UserRegisterData
 from .tables import PetTable
 from django.template import loader
 from .filters import PetFilter, UserFilter
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 import requests
 from playdate.views import ClientUserPet
+from playdate.models import ClientUserPet
 
 global form
 
@@ -231,6 +232,17 @@ def adopt_complete(request, id):
     pet.pet_pending_status = False
     pet.pet_adoption_status = True
     pet.save()
+    adoptee = pet.pet_pending_user.get()
+    uregdata = UserRegisterData.objects.get(pk=adoptee.id)
+
+    ClientUserPet.objects.create(
+        pet_name=pet.pet_name,
+        pet_breed=pet.pet_breed,
+        pet_age=pet.pet_age,
+        pet_gender=pet.pet_gender,
+        pet_profile_image1=pet.pet_profile_image1,
+        userRegisterData=uregdata,
+    )
 
     return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
