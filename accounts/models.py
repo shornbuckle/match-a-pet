@@ -19,6 +19,7 @@ class User(AbstractUser):
     zip_code = models.CharField(max_length=5, blank=True)
     latitude = models.CharField(max_length=20, blank=True)
     longitude = models.CharField(max_length=20, blank=True)
+    about = models.CharField(max_length=1000, blank=True)
 
 
 # ShelterRegisterData has fields pet, shelter_profile_image, user, user_id

@@ -51,17 +51,17 @@ def my_pets_list(request, username):
     return render(request, "playdate/myPets.html", context)
 
 
-def user_profile(request, username):
-    clientuser = User.objects.get(username=username)
-    pets = ClientUserPet.objects.filter(userRegisterData_id=clientuser.id).all()
-    context = {
-        "user1": clientuser,
-        "pet_list": pets,
-    }
-
-    template = loader.get_template("playdate/userProfile.html")
-
-    return HttpResponse(template.render(context, request))
+# def user_profile(request, username):
+#     clientuser = User.objects.get(username=username)
+#     pets = ClientUserPet.objects.filter(userRegisterData_id=clientuser.id).all()
+#     context = {
+#         "user1": clientuser,
+#         "pet_list": pets,
+#     }
+#
+#     template = loader.get_template("playdate/userProfile.html")
+#
+#     return HttpResponse(template.render(context, request))
 
 
 class playDateView(ListView):  # method we will use to load tables into View Pets

@@ -3,7 +3,7 @@ from django.contrib import messages
 from .forms import (
     ShelterRegistrationForm,
     PetForm,
-    UserRegistrationForm,
+    # UserRegistrationForm,
     ShelterUserUpdateForm,
     ShelterUpdateForm,
     ClientUserUpdateForm,
@@ -21,12 +21,14 @@ from django.views import View
 from django.views.generic import ListView
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest
 from django_tables2 import SingleTableView
-from .models import Pet, ShelterRegisterData, User, Message
+from .models import Pet, ShelterRegisterData, User, Message, UserRegisterData
 from .tables import PetTable
 from django.template import loader
 from .filters import PetFilter, UserFilter
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 import requests
+from playdate.views import ClientUserPet
+from playdate.models import ClientUserPet
 
 global form
 
@@ -35,27 +37,28 @@ def home(request):
     shelters = User.objects.filter(is_shelter=True).count()
     pets = Pet.objects.all().count()
     users = User.objects.filter(is_clientuser=True).count()
+    adopted = Pet.objects.filter(pet_adoption_status=True).count()
     context = {
         "shelters": shelters,
         "pets": pets,
         "users": users,
+        "adopted": adopted,
     }
     return render(request, "accounts/home.html", context)
 
 
-def registerShelter(request):
+def register(request):
     if request.method == "POST":
 
         form = ShelterRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.is_active = False
-            user.is_shelter = True
-
-            coord = []
-            coord = add_to_geo(user.state, user.city, user.address)
-            user.latitude = coord[0]
-            user.longitude = coord[1]
+            user_type = form.cleaned_data.get("user_type")
+            if user_type == "Shelter":
+                user.is_shelter = True
+            elif user_type == "User":
+                user.is_clientuser = True
 
             user.save()
             email = form.cleaned_data.get("email")
@@ -97,58 +100,6 @@ def registerShelter(request):
     return render(request, "accounts/register.html", {"form": form})
 
 
-def registerUser(request):
-    if request.method == "POST":
-
-        form = UserRegistrationForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-            user.is_active = False
-            user.is_clientuser = True
-            user.save()
-            email = form.cleaned_data.get("email")
-            first_name = form.cleaned_data.get("first_name")
-            last_name = form.cleaned_data.get("last_name")
-            current_site = get_current_site(request)
-            email_subject = "Please activate your account on Match A Pet"
-            email_body = {
-                "user": user,
-                "domain": current_site.domain,
-                "uid": urlsafe_base64_encode(force_bytes(user.pk)),
-                "token": account_activation_token.make_token(user),
-            }
-            link = reverse(
-                "accounts:activate",
-                kwargs={"uidb64": email_body["uid"], "token": email_body["token"]},
-            )
-            activate_url = "http://" + current_site.domain + link
-
-            send_mail(
-                email_subject,
-                "Hi "
-                + first_name
-                + " "
-                + last_name
-                + ", Please the link below to activate your account: \n"
-                + activate_url,
-                "nyu-match-a-pet@gmail.com",
-                [email],
-            )
-
-            messages.success(
-                request,
-                "Account successfully created. Please check your email to verify your account.",
-            )
-            return redirect("/login")
-    else:
-        form = UserRegistrationForm()
-    return render(request, "accounts/register.html", {"form": form})
-
-
-def loginShelter(request):
-    return render(request, "accounts/login.html")
-
-
 def petProfile(request, id):
     pet = get_object_or_404(Pet, id=id)
     is_favorite = False
@@ -168,11 +119,13 @@ def petProfile(request, id):
 def shelter_profile(request, username):
     shelteruser = User.objects.get(username=username)
     pets = Pet.objects.filter(shelterRegisterData_id=shelteruser.id).all()
+    client_pets = ClientUserPet.objects.filter(userRegisterData_id=shelteruser.id)
     ruser = request.user
     context = {
         "user1": shelteruser,
         "pet_list": pets,
         "ruser": ruser,
+        "client_pets": client_pets,
     }
 
     template = loader.get_template("accounts/shelter_profile.html")
@@ -279,6 +232,17 @@ def adopt_complete(request, id):
     pet.pet_pending_status = False
     pet.pet_adoption_status = True
     pet.save()
+    adoptee = pet.pet_pending_user.get()
+    uregdata = UserRegisterData.objects.get(pk=adoptee.id)
+
+    ClientUserPet.objects.create(
+        pet_name=pet.pet_name,
+        pet_breed=pet.pet_breed,
+        pet_age=pet.pet_age,
+        pet_gender=pet.pet_gender,
+        pet_profile_image1=pet.pet_profile_image1,
+        userRegisterData=uregdata,
+    )
 
     return HttpResponseRedirect(request.META["HTTP_REFERER"])
 

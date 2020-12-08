@@ -6,9 +6,11 @@ from .views import VerificationView
 
 app_name = "accounts"
 urlpatterns = [
+    # path("search/", views.search, name="search"),
     path("", views.home, name="accounts-home"),
-    path("shelter/register/", views.registerShelter, name="register-shelter"),
-    path("user/register/", views.registerUser, name="register-user"),
+    # path("shelter/register/", views.registerShelter, name="register-shelter"),
+    # path("user/register/", views.registerUser, name="register-user"),
+    path("register/", views.register, name="register"),
     path(
         "login/",
         auth_views.LoginView.as_view(template_name="accounts/login.html"),

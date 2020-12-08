@@ -189,7 +189,8 @@ label {
   margin-bottom: 0.5rem; }
 
 button {
-  border-radius: 0; }
+
+}
 
 button:focus {
   outline: 1px dotted;
@@ -8337,7 +8338,7 @@ body {
   font-size: 16px;
   line-height: 1.8;
   font-weight: 400;
-  color: #999999; }
+  color: #4f9ca9; }
   body.menu-show {
     overflow: hidden;
     position: fixed;
@@ -8348,7 +8349,7 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #4986fc; }
+  color: #758ec7; }
   a:hover, a:focus {
     text-decoration: none;
     color: #4986fc;
@@ -9283,10 +9284,13 @@ textarea.form-control {
       background: #4986fc; }
 
 .ftco-footer {
+  background: #ebf8fd;
   font-size: 16px;
   padding: 7em 0;
   z-index: 0;
- }
+
+}
+
   .ftco-footer .ftco-footer-logo {
     text-transform: uppercase;
     letter-spacing: .1em; }
@@ -9329,7 +9333,7 @@ textarea.form-control {
     color: #fff;
     border-radius: 50%;
     position: relative;
-    background: #24d2c8; }
+    background: #89c1af; }
     .ftco-footer-social li a span {
       position: absolute;
       font-size: 18px;
@@ -9559,7 +9563,8 @@ textarea.form-control {
   opacity: 0; }
 
 #section-counter {
-  position: relative;
+  margin-top: 400px;
+  position: absolute;
   z-index: 0;
   background-attachment: fixed; }
   #section-counter .overlay {
@@ -9571,7 +9576,7 @@ textarea.form-control {
     content: '';
     z-index: -1;
     opacity: .8;
-    background: #f9faff;
+    background: #fff;
 
  }
 
@@ -9678,7 +9683,7 @@ textarea.form-control {
     width: 40px;
     font-size: 18px;
     padding-top: 2px;
-    color: #24d2c8 !important; }
+    color: #89c1af !important; }
 
 .block-27 ul {
   padding: 0;
