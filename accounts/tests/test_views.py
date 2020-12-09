@@ -394,17 +394,6 @@ class TestProfile(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/pet_profile.html")
 
-    def test_pet_profile_favorite_true(self):
-        is_favorite = True
-        response = self.client.get(
-            self.petprofile_url,
-            {
-                "pet": self.test_pet,
-                "is_favorite": is_favorite,
-            },
-        )
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "accounts/pet_profile.html")
 
     def test_shelter_profile(self):
         response = self.client.get(
