@@ -728,3 +728,22 @@ class RegistrationTests(TestCase):
             }
         )
         self.assertTrue(form.is_valid())
+
+    def test_successful_post_request(self):
+        form = self.client.post(
+            reverse("accounts:register"),
+            data={
+                "user_type": "Shelter",
+                "username": "peter7",
+                "email": "peter@matchapet.com",
+                "first_name": "Peter",
+                "last_name": "Voltz",
+                "address": "5th Ave",
+                "city": "Manhattan",
+                "state": "ny",
+                "zip_code": "11209",
+                "password1": "test123abc",
+                "password2": "test123abc",
+            },
+        )
+        self.assertEqual(form.status_code, 302)
