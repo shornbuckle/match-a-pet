@@ -1,7 +1,12 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from accounts.models import ShelterRegisterData, Pet, UserRegisterData, User, Message
-from accounts.forms import PetForm, ClientUserUpdateForm, ShelterUserUpdateForm, ShelterRegistrationForm
+from accounts.forms import (
+    PetForm,
+    ClientUserUpdateForm,
+    ShelterUserUpdateForm,
+    ShelterRegistrationForm,
+)
 
 
 class BaseTest(TestCase):
@@ -270,9 +275,7 @@ class TestViews(TestCase):
             zip_code="11209",
             password="test123abc",
         )
-        self.client.login(
-            username="peter8", password="test123abc"
-        )
+        self.client.login(username="peter8", password="test123abc")
 
         messages = Message.get_messages(user=user)
 
@@ -387,6 +390,7 @@ class TestProfile(TestCase):
                 "zip_code": "11201",
             }
         )
+
     def test_pet_profile(self):
         response = self.client.get(
             self.petprofile_url,
@@ -438,20 +442,43 @@ class TestProfile(TestCase):
         instance.save()
         form_pet.save()
 
-        response = self.client.post(self.petregister_url)
+        response = self.client.post(
+            self.petregister_url,
+            data={
+                "shelterRegisterData": "peter7",
+                "favorite": "False",
+                "pet_name": "Tequila",
+                "pet_breed": "Shiba",
+                "pet_age": "Baby",
+                "pet_color": "Black",
+                "pet_gender": "Male",
+                "pet_profile_image1": "image.jpg",
+            },
+        )
+        instance = form_pet.save()
+        instance.save()
+        form_pet.save()
         self.assertTrue(form_pet.is_valid())
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/pets.html")
 
     def test_favorite_pet(self):
-        self.client.login(
-            username=self.dummy_user.username, password="test123abc"
-        )
+        self.client.login(username=self.dummy_user.username, password="test123abc")
         response = self.client.get(self.favorites_url)
         self.assertEqual(response.status_code, 302)
 
     def test_adoption(self):
         adoption_url = reverse("accounts:adopt_pending", args=["1"])
+        response = self.client.get(adoption_url)
+        self.assertEqual(response.status_code, 302)
+
+    def test_adoption_cancelled(self):
+        adoption_url = reverse("accounts:adopt_cancel", args=["1"])
+        response = self.client.get(adoption_url)
+        self.assertEqual(response.status_code, 302)
+
+    def test_adoption_successful(self):
+        adoption_url = reverse("accounts:adopt_complete", args=["1"])
         response = self.client.get(adoption_url)
         self.assertEqual(response.status_code, 302)
 
@@ -462,11 +489,15 @@ class TestProfile(TestCase):
         response = self.client.get(self.favoriteslist_url, {"favorites": favorites})
         self.assertEqual(response.status_code, 302)
 
-
     def test_ShelterUserUpdateView(self):
         shelterupdate_url = reverse("accounts:shelter-profile")
-        response = self.client.post(shelterupdate_url, data={"shelterUserUpdateForm": self.form,
-        "shelterUpdateForm": self.form,})
+        response = self.client.post(
+            shelterupdate_url,
+            data={
+                "shelterUserUpdateForm": self.form,
+                "shelterUpdateForm": self.form,
+            },
+        )
         self.assertEqual(response.status_code, 302)
         # self.assertTemplateUsed(response, "accounts/shelterProfile.html")
 
@@ -687,11 +718,15 @@ class TestProfile(TestCase):
 class RegistrationTests(TestCase):
     def test_usertype_label(self):
         form = ShelterRegistrationForm()
-        self.assertTrue(form.fields["user_type"].label == "Are You A Shelter Or A User?")
+        self.assertTrue(
+            form.fields["user_type"].label == "Are You A Shelter Or A User?"
+        )
 
     def test_username_label(self):
         form = ShelterRegistrationForm()
-        self.assertTrue(form.fields["username"].label == "Name of Shelter or Username for User")
+        self.assertTrue(
+            form.fields["username"].label == "Name of Shelter or Username for User"
+        )
 
     def test_email_label(self):
         form = ShelterRegistrationForm()
@@ -749,25 +784,35 @@ class RegistrationTests(TestCase):
             },
         )
         self.assertEqual(form.status_code, 302)
+
     def test_successful_shelter_update(self):
-        form = self.client.post(reverse("accounts:shelter-profile"),
-            data={"about": "Hi",
+        form = self.client.post(
+            reverse("accounts:shelter-profile"),
+            data={
+                "about": "Hi",
                 "username": "benjamin",
                 "first_name": "ben",
                 "last_name": "teo",
                 "address": "123 Hope Street",
                 "city": "Manhattan",
                 "state": "ny",
-                "zip_code": "11201",})
+                "zip_code": "11201",
+            },
+        )
         self.assertEqual(form.status_code, 302)
+
     def test_successful_user_update(self):
-        form = self.client.post(reverse("accounts:user-profile"),
-            data={"about": "Hi",
+        form = self.client.post(
+            reverse("accounts:user-profile"),
+            data={
+                "about": "Hi",
                 "username": "benjamin",
                 "first_name": "ben",
                 "last_name": "teo",
                 "address": "123 Hope Street",
                 "city": "Manhattan",
                 "state": "ny",
-                "zip_code": "11201",})
+                "zip_code": "11201",
+            },
+        )
         self.assertEqual(form.status_code, 302)
