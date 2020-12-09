@@ -477,15 +477,17 @@ class TestProfile(TestCase):
     def test_ClientUpdateForm_is_valid(self):
         form = ClientUserUpdateForm(
             data={
-                "email": "ben1@ben.com",
-                "first_name": "benjamin",
+                "about": "Hi",
+                "username": "benjamin1",
+                "first_name": "ben",
                 "last_name": "teo",
-                "city": "New York",
-                "state": "NY",
-                "zip_code": "11220",
+                "address": "123 Hope Street",
+                "city": "Manhattan",
+                "state": "ny",
+                "zip_code": "11201",
             }
         )
-        self.assertFalse(form.is_valid())
+        self.assertTrue(form.is_valid())
 
     def test_registeruser(self):
         usersignup = reverse("accounts:register")
@@ -746,4 +748,26 @@ class RegistrationTests(TestCase):
                 "password2": "test123abc",
             },
         )
+        self.assertEqual(form.status_code, 302)
+    def test_successful_shelter_update(self):
+        form = self.client.post(reverse("accounts:shelter-profile"),
+            data={"about": "Hi",
+                "username": "benjamin",
+                "first_name": "ben",
+                "last_name": "teo",
+                "address": "123 Hope Street",
+                "city": "Manhattan",
+                "state": "ny",
+                "zip_code": "11201",})
+        self.assertEqual(form.status_code, 302)
+    def test_successful_user_update(self):
+        form = self.client.post(reverse("accounts:user-profile"),
+            data={"about": "Hi",
+                "username": "benjamin",
+                "first_name": "ben",
+                "last_name": "teo",
+                "address": "123 Hope Street",
+                "city": "Manhattan",
+                "state": "ny",
+                "zip_code": "11201",})
         self.assertEqual(form.status_code, 302)
