@@ -7,7 +7,7 @@ from accounts.forms import PetForm, ClientUserUpdateForm, ShelterUserUpdateForm
 class BaseTest(TestCase):
     def setUp(self):
 
-        self.register_url = reverse("accounts:register-shelter")
+        self.register_url = reverse("accounts:register")
         self.dummy_user = User.objects.create(
             # is_shelter=True,
             username="peter7",
@@ -133,6 +133,13 @@ class TestViews(TestCase):
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/home.html")
 
+    def test_MatchUser_view(self):
+        client = Client()
+
+        response = client.get(reverse("accounts:swiper"))
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/swiper.html")
+
     def test_login_view(self):
         client = Client()
 
@@ -162,12 +169,12 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, "accounts/home.html")
 
     # ** Shelter Views
-    def test_shelter_register_view(self):
-        client = Client()
-
-        response = client.get(reverse("accounts:register-shelter"))
-        self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, "accounts/register.html")
+    # def test_shelter_register_view(self):
+    #     client = Client()
+    #
+    #     response = client.get(reverse("accounts:register-shelter"))
+    #     self.assertEquals(response.status_code, 200)
+    #     self.assertTemplateUsed(response, "accounts/register.html")
 
     def test_shelter_profile_view(self):
         client = Client()
@@ -179,7 +186,7 @@ class TestViews(TestCase):
     def test_user_register_view(self):
         client = Client()
 
-        response = client.get(reverse("accounts:register-user"))
+        response = client.get(reverse("accounts:register"))
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/register.html")
 
@@ -212,7 +219,7 @@ class TestViews(TestCase):
             password="test123abc",
         )
 
-        response = client.post(reverse("accounts:register-shelter"), {})
+        response = client.post(reverse("accounts:register"), {})
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/register.html")
         self.assertEquals(str(self.dummy_user.email), "peter@matchapet.com")
@@ -415,6 +422,7 @@ class TestProfile(TestCase):
         self.assertEqual(response.status_code, 302)
 
     def test_favorite_list(self):
+
         user = self.dummy_user
         favorites = user.favorite.all()
         response = self.client.get(self.favoriteslist_url, {"favorites": favorites})
@@ -447,14 +455,14 @@ class TestProfile(TestCase):
         self.assertFalse(form.is_valid())
 
     def test_registeruser(self):
-        usersignup = reverse("accounts:register-user")
+        usersignup = reverse("accounts:register")
 
         response = self.client.post(usersignup)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/register.html")
 
     def test_registershelter(self):
-        sheltersignup = reverse("accounts:register-shelter")
+        sheltersignup = reverse("accounts:register")
 
         response = self.client.post(sheltersignup)
         self.assertEqual(response.status_code, 200)
