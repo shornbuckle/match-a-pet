@@ -76,7 +76,7 @@
                 </div>
                         <ul class="ftco-social text-center">
                             {% if user.is_authenticated %}
-                            <b><li class="ftco-animate"><a href="/send/new/{{ pets.shelterRegisterData }}">Schedule A Playdate! <i class="fas fa-paper-plane"></i></li></b>
+                            <b><li class="ftco-animate"><a href="/send/new/{{ pets.userRegisterData.user }}">Schedule A Playdate! <i class="fas fa-paper-plane"></i></li></b>
                             {% else %}
                             <b><li class="ftco-animate"><a href="/login">Schedule A Playdate! <i class="fas fa-paper-plane"></i></li></b>
                             {% endif %}

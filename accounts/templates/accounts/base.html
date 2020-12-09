@@ -43,8 +43,7 @@
         <ul class="nav">
             {% if user.is_authenticated %}
 
-            <li><a href="user/swiper">Swipe A Pet</a></li>
-            <li>
+            <li><a href="{% url 'accounts:swiper' %}">Swipe A Pet</a></li>
             <li>
                         <a href="#">
                             Browse <i class="fas fa-chevron-down" style="font-size: .8em;"></i>

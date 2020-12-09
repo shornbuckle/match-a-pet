@@ -16,7 +16,7 @@
       <!--Pet Matcher Heading-->
 
    <div>
-       <h1 class="display-4 text-warning"><center><font face = "Comic sans MS" size ="+4" ">Pet Matcher</font></center></h1>
+       <h1 class="display-4"><center><font face = "Comic sans MS" size ="+4" ">Pet Matcher</font></center></h1>
    </div>
 
 <!--Swiper card section-->
@@ -29,7 +29,7 @@
                 {% if pet_list %}
                 {% for data in pet_list %}
                  <div class="  mx-auto" >
-                   <div class="card bg-danger" style="width: 30rem;">
+                   <div class="card bg-info" style="width: 30rem;">
 
                    <!--Load pet pic and link to pet profile on click-->
                        <a href="/../pets/{{ data.id }}">
@@ -122,7 +122,7 @@
      <a class="carousel-control-prev " href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="prev">
          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
          <span class="sr-only">Previous</span>
-         <button>  < </button>
+         <button class="btn btn-primary">  <  <i class="fas fa-times"></i></button>
 
        </a>
 
@@ -147,14 +147,15 @@
 <!--        <button  onclick="doSomething()" data-slide="next">I like this one! Show me more</button></a>-->
 
 <a id="next" class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next" onclick="doSomething()">
-        <button onclick="getElementById('addToFav2').click()"> > </button></a>
+        <button onclick="getElementById('addToFav2').click()" class="btn btn-primary">  <i class="fas fa-heart"></i> > </button></a>
+
 
       {% endfor %}
       {% endif %}
         {% else %}
 {% if pet_list %}
        {% for data in pet_list %}
-       <a class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next" onclick="">
+       <a class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next" onclick="loginPrompt()">
          <span class="carousel-control-next-icon" aria-hidden="true"></span>
          <span class="sr-only">Next</span>
        </a>
