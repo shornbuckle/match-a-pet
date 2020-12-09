@@ -444,7 +444,7 @@ class TestProfile(TestCase):
     #     favorites = self.dummy_user.favorite.all()
     #     response = self.client.get(self.favoriteslist_url, {"favorites": favorites})
     #     self.assertEqual(response.status_code, 302)
-        self.assertTemplateUsed(response, "accounts/favorite.html")
+    #     self.assertTemplateUsed(response, "accounts/favorite.html")
 
     def test_ShelterUpdateForm_is_valid(self):
         form = ShelterUserUpdateForm(
