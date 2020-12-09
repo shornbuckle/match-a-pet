@@ -444,16 +444,6 @@ class TestProfile(TestCase):
 
         response = self.client.post(
             self.petregister_url,
-            data={
-                "shelterRegisterData": "peter7",
-                "favorite": "False",
-                "pet_name": "Tequila",
-                "pet_breed": "Shiba",
-                "pet_age": "Baby",
-                "pet_color": "Black",
-                "pet_gender": "Male",
-                "pet_profile_image1": "image.jpg",
-            },
         )
         instance = form_pet.save()
         instance.save()
