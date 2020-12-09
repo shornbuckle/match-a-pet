@@ -11,13 +11,18 @@
 </script>
 
 
-  <div class="p-3 mb-2 ">
-
-      <!--Pet Matcher Heading-->
-
-   <div>
-       <h1 class="display-4"><center><font face = "Comic sans MS" size ="+4" ">Pet Matcher</font></center></h1>
-   </div>
+<section class="hero-wrap hero-wrap-2">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text align-items-end justify-content-center">
+				<div class="col-md-9 ftco-animate pb-5 text-center">
+<!--					<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Pets<i class="fa fa-chevron-right"></i></span></p>-->
+					<h1 class="mb-0 bread">Swipe A Pet!</h1>
+                    <p style="color: #1c2a38">Click on the <i class="fas fa-heart"> to add to your favorites</i></p>
+				</div>
+			</div>
+		</div>
+	</section>
 
 <!--Swiper card section-->
   <div class="container">
@@ -25,7 +30,7 @@
           <div id="demo" class="carousel slide my-3" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <div class="row">
+                <div class="row1">
                 {% if pet_list %}
                 {% for data in pet_list %}
                  <div class="  mx-auto" >
@@ -122,7 +127,7 @@
      <a class="carousel-control-prev " href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="prev">
          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
          <span class="sr-only">Previous</span>
-         <button class="btn btn-primary">  <  <i class="fas fa-times"></i></button>
+         <button class="btn btn-primary"><i class="fas fa-times fa-4x"></i></button>
 
        </a>
 
@@ -147,7 +152,7 @@
 <!--        <button  onclick="doSomething()" data-slide="next">I like this one! Show me more</button></a>-->
 
 <a id="next" class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next" onclick="doSomething()">
-        <button onclick="getElementById('addToFav2').click()" class="btn btn-primary">  <i class="fas fa-heart"></i> > </button></a>
+        <button onclick="getElementById('addToFav2').click()" class="btn btn-primary">  <i class="fas fa-heart fa-4x"></i></button></a>
 
 
       {% endfor %}
