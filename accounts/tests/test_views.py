@@ -371,7 +371,18 @@ class TestProfile(TestCase):
             zip_code="11209",
             password="test123abc",
         )
-
+        self.form = ShelterUserUpdateForm(
+            data={
+                "about": "Hi",
+                "username": "benjamin",
+                "first_name": "ben",
+                "last_name": "teo",
+                "address": "123 Hope Street",
+                "city": "Manhattan",
+                "state": "New York",
+                "zip_code": "11201",
+            }
+        )
     def test_pet_profile(self):
         response = self.client.get(
             self.petprofile_url,
@@ -428,38 +439,34 @@ class TestProfile(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/pets.html")
 
-    # def test_favorite_pet(self):
-    #
-    #     response = self.client.get(self.favorites_url)
-    #     self.assertEqual(response.status_code, 302)
-    #
-    # def test_adoption(self):
-    #     adoption_url = reverse("accounts:adopt_pending", args=["1"])
-    #     response = self.client.get(adoption_url)
-    #     self.assertEqual(response.status_code, 302)
-    #
-    # def test_favorite_list(self):
-    #
-    #     self.client.login(username="peter8", password="test123abc")
-    #     favorites = self.dummy_user.favorite.all()
-    #     response = self.client.get(self.favoriteslist_url, {"favorites": favorites})
-    #     self.assertEqual(response.status_code, 302)
-    #     self.assertTemplateUsed(response, "accounts/favorite.html")
+    def test_favorite_pet(self):
+
+        response = self.client.get(self.favorites_url)
+        self.assertEqual(response.status_code, 302)
+
+    def test_adoption(self):
+        adoption_url = reverse("accounts:adopt_pending", args=["1"])
+        response = self.client.get(adoption_url)
+        self.assertEqual(response.status_code, 302)
+
+    def test_favorite_list(self):
+
+        self.client.login(username="peter8", password="test123abc")
+        favorites = self.dummy_user.favorite.all()
+        response = self.client.get(self.favoriteslist_url, {"favorites": favorites})
+        self.assertEqual(response.status_code, 302)
+
+
+    def test_ShelterUserUpdateView(self):
+        shelterupdate_url = reverse("accounts:shelter-profile")
+        response = self.client.post(shelterupdate_url, data={"shelterUserUpdateForm": self.form,
+        "shelterUpdateForm": self.form,})
+        self.assertEqual(response.status_code, 302)
+        # self.assertTemplateUsed(response, "accounts/shelterProfile.html")
 
     def test_ShelterUpdateForm_is_valid(self):
-        form = ShelterUserUpdateForm(
-            data={
-                "about": "Hi",
-                "username": "benjamin",
-                "first_name": "ben",
-                "last_name": "teo",
-                "address": "123 Hope Street",
-                "city": "Manhattan",
-                "state": "New York",
-                "zip_code": "11201",
-            }
-        )
-        self.assertFalse(form.is_valid())
+
+        self.assertFalse(self.form.is_valid())
 
     def test_ClientUpdateForm_is_valid(self):
         form = ClientUserUpdateForm(
