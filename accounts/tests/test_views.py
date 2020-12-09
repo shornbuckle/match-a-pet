@@ -429,17 +429,17 @@ class TestProfile(TestCase):
         self.assertTemplateUsed(response, "accounts/pets.html")
 
     def test_favorite_pet(self):
-
+        self.client.login(username="peter8", password="test123abc")
         response = self.client.get(self.favorites_url)
         self.assertEqual(response.status_code, 302)
 
     def test_adoption(self):
+        self.client.login(username="peter8", password="test123abc")
         adoption_url = reverse("accounts:adopt_pending", args=["1"])
         response = self.client.get(adoption_url)
         self.assertEqual(response.status_code, 302)
 
     def test_favorite_list(self):
-
         self.client.login(username="peter8", password="test123abc")
         favorites = self.dummy_user.favorite.all()
         response = self.client.get(self.favoriteslist_url, {"favorites": favorites})
