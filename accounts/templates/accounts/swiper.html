@@ -44,29 +44,32 @@
                          <h5 class="card-title font-weight-light text-dark">
                              <!-- Load pet name and link to pet profile on click-->
                              <a href="/../pets/{{ data.id }}" class="text-capitalize text-uppercase font-weight-bold text-dark">
-                                 <h1><font face="Comic sans MS" size ="+3" style="color: seashell">{{data.pet_name}}</font></h1>
+                                 <h1><font face="Poppins" size ="+3" style="font-weight: 600;color: #1d2b39">{{data.pet_name}}</font></h1>
                             </a>
                         </h5>
                       <p class="card-text text-white">
                         <h5>
-                        <font face="Comic sans MS" size ="+1" style="color: seashell">
+                        <font face="Poppins" size ="+1" style="color: #1d2b39">
+                            Breed: {{ data.pet_breed }}
                         Age: {{data.pet_age}}
                         <br>
                         Sex: {{data.pet_gender}}
                         <br>
                         Color: {{data.pet_color}}
+                        <br>
+                        Shelter: <a href="/../profile/{{ data.shelterRegisterData }}">{{data.shelterRegisterData}}</a>
                             </font>
                         </h5>
                     </p>
 
 <!--                         Load Shelter name and link to it on click-->
-                        <p>
-                            <a href="/../profile/{{ data.shelterRegisterData }}" class="btn btn-info ">
-                            <font face = "Comic sans MS" size ="+1" style="color: seashell">
-                                Shelter: {{data.shelterRegisterData}}
-                            </font>
-                            </a>
-                        </p>
+<!--                        <p>-->
+<!--                            <a href="/../profile/{{ data.shelterRegisterData }}">-->
+<!--                            <font face = "Poppins" size ="+1" style="color: #1d2b39">-->
+<!--                                Shelter: {{data.shelterRegisterData}}-->
+<!--                            </font>-->
+<!--                            </a>-->
+<!--                        </p>-->
 
 <!--                         Add to favourites button-->
                          {% if user.is_authenticated %}
@@ -75,8 +78,8 @@
 
                          <!-- The anchor tag below will add to favourites   -->
                          <a id="favouriteTag" href="{% url 'accounts:favorite_pet' data.id %}">
-                           <font face = "Comic sans MS" size ="+1" style="color: seashell">
-                               <button id="addToFav2" class="btn btn-primary" >Add to Favourites
+                           <font face = "Poppins" size ="+1" style="color: #1d2b39">
+                               <button id="addToFav2" class="btn btn-primary" >Add to Favorites <i class="fas fa-heart"></i>
                                </button>
 
                            </font>
@@ -100,7 +103,7 @@
 <!--                         <button id="nextra2" class="btn btn-primary" onclick="duality2()">Nextra-->
 <!--                               </button>-->
                          {% else %}
-                         <button id="addToFavNoLogin" onclick="loginPrompt()"> Add to Favourites </button>
+                         <button id="addToFavNoLogin" onclick="loginPrompt()"> Add to Favorites </button>
                          {% endif %}
 
                     </div>

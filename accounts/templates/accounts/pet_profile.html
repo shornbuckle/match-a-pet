@@ -17,27 +17,35 @@
 <div class="row1">
     <div class="col1">
         <div class="text-box1">
+
             <h1><b>{{pet.pet_name}}</b></h1>
+            <br>
+            {% if not user.is_authenticated %}
+             <p class="mb-0"><a href="/login" class="btn-adoption">ADOPT ME</a></p>
+            {% else %}
+                {% if pet.pet_adoption_status %}
+                <p class="mb-0"><a class="btn-adoption">{{pet.pet_name}} Was Adopted</a></p>
+                {% else %}
+                    {% if pet.pet_pending_status %}
+                    <p class="mb-0"><a href="{% url 'accounts:adopt_pending' pet.id %}" class="btn-adoption">ADOPTION PENDING</a></p>
+                    {% else %}
+                    <p class="mb-0"><a href="{% url 'accounts:adopt_pending' pet.id %}" class="btn-adoption">ADOPT ME</a></p>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+            <br>
             <h5>Breed: <span class = "h6">{{pet.pet_breed}}</span></h5>
             <h5>Age: <span class = "h6">{{pet.pet_age}}</span></h5>
             <h5>Gender: <span class = "h6">{{pet.pet_gender}}</span></h5>
             <h5>Color: <span class = "h6">{{pet.pet_color}}</span></h5>
             <h5>Bio: </h5>
-            {% if pet.pet_adoption_status %}
-            <p class="mb-0"><a class="btn btn-primary px-4 py-3">{{pet.pet_name}} Was Adopted</a></p>
-            {% else %}
-                {% if pet.pet_pending_status %}
-                <p class="mb-0"><a href="{% url 'accounts:adopt_pending' pet.id %}" class="btn btn-primary px-4 py-3">ADOPTION PENDING</a></p>
-                {% else %}
-                <p class="mb-0"><a href="{% url 'accounts:adopt_pending' pet.id %}" class="btn btn-primary px-4 py-3">ADOPT ME</a></p>
-                {% endif %}
-            {% endif %}
+
         </div>
     </div>
     <div class="col1">
         <div class="gallery-box1">
 
-            <img src="{{ pet.pet_image_url }}" id="gallery">
+            <img src="{{ pet.pet_profile_image1.url }}" id="gallery">
             <ul>
                 <li class="button active">01</li>
                 <li class="button">02</li>
@@ -73,7 +81,7 @@
 var button = document.getElementsByClassName("button");
 var gallery = document.getElementById("gallery");
 var images = new Array(
-    "{{pet.pet_image_url}}",
+    "{{pet.pet_profile_image1.url}}",
     "{{pet.pet_profile_image2.url}}",
     "{{pet.pet_profile_image3.url}}"
     );
