@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from accounts.models import ShelterRegisterData, Pet, UserRegisterData, User, Message
-from accounts.forms import PetForm, ClientUserUpdateForm, ShelterUserUpdateForm
+from accounts.forms import PetForm, ClientUserUpdateForm, ShelterUserUpdateForm, ShelterRegistrationForm
 
 
 class BaseTest(TestCase):
@@ -270,6 +270,10 @@ class TestViews(TestCase):
             zip_code="11209",
             password="test123abc",
         )
+        self.client.login(
+            username="peter8", password="test123abc"
+        )
+
         messages = Message.get_messages(user=user)
 
         response = client.get(
@@ -394,6 +398,17 @@ class TestProfile(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/pet_profile.html")
 
+    def test_pet_profile_favorite_true(self):
+        is_favorite = True
+        response = self.client.get(
+            self.petprofile_url,
+            {
+                "pet": self.test_pet,
+                "is_favorite": is_favorite,
+            },
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/pet_profile.html")
 
     def test_shelter_profile(self):
         response = self.client.get(
@@ -429,17 +444,19 @@ class TestProfile(TestCase):
         self.assertTemplateUsed(response, "accounts/pets.html")
 
     def test_favorite_pet(self):
-        self.client.login(username="peter8", password="test123abc")
+        self.client.login(
+            username=self.dummy_user.username, password="test123abc"
+        )
         response = self.client.get(self.favorites_url)
         self.assertEqual(response.status_code, 302)
 
     def test_adoption(self):
-        self.client.login(username="peter8", password="test123abc")
         adoption_url = reverse("accounts:adopt_pending", args=["1"])
         response = self.client.get(adoption_url)
         self.assertEqual(response.status_code, 302)
 
     def test_favorite_list(self):
+
         self.client.login(username="peter8", password="test123abc")
         favorites = self.dummy_user.favorite.all()
         response = self.client.get(self.favoriteslist_url, {"favorites": favorites})
@@ -665,3 +682,49 @@ class TestProfile(TestCase):
 #     self.assertTemplateUsed(response, "accounts/pets.html")
 #     self.assertEquals(str(self.dummy_pet.email), "peter@matchapet.com")
 #     self.assertEquals(self.dummy_pet.pet_name, "pet_name")
+class RegistrationTests(TestCase):
+    def test_usertype_label(self):
+        form = ShelterRegistrationForm()
+        self.assertTrue(form.fields["user_type"].label == "Are You A Shelter Or A User?")
+
+    def test_username_label(self):
+        form = ShelterRegistrationForm()
+        self.assertTrue(form.fields["username"].label == "Name of Shelter or Username for User")
+
+    def test_email_label(self):
+        form = ShelterRegistrationForm()
+        self.assertTrue(form.fields["email"].label == "Email Address")
+
+    # def test_password_label(self):
+    #     form = ShelterRegistrationForm()
+    #     self.assertTrue(form.fields["password1"].label == "")
+    #
+    # def test_password2_label(self):
+    #     form = ShelterRegistrationForm()
+    #     self.assertTrue(form.fields["password2"].label == "")
+
+    # def test_city_label(self):
+    #     form = ShelterRegistrationForm()
+    #     self.assertTrue(form.fields["city"].label == "")
+    #
+    # def test_state_label(self):
+    #     form = ShelterRegistrationForm()
+    #     self.assertTrue(form.fields["state"].label == "")
+
+    def test_form_working(self):
+        form = ShelterRegistrationForm(
+            data={
+                "user_type": "Shelter",
+                "username": "peter7",
+                "email": "peter@matchapet.com",
+                "first_name": "Peter",
+                "last_name": "Voltz",
+                "address": "5th Ave",
+                "city": "Manhattan",
+                "state": "ny",
+                "zip_code": "11209",
+                "password1": "test123abc",
+                "password2": "test123abc",
+            }
+        )
+        self.assertTrue(form.is_valid())
