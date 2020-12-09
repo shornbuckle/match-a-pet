@@ -383,7 +383,7 @@ class TestProfile(TestCase):
                 "last_name": "teo",
                 "address": "123 Hope Street",
                 "city": "Manhattan",
-                "state": "New York",
+                "state": "ny",
                 "zip_code": "11201",
             }
         )
@@ -472,7 +472,7 @@ class TestProfile(TestCase):
 
     def test_ShelterUpdateForm_is_valid(self):
 
-        self.assertFalse(self.form.is_valid())
+        self.assertTrue(self.form.is_valid())
 
     def test_ClientUpdateForm_is_valid(self):
         form = ClientUserUpdateForm(
@@ -729,7 +729,7 @@ class RegistrationTests(TestCase):
         )
         self.assertTrue(form.is_valid())
 
-    def test_successful_post_request(self):
+    def test_successful_post_shelter_request(self):
         form = self.client.post(
             reverse("accounts:register"),
             data={
