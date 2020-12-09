@@ -5357,8 +5357,8 @@ background-color: white;}
 .carousel-control-prev,
 .carousel-control-next {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 50%;
+  bottom: 50%;
   z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
