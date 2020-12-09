@@ -149,12 +149,13 @@
 <a id="next" class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next" onclick="doSomething()">
         <button onclick="getElementById('addToFav2').click()" class="btn btn-primary"> > </button></a>
 
+
       {% endfor %}
       {% endif %}
         {% else %}
 {% if pet_list %}
        {% for data in pet_list %}
-       <a class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next" onclick="">
+       <a class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next" onclick="loginPrompt()">
          <span class="carousel-control-next-icon" aria-hidden="true"></span>
          <span class="sr-only">Next</span>
        </a>
