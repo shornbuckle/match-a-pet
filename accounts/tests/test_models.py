@@ -236,6 +236,7 @@ class BaseTest2(TestCase):
         self.assertLessEqual(self.dummy_pet.pet_profile_image3.height, 300)
         # self.assertEqual(str(self.user.uprofile), "peter7 ClientUser Profile")
 
+
 # class BaseTest1(TestCase):
 #     self.dummy_pet = Pet.objects.create(
 #             pet_name="Sheila",
