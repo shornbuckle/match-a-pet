@@ -431,12 +431,14 @@ class TestProfile(TestCase):
     def test_ShelterUpdateForm_is_valid(self):
         form = ShelterUserUpdateForm(
             data={
-                "email": "ben@ben.com",
-                "first_name": "benjamin",
-                "last_name": "teo",
-                "city": "New York",
-                "state": "NY",
-                "zip_code": "11220",
+                "about": "Hi",
+            "username": "benjamin",
+            "first_name": "ben",
+            "last_name": "teo",
+            "address": "123 Hope Street",
+            "city": "Manhattan",
+            "state": "New York",
+            "zip_code": "11201",
             }
         )
         self.assertFalse(form.is_valid())
@@ -468,6 +470,19 @@ class TestProfile(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/register.html")
 
+    def test_registershelter1(self):
+        sheltersignup = reverse("accounts:register")
+        self.user = {
+            "username": "test",
+            "email": "testemail@gmail.com",
+            "first_name": "first",
+            "last_name": "last",
+            "password1": "123456test",
+            "password2": "123456test",
+        }
+        response = self.client.post(sheltersignup, self.user, format="text/html")
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/register.html")
 
 # class TestUserRegisterView(TestCase):
 #     def test_view_register_page(self):
