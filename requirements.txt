@@ -40,7 +40,7 @@ PyYAML==5.3.1
 regex==2020.10.23
 requests==2.24.0
 six==1.15.0
-sqlparse==0.4.1
+sqlparse==0.4.2
 tablib==2.0.0
 toml==0.10.1
 typed-ast==1.4.1
